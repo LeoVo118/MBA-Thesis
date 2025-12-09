@@ -1,0 +1,53 @@
+/* --- 1. CẤU HÌNH CƠ BẢN --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: #f8fafc; 
+}
+
+/* --- 2. LOGIC SONG NGỮ (FIX LẠI: ĐƠN GIẢN & CHUẨN) --- */
+
+/* MẶC ĐỊNH: Ẩn ngay tiếng Việt để tránh bị chồng chữ lúc mới load */
+.lang-vi { 
+    display: none; 
+}
+
+/* KHI CHỌN TIẾNG VIỆT (Body có class .lang-vi) */
+body.lang-vi .lang-en { 
+    display: none !important; /* Ẩn Tiếng Anh */
+}
+
+body.lang-vi .lang-vi { 
+    display: block !important; /* Hiện Tiếng Việt (dạng khối) */
+}
+
+/* Fix riêng cho thẻ <span> nằm trong dòng văn bản */
+body.lang-vi span.lang-vi { 
+    display: inline !important; 
+}
+
+/* --- 3. CÁC THÀNH PHẦN KHÁC (GIỮ NGUYÊN) --- */
+
+/* Scrollbar đẹp */
+.custom-scrollbar::-webkit-scrollbar { width: 5px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+.custom-scrollbar:hover::-webkit-scrollbar-thumb { background: #94a3b8; }
+
+/* Menu Style */
+.sidebar-link.active, .menu-group button.active {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border-right: 3px solid #2563eb;
+    font-weight: 700;
+}
+
+.menu-group button[aria-expanded="true"] .arrow-icon { transform: rotate(180deg); }
+.truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Chart & Tab */
+.chart-container { position: relative; width: 100%; max-width: 600px; margin: 0 auto; height: 300px; }
+.active-tab { border-bottom: 2px solid #2563eb; color: #2563eb; font-weight: 600; }
+.fade-in { animation: fadeIn 0.3s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }

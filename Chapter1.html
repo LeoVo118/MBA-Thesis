@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: Nature of Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="assets/css/core.css" rel="stylesheet">
+    
+    <style>
+        .toggle-header { cursor: pointer; transition: background 0.2s; }
+        .toggle-header:hover { background-color: #f8fafc; }
+        .toggle-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .toggle-content.open { max-height: 2000px; }
+        .arrow-icon { transition: transform 0.3s; }
+        .toggle-header.active .arrow-icon { transform: rotate(90deg); }
+        .step-arrow { display: inline-block; transform: translateY(2px); color: #cbd5e1; margin: 0 0.5rem; }
+    </style>
+</head>
+<body class="text-slate-800 h-screen flex overflow-hidden">
+
+    <aside id="sidebar-area" class="w-72 bg-white border-r border-slate-200 flex-shrink-0 flex-col h-full z-20 hidden md:flex">
+        <div class="p-6 text-slate-400 text-sm">Loading Menu...</div>
+    </aside>
+
+    <div class="flex-1 flex flex-col h-full relative overflow-hidden">
+        
+        <nav class="sticky top-0 z-10 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm flex-shrink-0">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+                    <div class="flex items-center md:hidden"><button class="text-slate-500 text-2xl mr-4">☰</button></div>
+                    
+                    <div class="hidden md:flex flex-col justify-center">
+                        <span class="text-xs text-slate-500 font-semibold uppercase tracking-wider">
+                            <span class="lang-en">Book Summary:</span><span class="lang-vi">Tóm tắt sách:</span>
+                        </span>
+                        <span class="text-sm font-bold text-slate-800">Business Research Methods</span>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="flex space-x-2 items-center overflow-x-auto mr-4" id="nav-menu">
+                            <button onclick="switchTab('summary')" class="nav-btn px-3 py-4 text-sm font-medium whitespace-nowrap" data-tab="summary">
+                                <span class="lang-en">1. Summary</span><span class="lang-vi">1. Tóm tắt</span>
+                            </button>
+                            <button onclick="switchTab('concepts')" class="nav-btn px-3 py-4 text-sm font-medium whitespace-nowrap" data-tab="concepts">
+                                <span class="lang-en">2. Concepts</span><span class="lang-vi">2. Khái niệm</span>
+                            </button>
+                            <button onclick="switchTab('analysis')" class="nav-btn px-3 py-4 text-sm font-medium whitespace-nowrap" data-tab="analysis">
+                                <span class="lang-en">3. Analysis</span><span class="lang-vi">3. Phân tích</span>
+                            </button>
+                            <button onclick="switchTab('application')" class="nav-btn px-3 py-4 text-sm font-medium whitespace-nowrap" data-tab="application">
+                                <span class="lang-en">4. Application</span><span class="lang-vi">4. Ứng dụng</span>
+                            </button>
+                        </div>
+                        <div id="lang-switch-area"></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="flex-1 overflow-y-auto bg-slate-50 p-4 sm:p-8">
+            <div class="max-w-5xl mx-auto">
+                
+                <header class="mb-8 text-center">
+                    <h1 class="text-3xl font-extrabold text-slate-900 mb-2">
+                        <span class="lang-en">Chapter 1: Nature & Process of Business Research</span>
+                        <span class="lang-vi">Chương 1: Bản chất & Quy trình Nghiên cứu Kinh doanh</span>
+                    </h1>
+                </header>
+
+                <div id="summary" class="tab-content fade-in">
+                    <div class="bg-rose-50 border-l-4 border-rose-500 p-6 rounded shadow-sm mb-6">
+                        <h3 class="font-bold text-rose-800 uppercase flex items-center mb-2">
+                            <span class="text-xl mr-2">⚡</span> <span class="lang-vi">Tóm tắt siêu ngắn</span><span class="lang-en">Super Short Summary</span>
+                        </h3>
+                        <p class="text-rose-900 leading-relaxed">
+                            <span class="lang-vi">Chương này giới thiệu nền tảng nghiên cứu kinh doanh (khác với nghiên cứu thương mại), nhấn mạnh bối cảnh lý thuyết, chính trị và thực tiễn. Nó phác thảo quy trình nghiên cứu chuẩn (từ văn học đến báo cáo) nhưng thừa nhận thực tế nghiên cứu thường "hỗn độn" (messiness).</span>
+                            <span class="lang-en">This chapter introduces the foundations of business research (distinct from commercial research), emphasizing theoretical, political, and practical contexts. It outlines the standard research process but acknowledges the "messiness" of reality.</span>
+                        </p>
+                    </div>
+
+                    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 rounded shadow-sm mb-6">
+                        <h3 class="font-bold text-orange-800 uppercase flex items-center mb-2">
+                            <span class="text-xl mr-2">📝</span> <span class="lang-vi">Tóm tắt ngắn</span><span class="lang-en">Short Summary</span>
+                        </h3>
+                        <ul class="list-disc pl-5 text-orange-900 space-y-1">
+                            <li class="lang-vi">Định nghĩa: Nghiên cứu học thuật dựa trên khoa học xã hội, khác với nghiên cứu thị trường thương mại.</li>
+                            <li class="lang-vi">Tranh luận: Tính chặt chẽ (rigour) vs Tính phù hợp (relevance). Giới thiệu "Quản lý dựa trên bằng chứng" và kiến thức Mode 1/Mode 2.</li>
+                            <li class="lang-vi">Quy trình: Tổng quan tài liệu -> Lý thuyết -> Câu hỏi -> Mẫu -> Dữ liệu -> Phân tích -> Báo cáo.</li>
+                            <li class="lang-vi">Lưu ý: Thực tế hiếm khi diễn ra tuyến tính.</li>
+                            <li class="lang-en">Definition: Academic research based on social sciences vs commercial market research.</li>
+                            <li class="lang-en">Debate: Rigour vs Relevance. Intro to Evidence-based Management & Mode 1/2 Knowledge.</li>
+                            <li class="lang-en">Process: Literature -> Theory -> Question -> Sampling -> Data -> Analysis -> Report.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="p-4 bg-slate-100 border-b font-bold text-slate-700 uppercase">
+                            <span class="lang-vi">Chi tiết Chương 1</span><span class="lang-en">Detailed Breakdown</span>
+                        </div>
+
+                        <div class="border-b border-slate-100">
+                            <div class="toggle-header flex justify-between items-center p-5" onclick="toggleLocalAccordion(this)">
+                                <h3 class="font-bold text-slate-800 flex items-center">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-3">1.1</span>
+                                    <span class="lang-vi">Bối cảnh của nghiên cứu kinh doanh</span><span class="lang-en">Context of Research</span>
+                                </h3>
+                                <span class="arrow-icon text-slate-400">▶</span>
+                            </div>
+                            <div class="toggle-content">
+                                <div class="p-5 pt-0 text-slate-600 border-t border-dashed border-slate-100 mt-2">
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li><strong>Lý thuyết:</strong> Định hướng việc thu thập và giải thích dữ liệu.</li>
+                                        <li><strong>Giả định triết học:</strong> Bản thể luận (thực tại là gì?) và Nhận thức luận (làm sao để biết?).</li>
+                                        <li><strong>Giá trị & Đạo đức:</strong> Quan điểm cá nhân và quy định đạo đức ảnh hưởng phương pháp.</li>
+                                        <li><strong>Chính trị:</strong> Bối cảnh chính trị của tổ chức định hình nghiên cứu.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-b border-slate-100">
+                            <div class="toggle-header flex justify-between items-center p-5" onclick="toggleLocalAccordion(this)">
+                                <h3 class="font-bold text-slate-800 flex items-center">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-3">1.2</span>
+                                    <span class="lang-vi">Tính phù hợp thực tiễn (Relevance)</span><span class="lang-en">Relevance</span>
+                                </h3>
+                                <span class="arrow-icon text-slate-400">▶</span>
+                            </div>
+                            <div class="toggle-content">
+                                <div class="p-5 pt-0 text-slate-600 border-t border-dashed border-slate-100 mt-2">
+                                    <ul class="list-disc pl-5 space-y-2">
+                                        <li><strong>Quản lý dựa trên bằng chứng (Evidence-based management):</strong> Cầu nối thu hẹp khoảng cách nghiên cứu - thực tiễn.</li>
+                                        <li><strong>Mode 1:</strong> Học thuật truyền thống, tuyến tính.</li>
+                                        <li><strong>Mode 2:</strong> Liên ngành, giải quyết vấn đề thực tế.</li>
+                                        <li><strong>Wicked problems:</strong> Các vấn đề hóc búa, thách thức lớn của nghiên cứu.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-b border-slate-100">
+                            <div class="toggle-header flex justify-between items-center p-5" onclick="toggleLocalAccordion(this)">
+                                <h3 class="font-bold text-slate-800 flex items-center">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded mr-3">1.3</span>
+                                    <span class="lang-vi">Quy trình & Sự hỗn độn</span><span class="lang-en">Process & Messiness</span>
+                                </h3>
+                                <span class="arrow-icon text-slate-400">▶</span>
+                            </div>
+                            <div class="toggle-content">
+                                <div class="p-5 pt-0 text-slate-600 border-t border-dashed border-slate-100 mt-2">
+                                    <p>Quy trình gồm 7 bước cốt lõi (Lit review -> Report). Tuy nhiên, tác giả thừa nhận <strong>sự "hỗn độn" (messiness)</strong>: thực tế thường có khởi đầu sai, ngõ cụt và thay đổi bất ngờ, không trơn tru như sách giáo khoa.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="concepts" class="tab-content hidden fade-in">
+                    
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mb-8">
+                        <table class="min-w-full divide-y divide-slate-200 text-sm">
+                            <thead class="bg-slate-50 uppercase font-bold text-slate-500 text-xs">
+                                <tr>
+                                    <th class="px-6 py-3 text-left w-1/4">Concept</th>
+                                    <th class="px-6 py-3 text-left">Definition / Meaning</th>
+                                    <th class="px-6 py-3 text-left w-1/4">Example</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 bg-white">
+                                <tr>
+                                    <td class="px-6 py-4 font-bold text-blue-700">Business Research</td>
+                                    <td class="px-6 py-4 text-slate-600">
+                                        <span class="lang-vi">Nghiên cứu học thuật về kinh doanh, định hướng KHXH. Khác với nghiên cứu thị trường.</span>
+                                        <span class="lang-en">Academic research oriented towards social sciences. Distinct from market research.</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-slate-500 italic">Job satisfaction.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-bold text-blue-700">Evidence-based Mgt</td>
+                                    <td class="px-6 py-4 text-slate-600">
+                                        <span class="lang-vi">Dùng bằng chứng tốt nhất để cải thiện quản lý. Thu hẹp "research–practice gap".</span>
+                                        <span class="lang-en">Using best evidence to improve practice. Bridging the gap.</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-slate-500 italic">Hospital managers.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-bold text-blue-700">Mode 1 Knowledge</td>
+                                    <td class="px-6 py-4 text-slate-600">
+                                        <span class="lang-vi">Kiến thức học thuật truyền thống, tuyến tính, lý thuyết thuần túy.</span>
+                                        <span class="lang-en">Traditional, academic, linear, pure theory.</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-slate-500 italic">Academic journals.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-bold text-blue-700">Mode 2 Knowledge</td>
+                                    <td class="px-6 py-4 text-slate-600">
+                                        <span class="lang-vi">Kiến thức liên ngành, giải quyết vấn đề thực tế.</span>
+                                        <span class="lang-en">Interdisciplinary, practical problem solving.</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-slate-500 italic">Uni-Industry collaboration.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 font-bold text-blue-700">Wicked Problems</td>
+                                    <td class="px-6 py-4 text-slate-600">
+                                        <span class="lang-vi">Vấn đề xã hội phức tạp, không rõ nguyên nhân/giải pháp.</span>
+                                        <span class="lang-en">Complex social problems, unclear solutions.</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-slate-500 italic">Climate change.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-blue-50 p-8 rounded-xl border border-blue-100 mb-8">
+                        <h3 class="font-bold text-blue-800 text-xl mb-6 text-center uppercase">
+                            <span class="lang-vi">Mô hình Quy trình (Visual)</span><span class="lang-en">The Research Process (Visual)</span>
+                        </h3>
+                        <div class="flex flex-wrap justify-center items-center gap-4 text-center text-sm">
+                            <div class="bg-white p-3 rounded shadow"><div class="text-2xl">📚</div><div class="font-bold lang-vi">1. Lit Review</div></div> ➜
+                            <div class="bg-white p-3 rounded shadow"><div class="text-2xl">🧠</div><div class="font-bold lang-vi">2. Concepts</div></div> ➜
+                            <div class="bg-white p-3 rounded shadow"><div class="text-2xl">❓</div><div class="font-bold lang-vi">3. Questions</div></div> ➜
+                            <div class="bg-white p-3 rounded shadow"><div class="text-2xl">🎯</div><div class="font-bold lang-vi">4. Sampling</div></div> ➜
+                            <div class="bg-white p-3 rounded shadow"><div class="text-2xl">📝</div><div class="font-bold lang-vi">5. Data Collection</div></div> ➜
+                            <div class="bg-white p-3 rounded shadow"><div class="text-2xl">📊</div><div class="font-bold lang-vi">6. Analysis</div></div> ➜
+                            <div class="bg-white p-3 rounded shadow"><div class="text-2xl">✍️</div><div class="font-bold lang-vi">7. Writing</div></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="px-6 py-4 bg-slate-100 border-b border-slate-200">
+                            <h3 class="font-bold text-slate-800 uppercase text-lg">
+                                <span class="lang-vi">Quy trình chuẩn (Ideal Type)</span>
+                                <span class="lang-en">Standard Process (Ideal Type)</span>
+                            </h3>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-600 font-bold rounded-full mr-4">1</span>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Review Literature</h4>
+                                        <p class="text-sm text-slate-600 lang-vi">Tránh làm lại cái người khác đã làm, tìm khoảng trống nghiên cứu.</p>
+                                        <p class="text-sm text-slate-600 lang-en">Avoid reinventing the wheel; find research gaps.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-600 font-bold rounded-full mr-4">2</span>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Concepts & Theories</h4>
+                                        <p class="text-sm text-slate-600 lang-vi">Xác định "ngôn ngữ" và khung tư duy cho nghiên cứu.</p>
+                                        <p class="text-sm text-slate-600 lang-en">Define the "language" and theoretical framework for the research.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-600 font-bold rounded-full mr-4">3</span>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Research Questions</h4>
+                                        <p class="text-sm text-slate-600 lang-vi">Chuyển từ ý tưởng mơ hồ sang câu hỏi cụ thể.</p>
+                                        <p class="text-sm text-slate-600 lang-en">Translate vague ideas into specific questions.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-600 font-bold rounded-full mr-4">4</span>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Sampling</h4>
+                                        <p class="text-sm text-slate-600 lang-vi">Chọn đối tượng đại diện (nếu định lượng) hoặc phù hợp (nếu định tính).</p>
+                                        <p class="text-sm text-slate-600 lang-en">Select representative (quantitative) or suitable (qualitative) subjects.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-600 font-bold rounded-full mr-4">5</span>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Data Collection</h4>
+                                        <p class="text-sm text-slate-600 lang-vi">Kỹ thuật thu thập thông tin (Phỏng vấn, Khảo sát, Quan sát).</p>
+                                        <p class="text-sm text-slate-600 lang-en">Information collection techniques (Interviews, Surveys, Observations).</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-600 font-bold rounded-full mr-4">6</span>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Data Analysis</h4>
+                                        <p class="text-sm text-slate-600 lang-vi">Biến dữ liệu thô thành thông tin có ý nghĩa.</p>
+                                        <p class="text-sm text-slate-600 lang-en">Transform raw data into meaningful information.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-100 text-blue-600 font-bold rounded-full mr-4">7</span>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Writing Up</h4>
+                                        <p class="text-sm text-slate-600 lang-vi">Trình bày kết quả một cách thuyết phục.</p>
+                                        <p class="text-sm text-slate-600 lang-en">Present findings persuasively.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="analysis" class="tab-content hidden fade-in">
+                    <div class="bg-slate-800 text-white p-8 rounded-xl shadow-lg mb-8">
+                        <h3 class="text-xs font-bold opacity-70 uppercase tracking-widest mb-2">Core Question</h3>
+                        <p class="text-xl font-serif italic leading-relaxed">
+                            <span class="lang-vi">"Nghiên cứu kinh doanh là gì, tại sao chúng ta thực hiện nó, và quy trình thực hiện nó diễn ra như thế nào trong bối cảnh học thuật và thực tiễn?"</span>
+                            <span class="lang-en">"What is business research, why do we do it, and how does the process unfold in academic and practical contexts?"</span>
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200">
+                            <h3 class="font-bold text-slate-800 mb-4 border-b pb-2 uppercase text-sm">Logic Lập luận</h3>
+                            <ul class="space-y-4 text-sm text-slate-600">
+                                <li class="flex"><span class="font-bold text-blue-600 w-24 flex-shrink-0">Tiền đề:</span> <span class="lang-vi">Nghiên cứu không chỉ là thu thập dữ liệu; nó chịu ảnh hưởng của bối cảnh.</span><span class="lang-en">Research is not just data collection; it's context-dependent.</span></li>
+                                <li class="flex"><span class="font-bold text-blue-600 w-24 flex-shrink-0">Lập luận:</span> <span class="lang-vi">Phải tuân thủ quy trình và cân nhắc giữa Chặt chẽ & Ứng dụng.</span><span class="lang-en">Must follow process and balance Rigour & Relevance.</span></li>
+                                <li class="flex"><span class="font-bold text-blue-600 w-24 flex-shrink-0">Kết luận:</span> <span class="lang-vi">Thực tế luôn "hỗn độn", cần linh hoạt.</span><span class="lang-en">Reality is messy; flexibility is key.</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-slate-200">
+                            <h3 class="font-bold text-slate-800 mb-4 border-b pb-2 uppercase text-sm">Đánh giá</h3>
+                            <ul class="space-y-3 text-sm">
+                                <li class="p-3 bg-emerald-50 rounded text-emerald-800"><strong><span class="lang-vi">Điểm mạnh:</span><span class="lang-en">Strength:</span></strong> Comprehensive context view.</li>
+                                <li class="p-3 bg-yellow-50 rounded text-yellow-800"><strong><span class="lang-vi">Hạn chế:</span><span class="lang-en">Limitation:</span></strong> 7-step model looks too linear.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="application" class="tab-content hidden fade-in">
+                    <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-8 mb-8">
+                        <h3 class="font-bold text-indigo-900 text-lg mb-4 flex items-center">
+                            <span class="text-2xl mr-2">🧪</span> <span class="lang-vi">Case Study: Stress ở nhân viên Gen Z</span><span class="lang-en">Case Study: Gen Z Stress</span>
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-indigo-800">
+                            <ul class="space-y-2 list-disc pl-5">
+                                <li><strong>Lit Review:</strong> Stress & Gen Z traits.</li>
+                                <li><strong>Theory:</strong> Work-life balance.</li>
+                                <li><strong>Question:</strong> What causes stress?</li>
+                                <li><strong>Sampling:</strong> 50 employees.</li>
+                            </ul>
+                            <ul class="space-y-2 list-disc pl-5">
+                                <li><strong>Collection:</strong> Survey/Interview.</li>
+                                <li><strong>Analysis:</strong> SPSS/Coding.</li>
+                                <li><strong>Writing:</strong> Report.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-6">
+                        <h3 class="font-bold text-emerald-900 mb-2 lang-vi">Lời khuyên thực chiến</h3>
+                        <h3 class="font-bold text-emerald-900 mb-2 lang-en">Practical Advice</h3>
+                        <p class="text-sm text-emerald-800 lang-vi">Khi sếp yêu cầu nghiên cứu, hãy tự hỏi: Đây là vấn đề đơn giản hay "Wicked problem"? Cần hàn lâm (Mode 1) hay giải pháp thực chiến (Mode 2)?</p>
+                        <p class="text-sm text-emerald-800 lang-en">When asked to research: Is it a simple or "Wicked" problem? Do you need Mode 1 (Academic) or Mode 2 (Practical)?</p>
+                    </div>
+                </div>
+
+                <footer class="mt-12 py-8 text-center text-slate-400 text-sm border-t border-slate-200">
+                    <span class="lang-en">Summarized from Chapter 1.</span><span class="lang-vi">Tổng hợp từ Chương 1 - Sách PPNC.</span>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+        function toggleLocalAccordion(header) {
+            const content = header.nextElementSibling;
+            header.classList.toggle('active');
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                content.classList.remove('open');
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.classList.add('open');
+            }
+        }
+    </script>
+</body>
+</html>

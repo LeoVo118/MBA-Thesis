@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBA Thesis Defense: Unlocking AI Capabilities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; color: #1e293b; }
+        
+        /* Chart Styling */
+       .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+        /* Animation */
+       .fade-in { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+       .active-tab {
+            border-bottom: 2px solid #2563eb;
+            color: #2563eb;
+            font-weight: 700;
+            background-color: #eff6ff;
+        }
+        
+       .content-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            margin-bottom: 1.5rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        h3 { color: #0f172a; font-weight: 700; margin-bottom: 0.75rem; font-size: 1.125rem; }
+        h4 { color: #334155; font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; }
+        p { margin-bottom: 0.75rem; line-height: 1.6; color: #475569; }
+        ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #475569; }
+        li { margin-bottom: 0.25rem; }
+        strong { color: #334155; }
+    </style>
+</head>
+<body>
+
+    <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">MBA</div>
+                    <span class="text-lg font-bold text-slate-800 hidden sm:block">Thesis Defense Prep</span>
+                </div>
+                <div class="flex space-x-1 overflow-x-auto no-scrollbar" id="nav-menu">
+                    <button onclick="switchTab('overview')" class="nav-btn active-tab px-4 py-2 text-sm whitespace-nowrap transition-all" data-tab="overview">1. Tổng quan & Gap</button>
+                    <button onclick="switchTab('framework')" class="nav-btn px-4 py-2 text-sm text-slate-500 hover:text-slate-700 whitespace-nowrap transition-all" data-tab="framework">2. Lý thuyết (DCT)</button>
+                    <button onclick="switchTab('methodology')" class="nav-btn px-4 py-2 text-sm text-slate-500 hover:text-slate-700 whitespace-nowrap transition-all" data-tab="methodology">3. Phương pháp (3-Wave)</button>
+                    <button onclick="switchTab('results')" class="nav-btn px-4 py-2 text-sm text-slate-500 hover:text-slate-700 whitespace-nowrap transition-all" data-tab="results">4. Kết quả (PLS-SEM)</button>
+                    <button onclick="switchTab('implications')" class="nav-btn px-4 py-2 text-sm text-slate-500 hover:text-slate-700 whitespace-nowrap transition-all" data-tab="implications">5. Bài học Thesis</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-6 min-h-screen">
+        
+        <div id="overview" class="tab-content fade-in">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-slate-900">Unlocking AI Capabilities in Family Hotels</h1>
+                <p class="text-slate-500 mt-2">Phân tích bài báo trên tạp chí <em>Journal of Management Development (2025)</em></p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 text-center">
+                    <div class="text-2xl font-bold text-blue-700">3.1</div>
+                    <div class="text-xs text-blue-600 font-semibold">Impact Factor (2024)</div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 text-center">
+                    <div class="text-2xl font-bold text-blue-700">5.0</div>
+                    <div class="text-xs text-blue-600 font-semibold">CiteScore (Scopus)</div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 text-center">
+                    <div class="text-2xl font-bold text-blue-700">ABDC</div>
+                    <div class="text-xs text-blue-600 font-semibold">Ranking (Hạng B/C)</div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 text-center">
+                    <div class="text-2xl font-bold text-blue-700">H-74</div>
+                    <div class="text-xs text-blue-600 font-semibold">Chỉ số H-Index</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="content-card">
+                        <h3>Tại sao chọn bài này làm mẫu (Benchmark)?</h3>
+                        <p>Bài nghiên cứu của Zeshan Ahmad là một ví dụ điển hình (case study) về thiết kế nghiên cứu định lượng phức tạp dành cho học viên MBA:</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Mô hình phức hợp:</strong> Không chỉ dừng lại ở tác động trực tiếp, bài báo sử dụng mô hình SEM bao gồm cả biến trung gian (Mediator) và biến điều tiết (Moderator).</li>
+                            <li><strong>Khắc phục lỗi phương pháp:</strong> Sử dụng thiết kế thu thập dữ liệu <strong>3 đợt (3-wave time-lagged)</strong> để giải quyết vấn đề sai lệch phương pháp chung (Common Method Bias) - một điểm cộng lớn trong mắt hội đồng.</li>
+                            <li><strong>Uy tín học thuật:</strong> Xuất bản trên tạp chí có chỉ số Impact Factor 3.1 và nằm trong danh sách ABDC, đảm bảo tính chính danh cho trích dẫn.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Chiến lược viết phần Giới thiệu: Kỹ thuật "Cái Phễu"</h3>
+                        <p>Tác giả dẫn dắt vấn đề rất logic, học viên nên áp dụng cấu trúc này:</p>
+                        <ol class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>Bối cảnh rộng (The Hook):</strong> Đại dịch COVID-19 buộc các khách sạn nhỏ gia đình (F-OSH) phải chuyển đổi số để sinh tồn hoặc đối mặt với đóng cửa.</li>
+                            <li><strong>Vấn đề thực tiễn (Practical Problem):</strong> Nghịch lý là F-OSH cần chuyển đổi số nhưng lại thiếu nguồn lực, quản lý bảo thủ và khác biệt thế hệ (Gen X vs thế hệ kế thừa).</li>
+                            <li><strong>Khoảng trống nghiên cứu (Research Gap):</strong>
+                                <ul class="list-disc pl-5 mt-1 text-sm">
+                                    <li>Chưa rõ vai trò cụ thể của <em>Năng lực AI</em> trong F-OSH.</li>
+                                    <li>Thiếu cơ chế giải thích cách vượt qua sức ỳ (cần <em>Innovation Ambidexterity</em>).</li>
+                                    <li>Chưa rõ vai trò điều tiết của <em>Chiến lược (Strategic Fit)</em> và <em>Ý chí lãnh đạo (Intent)</em>.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1">
+                    <div class="content-card bg-slate-50 border-slate-200 h-full">
+                        <h3>Câu hỏi Nghiên cứu (RQs)</h3>
+                        <div class="space-y-4">
+                            <div class="p-3 bg-white rounded border border-slate-200 shadow-sm">
+                                <span class="text-xs font-bold text-blue-600 uppercase">RQ1</span>
+                                <p class="text-sm mt-1">Năng lực AI có đóng góp trực tiếp vào chuyển đổi số của F-OSH không?</p>
+                            </div>
+                            <div class="p-3 bg-white rounded border border-slate-200 shadow-sm">
+                                <span class="text-xs font-bold text-emerald-600 uppercase">RQ2</span>
+                                <p class="text-sm mt-1">Sự lưỡng dụng trong đổi mới (Innovation Ambidexterity) có đóng vai trò trung gian không?</p>
+                            </div>
+                            <div class="p-3 bg-white rounded border border-slate-200 shadow-sm">
+                                <span class="text-xs font-bold text-purple-600 uppercase">RQ3</span>
+                                <p class="text-sm mt-1">Sự phù hợp chiến lược (Strategic Fit) ảnh hưởng thế nào đến mối quan hệ giữa AI và đổi mới?</p>
+                            </div>
+                            <div class="p-3 bg-white rounded border border-slate-200 shadow-sm">
+                                <span class="text-xs font-bold text-rose-600 uppercase">RQ4</span>
+                                <p class="text-sm mt-1">Ý định khởi nghiệp số ảnh hưởng thế nào đến kết quả chuyển đổi số cuối cùng?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="framework" class="tab-content hidden fade-in">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="content-card bg-blue-50 border-blue-200">
+                        <h3>Lý thuyết nền tảng: Dynamic Capability Theory (DCT)</h3>
+                        <p class="text-sm">Tại sao chọn DCT thay vì RBV (Resource-Based View)?</p>
+                        <p class="text-sm">Vì bối cảnh hậu COVID-19 đòi hỏi sự <strong>thích ứng và thay đổi</strong> (dynamic) chứ không chỉ là sở hữu nguồn lực tĩnh. Tác giả ánh xạ mô hình vào 3 trụ cột của Teece (2007):</p>
+                        <ul class="list-disc pl-4 text-sm space-y-2 mt-2">
+                            <li><strong>Sensing (Nhận biết):</strong> Năng lực AI giúp thu thập dữ liệu, cảm nhận thị trường.</li>
+                            <li><strong>Seizing (Nắm bắt):</strong> Ý định khởi nghiệp và Chiến lược phù hợp thể hiện cam kết nguồn lực.</li>
+                            <li><strong>Reconfiguring (Tái cấu trúc):</strong> Sự lưỡng dụng đổi mới (Ambidexterity) là quá trình cân bằng giữa cái cũ và cái mới.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Biện luận Giả thuyết (Hypothesis Logic)</h3>
+                        <div class="space-y-3 text-sm">
+                            <p><strong>H1 (AI → DT):</strong> AI cung cấp công cụ tự động hóa và ra quyết định, là tiền đề vật chất cho chuyển đổi số.</p>
+                            <p><strong>H2 (AI → IA → DT):</strong> Doanh nghiệp gia đình thường bảo thủ. Họ cần "lưỡng dụng": vừa giữ gìn di sản (exploitation) vừa dùng AI để khám phá cái mới (exploration).</p>
+                            <p><strong>H4 (Strategic Fit * AI):</strong> Chiến lược suông là vô nghĩa. Sự phù hợp chiến lược khuếch đại sức mạnh của AI (Điều tiết dương).</p>
+                            <p><strong>H6 (Intent * IA):</strong> (Thú vị) Ý định quá cao có thể gây hại nếu lãnh đạo mải mê dự án bên ngoài mà bỏ bê quy trình cốt lõi (Điều tiết âm).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <div class="content-card h-full flex flex-col justify-center items-center bg-slate-50 overflow-auto">
+                        <h3 class="text-center w-full border-b pb-2 mb-6">Mô hình Nghiên cứu (Conceptual Framework)</h3>
+                        
+                        <div class="relative w-full max-w-2xl p-4">
+                            <div class="flex justify-between mb-12 px-12">
+                                <div class="bg-purple-100 border-2 border-purple-500 p-3 rounded text-center w-32 text-xs font-bold shadow relative group">
+                                    Strategic Fit
+                                    <div class="absolute top-full left-1/2 w-0.5 h-8 bg-purple-500 -ml-0.5"></div>
+                                    <div class="absolute top-full mt-8 left-1/2 -ml-1 text-purple-600">▼</div>
+                                    <span class="absolute hidden group-hover:block w-40 bg-black text-white text-xs p-2 rounded -top-16 left-0 z-10">H4: Điều tiết dương mối quan hệ AI -> IA</span>
+                                </div>
+                                <div class="bg-rose-100 border-2 border-rose-500 p-3 rounded text-center w-32 text-xs font-bold shadow relative group">
+                                    Digital Entrep. Intent
+                                    <div class="absolute top-full left-1/2 w-0.5 h-8 bg-rose-500 -ml-0.5"></div>
+                                    <div class="absolute top-full mt-8 left-1/2 -ml-1 text-rose-600">▼</div>
+                                    <span class="absolute hidden group-hover:block w-40 bg-black text-white text-xs p-2 rounded -top-16 right-0 z-10">H6: Điều tiết âm mối quan hệ IA -> DT</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <div class="bg-blue-600 text-white p-4 rounded shadow-lg text-center w-32 relative">
+                                    <div class="font-bold">AI Capabilities</div>
+                                    <div class="text-[10px] mt-1 opacity-80">(Sensing)</div>
+                                </div>
+
+                                <div class="flex-1 h-0.5 bg-slate-400 relative mx-2">
+                                    <div class="absolute -top-3 left-1/2 -ml-3 text-xs font-bold bg-white px-1 text-slate-600">H1/H2</div>
+                                    <div class="absolute right-0 -top-1.5 text-slate-400">►</div>
+                                </div>
+
+                                <div class="bg-emerald-600 text-white p-4 rounded shadow-lg text-center w-36 relative">
+                                    <div class="font-bold">Innovation Ambidexterity</div>
+                                    <div class="text-[10px] mt-1 opacity-80">(Reconfiguring)</div>
+                                </div>
+
+                                <div class="flex-1 h-0.5 bg-slate-400 relative mx-2">
+                                    <div class="absolute -top-3 left-1/2 -ml-3 text-xs font-bold bg-white px-1 text-slate-600">H5/H6</div>
+                                    <div class="absolute right-0 -top-1.5 text-slate-400">►</div>
+                                </div>
+
+                                <div class="bg-slate-800 text-white p-4 rounded shadow-lg text-center w-32 relative">
+                                    <div class="font-bold">Digital Trans.</div>
+                                    <div class="text-[10px] mt-1 opacity-80">(Outcome)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-center text-slate-400 mt-8 italic">Rê chuột vào các hộp để xem chi tiết giả thuyết</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="methodology" class="tab-content hidden fade-in">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
+                    <div class="content-card">
+                        <h3>Thiết kế 3 Đợt có độ trễ (3-Wave Time-Lagged)</h3>
+                        <p class="text-sm bg-yellow-50 p-3 rounded border border-yellow-200 mb-4">
+                            <strong>Tại sao quan trọng?</strong> Khắc phục "Sai lệch phương pháp chung" (Common Method Bias - CMB). Khi trả lời cùng lúc, người tham gia thường cố làm cho câu trả lời "logic", gây thổi phồng mối quan hệ.
+                        </p>
+                        <div class="relative border-l-2 border-blue-200 ml-3 space-y-6">
+                            <div class="pl-4 relative">
+                                <div class="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-1.5"></div>
+                                <h4 class="mt-0">Đợt T1 (Bắt đầu)</h4>
+                                <p class="text-sm">Thu thập biến độc lập: <strong>Năng lực AI</strong>. Thiết lập nền tảng nguyên nhân.</p>
+                            </div>
+                            <div class="pl-4 relative">
+                                <div class="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-1.5"></div>
+                                <h4 class="mt-0">Đợt T2 (6 tháng sau)</h4>
+                                <p class="text-sm">Thu thập biến trung gian/điều tiết: <strong>Chiến lược, Sự lưỡng dụng</strong>. Khoảng cách thời gian giúp người trả lời "quên" T1.</p>
+                            </div>
+                            <div class="pl-4 relative">
+                                <div class="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-1.5"></div>
+                                <h4 class="mt-0">Đợt T3 (6 tháng sau T2)</h4>
+                                <p class="text-sm">Thu thập biến phụ thuộc: <strong>Chuyển đổi số</strong>. Đảm bảo tính nhân quả theo thời gian.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Mẫu & Đối tượng (Sampling)</h3>
+                        <ul class="list-disc pl-5 text-sm space-y-2">
+                            <li><strong>Cỡ mẫu:</strong> N = 318 phiếu hợp lệ (sau khi lọc từ 457).</li>
+                            <li><strong>Đối tượng:</strong> Doanh nhân thế hệ kế thừa (descendant entrepreneurs) giữ chức C-level.</li>
+                            <li><strong>Phương pháp:</strong> Phi xác suất, có chủ đích (Purposive sampling).</li>
+                            <li><strong>Kiểm tra Non-response Bias:</strong> Dùng Mann-Whitney U test so sánh 50 người đầu vs 50 người cuối -> Không có sự khác biệt (Dữ liệu tin cậy).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="content-card">
+                        <h3>Thang đo (Measurement Scales)</h3>
+                        <p class="text-sm mb-2">Tác giả kế thừa từ các nghiên cứu uy tín ("Đứng trên vai người khổng lồ"):</p>
+                        <table class="w-full text-sm text-left border-collapse">
+                            <tr class="bg-slate-100 border-b">
+                                <th class="p-2">Biến số</th>
+                                <th class="p-2">Nguồn</th>
+                                <th class="p-2">Số mục hỏi</th>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-2">AI Capabilities</td>
+                                <td class="p-2">Abou-Foul et al. (2023)</td>
+                                <td class="p-2">4 chiều đo</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-2">Strategic Fit</td>
+                                <td class="p-2">Rahman (2020)</td>
+                                <td class="p-2">5 items</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-2">Innov. Ambidexterity</td>
+                                <td class="p-2">Le et al. (2023)</td>
+                                <td class="p-2">8 items</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2">Digital Trans.</td>
+                                <td class="p-2">Zhang et al. (2023)</td>
+                                <td class="p-2">3 items</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Độ tin cậy thang đo (Measurement Model)</h3>
+                        <div class="chart-container h-48">
+                            <canvas id="reliabilityChart"></canvas>
+                        </div>
+                        <p class="text-xs text-center text-slate-400 mt-2">Tất cả Cronbach's Alpha > 0.7 và CR > 0.7</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="results" class="tab-content hidden fade-in">
+            <div class="content-card bg-slate-800 text-white mb-6">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-white mb-1">Tổng quan kết quả (PLS-SEM)</h3>
+                        <p class="text-slate-300 text-sm">Sử dụng SmartPLS 4 với kỹ thuật Bootstrapping (5,000 mẫu lặp)</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold text-emerald-400">R² = 41.4%</div>
+                        <div class="text-xs opacity-70">Giải thích biến thiên Chuyển đổi số</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="content-card">
+                    <h3>Kết quả Kiểm định Giả thuyết</h3>
+                    <div class="chart-container">
+                        <canvas id="resultsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="content-card overflow-y-auto max-h-[400px]">
+                    <h3>Phân tích chi tiết từng giả thuyết</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-emerald-500 pl-3">
+                            <h4 class="text-emerald-700 m-0">H1: AI → Digital Trans (β=0.308, p=0.000)</h4>
+                            <p class="text-sm"><strong>Chấp nhận.</strong> Khẳng định AI là động lực trực tiếp, không thể thiếu cho chuyển đổi số.</p>
+                        </div>
+                        <div class="border-l-4 border-slate-300 pl-3">
+                            <h4 class="text-slate-500 m-0">H3: Strategic Fit → Ambidexterity (β=0.079, p>0.05)</h4>
+                            <p class="text-sm"><strong>Bác bỏ.</strong> Chiến lược "trên giấy" tự nó không đủ tạo ra đổi mới nếu thiếu năng lực thực thi.</p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-3">
+                            <h4 class="text-purple-700 m-0">H4: Strategic Fit * AI → Ambidexterity (β=0.124)</h4>
+                            <p class="text-sm"><strong>Chấp nhận (Điều tiết dương).</strong> Chiến lược chỉ phát huy tác dụng khi kết hợp với năng lực AI. Sự "phù hợp" khuếch đại sức mạnh công nghệ.</p>
+                        </div>
+                        <div class="border-l-4 border-rose-500 pl-3">
+                            <h4 class="text-rose-700 m-0">H6: Intent * Ambidexterity → DT (β=-0.109)</h4>
+                            <p class="text-sm"><strong>Chấp nhận (Điều tiết âm - Negative Moderation).</strong> Đây là phát hiện thú vị. Khi ý định quá cao (quá hưng phấn khởi nghiệp), lãnh đạo dễ mắc "Hội chứng vật thể lấp lánh", đầu tư lan man ra ngoài, làm suy yếu việc chuyển đổi số cốt lõi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="implications" class="tab-content hidden fade-in">
+            <div class="grid grid-cols-1 gap-6">
+                <div class="content-card bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+                    <h2 class="text-2xl font-bold mb-4 text-white">Bài học cho Luận văn MBA của bạn</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-blue-100 underline decoration-2 underline-offset-4">1. Về Cấu trúc</h4>
+                            <p class="text-blue-50 text-sm">Tuân thủ chặt chẽ IMRaD. Dùng kỹ thuật "Cái phễu" trong phần Introduction để dẫn từ bối cảnh vĩ mô (COVID-19) đến khoảng trống nghiên cứu cụ thể.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-blue-100 underline decoration-2 underline-offset-4">2. Về Phương pháp</h4>
+                            <p class="text-blue-50 text-sm">Nếu có thời gian, hãy áp dụng thiết kế <strong>Time-lagged</strong>. Đây là "vũ khí bí mật" để nâng tầm luận văn thạc sĩ lên chuẩn bài báo quốc tế, gây ấn tượng mạnh với hội đồng.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-blue-100 underline decoration-2 underline-offset-4">3. Về Công cụ phân tích</h4>
+                            <p class="text-blue-50 text-sm">Dùng <strong>SmartPLS 4</strong> thay vì AMOS nếu mô hình phức tạp (có biến trung gian/điều tiết) và dữ liệu không chuẩn. Báo cáo đầy đủ HTMT, R², Q².</p>
+                        </div>
+                        <div>
+                            <h4 class="text-blue-100 underline decoration-2 underline-offset-4">4. Tư duy phản biện</h4>
+                            <p class="text-blue-50 text-sm">Đừng sợ kết quả bác bỏ (như H3) hoặc tác động âm (như H6). Hãy biến nó thành điểm nhấn thảo luận. Hội đồng đánh giá cao khả năng giải thích hiện tượng thực tế hơn là một mô hình "đẹp" nhưng phi lý.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>Cheat Sheet: Trả lời câu hỏi phản biện</h3>
+                    <div class="space-y-4">
+                        <details class="group p-4 bg-slate-50 rounded-lg border border-slate-200">
+                            <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
+                                Q: Tại sao chọn PLS-SEM mà không phải CB-SEM (AMOS)?
+                                <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                            </summary>
+                            <div class="mt-3 text-sm text-slate-600 pl-4 border-l-2 border-blue-400">
+                                <p><strong>A:</strong> Thưa hội đồng, em chọn PLS-SEM vì 3 lý do: (1) Mục tiêu nghiên cứu là dự báo (predicting) và phát triển lý thuyết mới. (2) Dữ liệu khảo sát doanh nghiệp thường không phân phối chuẩn (non-normal), PLS xử lý tốt hơn AMOS. (3) Mô hình phức tạp với nhiều biến tiềm ẩn và biến điều tiết.</p>
+                            </div>
+                        </details>
+                        <details class="group p-4 bg-slate-50 rounded-lg border border-slate-200">
+                            <summary class="font-bold cursor-pointer flex justify-between items-center text-slate-800">
+                                Q: Ý nghĩa của việc H6 mang dấu âm là gì?
+                                <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                            </summary>
+                            <div class="mt-3 text-sm text-slate-600 pl-4 border-l-2 border-rose-400">
+                                <p><strong>A:</strong> Kết quả này phản ánh "nghịch lý khởi nghiệp" trong doanh nghiệp gia đình. Khi ý định khởi nghiệp quá cao, lãnh đạo thế hệ kế thừa dễ bị phân tán nguồn lực vào các dự án mạo hiểm bên ngoài thay vì tập trung tối ưu hóa quy trình hiện tại, làm giảm hiệu quả chuyển đổi số cốt lõi.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 mt-12 py-8 text-center text-slate-400 text-sm">
+        <p>Phân tích dựa trên bài báo của Zeshan Ahmad (2025) - Hỗ trợ Luận văn MBA</p>
+    </footer>
+
+    <script>
+        // --- DATA STORE ---
+        const studyData = {
+            reliability: {
+                labels: ['AI Capabilities', 'Strategic Fit', 'Inn. Ambidexterity', 'Dig. Entrep. Intent', 'Digital Trans.'],
+                alpha: [0.888, 0.824, 0.824, 0.699, 0.705],
+                cr: [0.905, 0.873, 0.872, 0.788, 0.822]
+            },
+            results: {
+                labels: ['H1: AI -> DT', 'H2: AI->IA->DT', 'H4: SF(Mod)', 'H6: DEI(Mod)'],
+                beta: [0.308, 0.308, 0.124, -0.109],
+                colors: ['#3b82f6', '#10b981', '#8b5cf6', '#f43f5e'] // Blue, Green, Purple, Red
+            }
+        };
+
+        // --- CHART GENERATION ---
+        function initCharts() {
+            // 1. Reliability Chart (Grouped Bar)
+            const ctxRel = document.getElementById('reliabilityChart').getContext('2d');
+            new Chart(ctxRel, {
+                type: 'bar',
+                data: {
+                    labels: studyData.reliability.labels,
+                    datasets: [
+                        {
+                            label: "Cronbach's Alpha",
+                            data: studyData.reliability.alpha,
+                            backgroundColor: '#3b82f6',
+                            barPercentage: 0.6,
+                            categoryPercentage: 0.8
+                        },
+                        {
+                            label: "Composite Reliability (CR)",
+                            data: studyData.reliability.cr,
+                            backgroundColor: '#10b981',
+                            barPercentage: 0.6,
+                            categoryPercentage: 0.8
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true, max: 1.0, title: {display: true, text: 'Score (>0.7 is good)'} } }
+                }
+            });
+
+            // 2. Results Chart (Horizontal Bar with Negative value support)
+            const ctxRes = document.getElementById('resultsChart').getContext('2d');
+            new Chart(ctxRes, {
+                type: 'bar',
+                data: {
+                    labels: studyData.results.labels,
+                    datasets: [{
+                        label: 'Path Coefficient (β)',
+                        data: studyData.results.beta,
+                        backgroundColor: studyData.results.colors
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { x: { beginAtZero: true, grid: {drawBorder: false}, title: {display: true, text: 'Beta Value (Impact Strength)'} } }
+                }
+            });
+        }
+
+        // --- UI LOGIC ---
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active-tab');
+                btn.classList.add('text-slate-500');
+                if(btn.dataset.tab === tabId) {
+                    btn.classList.add('active-tab');
+                    btn.classList.remove('text-slate-500');
+                }
+            });
+
+            if(tabId === 'methodology' || tabId === 'results') {
+                // Small delay to ensure canvas is visible before rendering chart animation
+                setTimeout(() => window.dispatchEvent(new Event('resize')), 50);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initCharts);
+    </script>
+</body>
+</html>
