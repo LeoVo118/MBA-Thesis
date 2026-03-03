@@ -3,196 +3,563 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBA Research Mastery - Home</title>
+    <title>MBA Research Methods — Business Research Methods Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="assets/css/core.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 50:'#f0f4ff',100:'#e0e9ff',200:'#c0d2ff',400:'#6080cc',600:'#2a4080',700:'#1d2f60',800:'#152348',900:'#0d1730',950:'#080f1e' },
+                        gold: { 300:'#fde68a',400:'#fbbf24',500:'#d4a017',600:'#b8860b',700:'#9a6f00' }
+                    },
+                    fontFamily: { display:['Playfair Display','serif'], body:['Inter','sans-serif'] }
+                }
+            }
+        }
+    </script>
     <style>
-        /* CSS Riêng cho trang Home để đẹp hơn */
-        .hero-pattern {
-            background-color: #2563eb;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-        
-        .chapter-link {
-            display: block; padding: 6px 0; color: #475569; font-size: 0.9rem; border-bottom: 1px dashed #f1f5f9; transition: color 0.2s;
-        }
-        .chapter-link:hover { color: #2563eb; padding-left: 5px; }
-        .chapter-link:last-child { border-bottom: none; }
+        body { font-family:'Inter',sans-serif; }
+        .font-display { font-family:'Playfair Display',serif; }
+
+        /* HERO */
+        .hero-bg { position:relative; overflow:hidden; transition: background 0.5s ease; }
+        .hero-bg { background:linear-gradient(135deg,#0d1730 0%,#152348 45%,#1d2f60 100%); }
+        .hero-bg.p1 { background:linear-gradient(135deg,#0d1730 0%,#1d2f60 60%,#2a4080 100%); }
+        .hero-bg.p2 { background:linear-gradient(135deg,#0d1a30 0%,#0f3358 60%,#1a5080 100%); }
+        .hero-bg.p3 { background:linear-gradient(135deg,#0d2218 0%,#0f3d28 60%,#1a5540 100%); }
+        .hero-bg.p4 { background:linear-gradient(135deg,#1a0d2e 0%,#2d1a50 60%,#3d2a6a 100%); }
+        .hero-bg.cases { background:linear-gradient(135deg,#1a1000 0%,#3d2800 60%,#5a3a00 100%); }
+        .hero-bg::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle at 20% 50%,rgba(212,160,23,.12) 0%,transparent 60%),radial-gradient(circle at 80% 20%,rgba(212,160,23,.08) 0%,transparent 50%); pointer-events:none; }
+        .hero-grid { background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px); background-size:40px 40px; position:absolute; inset:0; pointer-events:none; }
+
+        /* TOP NAV */
+        .top-nav { background:#0d1730; border-bottom:1px solid rgba(212,160,23,.3); }
+        .nav-part-btn { padding:10px 16px; font-size:.78rem; font-weight:600; color:rgba(255,255,255,.65); letter-spacing:.05em; text-transform:uppercase; border-bottom:2px solid transparent; cursor:pointer; white-space:nowrap; transition:all .2s; background:none; border-left:none; border-right:none; border-top:none; }
+        .nav-part-btn:hover { color:#fbbf24; }
+        .nav-part-btn.active { color:#fbbf24; border-bottom-color:#fbbf24; }
+
+        /* PART SECTION HEADER */
+        .part-header { display:flex; align-items:center; gap:14px; padding:20px 24px; border-radius:12px; background:#0d1730; color:#fff; }
+        .part-badge { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; background:linear-gradient(135deg,#d4a017,#fbbf24); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .part-number-circle { width:38px; height:38px; border-radius:50%; border:2px solid rgba(212,160,23,.5); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.9rem; color:#fbbf24; flex-shrink:0; }
+
+        /* CHAPTER CARDS */
+        .chapter-card { display:flex; align-items:flex-start; gap:12px; padding:12px 16px; border-radius:8px; background:#fff; border:1px solid #e2e8f0; transition:all .2s; text-decoration:none; }
+        .chapter-card:hover { border-color:#d4a017; background:#fffdf0; transform:translateX(4px); box-shadow:0 2px 12px rgba(212,160,23,.15); }
+        .chapter-num { width:28px; height:28px; border-radius:6px; background:#f0f4ff; color:#1d2f60; font-size:.75rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all .2s; }
+        .chapter-card:hover .chapter-num { background:#d4a017; color:#fff; }
+
+        /* CASE CARD */
+        .case-card { border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; background:#fff; transition:all .25s; display:block; text-decoration:none; }
+        .case-card:hover { border-color:#d4a017; box-shadow:0 8px 30px rgba(13,23,48,.12); transform:translateY(-3px); }
+
+        /* STATS */
+        .stat-card { background:rgba(255,255,255,.07); border:1px solid rgba(212,160,23,.25); border-radius:12px; padding:20px 24px; text-align:center; backdrop-filter:blur(10px); }
+
+        /* ACCORDION */
+        .acc-header { cursor:pointer; transition:background .2s; }
+        .acc-header:hover { background:#f8fafc; }
+        .acc-content { max-height:0; overflow:hidden; transition:max-height .35s ease-out; }
+        .acc-content.open { max-height:3000px; }
+        .acc-arrow { transition:transform .3s; display:inline-block; color:#94a3b8; }
+        .acc-header.active .acc-arrow { transform:rotate(90deg); color:#d4a017; }
+
+        /* SUMMARY BLOCKS */
+        .s-flash { background:#fff5f5; border-left:4px solid #f87171; padding:18px 22px; border-radius:0 8px 8px 0; margin-bottom:14px; }
+        .s-short { background:#fff8f0; border-left:4px solid #fb923c; padding:18px 22px; border-radius:0 8px 8px 0; margin-bottom:14px; }
+        .s-detail { background:#fff; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden; }
+        .s-detail-header { background:#f8fafc; padding:12px 18px; font-weight:700; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:#64748b; border-bottom:1px solid #e2e8f0; }
+
+        /* PANELS */
+        .part-panel { display:none; }
+        .part-panel.active { display:block; animation: fadeIn .3s ease; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+        /* HERO SLOTS */
+        .hero-slot { display:none; }
+        .hero-slot.active { display:block; animation: fadeIn .4s ease; }
+
+        /* Mobile */
+        #mobile-menu { display:none; }
+        #mobile-menu.open { display:block; }
+
+        ::-webkit-scrollbar { width:6px; height:6px; }
+        ::-webkit-scrollbar-track { background:#f1f5f9; }
+        ::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:3px; }
     </style>
 </head>
-<body class="text-slate-800 h-screen flex overflow-hidden">
+<body class="bg-slate-50 text-slate-800">
 
-    <aside id="sidebar-area" class="w-72 bg-white border-r border-slate-200 flex-shrink-0 flex-col h-full z-20 hidden md:flex">
-        <div class="p-6 text-slate-400 text-sm">Loading Menu...</div>
-    </aside>
+<!-- ══════════ TOP NAV ══════════ -->
+<nav class="top-nav sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center justify-between h-14">
+            <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#d4a017,#fbbf24)">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg>
+                </div>
+                <div class="hidden sm:block">
+                    <div style="font-family:'Playfair Display',serif;color:#fff;font-weight:700;font-size:.875rem;line-height:1.2">MBA Research</div>
+                    <div style="font-size:.7rem;color:#fbbf24;line-height:1.2">Methods Hub</div>
+                </div>
+            </a>
+            <div class="hidden md:flex items-center">
+                <button class="nav-part-btn active" onclick="showPart('all',this)">📚 Tổng Quan</button>
+                <button class="nav-part-btn" onclick="showPart('p1',this)">Part I · Quy trình</button>
+                <button class="nav-part-btn" onclick="showPart('p2',this)">Part II · Định lượng</button>
+                <button class="nav-part-btn" onclick="showPart('p3',this)">Part III · Định tính</button>
+                <button class="nav-part-btn" onclick="showPart('p4',this)">Part IV · Hỗn hợp</button>
+                <button class="nav-part-btn" onclick="showPart('cases',this)">🔬 Case Studies</button>
+            </div>
+            <button class="md:hidden text-white p-2 rounded-lg hover:bg-white/10" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden border-t border-white/10 px-4 pb-4" style="background:#080f1e">
+        <div class="flex flex-col gap-1 pt-2">
+            <button class="text-left text-sm font-semibold text-white/70 py-2 px-3 rounded-lg hover:bg-white/10 hover:text-yellow-400" onclick="showPart('all');document.getElementById('mobile-menu').classList.remove('open')">📚 Tổng Quan</button>
+            <button class="text-left text-sm font-semibold text-white/70 py-2 px-3 rounded-lg hover:bg-white/10 hover:text-yellow-400" onclick="showPart('p1');document.getElementById('mobile-menu').classList.remove('open')">Part I · Quy trình Nghiên cứu</button>
+            <button class="text-left text-sm font-semibold text-white/70 py-2 px-3 rounded-lg hover:bg-white/10 hover:text-yellow-400" onclick="showPart('p2');document.getElementById('mobile-menu').classList.remove('open')">Part II · Nghiên cứu Định lượng</button>
+            <button class="text-left text-sm font-semibold text-white/70 py-2 px-3 rounded-lg hover:bg-white/10 hover:text-yellow-400" onclick="showPart('p3');document.getElementById('mobile-menu').classList.remove('open')">Part III · Nghiên cứu Định tính</button>
+            <button class="text-left text-sm font-semibold text-white/70 py-2 px-3 rounded-lg hover:bg-white/10 hover:text-yellow-400" onclick="showPart('p4');document.getElementById('mobile-menu').classList.remove('open')">Part IV · Phương pháp Hỗn hợp</button>
+            <button class="text-left text-sm font-semibold text-white/70 py-2 px-3 rounded-lg hover:bg-white/10 hover:text-yellow-400" onclick="showPart('cases');document.getElementById('mobile-menu').classList.remove('open')">🔬 Case Studies</button>
+        </div>
+    </div>
+</nav>
 
-    <div class="flex-1 flex flex-col h-full relative overflow-hidden">
-        
-        <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm flex-shrink-0">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between h-16 items-center">
-                    <div class="flex items-center md:hidden"><button class="text-slate-500 text-2xl mr-4">☰</button></div>
-                    <div class="hidden md:flex flex-col justify-center">
-                        <span class="text-xl font-extrabold text-slate-800 tracking-tight">MBA<span class="text-blue-600">Mastery</span></span>
+<!-- ══════════ HERO ══════════ -->
+<section class="hero-bg" id="hero">
+    <div class="hero-grid"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 py-14">
+
+        <!-- ALL -->
+        <div id="hero-all" class="hero-slot active">
+            <div class="flex flex-col lg:flex-row items-center gap-10">
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/10 border border-yellow-500/30 rounded-full px-4 py-1.5 mb-5">
+                        <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+                        <span class="text-yellow-300 text-xs font-semibold tracking-wider uppercase">MBA · Phương pháp Nghiên cứu</span>
                     </div>
-                    <div id="lang-switch-area"></div>
+                    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.75rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1.25rem">
+                        Business<br>
+                        <span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Research</span><br>Methods
+                    </h1>
+                    <p style="color:#cbd5e1;font-size:1rem;max-width:36rem;line-height:1.7;margin-bottom:2rem">Tổng hợp toàn diện 27 chương giáo trình, phân tích chuyên sâu và ứng dụng thực tiễn qua Case Studies nghiên cứu thực tế.</p>
+                    <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                        <button onclick="showPart('p1')" class="inline-flex items-center gap-2 font-bold px-6 py-3 rounded-full transition-all shadow-lg" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg>
+                            Bắt đầu học
+                        </button>
+                        <button onclick="showPart('cases')" class="inline-flex items-center gap-2 border border-white/30 text-white hover:border-yellow-400 font-semibold px-6 py-3 rounded-full transition-all">🔬 Xem Case Studies</button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 lg:w-72">
+                    <div class="stat-card"><div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fbbf24">27</div><div class="text-xs text-slate-400 mt-1">Chapters</div></div>
+                    <div class="stat-card"><div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fbbf24">4</div><div class="text-xs text-slate-400 mt-1">Parts</div></div>
+                    <div class="stat-card col-span-2"><div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fbbf24">2</div><div class="text-xs text-slate-400 mt-1">Case Studies thực tế</div></div>
                 </div>
             </div>
-        </nav>
+        </div>
 
-        <main class="flex-1 overflow-y-auto bg-slate-50 p-4 sm:p-8">
-            <div class="max-w-7xl mx-auto pb-10">
-                
-                <div class="hero-pattern rounded-2xl p-10 mb-10 text-white shadow-lg relative overflow-hidden">
-                    <div class="relative z-10">
-                        <h1 class="text-3xl md:text-4xl font-extrabold mb-4">
-                            <span class="lang-en">Welcome to Business Research Methodology</span>
-                            <span class="lang-vi">Chào mừng đến với Phương pháp Nghiên cứu Kinh doanh</span>
-                        </h1>
-                        <p class="text-blue-100 text-lg max-w-2xl leading-relaxed">
-                            <span class="lang-en">A comprehensive knowledge hub summarizing key chapters from the textbook and applying them to real-world Case Studies.</span>
-                            <span class="lang-vi">Trung tâm kiến thức toàn diện, tóm tắt các chương sách cốt lõi và ứng dụng vào các Case Study thực tế.</span>
-                        </p>
-                        <div class="mt-8 flex gap-4">
-                            <a href="#book-section" class="bg-white text-blue-600 font-bold py-2 px-6 rounded-full shadow hover:bg-blue-50 transition">
-                                <span class="lang-en">Explore Chapters</span><span class="lang-vi">Xem Chương sách</span>
-                            </a>
-                            <a href="#case-section" class="bg-blue-700 text-white font-bold py-2 px-6 rounded-full shadow border border-blue-500 hover:bg-blue-800 transition">
-                                <span class="lang-en">View Case Studies</span><span class="lang-vi">Xem Case Study</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="absolute right-0 bottom-0 opacity-20 transform translate-y-1/4 translate-x-1/4">
-                        <svg width="300" height="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#FFFFFF" d="M45.7,-70.5C58.9,-62.5,69.3,-49.4,75.9,-34.7C82.5,-20,85.4,-3.7,82.4,11.1C79.4,25.9,70.5,39.2,59.3,49.3C48.1,59.4,34.6,66.3,20.4,70.3C6.2,74.3,-8.7,75.4,-22.6,71.5C-36.5,67.6,-49.4,58.7,-59.5,47.1C-69.6,35.5,-76.9,21.2,-78.4,6.3C-79.9,-8.6,-75.6,-24.1,-66.6,-36.5C-57.6,-48.9,-43.9,-58.2,-29.9,-65.6C-15.9,-73,-1.6,-78.5,13.2,-76.7L45.7,-70.5Z" transform="translate(100 100)" />
-                        </svg>
+        <!-- PART 1 HERO -->
+        <div id="hero-p1" class="hero-slot">
+            <div class="flex flex-col lg:flex-row items-start gap-8">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 bg-white/10 border border-yellow-500/30 rounded-full px-4 py-1.5 mb-4"><span class="text-yellow-300 text-xs font-semibold tracking-wider uppercase">PART ONE · Chapters 1–7</span></div>
+                    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:.75rem">The Research<br><span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Process</span></h1>
+                    <p style="color:#cbd5e1;font-size:.95rem;max-width:36rem;line-height:1.7;margin-bottom:1.5rem">Nền tảng tư duy nghiên cứu học thuật: từ bản chất, chiến lược, thiết kế đến quy trình hoàn chỉnh.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Epistemology</span>
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Research Design</span>
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Literature Review</span>
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Ethics</span>
                     </div>
                 </div>
-
-                <div id="book-section" class="mb-12">
-                    <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center">
-                        <span class="bg-blue-600 w-2 h-8 rounded mr-3"></span>
-                        <span class="lang-en">The Book: Essential Knowledge</span>
-                        <span class="lang-vi">Kiến thức Sách Giáo khoa</span>
-                    </h2>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
-                        
-                        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 card-hover">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center text-2xl mr-4">📘</div>
-                                <div>
-                                    <h3 class="font-bold text-lg text-slate-800 uppercase tracking-wide">Part 1</h3>
-                                    <p class="text-xs text-slate-500 font-semibold uppercase"><span class="lang-en">The Research Process</span><span class="lang-vi">Quy trình Nghiên cứu</span></p>
-                                </div>
-                            </div>
-                            <div class="space-y-1">
-                                <a href="chapter1.html" class="chapter-link"><span class="font-bold mr-2">Ch 1:</span> <span class="lang-en">Nature & Process</span><span class="lang-vi">Bản chất & Quy trình</span></a>
-                                <a href="chapter2.html" class="chapter-link"><span class="font-bold mr-2">Ch 2:</span> <span class="lang-en">Research Strategies</span><span class="lang-vi">Chiến lược nghiên cứu</span></a>
-                                <a href="chapter3.html" class="chapter-link"><span class="font-bold mr-2">Ch 3:</span> <span class="lang-en">Research Designs</span><span class="lang-vi">Thiết kế nghiên cứu</span></a>
-                                <a href="chapter4.html" class="chapter-link"><span class="font-bold mr-2">Ch 4:</span> <span class="lang-en">Planning & Questions</span><span class="lang-vi">Lập kế hoạch & Câu hỏi</span></a>
-                                <div class="text-xs text-center text-slate-400 mt-2 italic">... and 3 more chapters</div>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 card-hover">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mr-4">📊</div>
-                                <div>
-                                    <h3 class="font-bold text-lg text-slate-800 uppercase tracking-wide">Part 2</h3>
-                                    <p class="text-xs text-slate-500 font-semibold uppercase"><span class="lang-en">Quantitative Research</span><span class="lang-vi">Nghiên cứu Định lượng</span></p>
-                                </div>
-                            </div>
-                            <div class="space-y-1">
-                                <a href="chapter8.html" class="chapter-link"><span class="font-bold mr-2">Ch 8:</span> <span class="lang-en">Nature of Quantitative</span><span class="lang-vi">Bản chất định lượng</span></a>
-                                <a href="chapter9.html" class="chapter-link"><span class="font-bold mr-2">Ch 9:</span> <span class="lang-en">Sampling</span><span class="lang-vi">Chọn mẫu</span></a>
-                                <a href="chapter10.html" class="chapter-link"><span class="font-bold mr-2">Ch 10:</span> <span class="lang-en">Structured Interview</span><span class="lang-vi">Phỏng vấn cấu trúc</span></a>
-                                <a href="chapter11.html" class="chapter-link"><span class="font-bold mr-2">Ch 11:</span> <span class="lang-en">Questionnaires</span><span class="lang-vi">Bảng hỏi</span></a>
-                                <div class="text-xs text-center text-slate-400 mt-2 italic">... and 5 more chapters</div>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 card-hover">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mr-4">📝</div>
-                                <div>
-                                    <h3 class="font-bold text-lg text-slate-800 uppercase tracking-wide">Part 3</h3>
-                                    <p class="text-xs text-slate-500 font-semibold uppercase"><span class="lang-en">Qualitative Research</span><span class="lang-vi">Nghiên cứu Định tính</span></p>
-                                </div>
-                            </div>
-                            <div class="space-y-1">
-                                <a href="chapter17.html" class="chapter-link"><span class="font-bold mr-2">Ch 17:</span> <span class="lang-en">Nature of Qualitative</span><span class="lang-vi">Bản chất định tính</span></a>
-                                <a href="chapter18.html" class="chapter-link"><span class="font-bold mr-2">Ch 18:</span> <span class="lang-en">Sampling</span><span class="lang-vi">Chọn mẫu</span></a>
-                                <a href="chapter19.html" class="chapter-link"><span class="font-bold mr-2">Ch 19:</span> <span class="lang-en">Ethnography</span><span class="lang-vi">Dân tộc học</span></a>
-                                <a href="chapter20.html" class="chapter-link"><span class="font-bold mr-2">Ch 20:</span> <span class="lang-en">Interviewing</span><span class="lang-vi">Phỏng vấn sâu</span></a>
-                                <div class="text-xs text-center text-slate-400 mt-2 italic">... and 5 more chapters</div>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 card-hover">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mr-4">🔄</div>
-                                <div>
-                                    <h3 class="font-bold text-lg text-slate-800 uppercase tracking-wide">Part 4</h3>
-                                    <p class="text-xs text-slate-500 font-semibold uppercase"><span class="lang-en">Mixed Methods</span><span class="lang-vi">Phương pháp Hỗn hợp</span></p>
-                                </div>
-                            </div>
-                            <div class="space-y-1">
-                                <a href="chapter26.html" class="chapter-link"><span class="font-bold mr-2">Ch 26:</span> <span class="lang-en">Breaking the Divide</span><span class="lang-vi">Phá vỡ rào cản</span></a>
-                                <a href="chapter27.html" class="chapter-link"><span class="font-bold mr-2">Ch 27:</span> <span class="lang-en">Combining Methods</span><span class="lang-vi">Kết hợp phương pháp</span></a>
-                            </div>
-                        </div>
-
-                    </div>
+                <div class="grid grid-cols-3 lg:grid-cols-1 gap-3 lg:w-44">
+                    <div class="stat-card text-center"><div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fbbf24">7</div><div class="text-xs text-slate-400">Chapters</div></div>
+                    <div class="stat-card text-center"><div class="text-xl">📘</div><div class="text-xs text-slate-400 mt-1">Nền tảng</div></div>
+                    <div class="stat-card text-center"><div class="text-xl">🎯</div><div class="text-xs text-slate-400 mt-1">Ch. 1–7</div></div>
                 </div>
-
-                <div id="case-section">
-                    <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center">
-                        <span class="bg-indigo-600 w-2 h-8 rounded mr-3"></span>
-                        <span class="lang-en">Practical Application: Case Studies</span>
-                        <span class="lang-vi">Ứng dụng Thực tiễn: Case Study</span>
-                    </h2>
-
-                    <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
-                        <a href="Thesis-AI-Unlocking.html" class="block bg-white rounded-xl border border-slate-200 p-0 hover:shadow-lg transition overflow-hidden group">
-                            <div class="flex flex-col md:flex-row">
-                                <div class="bg-indigo-600 p-6 flex items-center justify-center md:w-48 text-white">
-                                    <span class="text-5xl group-hover:scale-110 transition-transform">🚀</span>
-                                </div>
-                                <div class="p-6 flex-1">
-                                    <div class="flex items-center gap-2 mb-2">
-                                        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">PLS-SEM</span>
-                                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded">Quantitative</span>
-                                    </div>
-                                    <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-indigo-600 transition-colors">
-                                        <span class="lang-en">Unlocking AI Capabilities in Family Hotels</span>
-                                        <span class="lang-vi">Khai phá Năng lực AI trong Khách sạn Gia đình</span>
-                                    </h3>
-                                    <p class="text-slate-600 text-sm mb-4">
-                                        <span class="lang-en">An in-depth analysis of how AI capabilities drive digital transformation through innovation ambidexterity.</span>
-                                        <span class="lang-vi">Phân tích chuyên sâu về cách năng lực AI thúc đẩy chuyển đổi số thông qua cơ chế lưỡng dụng đổi mới.</span>
-                                    </p>
-                                    <div class="flex items-center text-sm text-indigo-600 font-semibold">
-                                        <span class="lang-en">Read Analysis</span><span class="lang-vi">Đọc phân tích</span>
-                                        <span class="ml-2">→</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        
-                        </div>
-                </div>
-
-                <footer class="mt-16 pt-8 border-t border-slate-200 text-center text-slate-400 text-sm">
-                    <p>&copy; 2025 MBA Mastery Learning Hub. Built for Excellence.</p>
-                </footer>
-
             </div>
-        </main>
+        </div>
+
+        <!-- PART 2 HERO -->
+        <div id="hero-p2" class="hero-slot">
+            <div class="flex flex-col lg:flex-row items-start gap-8">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 bg-white/10 border border-yellow-500/30 rounded-full px-4 py-1.5 mb-4"><span class="text-yellow-300 text-xs font-semibold tracking-wider uppercase">PART TWO · Chapters 8–16</span></div>
+                    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:.75rem">Quantitative<br><span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Research</span></h1>
+                    <p style="color:#cbd5e1;font-size:.95rem;max-width:36rem;line-height:1.7;margin-bottom:1.5rem">Phương pháp định lượng hoàn chỉnh: chọn mẫu, phỏng vấn cấu trúc, bảng hỏi đến phân tích SPSS.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Sampling</span>
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Questionnaires</span>
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">SPSS</span>
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Statistical Analysis</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 lg:grid-cols-1 gap-3 lg:w-44">
+                    <div class="stat-card text-center"><div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fbbf24">9</div><div class="text-xs text-slate-400">Chapters</div></div>
+                    <div class="stat-card text-center"><div class="text-xl">📊</div><div class="text-xs text-slate-400 mt-1">Định lượng</div></div>
+                    <div class="stat-card text-center"><div class="text-xl">🔢</div><div class="text-xs text-slate-400 mt-1">Ch. 8–16</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 3 HERO -->
+        <div id="hero-p3" class="hero-slot">
+            <div class="flex flex-col lg:flex-row items-start gap-8">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 bg-white/10 border border-yellow-500/30 rounded-full px-4 py-1.5 mb-4"><span class="text-yellow-300 text-xs font-semibold tracking-wider uppercase">PART THREE · Chapters 17–25</span></div>
+                    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:.75rem">Qualitative<br><span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Research</span></h1>
+                    <p style="color:#cbd5e1;font-size:.95rem;max-width:36rem;line-height:1.7;margin-bottom:1.5rem">Khám phá chiều sâu ý nghĩa: dân tộc học, phỏng vấn sâu, focus groups, phân tích ngôn ngữ và NVivo.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Ethnography</span>
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Focus Groups</span>
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">NVivo</span>
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Thematic Analysis</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 lg:grid-cols-1 gap-3 lg:w-44">
+                    <div class="stat-card text-center"><div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fbbf24">9</div><div class="text-xs text-slate-400">Chapters</div></div>
+                    <div class="stat-card text-center"><div class="text-xl">📝</div><div class="text-xs text-slate-400 mt-1">Định tính</div></div>
+                    <div class="stat-card text-center"><div class="text-xl">💬</div><div class="text-xs text-slate-400 mt-1">Ch. 17–25</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PART 4 HERO -->
+        <div id="hero-p4" class="hero-slot">
+            <div class="flex flex-col lg:flex-row items-start gap-8">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 bg-white/10 border border-yellow-500/30 rounded-full px-4 py-1.5 mb-4"><span class="text-yellow-300 text-xs font-semibold tracking-wider uppercase">PART FOUR · Chapters 26–27</span></div>
+                    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:.75rem">Mixed Methods<br><span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Research</span></h1>
+                    <p style="color:#cbd5e1;font-size:.95rem;max-width:36rem;line-height:1.7;margin-bottom:1.5rem">Kết hợp sức mạnh của cả hai phương pháp, phá vỡ ranh giới định lượng/định tính.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Mixed Methods</span>
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Triangulation</span>
+                        <span class="bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">Pragmatism</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 lg:grid-cols-1 gap-3 lg:w-44">
+                    <div class="stat-card text-center"><div style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fbbf24">2</div><div class="text-xs text-slate-400">Chapters</div></div>
+                    <div class="stat-card text-center"><div class="text-xl">🔄</div><div class="text-xs text-slate-400 mt-1">Hỗn hợp</div></div>
+                    <div class="stat-card text-center"><div class="text-xl">⚗️</div><div class="text-xs text-slate-400 mt-1">Ch. 26–27</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CASES HERO -->
+        <div id="hero-cases" class="hero-slot">
+            <div class="inline-flex items-center gap-2 bg-white/10 border border-yellow-500/30 rounded-full px-4 py-1.5 mb-4"><span class="text-yellow-300 text-xs font-semibold tracking-wider uppercase">Applied Research · PLS-SEM</span></div>
+            <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:.75rem">Case Studies<br><span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Thực tế</span></h1>
+            <p style="color:#cbd5e1;font-size:.95rem;max-width:36rem;line-height:1.7">Ứng dụng phương pháp nghiên cứu vào bài toán thực tế trong ngành khách sạn và AI capability.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══════════ MAIN ══════════ -->
+<main class="max-w-7xl mx-auto px-4 py-10">
+
+    <!-- TỔNG QUAN -->
+    <div id="panel-all" class="part-panel active">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
+            <button onclick="showPart('p1')" class="text-left bg-white border border-slate-200 rounded-xl p-5 hover:border-yellow-400 hover:shadow-lg transition-all group">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style="background:#0d1730"><span style="color:#fbbf24;font-family:'Playfair Display',serif;font-weight:700;font-size:.875rem">I</span></div>
+                <div class="text-xs font-bold uppercase tracking-wider mb-1" style="color:#b8860b">Part One</div>
+                <div class="font-bold text-slate-800 mb-1 text-sm">The Research Process</div>
+                <div class="text-xs text-slate-500">Chapters 1–7 · 7 chương</div>
+                <div class="mt-2 text-xs text-slate-400">Quy trình, thiết kế, đạo đức, viết báo cáo</div>
+            </button>
+            <button onclick="showPart('p2')" class="text-left bg-white border border-slate-200 rounded-xl p-5 hover:border-yellow-400 hover:shadow-lg transition-all group">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style="background:#0f3358"><span style="color:#fbbf24;font-family:'Playfair Display',serif;font-weight:700;font-size:.875rem">II</span></div>
+                <div class="text-xs font-bold uppercase tracking-wider mb-1" style="color:#b8860b">Part Two</div>
+                <div class="font-bold text-slate-800 mb-1 text-sm">Quantitative Research</div>
+                <div class="text-xs text-slate-500">Chapters 8–16 · 9 chương</div>
+                <div class="mt-2 text-xs text-slate-400">Chọn mẫu, bảng hỏi, thống kê, SPSS</div>
+            </button>
+            <button onclick="showPart('p3')" class="text-left bg-white border border-slate-200 rounded-xl p-5 hover:border-yellow-400 hover:shadow-lg transition-all group">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style="background:#0f3d28"><span style="color:#fbbf24;font-family:'Playfair Display',serif;font-weight:700;font-size:.875rem">III</span></div>
+                <div class="text-xs font-bold uppercase tracking-wider mb-1" style="color:#b8860b">Part Three</div>
+                <div class="font-bold text-slate-800 mb-1 text-sm">Qualitative Research</div>
+                <div class="text-xs text-slate-500">Chapters 17–25 · 9 chương</div>
+                <div class="mt-2 text-xs text-slate-400">Phỏng vấn sâu, focus groups, NVivo</div>
+            </button>
+            <button onclick="showPart('p4')" class="text-left bg-white border border-slate-200 rounded-xl p-5 hover:border-yellow-400 hover:shadow-lg transition-all group">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style="background:#2d1a50"><span style="color:#fbbf24;font-family:'Playfair Display',serif;font-weight:700;font-size:.875rem">IV</span></div>
+                <div class="text-xs font-bold uppercase tracking-wider mb-1" style="color:#b8860b">Part Four</div>
+                <div class="font-bold text-slate-800 mb-1 text-sm">Mixed Methods</div>
+                <div class="text-xs text-slate-500">Chapters 26–27 · 2 chương</div>
+                <div class="mt-2 text-xs text-slate-400">Kết hợp định lượng & định tính</div>
+            </button>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6 mb-6">
+            <h3 class="font-bold text-slate-700 mb-4 text-sm uppercase tracking-wide">Tất cả 27 Chapters</h3>
+            <div id="all-chapters-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"></div>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-slate-700 text-sm uppercase tracking-wide">Case Studies</h3>
+                <button onclick="showPart('cases')" class="text-xs font-semibold hover:opacity-80" style="color:#b8860b">Xem tất cả →</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="CaseStudy-Thesis-AI-Unlocking.html" class="flex items-center gap-3 p-3 rounded-lg border border-slate-200 hover:border-yellow-400 hover:bg-yellow-50 transition-all">
+                    <div class="text-2xl">🏨</div><div><div class="font-semibold text-sm text-slate-800">AI Capabilities in Family Hotels (v1)</div><div class="text-xs text-slate-500">PLS-SEM · Quantitative</div></div>
+                </a>
+                <a href="CaseStudy-Thesis-AI-Unlocking_2.html" class="flex items-center gap-3 p-3 rounded-lg border border-slate-200 hover:border-yellow-400 hover:bg-yellow-50 transition-all">
+                    <div class="text-2xl">🤖</div><div><div class="font-semibold text-sm text-slate-800">AI Capabilities in Family Hotels (v2)</div><div class="text-xs text-slate-500">PLS-SEM · Quantitative</div></div>
+                </a>
+            </div>
+        </div>
     </div>
 
-    <script src="assets/js/app.js"></script>
+    <!-- PART 1 -->
+    <div id="panel-p1" class="part-panel">
+        <div class="part-header mb-6">
+            <div class="part-number-circle">I</div>
+            <div><div class="part-badge">PART ONE</div><div class="text-white font-bold text-lg">The Research Process</div><div class="text-slate-400 text-sm">Chapters 1–7</div></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+            <a href="chapter1.html" class="chapter-card"><div class="chapter-num">1</div><div><div class="font-semibold text-slate-800 text-sm">Nature & Process of Business Research</div><div class="text-xs text-slate-500 mt-0.5">Bản chất & Quy trình Nghiên cứu</div></div></a>
+            <a href="chapter2.html" class="chapter-card"><div class="chapter-num">2</div><div><div class="font-semibold text-slate-800 text-sm">Business Research Strategies</div><div class="text-xs text-slate-500 mt-0.5">Chiến lược Nghiên cứu Kinh doanh</div></div></a>
+            <a href="chapter3.html" class="chapter-card"><div class="chapter-num">3</div><div><div class="font-semibold text-slate-800 text-sm">Research Designs</div><div class="text-xs text-slate-500 mt-0.5">Thiết kế Nghiên cứu</div></div></a>
+            <a href="chapter4.html" class="chapter-card"><div class="chapter-num">4</div><div><div class="font-semibold text-slate-800 text-sm">Planning & Developing Research Questions</div><div class="text-xs text-slate-500 mt-0.5">Lập kế hoạch & Câu hỏi NC</div></div></a>
+            <a href="chapter5.html" class="chapter-card"><div class="chapter-num">5</div><div><div class="font-semibold text-slate-800 text-sm">Getting Started: Reviewing the Literature</div><div class="text-xs text-slate-500 mt-0.5">Tổng quan Tài liệu</div></div></a>
+            <a href="chapter6.html" class="chapter-card"><div class="chapter-num">6</div><div><div class="font-semibold text-slate-800 text-sm">Ethics in Business Research</div><div class="text-xs text-slate-500 mt-0.5">Đạo đức trong Nghiên cứu</div></div></a>
+            <a href="chapter7.html" class="chapter-card"><div class="chapter-num">7</div><div><div class="font-semibold text-slate-800 text-sm">Writing Up Business Research</div><div class="text-xs text-slate-500 mt-0.5">Viết Báo cáo Nghiên cứu</div></div></a>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-100 flex items-center gap-3 bg-slate-50"><span class="text-lg">📖</span><span class="font-bold text-slate-700">Tóm tắt & Chi tiết Part I</span></div>
+            <div class="p-6">
+                <div class="s-flash"><h3 class="font-bold text-red-700 uppercase text-sm flex items-center gap-2 mb-2">⚡ Tóm tắt siêu ngắn</h3><p class="text-red-800 text-sm leading-relaxed">Part I xây dựng nền tảng tư duy nghiên cứu học thuật: phân biệt nghiên cứu kinh doanh với nghiên cứu thương mại, lựa chọn triết học (ontology/epistemology), chiến lược và thiết kế phù hợp, rồi đưa ra câu hỏi nghiên cứu có giá trị từ tổng quan tài liệu, trong khuôn khổ đạo đức nghiêm ngặt.</p></div>
+                <div class="s-short"><h3 class="font-bold text-orange-700 uppercase text-sm flex items-center gap-2 mb-2">📝 Tóm tắt ngắn</h3><ul class="list-disc pl-5 text-orange-800 space-y-1 text-sm"><li><strong>Ch.1:</strong> Định nghĩa NC kinh doanh, rigour vs relevance, quy trình 7 bước.</li><li><strong>Ch.2:</strong> Chiến lược: deductive, inductive, abductive; positivism/interpretivism.</li><li><strong>Ch.3:</strong> Thiết kế: cross-sectional, longitudinal, case study, comparative, experimental.</li><li><strong>Ch.4:</strong> Từ chủ đề → câu hỏi cụ thể, rõ ràng, có thể trả lời được.</li><li><strong>Ch.5:</strong> Tổng quan tài liệu: tìm kiếm hệ thống, đánh giá nguồn, viết review.</li><li><strong>Ch.6:</strong> Đạo đức: informed consent, confidentiality, harm avoidance.</li><li><strong>Ch.7:</strong> Cấu trúc luận văn, phong cách viết học thuật, referencing.</li></ul></div>
+                <div class="s-detail">
+                    <div class="s-detail-header">Chi tiết theo từng chương</div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.1</span>Nature & Process of Business Research</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Bối cảnh nghiên cứu:</strong> Lý thuyết, triết học (ontology/epistemology), giá trị & đạo đức, bối cảnh chính trị tổ chức.</p><p><strong>Rigour vs Relevance:</strong> Evidence-based Management cầu nối khoảng cách; Mode 1 (học thuật) vs Mode 2 (liên ngành, thực tiễn).</p><p><strong>Quy trình 7 bước:</strong> Literature → Theory → Questions → Sampling → Data → Analysis → Report. Thực tế thường "hỗn độn" (messy), không tuyến tính.</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.2</span>Business Research Strategies</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Epistemological positions:</strong> Positivism (khách quan, đo lường), Interpretivism (chủ quan, ý nghĩa), Pragmatism (thực dụng).</p><p><strong>Ontology:</strong> Objectivism (thực tại độc lập) vs Constructionism (thực tại được xây dựng xã hội).</p><p><strong>Suy luận:</strong> Deductive (lý thuyết → kiểm định), Inductive (dữ liệu → lý thuyết), Abductive (qua lại linh hoạt).</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.3</span>Research Designs</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Cross-sectional:</strong> Dữ liệu tại một thời điểm, nhiều trường hợp — phổ biến nhất.</p><p><strong>Longitudinal:</strong> Theo dõi thay đổi theo thời gian — mạnh về causal inference.</p><p><strong>Case study:</strong> Phân tích sâu 1 hoặc ít trường hợp — giàu ngữ cảnh.</p><p><strong>Comparative:</strong> So sánh từ 2 trường hợp trở lên một cách hệ thống.</p><p><strong>Experimental:</strong> Kiểm soát biến, phù hợp kiểm định nhân quả.</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.4</span>Planning & Developing Research Questions</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Từ area → topic → question:</strong> Thu hẹp dần phạm vi qua đọc tài liệu.</p><p><strong>Tiêu chí câu hỏi tốt:</strong> Rõ ràng, có thể trả lời được, liên quan thực tiễn, đóng góp học thuật.</p><p><strong>Research objectives:</strong> Phân rã câu hỏi chính thành các mục tiêu nhỏ, cụ thể.</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.5</span>Reviewing the Literature</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Mục đích:</strong> Xác định khoảng trống tri thức (gap), đặt nền tảng lý thuyết, tránh trùng lặp.</p><p><strong>Systematic review:</strong> Tìm kiếm minh bạch, PRISMA flow, tiêu chí inclusion/exclusion rõ ràng.</p><p><strong>Viết literature review:</strong> Tổng hợp theo chủ đề, phân tích và đối chiếu quan điểm, không liệt kê tuần tự.</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.6</span>Ethics in Business Research</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Informed consent:</strong> Tham gia tự nguyện, hiểu rõ nghiên cứu trước khi đồng ý.</p><p><strong>Confidentiality & Anonymity:</strong> Bảo vệ danh tính và dữ liệu cá nhân người tham gia.</p><p><strong>Harm avoidance:</strong> Không gây hại về thể chất, tâm lý, xã hội cho người tham gia.</p><p><strong>Ethics committees:</strong> Xin phê duyệt IRB/ethics board trước khi thu thập dữ liệu.</p></div></div></div>
+                    <div><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.7</span>Writing Up Business Research</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Cấu trúc chuẩn:</strong> Introduction → Literature → Methodology → Findings → Discussion → Conclusion.</p><p><strong>Phong cách viết:</strong> Học thuật, khách quan, chính xác, tránh ngôn ngữ mơ hồ.</p><p><strong>Referencing:</strong> APA/Harvard đúng chuẩn, trích dẫn nhất quán.</p></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PART 2 -->
+    <div id="panel-p2" class="part-panel">
+        <div class="part-header mb-6">
+            <div class="part-number-circle">II</div>
+            <div><div class="part-badge">PART TWO</div><div class="text-white font-bold text-lg">Quantitative Research</div><div class="text-slate-400 text-sm">Chapters 8–16</div></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+            <a href="chapter8.html" class="chapter-card"><div class="chapter-num">8</div><div><div class="font-semibold text-slate-800 text-sm">The Nature of Quantitative Research</div><div class="text-xs text-slate-500 mt-0.5">Bản chất NC Định lượng</div></div></a>
+            <a href="chapter9.html" class="chapter-card"><div class="chapter-num">9</div><div><div class="font-semibold text-slate-800 text-sm">Sampling in Quantitative Research</div><div class="text-xs text-slate-500 mt-0.5">Chọn mẫu trong NC Định lượng</div></div></a>
+            <a href="chapter10.html" class="chapter-card"><div class="chapter-num">10</div><div><div class="font-semibold text-slate-800 text-sm">Structured Interviewing</div><div class="text-xs text-slate-500 mt-0.5">Phỏng vấn có Cấu trúc</div></div></a>
+            <a href="chapter11.html" class="chapter-card"><div class="chapter-num">11</div><div><div class="font-semibold text-slate-800 text-sm">Self-Completion Questionnaires</div><div class="text-xs text-slate-500 mt-0.5">Bảng câu hỏi Tự điền</div></div></a>
+            <a href="chapter12.html" class="chapter-card"><div class="chapter-num">12</div><div><div class="font-semibold text-slate-800 text-sm">Asking Questions</div><div class="text-xs text-slate-500 mt-0.5">Kỹ thuật Đặt câu hỏi</div></div></a>
+            <a href="chapter13.html" class="chapter-card"><div class="chapter-num">13</div><div><div class="font-semibold text-slate-800 text-sm">Quantitative Research: Natural Data</div><div class="text-xs text-slate-500 mt-0.5">Dữ liệu Tự nhiên</div></div></a>
+            <a href="chapter14.html" class="chapter-card"><div class="chapter-num">14</div><div><div class="font-semibold text-slate-800 text-sm">Secondary Analysis & Official Statistics</div><div class="text-xs text-slate-500 mt-0.5">Phân tích Thứ cấp</div></div></a>
+            <a href="chapter15.html" class="chapter-card"><div class="chapter-num">15</div><div><div class="font-semibold text-slate-800 text-sm">Quantitative Data Analysis</div><div class="text-xs text-slate-500 mt-0.5">Phân tích Dữ liệu Định lượng</div></div></a>
+            <a href="chapter16.html" class="chapter-card"><div class="chapter-num">16</div><div><div class="font-semibold text-slate-800 text-sm">Using IBM SPSS Statistics</div><div class="text-xs text-slate-500 mt-0.5">SPSS trong phân tích</div></div></a>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-100 flex items-center gap-3 bg-slate-50"><span class="text-lg">📊</span><span class="font-bold text-slate-700">Tóm tắt & Chi tiết Part II</span></div>
+            <div class="p-6">
+                <div class="s-flash"><h3 class="font-bold text-red-700 uppercase text-sm flex items-center gap-2 mb-2">⚡ Tóm tắt siêu ngắn</h3><p class="text-red-800 text-sm leading-relaxed">Part II trang bị bộ công cụ định lượng hoàn chỉnh: từ chọn mẫu xác suất, thiết kế bảng hỏi chuẩn, thu thập dữ liệu có cấu trúc đến phân tích thống kê (univariate → multivariate) trên SPSS — tất cả đặt trong nền positivism và deduction.</p></div>
+                <div class="s-short"><h3 class="font-bold text-orange-700 uppercase text-sm flex items-center gap-2 mb-2">📝 Tóm tắt ngắn</h3><ul class="list-disc pl-5 text-orange-800 space-y-1 text-sm"><li><strong>Ch.8:</strong> Nền tảng: measurement, reliability (Cronbach's α), validity, operationalization.</li><li><strong>Ch.9:</strong> Probability sampling (random, systematic, stratified, cluster) vs non-probability.</li><li><strong>Ch.10:</strong> Structured interview: standardization, interviewer effect, CAPI/CATI.</li><li><strong>Ch.11:</strong> Self-completion: Likert scale, pilot testing, online vs paper.</li><li><strong>Ch.12:</strong> Tránh double-barrelled, leading, biased questions; thang đo rõ ràng.</li><li><strong>Ch.13:</strong> Content analysis, official data, big data naturally occurring.</li><li><strong>Ch.14:</strong> Secondary data: tiết kiệm chi phí, cần đánh giá chất lượng cẩn thận.</li><li><strong>Ch.15:</strong> Univariate (mean, SD) → Bivariate (chi-square, correlation) → Multivariate (regression).</li><li><strong>Ch.16:</strong> SPSS: data entry, cleaning, analysis step by step.</li></ul></div>
+                <div class="s-detail">
+                    <div class="s-detail-header">Chi tiết theo từng chương</div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.8</span>The Nature of Quantitative Research</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Positivism & Deduction:</strong> Kiểm định giả thuyết, khái quát hóa từ mẫu sang tổng thể.</p><p><strong>Measurement:</strong> Operationalization — chuyển khái niệm trừu tượng thành biến đo lường được.</p><p><strong>Reliability:</strong> Internal consistency (Cronbach's α), test-retest, inter-rater reliability.</p><p><strong>Validity:</strong> Face, content, criterion, construct validity.</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.9</span>Sampling in Quantitative Research</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Probability sampling:</strong> Simple random, systematic, stratified, cluster, multi-stage.</p><p><strong>Non-probability sampling:</strong> Convenience, snowball, purposive — khi không thể lập sampling frame.</p><p><strong>Sample size:</strong> Power analysis, effect size, confidence interval để xác định cỡ mẫu tối thiểu.</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.10–12</span>Structured Interviewing & Questionnaires</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Structured interview:</strong> Script cố định, minimize interviewer effect, CAPI/CATI.</p><p><strong>Self-completion questionnaire:</strong> Thiết kế layout, Likert/semantic differential scale, pilot test.</p><p><strong>Question design:</strong> Tránh double-barrelled, leading question, jargon; đặt filter questions hợp lý.</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.13–14</span>Natural Data & Secondary Analysis</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Naturally occurring data:</strong> Social media data, administrative records, content analysis định lượng.</p><p><strong>Secondary analysis:</strong> BHPS, GSS, ISSP — tận dụng dataset có sẵn. Lưu ý: dữ liệu có thể không khớp câu hỏi nghiên cứu.</p><p><strong>Official statistics:</strong> Census, government data — kiểm tra methodological documentation.</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.15</span>Quantitative Data Analysis</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Univariate:</strong> Frequency tables, mean, median, SD, histogram — mô tả từng biến.</p><p><strong>Bivariate:</strong> Chi-square test, Pearson/Spearman correlation, t-test, ANOVA — quan hệ 2 biến.</p><p><strong>Multivariate:</strong> Multiple regression, factor analysis, logistic regression — nhiều biến đồng thời.</p></div></div></div>
+                    <div><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded font-bold">Ch.16</span>Using IBM SPSS Statistics</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Data entry & cleaning:</strong> Variable view, value labels, missing data, outliers.</p><p><strong>Analysis:</strong> Descriptives → Crosstabs → Correlation → Regression từng bước.</p><p><strong>Output:</strong> Đọc và báo cáo bảng SPSS: significance levels, effect sizes.</p></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div id="panel-p3" class="part-panel">
+        <div class="part-header mb-6">
+            <div class="part-number-circle">III</div>
+            <div><div class="part-badge">PART THREE</div><div class="text-white font-bold text-lg">Qualitative Research</div><div class="text-slate-400 text-sm">Chapters 17–25</div></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+            <a href="chapter17.html" class="chapter-card"><div class="chapter-num">17</div><div><div class="font-semibold text-slate-800 text-sm">The Nature of Qualitative Research</div><div class="text-xs text-slate-500 mt-0.5">Bản chất NC Định tính</div></div></a>
+            <a href="chapter18.html" class="chapter-card"><div class="chapter-num">18</div><div><div class="font-semibold text-slate-800 text-sm">Sampling in Qualitative Research</div><div class="text-xs text-slate-500 mt-0.5">Chọn mẫu Định tính</div></div></a>
+            <a href="chapter19.html" class="chapter-card"><div class="chapter-num">19</div><div><div class="font-semibold text-slate-800 text-sm">Ethnography & Participant Observation</div><div class="text-xs text-slate-500 mt-0.5">Dân tộc học & Quan sát</div></div></a>
+            <a href="chapter20.html" class="chapter-card"><div class="chapter-num">20</div><div><div class="font-semibold text-slate-800 text-sm">Interviewing in Qualitative Research</div><div class="text-xs text-slate-500 mt-0.5">Phỏng vấn sâu</div></div></a>
+            <a href="chapter21.html" class="chapter-card"><div class="chapter-num">21</div><div><div class="font-semibold text-slate-800 text-sm">Focus Groups</div><div class="text-xs text-slate-500 mt-0.5">Thảo luận Nhóm Tập trung</div></div></a>
+            <a href="chapter22.html" class="chapter-card"><div class="chapter-num">22</div><div><div class="font-semibold text-slate-800 text-sm">Language in Qualitative Research</div><div class="text-xs text-slate-500 mt-0.5">Ngôn ngữ trong NC Định tính</div></div></a>
+            <a href="chapter23.html" class="chapter-card"><div class="chapter-num">23</div><div><div class="font-semibold text-slate-800 text-sm">Documents as Sources of Data</div><div class="text-xs text-slate-500 mt-0.5">Tài liệu như Nguồn Dữ liệu</div></div></a>
+            <a href="chapter24.html" class="chapter-card"><div class="chapter-num">24</div><div><div class="font-semibold text-slate-800 text-sm">Qualitative Data Analysis</div><div class="text-xs text-slate-500 mt-0.5">Phân tích Dữ liệu Định tính</div></div></a>
+            <a href="chapter25.html" class="chapter-card"><div class="chapter-num">25</div><div><div class="font-semibold text-slate-800 text-sm">Computer-Assisted QDA: NVivo</div><div class="text-xs text-slate-500 mt-0.5">Phân tích Định tính bằng NVivo</div></div></a>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-100 flex items-center gap-3 bg-slate-50"><span class="text-lg">💬</span><span class="font-bold text-slate-700">Tóm tắt & Chi tiết Part III</span></div>
+            <div class="p-6">
+                <div class="s-flash"><h3 class="font-bold text-red-700 uppercase text-sm flex items-center gap-2 mb-2">⚡ Tóm tắt siêu ngắn</h3><p class="text-red-800 text-sm leading-relaxed">Part III khai thác chiều sâu ý nghĩa: interpretivism và induction dẫn đường; purposive sampling chọn đúng người; ethnography, interview, focus group thu dữ liệu phong phú; thematic/grounded theory/discourse analysis diễn giải; NVivo hỗ trợ quản lý và coding dữ liệu lớn.</p></div>
+                <div class="s-short"><h3 class="font-bold text-orange-700 uppercase text-sm flex items-center gap-2 mb-2">📝 Tóm tắt ngắn</h3><ul class="list-disc pl-5 text-orange-800 space-y-1 text-sm"><li><strong>Ch.17:</strong> Interpretivism, induction, thick description, reflexivity.</li><li><strong>Ch.18:</strong> Purposive sampling: theoretical, snowball, maximum variation.</li><li><strong>Ch.19:</strong> Ethnography: overt/covert, complete participant/observer continuum.</li><li><strong>Ch.20:</strong> Semi-structured & unstructured interview: probing, active listening.</li><li><strong>Ch.21:</strong> Focus group: synergy, group dynamics, moderator skills.</li><li><strong>Ch.22:</strong> Discourse analysis, conversation analysis, semiotics.</li><li><strong>Ch.23:</strong> Personal/official documents, internet data, quality criteria.</li><li><strong>Ch.24:</strong> Thematic analysis, grounded theory, narrative analysis.</li><li><strong>Ch.25:</strong> NVivo: nodes, coding, querying, visualization.</li></ul></div>
+                <div class="s-detail">
+                    <div class="s-detail-header">Chi tiết theo từng chương</div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded font-bold">Ch.17</span>The Nature of Qualitative Research</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Interpretivism:</strong> Hiểu ý nghĩa chủ quan của hành động xã hội từ góc nhìn người trong cuộc.</p><p><strong>Induction:</strong> Từ dữ liệu → pattern → lý thuyết (ngược Deductive).</p><p><strong>Thick description:</strong> Mô tả dày dặn ngữ cảnh để người đọc đánh giá transferability.</p><p><strong>Reflexivity:</strong> Nhà nghiên cứu nhận thức vai trò của mình trong sản xuất tri thức.</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded font-bold">Ch.18–20</span>Sampling, Ethnography & Interviewing</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Purposive sampling:</strong> Chọn người có thể cung cấp thông tin phong phú nhất cho câu hỏi nghiên cứu.</p><p><strong>Theoretical sampling (GT):</strong> Chọn mẫu liên tục dựa trên emerging theory cho đến khi đạt theoretical saturation.</p><p><strong>Ethnography:</strong> Researcher là công cụ thu thập; overt vs covert; field notes chi tiết.</p><p><strong>Semi-structured interview:</strong> Topic guide linh hoạt; probing sâu; active listening.</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded font-bold">Ch.21</span>Focus Groups</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Ưu điểm:</strong> Synergy — tương tác nhóm tạo ý tưởng không xuất hiện trong phỏng vấn 1-1.</p><p><strong>Kỹ năng moderator:</strong> Kích thích thảo luận, tránh dominant voices, manage group dynamics.</p><p><strong>Nhược điểm:</strong> Social desirability bias; khó phân tích individual vs group voice.</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded font-bold">Ch.22–23</span>Language & Documents</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Discourse analysis:</strong> Ngôn ngữ kiến tạo thực tại xã hội, không chỉ phản ánh nó.</p><p><strong>Conversation analysis:</strong> Turn-taking, repair sequences, adjacency pairs trong hội thoại.</p><p><strong>Documents:</strong> Personal (diaries, letters), official (reports), internet (social media) — đánh giá authenticity, credibility, representativeness.</p></div></div></div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded font-bold">Ch.24</span>Qualitative Data Analysis</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Thematic Analysis:</strong> Inductive coding → themes → theoretical reflection (Braun & Clarke 6 steps).</p><p><strong>Grounded Theory:</strong> Open → axial → selective coding; constant comparison; theoretical saturation.</p><p><strong>Narrative Analysis:</strong> Cấu trúc câu chuyện (plot, character, temporality) để hiểu identity và experience.</p></div></div></div>
+                    <div><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded font-bold">Ch.25</span>Computer-Assisted QDA: NVivo</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>NVivo basics:</strong> Import transcripts/documents → Create nodes (codes) → Code text to nodes.</p><p><strong>Querying:</strong> Text search, word frequency, matrix coding để tìm pattern.</p><p><strong>Lưu ý:</strong> NVivo hỗ trợ quản lý dữ liệu, không thay thế tư duy phân tích của nhà nghiên cứu.</p></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PART 4 -->
+    <div id="panel-p4" class="part-panel">
+        <div class="part-header mb-6">
+            <div class="part-number-circle">IV</div>
+            <div><div class="part-badge">PART FOUR</div><div class="text-white font-bold text-lg">Mixed Methods Research</div><div class="text-slate-400 text-sm">Chapters 26–27</div></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+            <a href="chapter26.html" class="chapter-card"><div class="chapter-num">26</div><div><div class="font-semibold text-slate-800 text-sm">Breaking Down the Quantitative/Qualitative Divide</div><div class="text-xs text-slate-500 mt-0.5">Phá vỡ Ranh giới</div></div></a>
+            <a href="chapter27.html" class="chapter-card"><div class="chapter-num">27</div><div><div class="font-semibold text-slate-800 text-sm">Mixed Methods Research: Combining Methods</div><div class="text-xs text-slate-500 mt-0.5">Kết hợp hai Phương pháp</div></div></a>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-100 flex items-center gap-3 bg-slate-50"><span class="text-lg">⚗️</span><span class="font-bold text-slate-700">Tóm tắt & Chi tiết Part IV</span></div>
+            <div class="p-6">
+                <div class="s-flash"><h3 class="font-bold text-red-700 uppercase text-sm flex items-center gap-2 mb-2">⚡ Tóm tắt siêu ngắn</h3><p class="text-red-800 text-sm leading-relaxed">Part IV khẳng định ranh giới định lượng/định tính không cứng nhắc. Mixed methods khai thác sức mạnh tổng hợp của cả hai, với nhiều design (sequential, concurrent, transformative) và nền pragmatism. Đòi hỏi nguồn lực lớn và kỹ năng tích hợp cao.</p></div>
+                <div class="s-short"><h3 class="font-bold text-orange-700 uppercase text-sm flex items-center gap-2 mb-2">📝 Tóm tắt ngắn</h3><ul class="list-disc pl-5 text-orange-800 space-y-1 text-sm"><li><strong>Ch.26:</strong> Ranh giới quant/qual không tuyệt đối; quantitative cũng cần interpretation; qualitative cũng có thể systematic.</li><li><strong>Ch.27:</strong> Mixed methods designs: sequential exploratory/explanatory, concurrent triangulation, embedded; nền pragmatism.</li></ul></div>
+                <div class="s-detail">
+                    <div class="s-detail-header">Chi tiết theo từng chương</div>
+                    <div class="border-b border-slate-100"><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-purple-100 text-purple-800 text-xs px-2 py-0.5 rounded font-bold">Ch.26</span>Breaking Down the Quantitative/Qualitative Divide</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Ranh giới không cứng:</strong> Quantitative research cũng đòi hỏi qualitative judgment trong interpretation; qualitative có thể áp dụng systematic procedures.</p><p><strong>Quan điểm mềm:</strong> Thay vì "paradigm war", nhiều nhà nghiên cứu hiện đại ủng hộ pragmatic approach.</p><p><strong>Multi-strategy research:</strong> Sử dụng nhiều phương pháp trong cùng một dự án để trả lời câu hỏi đa chiều.</p></div></div></div>
+                    <div><div class="acc-header flex justify-between items-center p-4" onclick="toggleAcc(this)"><span class="font-semibold text-slate-800 flex items-center gap-3 text-sm"><span class="bg-purple-100 text-purple-800 text-xs px-2 py-0.5 rounded font-bold">Ch.27</span>Mixed Methods Research: Combining Methods</span><span class="acc-arrow text-sm">▶</span></div><div class="acc-content"><div class="p-4 pt-2 text-slate-600 text-sm space-y-2"><p><strong>Sequential Exploratory:</strong> Qual trước → thông tin hóa thiết kế Quant sau. Dùng khi chưa rõ construct.</p><p><strong>Sequential Explanatory:</strong> Quant trước → Qual giải thích kết quả bất ngờ. Phổ biến trong business research.</p><p><strong>Concurrent Triangulation:</strong> Chạy song song, so sánh kết quả để xác nhận hoặc cross-validate.</p><p><strong>Embedded design:</strong> Một phương pháp lồng trong phương pháp kia.</p><p><strong>Thách thức:</strong> Dual expertise, thời gian và ngân sách lớn, integration tại điểm nào (data collection, analysis, hay interpretation).</p></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CASE STUDIES -->
+    <div id="panel-cases" class="part-panel">
+        <div class="flex items-center justify-between mb-6">
+            <div><h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#0d1730">Case Studies Thực tế</h2><p class="text-slate-500 text-sm mt-1">Ứng dụng phương pháp nghiên cứu vào bài toán thực tế</p></div>
+            <div class="hidden sm:flex items-center rounded-full px-4 py-1.5" style="background:#0d1730"><span class="text-xs font-bold" style="color:#fbbf24">Applied Research</span></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <a href="CaseStudy-Thesis-AI-Unlocking.html" class="case-card group">
+                <div class="h-2" style="background:linear-gradient(90deg,#0d1730,#1d2f60)"></div>
+                <div class="p-6">
+                    <div class="flex items-start justify-between gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style="background:linear-gradient(135deg,#0d1730,#1d2f60)">🏨</div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded-full">PLS-SEM</span>
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#fef3c7;color:#92400e">Quantitative</span>
+                        </div>
+                    </div>
+                    <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.125rem;color:#1e293b;line-height:1.35;margin-bottom:.5rem">Unlocking AI Capabilities in Family Hotels</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Phân tích cách năng lực AI thúc đẩy chuyển đổi số thông qua cơ chế lưỡng dụng đổi mới (Innovation Ambidexterity).</p>
+                    <div class="flex items-center justify-between"><span class="text-xs text-slate-400">📄 Phiên bản 1</span><span class="font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all" style="color:#1d2f60">Đọc phân tích <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span></div>
+                </div>
+            </a>
+            <a href="CaseStudy-Thesis-AI-Unlocking_2.html" class="case-card group">
+                <div class="h-2" style="background:linear-gradient(90deg,#b8860b,#d4a017)"></div>
+                <div class="p-6">
+                    <div class="flex items-start justify-between gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style="background:linear-gradient(135deg,#b8860b,#d4a017)">🤖</div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded-full">PLS-SEM</span>
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#fef3c7;color:#92400e">Quantitative</span>
+                        </div>
+                    </div>
+                    <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.125rem;color:#1e293b;line-height:1.35;margin-bottom:.5rem">Unlocking AI Capabilities in Family Hotels (v2)</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Phiên bản mở rộng với phân tích sâu hơn về vai trò của AI Capability và Digital Transformation trong ngành khách sạn.</p>
+                    <div class="flex items-center justify-between"><span class="text-xs text-slate-400">📄 Phiên bản 2</span><span class="font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all" style="color:#1d2f60">Đọc phân tích <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="mt-16 py-10 px-4" style="background:#080f1e">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#d4a017,#fbbf24)">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg>
+            </div>
+            <div>
+                <div style="font-family:'Playfair Display',serif;color:#fff;font-weight:700;font-size:.875rem">MBA Research Methods Hub</div>
+                <div style="color:#64748b;font-size:.75rem">Business Research Methods · Bryman & Bell</div>
+            </div>
+        </div>
+        <div style="color:#475569;font-size:.75rem;text-align:center">© 2026 MBA Mastery · Tổng hợp học thuật · Không phát hành thương mại</div>
+    </div>
+</footer>
+
+<script>
+// ── ALL CHAPTERS DATA ──
+const chapters = [
+    {n:1,t:'Nature & Process of Business Research'},{n:2,t:'Business Research Strategies'},{n:3,t:'Research Designs'},
+    {n:4,t:'Planning & Research Questions'},{n:5,t:'Reviewing the Literature'},{n:6,t:'Ethics in Business Research'},
+    {n:7,t:'Writing Up Business Research'},{n:8,t:'Nature of Quantitative Research'},{n:9,t:'Sampling in Quantitative Research'},
+    {n:10,t:'Structured Interviewing'},{n:11,t:'Self-Completion Questionnaires'},{n:12,t:'Asking Questions'},
+    {n:13,t:'Quantitative Research: Natural Data'},{n:14,t:'Secondary Analysis & Official Statistics'},{n:15,t:'Quantitative Data Analysis'},
+    {n:16,t:'Using IBM SPSS Statistics'},{n:17,t:'Nature of Qualitative Research'},{n:18,t:'Sampling in Qualitative Research'},
+    {n:19,t:'Ethnography & Participant Observation'},{n:20,t:'Interviewing in Qualitative Research'},{n:21,t:'Focus Groups'},
+    {n:22,t:'Language in Qualitative Research'},{n:23,t:'Documents as Sources of Data'},{n:24,t:'Qualitative Data Analysis'},
+    {n:25,t:'Computer-Assisted QDA: NVivo'},{n:26,t:'Breaking Down the Quant/Qual Divide'},{n:27,t:'Mixed Methods Research'}
+];
+const grid = document.getElementById('all-chapters-grid');
+chapters.forEach(c => {
+    const a = document.createElement('a');
+    a.href = `chapter${c.n}.html`;
+    a.className = 'chapter-card';
+    a.innerHTML = `<div class="chapter-num">${c.n}</div><div class="font-semibold text-slate-700 text-xs leading-tight">${c.t}</div>`;
+    grid.appendChild(a);
+});
+
+// ── PART SWITCHING ──
+const PARTS = ['all','p1','p2','p3','p4','cases'];
+
+function showPart(id, btn) {
+    // Panels
+    PARTS.forEach(p => document.getElementById('panel-'+p).classList.remove('active'));
+    document.getElementById('panel-'+id).classList.add('active');
+
+    // Hero slots
+    document.querySelectorAll('.hero-slot').forEach(s => s.classList.remove('active'));
+    document.getElementById('hero-'+id).classList.add('active');
+
+    // Hero bg
+    const hero = document.getElementById('hero');
+    hero.className = 'hero-bg' + (id !== 'all' ? ' ' + id : '');
+
+    // Nav buttons
+    document.querySelectorAll('.nav-part-btn').forEach(b => b.classList.remove('active'));
+    if (btn) {
+        btn.classList.add('active');
+    } else {
+        const map = {all:'Tổng Quan',p1:'Part I',p2:'Part II',p3:'Part III',p4:'Part IV',cases:'Case'};
+        document.querySelectorAll('.nav-part-btn').forEach(b => {
+            if (b.textContent.includes(map[id])) b.classList.add('active');
+        });
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── ACCORDION ──
+function toggleAcc(header) {
+    const content = header.nextElementSibling;
+    const isOpen = content.classList.contains('open');
+    content.classList.toggle('open', !isOpen);
+    header.classList.toggle('active', !isOpen);
+}
+</script>
 </body>
 </html>
