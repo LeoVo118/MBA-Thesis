@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1 — Nature & Process of Business Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; }
+
+        /* ── TOP NAV ── */
+        .top-nav { background: #0d1730; border-bottom: 1px solid rgba(212,160,23,.3); position: sticky; top: 0; z-index: 50; }
+        .tab-btn { padding: 0 18px; height: 52px; font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.55); letter-spacing: .04em; text-transform: uppercase; border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap; transition: all .2s; background: none; border-left: none; border-right: none; border-top: none; }
+        .tab-btn:hover { color: #fbbf24; }
+        .tab-btn.active { color: #fbbf24; border-bottom-color: #fbbf24; }
+
+        /* ── HERO ── */
+        .chapter-hero { background: linear-gradient(135deg,#0d1730 0%,#1d2f60 60%,#2a4080 100%); position: relative; overflow: hidden; }
+        .chapter-hero::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle at 15% 50%,rgba(212,160,23,.15) 0%,transparent 55%); pointer-events:none; }
+        .hero-grid { background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px); background-size:40px 40px; position:absolute; inset:0; pointer-events:none; }
+
+        /* ── TAB CONTENT ── */
+        .tab-content { display: none; animation: fadeIn .25s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+        /* ── ACCORDION ── */
+        .acc-header { cursor: pointer; transition: background .2s; }
+        .acc-header:hover { background: #f8fafc; }
+        .acc-body { max-height: 0; overflow: hidden; transition: max-height .35s ease-out; }
+        .acc-body.open { max-height: 2000px; }
+        .acc-arrow { transition: transform .3s; color: #94a3b8; display: inline-block; }
+        .acc-header.active .acc-arrow { transform: rotate(90deg); color: #d4a017; }
+
+        /* ── CARDS / UTILS ── */
+        .gold-badge { background: linear-gradient(135deg,#d4a017,#fbbf24); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .section-num { background: linear-gradient(135deg,#0d1730,#1d2f60); color: #fbbf24; font-weight: 700; font-size: .7rem; padding: 2px 8px; border-radius: 4px; margin-right: 10px; }
+        .step-dot { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#0d1730,#1d2f60); color:#fbbf24; font-weight:700; font-size:.8rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .concept-badge { background:#e0e9ff; color:#1d2f60; font-size:.72rem; font-weight:700; padding:2px 8px; border-radius:4px; }
+
+        /* ── BREADCRUMB ── */
+        .breadcrumb a { color:rgba(255,255,255,.5); font-size:.75rem; text-decoration:none; }
+        .breadcrumb a:hover { color:#fbbf24; }
+        .breadcrumb span { color:rgba(255,255,255,.3); margin:0 6px; font-size:.75rem; }
+
+        /* mobile menu */
+        #mobile-tabs { display:none; }
+        #mobile-tabs.open { display:flex; }
+
+        ::-webkit-scrollbar { width:5px; }
+        ::-webkit-scrollbar-track { background:#f1f5f9; }
+        ::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:3px; }
+    </style>
+</head>
+<body>
+
+<!-- ══════════ TOP NAV ══════════ -->
+<nav class="top-nav">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo + breadcrumb -->
+            <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0 py-3">
+                <div class="w-7 h-7 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#d4a017,#fbbf24)">
+                    <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg>
+                </div>
+                <div class="breadcrumb hidden sm:flex items-center">
+                    <a href="index.html">MBA Research Hub</a>
+                    <span>›</span>
+                    <a href="index.html" onclick="event.preventDefault();history.back()">Part I</a>
+                    <span>›</span>
+                    <span style="color:rgba(255,255,255,.8);font-size:.75rem">Chapter 1</span>
+                </div>
+            </a>
+
+            <!-- Desktop tabs -->
+            <div class="hidden md:flex items-center overflow-x-auto">
+                <button class="tab-btn active" onclick="switchTab('summary',this)">1. Tóm tắt</button>
+                <button class="tab-btn" onclick="switchTab('concepts',this)">2. Khái niệm</button>
+                <button class="tab-btn" onclick="switchTab('analysis',this)">3. Phân tích</button>
+                <button class="tab-btn" onclick="switchTab('application',this)">4. Ứng dụng</button>
+            </div>
+
+            <!-- Mobile hamburger -->
+            <button class="md:hidden text-white p-2" onclick="document.getElementById('mobile-tabs').classList.toggle('open')">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+    </div>
+    <!-- Mobile tab dropdown -->
+    <div id="mobile-tabs" class="md:hidden flex-col border-t border-white/10 px-4 pb-3 gap-1" style="background:#080f1e">
+        <button class="text-left text-sm font-semibold text-white/70 py-2 px-3 rounded-lg hover:bg-white/10 hover:text-yellow-400" onclick="switchTab('summary');document.getElementById('mobile-tabs').classList.remove('open')">1. Tóm tắt</button>
+        <button class="text-left text-sm font-semibold text-white/70 py-2 px-3 rounded-lg hover:bg-white/10 hover:text-yellow-400" onclick="switchTab('concepts');document.getElementById('mobile-tabs').classList.remove('open')">2. Khái niệm</button>
+        <button class="text-left text-sm font-semibold text-white/70 py-2 px-3 rounded-lg hover:bg-white/10 hover:text-yellow-400" onclick="switchTab('analysis');document.getElementById('mobile-tabs').classList.remove('open')">3. Phân tích</button>
+        <button class="text-left text-sm font-semibold text-white/70 py-2 px-3 rounded-lg hover:bg-white/10 hover:text-yellow-400" onclick="switchTab('application');document.getElementById('mobile-tabs').classList.remove('open')">4. Ứng dụng</button>
+    </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<header class="chapter-hero py-10 md:py-14">
+    <div class="hero-grid"></div>
+    <div class="relative z-10 max-w-5xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row md:items-end gap-6">
+            <div class="flex-1">
+                <div class="inline-flex items-center gap-2 bg-white/10 border border-yellow-500/30 rounded-full px-3 py-1 mb-4">
+                    <span style="color:#fbbf24;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Part I · The Research Process</span>
+                </div>
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-xl flex-shrink-0" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730;font-family:'Playfair Display',serif">1</div>
+                    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:700;color:#fff;line-height:1.2">
+                        Nature & Process of<br>
+                        <span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Business Research</span>
+                    </h1>
+                </div>
+                <p style="color:#94a3b8;font-size:.9rem;max-width:520px;line-height:1.65">Nền tảng nghiên cứu kinh doanh học thuật, quy trình 7 bước và sự thừa nhận "messiness" trong thực tế.</p>
+            </div>
+            <!-- Chapter nav -->
+            <div class="flex gap-2">
+                <span class="text-slate-500 text-xs self-center">Chapter</span>
+                <a href="chapter1.html" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730">1</a>
+                <a href="chapter2.html" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold bg-white/10 text-white/60 hover:bg-white/20">2</a>
+                <a href="chapter3.html" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold bg-white/10 text-white/60 hover:bg-white/20">3</a>
+                <a href="index.html" class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold bg-white/10 text-white/60 hover:bg-yellow-400/20 hover:text-yellow-400">⋯</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ══════════ CONTENT ══════════ -->
+<main class="max-w-5xl mx-auto px-4 py-8">
+
+    <!-- ═══ TAB 1: TÓM TẮT ═══ -->
+    <div id="tab-summary" class="tab-content active">
+
+        <!-- Flash summary -->
+        <div class="bg-red-50 border-l-4 border-red-400 rounded-r-xl p-5 mb-5 shadow-sm">
+            <h3 class="font-bold text-red-700 uppercase text-sm flex items-center gap-2 mb-2">
+                <span class="text-base">⚡</span> Tóm tắt siêu ngắn
+            </h3>
+            <p class="text-red-800 leading-relaxed text-sm">
+                Chương này giới thiệu nền tảng nghiên cứu kinh doanh (khác với nghiên cứu thương mại), nhấn mạnh bối cảnh lý thuyết, chính trị và thực tiễn. Phác thảo quy trình nghiên cứu chuẩn 7 bước nhưng thừa nhận thực tế nghiên cứu thường <strong>"hỗn độn" (messiness)</strong>.
+            </p>
+        </div>
+
+        <!-- Short summary -->
+        <div class="bg-orange-50 border-l-4 border-orange-400 rounded-r-xl p-5 mb-6 shadow-sm">
+            <h3 class="font-bold text-orange-700 uppercase text-sm flex items-center gap-2 mb-3">
+                <span class="text-base">📝</span> Tóm tắt ngắn
+            </h3>
+            <ul class="list-disc pl-5 text-orange-800 space-y-1.5 text-sm">
+                <li><strong>Định nghĩa:</strong> Nghiên cứu học thuật dựa trên khoa học xã hội, khác với nghiên cứu thị trường thương mại.</li>
+                <li><strong>Tranh luận:</strong> Tính chặt chẽ (rigour) vs Tính phù hợp (relevance). Giới thiệu "Quản lý dựa trên bằng chứng" và kiến thức Mode 1/Mode 2.</li>
+                <li><strong>Quy trình:</strong> Tổng quan tài liệu → Lý thuyết → Câu hỏi → Mẫu → Dữ liệu → Phân tích → Báo cáo.</li>
+                <li><strong>Thực tế:</strong> Hiếm khi diễn ra tuyến tính — cần linh hoạt và chấp nhận sự "hỗn độn".</li>
+            </ul>
+        </div>
+
+        <!-- Detailed breakdown accordion -->
+        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center gap-2">
+                <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+                <span class="font-bold text-slate-700 text-sm uppercase tracking-wide">Chi tiết Chương 1</span>
+            </div>
+
+            <!-- 1.1 -->
+            <div class="border-b border-slate-100">
+                <div class="acc-header flex justify-between items-center px-5 py-4" onclick="toggleAcc(this)">
+                    <h3 class="font-semibold text-slate-800 flex items-center text-sm">
+                        <span class="section-num">1.1</span>
+                        Bối cảnh của Nghiên cứu Kinh doanh
+                    </h3>
+                    <span class="acc-arrow text-sm">▶</span>
+                </div>
+                <div class="acc-body">
+                    <div class="px-5 pb-5 text-slate-600 text-sm">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-1">
+                            <div class="bg-slate-50 rounded-lg p-3 border border-slate-100">
+                                <div class="font-bold text-slate-700 mb-1">🧠 Lý thuyết</div>
+                                <p>Định hướng việc thu thập và giải thích dữ liệu.</p>
+                            </div>
+                            <div class="bg-slate-50 rounded-lg p-3 border border-slate-100">
+                                <div class="font-bold text-slate-700 mb-1">🔬 Giả định triết học</div>
+                                <p>Bản thể luận (thực tại là gì?) và Nhận thức luận (làm sao để biết?).</p>
+                            </div>
+                            <div class="bg-slate-50 rounded-lg p-3 border border-slate-100">
+                                <div class="font-bold text-slate-700 mb-1">⚖️ Giá trị & Đạo đức</div>
+                                <p>Quan điểm cá nhân và quy định đạo đức ảnh hưởng phương pháp.</p>
+                            </div>
+                            <div class="bg-slate-50 rounded-lg p-3 border border-slate-100">
+                                <div class="font-bold text-slate-700 mb-1">🏛️ Chính trị</div>
+                                <p>Bối cảnh chính trị của tổ chức định hình nghiên cứu.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1.2 -->
+            <div class="border-b border-slate-100">
+                <div class="acc-header flex justify-between items-center px-5 py-4" onclick="toggleAcc(this)">
+                    <h3 class="font-semibold text-slate-800 flex items-center text-sm">
+                        <span class="section-num">1.2</span>
+                        Tính phù hợp thực tiễn (Relevance)
+                    </h3>
+                    <span class="acc-arrow text-sm">▶</span>
+                </div>
+                <div class="acc-body">
+                    <div class="px-5 pb-5 text-slate-600 text-sm space-y-2 mt-1">
+                        <div class="flex items-start gap-3 p-3 rounded-lg bg-blue-50 border border-blue-100">
+                            <span class="text-blue-500 font-bold text-xs mt-0.5 flex-shrink-0">EBM</span>
+                            <div><strong class="text-blue-800">Evidence-based Management:</strong> Cầu nối thu hẹp khoảng cách nghiên cứu–thực tiễn.</div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
+                            <span class="font-bold text-xs mt-0.5 flex-shrink-0" style="color:#0d1730">M1</span>
+                            <div><strong>Mode 1:</strong> Học thuật truyền thống, tuyến tính, lý thuyết thuần túy.</div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
+                            <span class="font-bold text-xs mt-0.5 flex-shrink-0" style="color:#d4a017">M2</span>
+                            <div><strong>Mode 2:</strong> Liên ngành, giải quyết vấn đề thực tế (university–industry collaboration).</div>
+                        </div>
+                        <div class="flex items-start gap-3 p-3 rounded-lg bg-amber-50 border border-amber-100">
+                            <span class="text-amber-600 font-bold text-xs mt-0.5 flex-shrink-0">WP</span>
+                            <div><strong class="text-amber-800">Wicked Problems:</strong> Vấn đề xã hội phức tạp, không rõ nguyên nhân/giải pháp — VD: biến đổi khí hậu.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1.3 -->
+            <div>
+                <div class="acc-header flex justify-between items-center px-5 py-4" onclick="toggleAcc(this)">
+                    <h3 class="font-semibold text-slate-800 flex items-center text-sm">
+                        <span class="section-num">1.3</span>
+                        Quy trình & Sự hỗn độn (Messiness)
+                    </h3>
+                    <span class="acc-arrow text-sm">▶</span>
+                </div>
+                <div class="acc-body">
+                    <div class="px-5 pb-5 mt-1 text-sm">
+                        <p class="text-slate-600 mb-4">Quy trình gồm 7 bước cốt lõi. Tuy nhiên tác giả thừa nhận <strong>sự "hỗn độn" (messiness)</strong>: thực tế thường có khởi đầu sai, ngõ cụt và thay đổi bất ngờ, không trơn tru như sách giáo khoa.</p>
+                        <!-- 7-step visual -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                            <div class="bg-gradient-to-br from-navy-900 to-blue-900 rounded-lg p-3 text-center" style="background:linear-gradient(135deg,#0d1730,#1d2f60)">
+                                <div class="text-xl mb-1">📚</div><div class="text-white font-bold text-xs">1. Lit Review</div>
+                            </div>
+                            <div class="bg-slate-100 rounded-lg p-3 text-center">
+                                <div class="text-xl mb-1">🧠</div><div class="text-slate-700 font-bold text-xs">2. Concepts</div>
+                            </div>
+                            <div class="bg-slate-100 rounded-lg p-3 text-center">
+                                <div class="text-xl mb-1">❓</div><div class="text-slate-700 font-bold text-xs">3. Questions</div>
+                            </div>
+                            <div class="bg-slate-100 rounded-lg p-3 text-center">
+                                <div class="text-xl mb-1">🎯</div><div class="text-slate-700 font-bold text-xs">4. Sampling</div>
+                            </div>
+                            <div class="bg-slate-100 rounded-lg p-3 text-center">
+                                <div class="text-xl mb-1">📝</div><div class="text-slate-700 font-bold text-xs">5. Collection</div>
+                            </div>
+                            <div class="bg-slate-100 rounded-lg p-3 text-center">
+                                <div class="text-xl mb-1">📊</div><div class="text-slate-700 font-bold text-xs">6. Analysis</div>
+                            </div>
+                            <div class="bg-slate-100 rounded-lg p-3 text-center">
+                                <div class="text-xl mb-1">✍️</div><div class="text-slate-700 font-bold text-xs">7. Writing</div>
+                            </div>
+                            <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-center">
+                                <div class="text-xl mb-1">🌀</div><div class="text-amber-700 font-bold text-xs">Reality: Messy!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ TAB 2: KHÁI NIỆM ═══ -->
+    <div id="tab-concepts" class="tab-content">
+
+        <!-- Concept table -->
+        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm mb-6">
+            <div class="px-5 py-3.5 bg-slate-50 border-b border-slate-200">
+                <span class="font-bold text-slate-700 text-sm uppercase tracking-wide">Bảng Khái niệm Chính</span>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-sm">
+                    <thead>
+                        <tr class="bg-slate-50 border-b border-slate-200">
+                            <th class="px-5 py-3 text-left font-bold text-slate-500 uppercase text-xs tracking-wide w-44">Khái niệm</th>
+                            <th class="px-5 py-3 text-left font-bold text-slate-500 uppercase text-xs tracking-wide">Định nghĩa</th>
+                            <th class="px-5 py-3 text-left font-bold text-slate-500 uppercase text-xs tracking-wide w-40 hidden sm:table-cell">Ví dụ</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-5 py-3.5"><span class="concept-badge">Business Research</span></td>
+                            <td class="px-5 py-3.5 text-slate-600">Nghiên cứu học thuật về kinh doanh, định hướng KHXH. Khác với nghiên cứu thị trường thương mại.</td>
+                            <td class="px-5 py-3.5 text-slate-400 italic hidden sm:table-cell">Job satisfaction study</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-5 py-3.5"><span class="concept-badge">Evidence-based Mgt</span></td>
+                            <td class="px-5 py-3.5 text-slate-600">Dùng bằng chứng tốt nhất để cải thiện quản lý. Thu hẹp "research–practice gap".</td>
+                            <td class="px-5 py-3.5 text-slate-400 italic hidden sm:table-cell">Hospital management</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-5 py-3.5"><span class="concept-badge">Mode 1 Knowledge</span></td>
+                            <td class="px-5 py-3.5 text-slate-600">Kiến thức học thuật truyền thống, tuyến tính, lý thuyết thuần túy.</td>
+                            <td class="px-5 py-3.5 text-slate-400 italic hidden sm:table-cell">Academic journals</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-5 py-3.5"><span class="concept-badge">Mode 2 Knowledge</span></td>
+                            <td class="px-5 py-3.5 text-slate-600">Kiến thức liên ngành, ứng dụng thực tế, hợp tác university–industry.</td>
+                            <td class="px-5 py-3.5 text-slate-400 italic hidden sm:table-cell">Uni–Industry collab</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-5 py-3.5"><span class="concept-badge">Wicked Problems</span></td>
+                            <td class="px-5 py-3.5 text-slate-600">Vấn đề xã hội phức tạp, không rõ nguyên nhân và giải pháp, khó định nghĩa.</td>
+                            <td class="px-5 py-3.5 text-slate-400 italic hidden sm:table-cell">Climate change</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-5 py-3.5"><span class="concept-badge">Ontology</span></td>
+                            <td class="px-5 py-3.5 text-slate-600">Bản thể luận — câu hỏi về bản chất của thực tại: Objectivism vs Constructionism.</td>
+                            <td class="px-5 py-3.5 text-slate-400 italic hidden sm:table-cell">"Tổ chức là gì?"</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-5 py-3.5"><span class="concept-badge">Epistemology</span></td>
+                            <td class="px-5 py-3.5 text-slate-600">Nhận thức luận — câu hỏi về cách thức biết: Positivism vs Interpretivism.</td>
+                            <td class="px-5 py-3.5 text-slate-400 italic hidden sm:table-cell">"Biết bằng cách nào?"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 7-step visual full -->
+        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+            <div class="px-5 py-3.5 bg-slate-50 border-b border-slate-200">
+                <span class="font-bold text-slate-700 text-sm uppercase tracking-wide">Quy trình Nghiên cứu Chuẩn (Ideal Type)</span>
+            </div>
+            <div class="p-5 space-y-3">
+                <div class="flex items-start gap-4">
+                    <div class="step-dot">1</div>
+                    <div><div class="font-bold text-slate-800 text-sm">Review Literature</div><p class="text-slate-500 text-sm mt-0.5">Tránh làm lại cái người khác đã làm. Tìm khoảng trống nghiên cứu (research gap).</p></div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="step-dot">2</div>
+                    <div><div class="font-bold text-slate-800 text-sm">Concepts & Theories</div><p class="text-slate-500 text-sm mt-0.5">Xác định "ngôn ngữ" và khung tư duy (theoretical framework) cho nghiên cứu.</p></div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="step-dot">3</div>
+                    <div><div class="font-bold text-slate-800 text-sm">Research Questions</div><p class="text-slate-500 text-sm mt-0.5">Chuyển từ ý tưởng mơ hồ sang câu hỏi cụ thể, có thể trả lời được.</p></div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="step-dot">4</div>
+                    <div><div class="font-bold text-slate-800 text-sm">Sampling</div><p class="text-slate-500 text-sm mt-0.5">Chọn đối tượng đại diện (nếu định lượng) hoặc phù hợp mục đích (nếu định tính).</p></div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="step-dot">5</div>
+                    <div><div class="font-bold text-slate-800 text-sm">Data Collection</div><p class="text-slate-500 text-sm mt-0.5">Kỹ thuật thu thập: phỏng vấn, khảo sát, quan sát, tài liệu.</p></div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="step-dot">6</div>
+                    <div><div class="font-bold text-slate-800 text-sm">Data Analysis</div><p class="text-slate-500 text-sm mt-0.5">Biến dữ liệu thô thành thông tin có ý nghĩa (SPSS/coding/thematic).</p></div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="step-dot">7</div>
+                    <div><div class="font-bold text-slate-800 text-sm">Writing Up</div><p class="text-slate-500 text-sm mt-0.5">Trình bày kết quả một cách thuyết phục, đúng chuẩn học thuật.</p></div>
+                </div>
+                <div class="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800 flex items-start gap-2">
+                    <span class="text-base flex-shrink-0">⚠️</span>
+                    <span><strong>Thực tế (Messiness):</strong> Các bước này thường đan xen, lặp lại, có ngõ cụt và thay đổi hướng bất ngờ — hoàn toàn bình thường trong nghiên cứu thực.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ TAB 3: PHÂN TÍCH ═══ -->
+    <div id="tab-analysis" class="tab-content">
+
+        <!-- Core question -->
+        <div class="rounded-xl p-6 mb-6 shadow-sm" style="background:linear-gradient(135deg,#0d1730,#1d2f60)">
+            <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:rgba(212,160,23,.7)">Câu hỏi cốt lõi</div>
+            <p class="text-white text-lg leading-relaxed" style="font-family:'Playfair Display',serif;font-style:italic">
+                "Nghiên cứu kinh doanh là gì, tại sao chúng ta thực hiện nó, và quy trình thực hiện nó diễn ra như thế nào trong bối cảnh học thuật và thực tiễn?"
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+            <!-- Logic -->
+            <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                <h3 class="font-bold text-slate-700 text-sm uppercase tracking-wide mb-4 pb-2 border-b border-slate-100">Logic Lập luận</h3>
+                <div class="space-y-3 text-sm">
+                    <div class="flex gap-3">
+                        <span class="font-bold text-xs px-2 py-0.5 rounded flex-shrink-0 h-fit mt-0.5" style="background:#e0e9ff;color:#1d2f60">Tiền đề</span>
+                        <span class="text-slate-600">Nghiên cứu không chỉ là thu thập dữ liệu; nó chịu ảnh hưởng sâu sắc của bối cảnh lý thuyết, triết học, đạo đức và chính trị.</span>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="font-bold text-xs px-2 py-0.5 rounded flex-shrink-0 h-fit mt-0.5" style="background:#e0e9ff;color:#1d2f60">Lập luận</span>
+                        <span class="text-slate-600">Phải tuân thủ quy trình và cân bằng giữa Rigour (chặt chẽ học thuật) và Relevance (ứng dụng thực tiễn).</span>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="font-bold text-xs px-2 py-0.5 rounded flex-shrink-0 h-fit mt-0.5" style="background:#e0e9ff;color:#1d2f60">Kết luận</span>
+                        <span class="text-slate-600">Thực tế luôn "hỗn độn" — cần linh hoạt thích ứng thay vì cứng nhắc theo quy trình lý tưởng.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evaluation -->
+            <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                <h3 class="font-bold text-slate-700 text-sm uppercase tracking-wide mb-4 pb-2 border-b border-slate-100">Đánh giá Chương</h3>
+                <div class="space-y-3 text-sm">
+                    <div class="p-3 bg-emerald-50 rounded-lg border border-emerald-100">
+                        <div class="font-bold text-emerald-800 mb-1">✅ Điểm mạnh</div>
+                        <ul class="text-emerald-700 space-y-1 list-disc pl-4">
+                            <li>Nhìn nhận nghiên cứu trong bối cảnh tổng thể (lý thuyết + thực tiễn + đạo đức).</li>
+                            <li>Thừa nhận "messiness" — trung thực hơn sách vở thông thường.</li>
+                            <li>Khái niệm Mode 1/2 rất hữu ích cho MBA.</li>
+                        </ul>
+                    </div>
+                    <div class="p-3 bg-amber-50 rounded-lg border border-amber-100">
+                        <div class="font-bold text-amber-800 mb-1">⚠️ Hạn chế</div>
+                        <ul class="text-amber-700 space-y-1 list-disc pl-4">
+                            <li>Quy trình 7 bước vẫn trông quá tuyến tính, dù có chú thích.</li>
+                            <li>Chương mang tính giới thiệu — chưa đi sâu vào kỹ thuật cụ thể.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rigour vs Relevance comparison -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+            <h3 class="font-bold text-slate-700 text-sm uppercase tracking-wide mb-4">Rigour vs Relevance</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                <div class="p-4 rounded-xl border-2" style="border-color:#0d1730;background:#f0f4ff">
+                    <div class="font-bold mb-2" style="color:#0d1730">🎓 Rigour (Chặt chẽ)</div>
+                    <ul class="space-y-1 text-slate-600 list-disc pl-4">
+                        <li>Phương pháp luận nghiêm ngặt</li>
+                        <li>Kiểm định giả thuyết chặt chẽ</li>
+                        <li>Đóng góp lý thuyết rõ ràng</li>
+                        <li>Peer-reviewed publications</li>
+                    </ul>
+                </div>
+                <div class="p-4 rounded-xl border-2" style="border-color:#d4a017;background:#fffdf0">
+                    <div class="font-bold mb-2" style="color:#b8860b">💼 Relevance (Phù hợp)</div>
+                    <ul class="space-y-1 text-slate-600 list-disc pl-4">
+                        <li>Giải quyết vấn đề thực tế</li>
+                        <li>Ứng dụng được ngay cho doanh nghiệp</li>
+                        <li>Hợp tác với practitioner</li>
+                        <li>Mode 2 knowledge production</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-4 p-3 rounded-lg text-sm text-center font-semibold" style="background:#e0e9ff;color:#1d2f60">
+                💡 Mục tiêu MBA: Cân bằng cả hai — nghiên cứu chặt chẽ VÀ có giá trị ứng dụng thực tiễn
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ TAB 4: ỨNG DỤNG ═══ -->
+    <div id="tab-application" class="tab-content">
+
+        <!-- Case study -->
+        <div class="rounded-xl border p-6 mb-5 shadow-sm" style="background:#f0f4ff;border-color:#c0d2ff">
+            <h3 class="font-bold text-lg mb-4 flex items-center gap-2" style="color:#0d1730">
+                <span class="text-2xl">🧪</span> Case Study: Nghiên cứu Stress ở Nhân viên Gen Z
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                <div class="bg-white rounded-lg p-3 border border-slate-200">
+                    <div class="font-bold text-slate-700 mb-1.5 flex items-center gap-2"><span class="step-dot w-6 h-6 text-xs">1</span>Lit Review</div>
+                    <p class="text-slate-600">Nghiên cứu về stress & đặc điểm Gen Z trong môi trường công sở.</p>
+                </div>
+                <div class="bg-white rounded-lg p-3 border border-slate-200">
+                    <div class="font-bold text-slate-700 mb-1.5 flex items-center gap-2"><span class="step-dot w-6 h-6 text-xs">2</span>Theory</div>
+                    <p class="text-slate-600">Khung Work-life balance, Job Demands-Resources (JD-R) model.</p>
+                </div>
+                <div class="bg-white rounded-lg p-3 border border-slate-200">
+                    <div class="font-bold text-slate-700 mb-1.5 flex items-center gap-2"><span class="step-dot w-6 h-6 text-xs">3</span>Question</div>
+                    <p class="text-slate-600">"Yếu tố nào gây stress nhất cho nhân viên Gen Z tại TP.HCM?"</p>
+                </div>
+                <div class="bg-white rounded-lg p-3 border border-slate-200">
+                    <div class="font-bold text-slate-700 mb-1.5 flex items-center gap-2"><span class="step-dot w-6 h-6 text-xs">4</span>Sampling</div>
+                    <p class="text-slate-600">50 nhân viên từ 5 công ty — stratified random sampling.</p>
+                </div>
+                <div class="bg-white rounded-lg p-3 border border-slate-200">
+                    <div class="font-bold text-slate-700 mb-1.5 flex items-center gap-2"><span class="step-dot w-6 h-6 text-xs">5</span>Collection</div>
+                    <p class="text-slate-600">Online survey (Likert 5) + 10 phỏng vấn sâu bán cấu trúc.</p>
+                </div>
+                <div class="bg-white rounded-lg p-3 border border-slate-200">
+                    <div class="font-bold text-slate-700 mb-1.5 flex items-center gap-2"><span class="step-dot w-6 h-6 text-xs">6</span>Analysis</div>
+                    <p class="text-slate-600">SPSS cho quant data + thematic coding cho phỏng vấn.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical advice -->
+        <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 mb-5">
+            <h3 class="font-bold text-emerald-900 mb-3 flex items-center gap-2">
+                <span>💡</span> Lời khuyên thực chiến cho MBA
+            </h3>
+            <div class="space-y-2 text-sm text-emerald-800">
+                <div class="flex items-start gap-2">
+                    <span class="font-bold flex-shrink-0">1.</span>
+                    <span>Khi sếp yêu cầu nghiên cứu, hỏi ngay: Đây là vấn đề đơn giản hay "Wicked problem"? → chọn phương pháp phù hợp.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <span class="font-bold flex-shrink-0">2.</span>
+                    <span>Cần báo cáo nhanh cho leadership? → Mode 2 (practical, interdisciplinary). Cần luận văn/paper? → Mode 1 (rigorous, theoretical).</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <span class="font-bold flex-shrink-0">3.</span>
+                    <span>Đừng hoảng loạn khi nghiên cứu "đi lạc" — đó là "messiness" bình thường. Ghi lại, điều chỉnh, tiếp tục.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <span class="font-bold flex-shrink-0">4.</span>
+                    <span>Bối cảnh chính trị tổ chức ảnh hưởng đến nghiên cứu — nhận thức được điều này để tránh bias từ sponsor.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Self-check questions -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+            <h3 class="font-bold text-slate-700 text-sm uppercase tracking-wide mb-4">📋 Câu hỏi Tự kiểm tra</h3>
+            <div class="space-y-3 text-sm">
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50">
+                    <span class="font-bold text-slate-500 flex-shrink-0">Q1</span>
+                    <span class="text-slate-700">Sự khác biệt chính giữa "business research" học thuật và "market research" thương mại là gì?</span>
+                </div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50">
+                    <span class="font-bold text-slate-500 flex-shrink-0">Q2</span>
+                    <span class="text-slate-700">Mode 1 và Mode 2 knowledge production khác nhau thế nào? Khi nào dùng Mode 2?</span>
+                </div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50">
+                    <span class="font-bold text-slate-500 flex-shrink-0">Q3</span>
+                    <span class="text-slate-700">Tại sao tác giả nói quy trình nghiên cứu trong thực tế thường "hỗn độn"? Cho ví dụ cụ thể.</span>
+                </div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-slate-50">
+                    <span class="font-bold text-slate-500 flex-shrink-0">Q4</span>
+                    <span class="text-slate-700">Bối cảnh chính trị tổ chức có thể ảnh hưởng đến nghiên cứu của bạn như thế nào? Làm sao giảm thiểu?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="mt-12 py-8 px-4" style="background:#0d1730">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-center sm:text-left">
+            <div class="text-white font-semibold text-sm" style="font-family:'Playfair Display',serif">Chapter 1 · Business Research Methods</div>
+            <div class="text-slate-500 text-xs mt-0.5">Bryman & Bell — MBA Research Methods Hub</div>
+        </div>
+        <div class="flex items-center gap-3">
+            <a href="index.html" class="text-xs font-semibold px-4 py-2 rounded-full border border-white/20 text-white/60 hover:border-yellow-400 hover:text-yellow-400 transition-all">← Về trang chủ</a>
+            <a href="chapter2.html" class="text-xs font-bold px-4 py-2 rounded-full transition-all" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730">Chapter 2 →</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+function switchTab(id, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    if (btn) {
+        btn.classList.add('active');
+    } else {
+        document.querySelectorAll('.tab-btn').forEach(b => {
+            if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + id + "'")) b.classList.add('active');
+        });
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleAcc(header) {
+    const body = header.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    header.classList.toggle('active', !isOpen);
+}
+</script>
+</body>
+</html>
