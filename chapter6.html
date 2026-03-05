@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="nav-active" content="p1">
+    <title>Chapter 6 — Ethics in Business Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body{font-family:"Inter",sans-serif;background:#f8fafc}
+        .hero{background:linear-gradient(135deg,#0d1730 0%,#1d2f60 60%,#2a4080 100%);position:relative;overflow:hidden}
+        .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(212,160,23,.15) 0%,transparent 55%);pointer-events:none}
+        .hgrid{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px;position:absolute;inset:0;pointer-events:none}
+        .sh{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#fff;border-bottom:1px solid #e2e8f0;transition:background .18s}
+        .sh:hover{background:#f8fafc}
+        .sb{overflow:hidden;transition:max-height .4s ease}
+        .sb.shut{max-height:0!important}
+        .sa{display:inline-block;transition:transform .3s;color:#94a3b8}
+        .sh.shut-s .sa{transform:rotate(-90deg)}
+        .ah{cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:13px 20px;transition:background .18s}
+        .ah:hover{background:#f8fafc}
+        .ab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+        .ab.open{max-height:4000px}
+        .aa{display:inline-block;transition:transform .3s;color:#94a3b8;font-size:.8rem}
+        .ah.os .aa{transform:rotate(90deg);color:#d4a017}
+        .sn{background:linear-gradient(135deg,#0d1730,#1d2f60);color:#fbbf24;font-weight:700;font-size:.68rem;padding:2px 8px;border-radius:4px;margin-right:8px;white-space:nowrap}
+        .kb{background:#e0e9ff;color:#1d2f60;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:4px}
+        .pill{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;font-size:.7rem;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0}
+        .bc a{color:rgba(255,255,255,.5);font-size:.72rem;text-decoration:none}
+        .bc a:hover{color:#fbbf24}
+        .bcs{color:rgba(255,255,255,.22);margin:0 5px;font-size:.72rem}
+        @keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+        .au{animation:up .3s ease both}
+    </style>
+</head>
+<body>
+<script src="nav.js"></script>
+
+<header class="hero py-10 md:py-14">
+    <div class="hgrid"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4">
+        <div class="bc flex items-center mb-5">
+            <a href="index.html">MBA Research Hub</a>
+            <span class="bcs">&rsaquo;</span>
+            <a href="index.html">Part I &middot; The Research Process</a>
+            <span class="bcs">&rsaquo;</span>
+            <span style="color:rgba(255,255,255,.78);font-size:.72rem">Chapter 6</span>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-end gap-6">
+            <div class="flex-1">
+                <div class="flex items-center gap-3 mb-3">
+                    <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#d4a017,#fbbf24);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:#0d1730;flex-shrink:0">6</div>
+                    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:700;color:#fff;line-height:1.2">
+                        Ethics in Business<br>
+                        <span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Research</span>
+                    </h1>
+                </div>
+                <p style="color:#94a3b8;font-size:.88rem;max-width:520px;line-height:1.65;margin-bottom:14px">&#272;&#7841;o &#273;&#7913;c kh&ocirc;ng ch&#7881; l&agrave; &#273;i&#7873;n bi&#7875;u m&#7851;u &mdash; m&agrave; l&agrave; la b&agrave;n li&ecirc;m ch&iacute;nh xuy&ecirc;n su&#7889;t to&agrave;n b&#7897; d&#7921; &aacute;n nghi&ecirc;n c&#7913;u.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Informed Consent</span>
+                    <span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Anonymity</span>
+                    <span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Deception</span>
+                    <span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Universalism</span>
+                    <span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Conflict of Interest</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+                <span style="color:#64748b;font-size:.7rem;margin-right:2px">Ch.</span>
+                <a href="chapter5.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">5</a>
+                <a href="chapter6.html" class="pill" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730">6</a>
+                <a href="chapter7.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">7</a>
+                <a href="chapter8.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">8</a>
+                <a href="index.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:1rem">&ctdot;</a>
+            </div>
+        </div>
+        <div class="flex gap-2 mt-6">
+            <button onclick="allOpen()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; M&#7903; t&#7845;t c&#7843;</button>
+            <button onclick="allClose()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; Thu t&#7845;t c&#7843;</button>
+        </div>
+    </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-4">
+
+<!-- TOM TAT -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+    <div class="sh" onclick="togS(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#fee2e2,#fecaca);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128203;</div>
+            <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">T&oacute;m t&#7855;t</div><div style="font-size:.72rem;color:#94a3b8">Summary &mdash; si&ecirc;u ng&#7855;n + 4 lu&#7853;n &#273;i&#7875;m ch&iacute;nh</div></div>
+        </div>
+        <span class="sa">&#9660;</span>
+    </div>
+    <div class="sb" style="max-height:900px">
+        <div style="padding:16px 20px 14px;background:#fff5f5;border-left:4px solid #f87171">
+            <p style="color:#991b1b;font-size:.875rem;line-height:1.75;margin:0">
+                &#272;&#7841;o &#273;&#7913;c nghi&ecirc;n c&#7913;u <strong>kh&ocirc;ng ch&#7881; l&agrave; &#273;i&#7873;n bi&#7875;u m&#7851;u xin ph&eacute;p</strong>, m&agrave; l&agrave; s&#7921; ph&#7843;n t&#432; li&ecirc;n t&#7909;c d&#7921;a tr&ecirc;n <strong>4 nguy&ecirc;n t&#7855;c c&#7889;t l&otilde;i</strong>: tr&aacute;nh g&acirc;y h&#7841;i, &#273;&#7891;ng thu&#7853;n &#273;&#432;&#7907;c th&ocirc;ng b&aacute;o, quy&#7873;n ri&ecirc;ng t&#432;, v&agrave; kh&ocirc;ng l&#432;a d&#7889;i &mdash; trong b&#7889;i c&#7843;nh th&#7921;c ti&#7877;n ng&agrave;y c&agrave;ng ph&#7913;c t&#7841;p nh&#432; kh&ocirc;ng gian m&#7841;ng v&agrave; &aacute;p l&#7921;c ch&iacute;nh tr&#7883; h&#7885;c thu&#7853;t.
+            </p>
+        </div>
+        <div style="padding:14px 20px 20px;background:#fff8f0;border-left:4px solid #fb923c">
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:.875rem;color:#9a3412">
+                <li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9312;</span><span><strong>4 l&#7853;p tr&#432;&#7901;ng &#273;&#7841;o &#273;&#7913;c:</strong> Universalism (lu&#7853;t kh&ocirc;ng bao gi&#7901; b&#7883; ph&aacute;), Situation ethics (linh ho&#7841;t theo l&#7907;i &iacute;ch), Vi ph&#7841;m l&agrave; ph&#7893; bi&#7871;n, v&agrave; Anything goes (b&#7845;t ch&#7845;p).</span></li>
+                <li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9313;</span><span><strong>4 nguy&ecirc;n t&#7855;c c&#7889;t l&otilde;i (Diener &amp; Crandall):</strong> Tr&aacute;nh g&acirc;y h&#7841;i &mdash; &#272;&#7891;ng thu&#7853;n &#273;&#432;&#7907;c th&ocirc;ng b&aacute;o &mdash; Quy&#7873;n ri&ecirc;ng t&#432; &mdash; Kh&ocirc;ng l&#432;a d&#7889;i.</span></li>
+                <li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9314;</span><span><strong>M&ocirc;i tr&#432;&#7901;ng m&#7899;i:</strong> Nghi&ecirc;n c&#7913;u tr&#7921;c tuy&#7871;n t&#7841;o ra v&ugrave;ng x&aacute;m (d&#7919; li&#7879;u c&ocirc;ng khai vs ri&ecirc;ng t&#432;). Ph&aacute;p l&yacute; GDPR, b&#7843;n quy&#7873;n, d&#7919; li&#7879;u h&igrave;nh &#7843;nh.</span></li>
+                <li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9315;</span><span><strong>Xung &#273;&#7897;t l&#7907;i &iacute;ch:</strong> Ngu&#7891;n t&agrave;i tr&#7907; c&oacute; th&#7875; l&agrave;m ch&#7879;ch h&#432;&#7899;ng s&#7921; kh&aacute;ch quan. &#193;p l&#7921;c xu&#7845;t b&#7843;n (publish or perish), t&#7841;p ch&iacute; d&#7887;m, &eacute;p bu&#7897;c tr&iacute;ch d&#7851;n.</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- CHI TIET -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+    <div class="sh" onclick="togS(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#e0e9ff,#c0d2ff);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128214;</div>
+            <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Chi ti&#7871;t Ch&#432;&#417;ng 6</div><div style="font-size:.72rem;color:#94a3b8">Detailed Breakdown &mdash; 4 m&#7909;c, click &#273;&#7875; m&#7903;</div></div>
+        </div>
+        <span class="sa">&#9660;</span>
+    </div>
+    <div class="sb" style="max-height:9999px">
+
+        <!-- 6.1 Lap truong -->
+        <div style="border-bottom:1px solid #f1f5f9">
+            <div class="ah" onclick="togA(this)">
+                <span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">6.1</span>C&aacute;c L&#7853;p tr&#432;&#7901;ng v&#7873; &#272;&#7841;o &#273;&#7913;c</span>
+                <span class="aa">&#9654;</span>
+            </div>
+            <div class="ab">
+                <div style="padding:4px 20px 20px">
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px;margin-top:10px">
+                        <div style="border-radius:10px;padding:13px;border:2px solid #0d1730;background:#f0f4ff">
+                            <div style="font-weight:700;font-size:.82rem;color:#0d1730;margin-bottom:6px">&#9878; Universalism</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0">Quy t&#7855;c &#273;&#7841;o &#273;&#7913;c <strong>kh&ocirc;ng bao gi&#7901;</strong> &#273;&#432;&#7907;c ph&aacute; v&#7905;, b&#7845;t k&#7873; ho&agrave;n c&#7843;nh. Ti&ecirc;u chu&#7849;n cao nh&#7845;t, b&#7843;o v&#7879; tuy&#7879;t &#273;&#7889;i.</p>
+                        </div>
+                        <div style="border-radius:10px;padding:13px;border:2px solid #d4a017;background:#fffdf0">
+                            <div style="font-weight:700;font-size:.82rem;color:#b8860b;margin-bottom:6px">&#9878; Situation Ethics</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0">C&oacute; th&#7875; linh ho&#7841;t <strong>n&#7871;u l&#7907;i &iacute;ch &#273;em l&#7841;i cho x&atilde; h&#7897;i &#273;&#7911; l&#7899;n</strong>. C&acirc;n nh&#7855;c chi ph&iacute; &mdash; l&#7907;i &iacute;ch.</p>
+                        </div>
+                        <div style="border-radius:10px;padding:13px;border:1px solid #e2e8f0;background:#f8fafc">
+                            <div style="font-weight:700;font-size:.82rem;color:#64748b;margin-bottom:6px">&#9888;&#65039; Transgression Is Pervasive</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0">Vi ph&#7841;m &#273;&#7841;o &#273;&#7913;c l&agrave; ph&#7893; bi&#7871;n trong th&#7921;c t&#7871; nghi&ecirc;n c&#7913;u &mdash; c&#7847;n nh&#7853;n th&#7913;c th&#7921;c t&#7871; h&#417;n.</p>
+                        </div>
+                        <div style="border-radius:10px;padding:13px;border:1px solid #fca5a5;background:#fff5f5">
+                            <div style="font-weight:700;font-size:.82rem;color:#dc2626;margin-bottom:6px">&#128683; Anything Goes</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0">B&#7845;t ch&#7845;p m&#7885;i r&agrave;ng bu&#7897;c. R&#7845;t &iacute;t ng&#432;&#7901;i &#7911;ng h&#7897; &mdash; nguy hi&#7875;m v&agrave; phi &#273;&#7841;o &#273;&#7913;c.</p>
+                        </div>
+                    </div>
+                    <div style="margin-top:12px;padding:10px 14px;background:#fef9c3;border:1px solid #fde047;border-radius:8px;font-size:.78rem;color:#713f12">
+                        &#128161; <strong>C&#259;ng th&#7859;ng ch&iacute;nh:</strong> Universalism vs Situation Ethics &mdash; khi n&agrave;o c&oacute; th&#7875; ch&#7845;p nh&#7853;n &ldquo;g&acirc;y h&#7841;i nh&#7887;&rdquo; &#273;&#7875; v&#7841;ch tr&#7847;n t&#7897;i l&#7895;i l&#7899;n h&#417;n? (VD: nghi&ecirc;n c&#7913;u ng&#7847;m &#273;&#7875; v&#7841;ch tr&#7847;n tham nh&#361;ng.)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6.2 4 nguyen tac -->
+        <div style="border-bottom:1px solid #f1f5f9">
+            <div class="ah" onclick="togA(this)">
+                <span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">6.2</span>4 Nguy&ecirc;n t&#7855;c C&#7889;t l&otilde;i (Diener &amp; Crandall, 1978)</span>
+                <span class="aa">&#9654;</span>
+            </div>
+            <div class="ab">
+                <div style="padding:4px 20px 20px">
+                    <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+
+                        <div style="border-radius:10px;padding:14px 16px;border-left:4px solid #dc2626;background:#fff5f5;display:grid;grid-template-columns:180px 1fr;gap:12px;align-items:start">
+                            <div>
+                                <div style="font-weight:700;font-size:.875rem;color:#dc2626">&#128683; Avoidance of Harm</div>
+                                <div style="font-size:.72rem;color:#64748b;margin-top:2px">Tr&aacute;nh g&acirc;y h&#7841;i</div>
+                            </div>
+                            <div style="font-size:.8rem;color:#475569;line-height:1.7">
+                                B&#7843;o v&#7879; ng&#432;&#7901;i tham gia kh&#7887;i t&#7893;n th&#432;&#417;ng <strong>th&#7875; ch&#7845;t, t&acirc;m l&yacute;, s&#7921; nghi&#7879;p</strong>. Gi&#7843;i ph&aacute;p: <strong>B&#7843;o m&#7853;t (Confidentiality)</strong> v&agrave; <strong>&#7848;n danh (Anonymity)</strong> tuy&#7879;t &#273;&#7889;i. D&ugrave;ng t&ecirc;n gi&#7843; cho ng&#432;&#7901;i v&agrave; c&ocirc;ng ty trong lu&#7853;n v&#259;n.
+                            </div>
+                        </div>
+
+                        <div style="border-radius:10px;padding:14px 16px;border-left:4px solid #d4a017;background:#fffdf0;display:grid;grid-template-columns:180px 1fr;gap:12px;align-items:start">
+                            <div>
+                                <div style="font-weight:700;font-size:.875rem;color:#b8860b">&#9989; Informed Consent</div>
+                                <div style="font-size:.72rem;color:#64748b;margin-top:2px">&#272;&#7891;ng thu&#7853;n &#273;&#432;&#7907;c th&ocirc;ng b&aacute;o</div>
+                            </div>
+                            <div style="font-size:.8rem;color:#475569;line-height:1.7">
+                                Cung c&#7845;p &#273;&#7911; th&ocirc;ng tin (m&#7909;c &#273;&iacute;ch, r&#7911;i ro) &#273;&#7875; ng&#432;&#7901;i tham gia <strong>t&#7921; nguy&#7879;n quy&#7871;t &#273;&#7883;nh</strong>. C&#7847;n c&oacute;: <strong>Information Sheet</strong> (t&#7901; th&ocirc;ng tin) + <strong>Consent Form</strong> (gi&#7845;y &#273;&#7891;ng &yacute;). Nghi&ecirc;n c&#7913;u ng&#7847;m (covert) th&#432;&#7901;ng vi ph&#7841;m nguy&ecirc;n t&#7855;c n&agrave;y.
+                            </div>
+                        </div>
+
+                        <div style="border-radius:10px;padding:14px 16px;border-left:4px solid #7c3aed;background:#f5f3ff;display:grid;grid-template-columns:180px 1fr;gap:12px;align-items:start">
+                            <div>
+                                <div style="font-weight:700;font-size:.875rem;color:#6d28d9">&#128274; Privacy</div>
+                                <div style="font-size:.72rem;color:#64748b;margin-top:2px">Quy&#7873;n ri&ecirc;ng t&#432;</div>
+                            </div>
+                            <div style="font-size:.8rem;color:#475569;line-height:1.7">
+                                T&ocirc;n tr&#7885;ng ranh gi&#7899;i c&aacute; nh&acirc;n. Kh&ocirc;ng &eacute;p bu&#7897;c ng&#432;&#7901;i tham gia tr&#7843; l&#7901;i c&aacute;c v&#7845;n &#273;&#7873; nh&#7841;y c&#7843;m. Kh&aacute;ch th&#7875; c&oacute; <strong>quy&#7873;n t&#7915; ch&#7889;i tr&#7843; l&#7901;i</strong> b&#7845;t k&#7923; c&acirc;u h&#7887;i n&agrave;o.
+                            </div>
+                        </div>
+
+                        <div style="border-radius:10px;padding:14px 16px;border-left:4px solid #059669;background:#f0fdf4;display:grid;grid-template-columns:180px 1fr;gap:12px;align-items:start">
+                            <div>
+                                <div style="font-weight:700;font-size:.875rem;color:#065f46">&#128683; Preventing Deception</div>
+                                <div style="font-size:.72rem;color:#64748b;margin-top:2px">Ng&#259;n ng&#7915;a s&#7921; l&#432;a d&#7889;i</div>
+                            </div>
+                            <div style="font-size:.8rem;color:#475569;line-height:1.7">
+                                Kh&ocirc;ng n&oacute;i d&#7889;i v&#7873; m&#7909;c &#273;&iacute;ch th&#7921;c s&#7921; c&#7911;a nghi&ecirc;n c&#7913;u. <em style="color:#94a3b8">VD n&#7893;i ti&#7871;ng: Th&iacute; nghi&#7879;m Milgram &mdash; n&oacute;i nghi&ecirc;n c&#7913;u &ldquo;tr&iacute; nh&#7899;&rdquo; nh&#432;ng th&#7921;c ch&#7845;t l&agrave; nghi&ecirc;n c&#7913;u &ldquo;s&#7921; v&acirc;ng l&#7901;i&rdquo; &mdash; vi ph&#7841;m nghi&ecirc;m tr&#7885;ng.</em>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6.3 Moi truong moi -->
+        <div style="border-bottom:1px solid #f1f5f9">
+            <div class="ah" onclick="togA(this)">
+                <span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">6.3</span>V&ugrave;ng X&aacute;m: M&ocirc;i tr&#432;&#7901;ng M&#7899;i &amp; Ph&aacute;p l&yacute;</span>
+                <span class="aa">&#9654;</span>
+            </div>
+            <div class="ab">
+                <div style="padding:4px 20px 20px">
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:10px">
+                        <div style="background:#f8fafc;border-radius:10px;padding:13px;border:1px solid #e2e8f0">
+                            <div style="font-weight:700;font-size:.82rem;color:#1e293b;margin-bottom:7px">&#127760; Nghi&ecirc;n c&#7913;u Tr&#7921;c tuy&#7871;n</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0">D&#7919; li&#7879;u tr&ecirc;n Facebook, forum &mdash; c&ocirc;ng khai hay ri&ecirc;ng t&#432;? Ng&#432;&#7901;i d&ugrave;ng c&oacute; bi&#7871;t m&igrave;nh &#273;ang b&#7883; nghi&ecirc;n c&#7913;u kh&ocirc;ng? VD: Facebook th&iacute; nghi&#7879;m thao t&uacute;ng c&#7843;m x&uacute;c 2014 g&acirc;y ph&#7851;n &#7913;ng l&#7899;n.</p>
+                        </div>
+                        <div style="background:#f8fafc;border-radius:10px;padding:13px;border:1px solid #e2e8f0">
+                            <div style="font-weight:700;font-size:.82rem;color:#1e293b;margin-bottom:7px">&#128247; D&#7919; li&#7879;u H&igrave;nh &#7843;nh</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0">&#7842;nh ch&#7909;p r&#7845;t d&#7877; l&agrave;m l&#7897; danh t&iacute;nh. C&#7847;n xin ph&eacute;p c&#7843; ng&#432;&#7901;i ch&#7909;p l&#7851;n ng&#432;&#7901;i b&#7883; ch&#7909;p. Li&ecirc;n quan b&#7843;n quy&#7873;n (Copyright) v&agrave; quy&#7873;n c&aacute; nh&acirc;n.</p>
+                        </div>
+                        <div style="background:#f8fafc;border-radius:10px;padding:13px;border:1px solid #e2e8f0">
+                            <div style="font-weight:700;font-size:.82rem;color:#1e293b;margin-bottom:7px">&#128196; Ph&aacute;p l&yacute; &amp; GDPR</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0">Qu&#7843;n l&yacute; d&#7919; li&#7879;u an to&agrave;n (Data Management). GDPR y&ecirc;u c&#7847;u: thu th&#7853;p c&oacute; m&#7909;c &#273;&iacute;ch, l&#432;u tr&#7919; gi&#7899;i h&#7841;n, ng&#432;&#7901;i d&ugrave;ng c&oacute; quy&#7873;n x&oacute;a d&#7919; li&#7879;u c&#7911;a h&#7885;.</p>
+                        </div>
+                        <div style="background:#fff5f5;border-radius:10px;padding:13px;border:1px solid #fca5a5">
+                            <div style="font-weight:700;font-size:.82rem;color:#dc2626;margin-bottom:7px">&#128176; Xung &#273;&#7897;t L&#7907;i &iacute;ch</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0">Ngu&#7891;n t&agrave;i tr&#7907; c&oacute; th&#7875; l&agrave;m ch&#7879;ch k&#7871;t qu&#7843;. VD: nghi&ecirc;n c&#7913;u t&aacute;c h&#7841;i thu&#7889;c l&aacute; do c&ocirc;ng ty thu&#7889;c l&aacute; t&agrave;i tr&#7907;. Ph&#7843;i khai b&aacute;o minh b&#7841;ch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6.4 Chinh tri hoc thuat -->
+        <div>
+            <div class="ah" onclick="togA(this)">
+                <span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">6.4</span>B&#7889;i c&#7843;nh Ch&iacute;nh tr&#7883; H&#7885;c thu&#7853;t</span>
+                <span class="aa">&#9654;</span>
+            </div>
+            <div class="ab">
+                <div style="padding:4px 20px 20px">
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px">
+                        <div style="background:#f8fafc;border-radius:10px;padding:13px;border:1px solid #e2e8f0">
+                            <div style="font-weight:700;font-size:.82rem;color:#1e293b;margin-bottom:7px">&#128240; &Aacute;p l&#7921;c Xu&#7845;t b&#7843;n</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0"><strong>&ldquo;Publish or perish&rdquo;</strong> &mdash; &#225;p l&#7921;c xu&#7845;t b&#7843;n li&ecirc;n t&#7909;c c&oacute; th&#7875; k&iacute;ch th&iacute;ch nghi&ecirc;n c&#7913;u k&eacute;m ch&#7845;t l&#432;&#7907;ng, th&#7853;m ch&iacute; nghi&ecirc;n c&#7913;u gian d&#7889;i.</p>
+                        </div>
+                        <div style="background:#f8fafc;border-radius:10px;padding:13px;border:1px solid #e2e8f0">
+                            <div style="font-weight:700;font-size:.82rem;color:#1e293b;margin-bottom:7px">&#128465;&#65039; T&#7841;p ch&iacute; D&#7887;m</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0"><strong>Feral publishers</strong> &mdash; t&#7841;p ch&iacute; tr&#7843; ph&iacute; l&#7845;y b&agrave;i, kh&ocirc;ng c&oacute; peer-review th&#7921;c s&#7921;. B&#7893; h&#7891; s&#417; h&#7885;c thu&#7853;t b&#7857;ng c&aacute;c b&agrave;i k&eacute;m ch&#7845;t l&#432;&#7907;ng.</p>
+                        </div>
+                        <div style="background:#f8fafc;border-radius:10px;padding:13px;border:1px solid #e2e8f0">
+                            <div style="font-weight:700;font-size:.82rem;color:#1e293b;margin-bottom:7px">&#128257; &Eacute;p bu&#7897;c Tr&iacute;ch d&#7851;n</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0"><strong>Coercive citation</strong> &mdash; biên t&#7853;p vi&ecirc;n t&#7841;p ch&iacute; &eacute;p t&aacute;c gi&#7843; tr&iacute;ch d&#7851;n b&agrave;i c&#7911;a h&#7885; &#273;&#7875; t&#259;ng ch&#7881; s&#7889; h/index. Vi ph&#7841;m &#273;&#7841;o &#273;&#7913;c nghi&ecirc;m tr&#7885;ng.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- BANG KHAI NIEM -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+    <div class="sh" onclick="togS(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#e0e9ff,#c0d2ff);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128273;</div>
+            <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">B&#7843;ng Kh&aacute;i ni&#7879;m</div><div style="font-size:.72rem;color:#94a3b8">Key Concepts &mdash; 6 kh&aacute;i ni&#7879;m c&#7889;t l&otilde;i</div></div>
+        </div>
+        <span class="sa">&#9660;</span>
+    </div>
+    <div class="sb" style="max-height:1200px">
+        <div style="overflow-x:auto">
+            <table style="width:100%;font-size:.8rem;border-collapse:collapse">
+                <thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0">
+                    <th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:155px">Kh&aacute;i ni&#7879;m</th>
+                    <th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em">&#272;&#7883;nh ngh&#297;a</th>
+                    <th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:170px">V&iacute; d&#7909;</th>
+                </tr></thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Universalism</span></td><td style="padding:9px 16px;color:#475569">Nguy&ecirc;n t&#7855;c &#273;&#7841;o &#273;&#7913;c kh&ocirc;ng bao gi&#7901; &#273;&#432;&#7907;c ph&aacute; v&#7905;, b&#7845;t k&#7867; ho&agrave;n c&#7843;nh.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Kh&ocirc;ng ch&#7845;p nh&#7853;n covert research</td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Situation ethics</span></td><td style="padding:9px 16px;color:#475569">C&oacute; th&#7875; vi ph&#7841;m nguy&ecirc;n t&#7855;c n&#7871;u l&#7907;i &iacute;ch x&atilde; h&#7897;i &#273;&#7911; l&#7899;n. C&acirc;n nh&#7855;c chi ph&iacute; &mdash; l&#7907;i &iacute;ch.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Quan s&aacute;t ng&#7847;m v&#7841;ch tr&#7847;n tham nh&#361;ng</td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Informed consent</span></td><td style="padding:9px 16px;color:#475569">Ng&#432;&#7901;i tham gia &#273;&#432;&#7907;c c&#7845;p &#273;&#7911; th&ocirc;ng tin (m&#7909;c &#273;&iacute;ch, r&#7911;i ro) &#273;&#7875; t&#7921; nguy&#7879;n quy&#7871;t &#273;&#7883;nh.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Information Sheet + Consent Form</td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Confidentiality &amp; Anonymity</span></td><td style="padding:9px 16px;color:#475569">Gi&#7919; b&iacute; m&#7853;t danh t&iacute;nh v&agrave; th&ocirc;ng tin c&#7911;a c&aacute; nh&acirc;n/t&#7893; ch&#7913;c, kh&ocirc;ng &#273;&#7875; l&#7897; trong b&aacute;o c&aacute;o.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">D&ugrave;ng t&ecirc;n gi&#7843; trong lu&#7853;n v&#259;n</td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Deception</span></td><td style="padding:9px 16px;color:#475569">Tr&igrave;nh b&agrave;y sai m&#7909;c &#273;&iacute;ch th&#7921;c s&#7921; c&#7911;a nghi&ecirc;n c&#7913;u. Ph&aacute; v&#7905; ni&#7873;m tin gi&#7919;a x&atilde; h&#7897;i v&agrave; gi&#7899;i nghi&ecirc;n c&#7913;u.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Th&iacute; nghi&#7879;m Milgram</td></tr>
+                    <tr><td style="padding:9px 16px"><span class="kb">Conflict of interest</span></td><td style="padding:9px 16px;color:#475569">Ngu&#7891;n t&agrave;i tr&#7907; ho&#7863;c quan h&#7879; c&aacute; nh&acirc;n c&oacute; nguy c&#417; l&agrave;m ch&#7879;ch h&#432;&#7899;ng s&#7921; kh&aacute;ch quan c&#7911;a nghi&ecirc;n c&#7913;u.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Nghi&ecirc;n c&#7913;u thu&#7889;c l&aacute; do h&atilde;ng thu&#7889;c l&aacute; t&agrave;i tr&#7907;</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- PHAN TICH -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+    <div class="sh" onclick="togS(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#0d1730,#1d2f60);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" fill="none" stroke="#fbbf24" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+            <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Ph&acirc;n t&iacute;ch &amp; &#272;&aacute;nh gi&aacute;</div><div style="font-size:.72rem;color:#94a3b8">Critical Analysis &mdash; Logic l&#7853;p lu&#7853;n c&#7911;a t&aacute;c gi&#7843;</div></div>
+        </div>
+        <span class="sa">&#9660;</span>
+    </div>
+    <div class="sb" style="max-height:2000px">
+        <div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+            <div style="border-radius:12px;padding:18px 20px;background:linear-gradient(135deg,#0d1730,#1d2f60)">
+                <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(212,160,23,.75);margin-bottom:8px">C&acirc;u h&#7887;i c&#7889;t l&otilde;i c&#7911;a t&aacute;c gi&#7843;</div>
+                <p style="color:#fff;font-size:.875rem;line-height:1.7;font-family:Georgia,serif;font-style:italic">"Nh&agrave; nghi&ecirc;n c&#7913;u kinh doanh ph&#7843;i &#273;&#7889;i m&#7863;t v&#7899;i nh&#7919;ng th&aacute;ch th&#7913;c &#273;&#7841;o &#273;&#7913;c n&agrave;o khi t&#432;&#417;ng t&aacute;c v&#7899;i &#273;&#7889;i t&#432;&#7907;ng nghi&ecirc;n c&#7913;u, v&agrave; l&agrave;m th&#7871; n&agrave;o &#273;&#7875; &#273;i&#7873;u h&#432;&#7899;ng nh&#7919;ng th&aacute;ch th&#7913;c n&agrave;y trong m&ocirc;i tr&#432;&#7901;ng th&#7921;c ti&#7877;n &#273;&#7847;y bi&#7871;n &#273;&#7897;ng?"</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+                <div style="border:1px solid #e2e8f0;border-radius:12px;padding:15px">
+                    <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #f1f5f9">Logic L&#7853;p lu&#7853;n</div>
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                        <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;height:fit-content;margin-top:1px">Premise</span><span style="color:#475569;font-size:.8rem">Nghi&ecirc;n c&#7913;u li&ecirc;n quan tr&#7921;c ti&#7871;p &#273;&#7871;n con ng&#432;&#7901;i &mdash; lu&ocirc;n ti&#7873;m &#7849;n nguy c&#417; g&acirc;y t&#7893;n h&#7841;i quy&#7873;n l&#7907;i, danh d&#7921;, s&#7921; nghi&#7879;p.</span></div>
+                        <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;height:fit-content;margin-top:1px">Argument</span><span style="color:#475569;font-size:.8rem">Ranh gi&#7899;i &#273;&#7841;o &#273;&#7913;c hi&#7871;m khi tr&#7855;ng &#273;en r&otilde; r&agrave;ng &mdash; ph&#7843;i li&ecirc;n t&#7909;c &#273;&aacute;nh gi&aacute; d&#7921;a tr&ecirc;n 4 nguy&ecirc;n t&#7855;c v&agrave; b&#7889;i c&#7843;nh c&#7909; th&#7875;.</span></div>
+                        <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;height:fit-content;margin-top:1px">Conclusion</span><span style="color:#475569;font-size:.8rem">Kh&ocirc;ng m&#7897;t l&#7907;i &iacute;ch h&#7885;c thu&#7853;t n&agrave;o c&oacute; th&#7875; bi&#7879;n minh cho vi&#7879;c g&acirc;y h&#7841;i ng&#432;&#7901;i tham gia. Integrity l&agrave; n&#7873;n t&#7843;ng.</span></div>
+                    </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px">
+                    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+                        <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9989; &#272;i&#7875;m m&#7841;nh</div>
+                        <ul style="color:#047857;font-size:.78rem;line-height:1.7;padding-left:14px;margin:0">
+                            <li>C&ocirc;ng c&#7909; th&#7921;c ti&#7877;n: m&#7851;u Information Sheet, Consent Form, Ethics Clearance form.</li>
+                            <li>Ti&#7871;p c&#7853;n &#273;a chi&#7873;u &mdash; kh&ocirc;ng &aacute;p &#273;&#7863;t gi&aacute;o &#273;i&#7873;u c&#7913;ng nh&#7855;c.</li>
+                        </ul>
+                    </div>
+                    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+                        <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9888;&#65039; H&#7841;n ch&#7871;</div>
+                        <ul style="color:#b45309;font-size:.78rem;line-height:1.7;padding-left:14px;margin:0">
+                            <li>H&#432;&#7899;ng d&#7851;n internet ethics thay &#273;&#7893;i qu&aacute; nhanh &mdash; c&oacute; th&#7875; m&#7869;u chóng l&#7895;i th&#7901;i.</li>
+                            <li>Gi&#7843; &#273;&#7883;nh m&#7885;i tr&#432;&#7901;ng c&oacute; Ethics Committee &mdash; kh&ocirc;ng &#273;&#250;ng v&#7899;i nh&agrave; nghi&ecirc;n c&#7913;u t&#7921; do hay &#7903; n&#432;&#7899;c &#273;ang ph&aacute;t tri&#7875;n.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- UNG DUNG -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+    <div class="sh" onclick="togS(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#d1fae5,#a7f3d0);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#129514;</div>
+            <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">&#7912;ng d&#7909;ng Th&#7921;c ti&#7877;n</div><div style="font-size:.72rem;color:#94a3b8">Case Study + &#272;&#7873; xu&#7845;t + T&#7921; ki&#7875;m tra</div></div>
+        </div>
+        <span class="sa">&#9660;</span>
+    </div>
+    <div class="sb" style="max-height:3000px">
+        <div style="padding:20px;display:flex;flex-direction:column;gap:16px">
+            <div>
+                <div style="font-weight:700;color:#1e293b;margin-bottom:12px;font-size:.875rem">&#127970; Case Study: Kh&#7843;o s&aacute;t v&#259;n h&oacute;a &#273;&#7897;c h&#7841;i t&#7841;i Startup X</div>
+                <div style="display:flex;flex-direction:column;gap:8px;font-size:.8rem">
+                    <div style="border-radius:10px;padding:12px;background:#fffdf0;border-left:3px solid #d4a017">
+                        <strong style="color:#b8860b">&#9989; Informed Consent:</strong>
+                        <div style="color:#475569;margin-top:4px">&#272;&#432;a form &#273;&#7891;ng thu&#7853;n, ghi r&otilde; h&#7885; c&oacute; quy&#7873;n d&#7915;ng ph&#7887;ng v&#7845;n n&#7871;u c&acirc;u h&#7887;i khi&#7871;n h&#7885; &aacute;p l&#7921;c.</div>
+                    </div>
+                    <div style="border-radius:10px;padding:12px;background:#fff5f5;border-left:3px solid #dc2626">
+                        <strong style="color:#dc2626">&#9888;&#65039; Harm &amp; Confidentiality:</strong>
+                        <div style="color:#475569;margin-top:4px">N&#7871;u Gi&aacute;m &#273;&#7889;c nh&#7853;n ra ai n&oacute;i x&#7845;u c&ocirc;ng ty &rarr; nh&acirc;n vi&ecirc;n b&#7883; sa th&#7843;i. Ph&#7843;i d&ugrave;ng t&ecirc;n gi&#7843; tuy&#7879;t &#273;&#7889;i: <em>&ldquo;Nh&acirc;n vi&ecirc;n A&rdquo;, &ldquo;C&ocirc;ng ty C&ocirc;ng ngh&#7879; Y&rdquo;</em>.</div>
+                    </div>
+                    <div style="border-radius:10px;padding:12px;background:#f5f3ff;border-left:3px solid #7c3aed">
+                        <strong style="color:#6d28d9">&#9888;&#65039; Conflict of Interest:</strong>
+                        <div style="color:#475569;margin-top:4px">V&igrave; bi&#7871;t h&#7885; tr&#432;&#7899;c &mdash; ph&#7843;i c&#7849;n th&#7853;n kh&ocirc;ng l&#7907;i d&#7909;ng l&ograve;ng tin &#273;&#7875; &eacute;p ti&#7871;t l&#7897; b&iacute; m&#7853;t th&#432;&#417;ng m&#7841;i.</div>
+                    </div>
+                </div>
+            </div>
+            <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px">
+                <div style="font-weight:700;color:#14532d;margin-bottom:10px;font-size:.875rem">&#128161; &#272;&#7873; xu&#7845;t &#7913;ng d&#7909;ng</div>
+                <div style="display:flex;flex-direction:column;gap:8px;font-size:.8rem;color:#166534">
+                    <div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Lu&#7853;n v&#259;n</span><span>N&#7897;p Ethics Clearance <strong>tr&#432;&#7899;c khi ph&#7887;ng v&#7845;n b&#7845;t k&#7923; ai</strong>. So&#7841;n s&#7861;n: Information Sheet + Consent Form. &#272;&#7885;c k&#7929; quy &#273;&#7883;nh &#273;&#7841;o &#273;&#7913;c c&#7911;a tr&#432;&#7901;ng.</span></div>
+                    <div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">C&ocirc;ng vi&#7879;c</span><span>Thu th&#7853;p d&#7919; li&#7879;u kh&aacute;ch h&agrave;ng: t&#7921; h&#7887;i &mdash; <em>&ldquo;Kh&aacute;ch h&agrave;ng c&oacute; c&#7843;m th&#7845;y b&#7883; l&#432;a d&#7889;i n&#7871;u bi&#7871;t m&igrave;nh &#273;ang thu th&#7853;p d&#7919; li&#7879;u n&agrave;y kh&ocirc;ng?&rdquo;</em> &mdash; &#273;&#7915;ng ch&#7881; ngh&#297; &#273;&#7871;n lu&#7853;t GDPR.</span></div>
+                    <div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">&#272;&#7901;i s&#7889;ng</span><span>B&igrave;nh lu&#7853;n trong c&aacute;c h&#7897;i nh&oacute;m Facebook c&ocirc;ng khai c&oacute; th&#7875; b&#7883; thu th&#7853;p ph&acirc;n t&iacute;ch m&agrave; kh&ocirc;ng c&#7847;n xin ph&eacute;p &mdash; n&acirc;ng cao nh&#7853;n th&#7913;c <strong>quy&#7873;n ri&ecirc;ng t&#432; k&#7929; thu&#7853;t s&#7889;</strong>.</span></div>
+                </div>
+            </div>
+            <div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px">
+                <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:12px">&#128203; C&acirc;u h&#7887;i T&#7921; ki&#7875;m tra</div>
+                <div style="display:flex;flex-direction:column;gap:8px">
+                    <div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q1</span><span style="color:#374151">Ph&acirc;n bi&#7879;t Universalism v&agrave; Situation Ethics. T&igrave;nh hu&#7889;ng n&agrave;o c&oacute; th&#7875; bi&#7879;n minh cho vi&#7879;c nghi&ecirc;n c&#7913;u ng&#7847;m (covert)?</span></div>
+                    <div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q2</span><span style="color:#374151">T&#7841;i sao thí nghi&#7879;m Milgram b&#7883; coi l&agrave; vi ph&#7841;m &#273;&#7841;o &#273;&#7913;c? N&oacute; vi ph&#7841;m nguy&ecirc;n t&#7855;c n&agrave;o trong 4 nguy&ecirc;n t&#7855;c?</span></div>
+                    <div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q3</span><span style="color:#374151">D&#7919; li&#7879;u b&igrave;nh lu&#7853;n tr&ecirc;n Facebook c&ocirc;ng khai &mdash; c&oacute; c&#7847;n xin ph&eacute;p kh&ocirc;ng? L&#7853;p lu&#7853;n c&#7843; 2 ph&iacute;a.</span></div>
+                    <div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q4</span><span style="color:#374151">Lu&#7853;n v&#259;n MBA c&#7911;a b&#7841;n c&oacute; b&#7845;t k&#7923; Conflict of Interest n&agrave;o kh&ocirc;ng? (C&ocirc;ng ty b&#7841;n ph&#7887;ng v&#7845;n c&oacute; ph&#7843;i l&agrave; n&#417;i b&#7841;n t&#7915;ng l&agrave;m vi&#7879;c kh&ocirc;ng?)</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+<footer style="margin-top:32px;padding:28px 16px;background:#0d1730">
+    <div style="max-width:896px;margin:0 auto;display:flex;flex-direction:column;gap:12px;align-items:center">
+        <div style="text-align:center">
+            <div style="font-family:Georgia,serif;color:#fff;font-weight:700;font-size:.875rem">Chapter 6 &middot; Ethics in Business Research</div>
+            <div style="color:#475569;font-size:.72rem;margin-top:2px">Bryman &amp; Bell &mdash; MBA Research Methods Hub &middot; &copy; 2026</div>
+        </div>
+        <div style="display:flex;gap:8px">
+            <a href="chapter5.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&larr; Chapter 5</a>
+            <a href="index.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&#127968; Home</a>
+            <a href="chapter7.html" style="font-size:.75rem;font-weight:700;padding:7px 16px;border-radius:999px;background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730;text-decoration:none">Chapter 7 &rarr;</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+function togS(h){h.nextElementSibling.classList.toggle("shut");h.classList.toggle("shut-s")}
+function togA(h){h.nextElementSibling.classList.toggle("open");h.classList.toggle("os")}
+function allOpen(){document.querySelectorAll(".sb").forEach(b=>b.classList.remove("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.remove("shut-s"))}
+function allClose(){document.querySelectorAll(".sb").forEach(b=>b.classList.add("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.add("shut-s"))}
+</script>
+</body>
+</html>
