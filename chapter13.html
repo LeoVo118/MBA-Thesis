@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="nav-active" content="p2">
+<title>Chapter 13 — Structured Observation &</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        body{font-family:"Inter",sans-serif;background:#f8fafc}
+        .hero{background:linear-gradient(135deg,#0d1730 0%,#1d2f60 60%,#2a4080 100%);position:relative;overflow:hidden}
+        .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(212,160,23,.15) 0%,transparent 55%);pointer-events:none}
+        .hgrid{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px;position:absolute;inset:0;pointer-events:none}
+        .sh{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#fff;border-bottom:1px solid #e2e8f0;transition:background .18s}
+        .sh:hover{background:#f8fafc}
+        .sb{overflow:hidden;transition:max-height .4s ease}
+        .sb.shut{max-height:0!important}
+        .sa{display:inline-block;transition:transform .3s;color:#94a3b8}
+        .sh.shut-s .sa{transform:rotate(-90deg)}
+        .ah{cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:13px 20px;transition:background .18s}
+        .ah:hover{background:#f8fafc}
+        .ab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+        .ab.open{max-height:5000px}
+        .aa{display:inline-block;transition:transform .3s;color:#94a3b8;font-size:.8rem}
+        .ah.os .aa{transform:rotate(90deg);color:#d4a017}
+        .sn{background:linear-gradient(135deg,#0d1730,#1d2f60);color:#fbbf24;font-weight:700;font-size:.68rem;padding:2px 8px;border-radius:4px;margin-right:8px;white-space:nowrap}
+        .kb{background:#e0e9ff;color:#1d2f60;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:4px}
+        .pill{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;font-size:.7rem;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0}
+        .bc a{color:rgba(255,255,255,.5);font-size:.72rem;text-decoration:none}
+        .bc a:hover{color:#fbbf24}
+        .bcs{color:rgba(255,255,255,.22);margin:0 5px;font-size:.72rem}
+        @keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+        .au{animation:up .3s ease both}</style>
+</head><body>
+<script src="nav.js"></script>
+<header class="hero py-10 md:py-14">
+<div class="hgrid"></div>
+<div class="relative z-10 max-w-4xl mx-auto px-4">
+  <div class="bc flex items-center mb-5">
+    <a href="index.html">MBA Research Hub</a><span class="bcs">&rsaquo;</span>
+    <a href="index.html">Part II &middot; Quantitative Research</a><span class="bcs">&rsaquo;</span>
+    <span style="color:rgba(255,255,255,.78);font-size:.72rem">Chapter 13</span>
+  </div>
+  <div class="flex flex-col md:flex-row md:items-end gap-6">
+    <div class="flex-1">
+      <div class="flex items-center gap-3 mb-3">
+        <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#d4a017,#fbbf24);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:#0d1730;flex-shrink:0">13</div>
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3.5vw,2.1rem);font-weight:700;color:#fff;line-height:1.2">Structured Observation &<br><span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Content Analysis</span></h1>
+      </div>
+      <p style="color:#94a3b8;font-size:.88rem;max-width:520px;line-height:1.65;margin-bottom:14px">Thay v&igrave; H&#7887;I ng&#432;&#7901;i ta l&agrave;m g&igrave;, h&atilde;y NH&Igrave;N v&agrave; &#272;&#7870;M nh&#7919;ng g&igrave; h&#7885; th&#7921;c s&#7921; l&agrave;m v&agrave; vi&#7871;t. D&#7919; li&#7879;u t&#7921; nhi&ecirc;n ch&iacute;nh x&aacute;c h&#417;n t&#7921; b&aacute;o c&aacute;o.</p>
+      <div class="flex flex-wrap gap-2"><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Structured Observation</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Content Analysis</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Coding Manual</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Cohen's Kappa</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Manifest vs Latent</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Hawthorne Effect</span></div>
+    </div>
+    <div class="flex items-center gap-1.5 flex-shrink-0">
+      <span style="color:#64748b;font-size:.7rem;margin-right:2px">Ch.</span>
+      <a href="chapter12.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">12</a><a href="chapter13.html" class="pill" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730">13</a><a href="chapter14.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">14</a>
+      <a href="index.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:1rem">&ctdot;</a>
+    </div>
+  </div>
+  <div class="flex gap-2 mt-6">
+    <button onclick="allOpen()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; M&#7903; t&#7845;t c&#7843;</button>
+    <button onclick="allClose()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; Thu t&#7845;t c&#7843;</button>
+  </div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-4">
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128203;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">T&oacute;m t&#7855;t</div><div style="font-size:.72rem;color:#94a3b8">Summary &mdash; lu&#7853;n &#273;i&#7875;m ch&iacute;nh + 4 &#273;i&#7875;m c&#7889;t l&otilde;i</div></div>
+    </div>
+    <span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:900px"><div style="padding:16px 20px 14px;background:#fff5f5;border-left:4px solid #f87171"><p style="color:#991b1b;font-size:.875rem;line-height:1.75;margin:0">Thay v&igrave; <strong>H&#7887;I</strong> ng&#432;&#7901;i ta l&agrave;m g&igrave;, hai ph&#432;&#417;ng ph&aacute;p n&agrave;y <strong>NH&Igrave;N</strong> v&agrave; <strong;>&#272;&#7870;M</strong> nh&#7919;ng g&igrave; h&#7885; th&#7921;c s&#7921; l&agrave;m v&agrave; vi&#7871;t. D&#7919; li&#7879;u t&#7921; nhi&ecirc;n (hành vi th&#7921;c, b&agrave;i b&aacute;o, email) ch&iacute;nh x&aacute;c h&#417;n b&aacute;o c&aacute;o t&#7921; nguy&#7879;n (self-report).</p></div><div style="padding:14px 20px 20px;background:#fff8f0;border-left:4px solid #fb923c"><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:.875rem;color:#9a3412"><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9312;</span><span><strong>Quan s&aacute;t c&oacute; c&#7845;u tr&uacute;c:</strong> D&ugrave;ng Observation schedule (b&#7843;ng checklist) ghi l&#7841;i h&agrave;nh vi. Ph&#7843;i l&#7845;y m&#7851;u c&#7843; th&#7901;i gian (time sampling). R&#7911;i ro: Hawthorne effect (ng&#432;&#7901;i b&#7883; quan s&aacute;t di&#7877;n k&#7883;ch).</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9313;</span><span><strong>Ph&acirc;n t&iacute;ch n&#7897;i dung:</strong> &#272;&#7871;m t&#7847;n su&#7845;t xu&#7845;t hi&#7879;n c&#7911;a t&#7915; ng&#7919;/ch&#7911; &#273;&#7873;/h&igrave;nh &#7843;nh trong v&#259;n b&#7843;n. C&#7847;n Coding manual (lu&#7853;t ph&acirc;n lo&#7841;i) + Coding schedule (b&#7843;ng nh&#7853;p d&#7919; li&#7879;u).</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9314;</span><span><strong>Manifest vs Latent:</strong> Manifest (n&#7897;i dung hi&#7875;n ng&ocirc;n, d&#7877; &#273;&#7871;m) vs Latent (n&#7897;i dung &#7849;n &yacute;, r&#7845;t ch&#7911; quan). Ph&#7843;i dùng Cohen's Kappa &gt;0.8 &#273;&#7875; ki&#7875;m ch&#7913;ng inter-rater reliability.</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9315;</span><span><strong>H&#7841;n ch&#7871; chung:</strong> C&#7843; hai b&#7887; qua &ldquo;t&#7841;i sao&rdquo; &mdash; kh&ocirc;ng gi&#7843;i th&iacute;ch &#273;&#432;&#7907;c &yacute; &#273;&#7883;nh, c&#7843;m x&uacute;c &#273;&#259;ng sau h&agrave;nh vi hay v&#259;n b&#7843;n.</span></li></ul></div></div>
+</div>
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128214;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Chi ti&#7871;t Ch&#432;&#417;ng 13</div><div style="font-size:.72rem;color:#94a3b8">4 m&#7909;c accordion</div></div>
+    </div>
+    <span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:9999px"><div style="display:flex;align-items:center;justify-content:space-between;padding:8px 20px 4px;background:#f8fafc;border-bottom:1px solid #f1f5f9"><span style="font-size:.7rem;color:#94a3b8;font-weight:600">4 m&#7909;c &mdash; click &#273;&#7875; m&#7903;</span></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">13.1</span>Quan s&aacute;t c&oacute; c&#7845;u tr&uacute;c &amp; Mintzberg</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px;margin-top:10px">
+<div style="background:#f0f4ff;border-radius:10px;padding:12px;border-left:3px solid #0d1730">
+<div style="font-weight:700;font-size:.82rem;color:#0d1730;margin-bottom:4px">&#128203; Observation Schedule</div>
+<p style="font-size:.76rem;color:#475569;line-height:1.5;margin:0">B&#7843;ng checklist v&#7899;i c&aacute;c danh m&#7909;c h&agrave;nh vi. Th&#7845;y h&agrave;nh vi n&agrave;o th&igrave; &#273;&aacute;nh d&#7845;u v&agrave;o &ocirc;.</p></div>
+<div style="background:#fffdf0;border-radius:10px;padding:12px;border-left:3px solid #d4a017">
+<div style="font-weight:700;font-size:.82rem;color:#b8860b;margin-bottom:4px">&#9201;&#65039; Time Sampling</div>
+<p style="font-size:.76rem;color:#475569;line-height:1.5;margin:0">Kh&ocirc;ng quan s&aacute;t 24/24. Ph&#7843;i chia l&#7883;ch: ch&#7881; quan s&aacute;t l&uacute;c 10h v&agrave; 15h. L&#7845;y m&#7851;u c&#7843; th&#7901;i gian!</p></div>
+<div style="background:#fff5f5;border-radius:10px;padding:12px;border-left:3px solid #dc2626">
+<div style="font-weight:700;font-size:.82rem;color:#dc2626;margin-bottom:4px">&#127914; Hawthorne Effect</div>
+<p style="font-size:.76rem;color:#475569;line-height:1.5;margin:0">Ng&#432;&#7901;i b&#7883; quan s&aacute;t thay &#273;&#7893;i h&agrave;nh vi khi bi&#7871;t c&oacute; ng&#432;&#7901;i gi&aacute;m s&aacute;t. K&#7867; th&ugrave; l&#7899;n nh&#7845;t.</p></div></div>
+<div style="margin-top:10px;background:#f0f4ff;border-radius:8px;padding:10px 14px;font-size:.78rem;color:#1d2f60;border:1px solid #c0d2ff">&#128201; <strong>Mintzberg:</strong> Chia m&#7885;i h&agrave;nh &#273;&#7897;ng c&#7911;a qu&#7843;n l&yacute; th&agrave;nh 5 lo&#7841;i: h&#7885;p c&oacute; l&#7883;ch / h&#7885;p &#273;&#7897;t xu&#7845;t / l&agrave;m vi&#7879;c t&#7841;i b&agrave;n / g&#7885;i &#273;i&#7879;n / &#273;i d&#7841;o &rarr; &#273;&#7883;nh l&#432;&#7907;ng h&oacute;a 1 ng&agrave;y l&agrave;m vi&#7879;c ho&agrave;n to&agrave;n b&#7857;ng con s&#7889;.</div></div></div></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">13.2</span>C&#7863;p b&agrave;i tr&ugrave;ng: Coding Manual &amp; Schedule</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+<div style="border-radius:10px;padding:13px;background:#fffdf0;border-left:4px solid #d4a017;display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:start">
+<div><div style="font-weight:700;font-size:.82rem;color:#b8860b">&#128210; Coding Manual</div><div style="font-size:.7rem;color:#64748b;margin-top:2px">S&#7893; tay m&atilde; h&oacute;a</div></div>
+<div style="font-size:.8rem;color:#475569;line-height:1.65"><strong>T&#7915; &#273;i&#7875;n lu&#7853;t ch&#417;i</strong> cho ng&#432;&#7901;i m&atilde; h&oacute;a. Ph&#7843;i &#273;&#7883;nh ngh&#297;a c&#7921;c k&#7923; r&otilde; r&agrave;ng &#273;&#7875; 10 ng&#432;&#7901;i &#273;&#7885;c &#273;&#7873;u ph&acirc;n lo&#7841;i gi&#7889;ng nhau. VD: &ldquo;N&#7871;u b&agrave;i b&aacute;o nh&#7855;c &#273;&#7871;n &#8216;&#273;e d&#7885;a th&#7875; ch&#7845;t&#8217;, &#273;i&#7873;n m&atilde; 3 v&agrave;o m&#7909;c Tr&#7903; ng&#7841;i.&rdquo;</div></div>
+<div style="border-radius:10px;padding:13px;background:#f0f4ff;border-left:4px solid #0d1730;display:grid;grid-template-columns:130px 1fr;gap:10px;align-items:start">
+<div><div style="font-weight:700;font-size:.82rem;color:#0d1730">&#128202; Coding Schedule</div><div style="font-size:.7rem;color:#64748b;margin-top:2px">B&#7843;ng nh&#7853;p d&#7919; li&#7879;u</div></div>
+<div style="font-size:.8rem;color:#475569;line-height:1.65"><strong>B&#7843;ng t&iacute;nh (Excel)</strong> &#273;i&#7873;n c&aacute;c m&atilde; s&#7889; thu &#273;&#432;&#7907;c. M&#7895;i h&agrave;ng = 1 b&agrave;i b&aacute;o. M&#7895;i c&#7897;t = 1 bi&#7871;n s&#7889; (gi&#7899;i t&iacute;nh, ngh&#7873; nghi&#7879;p, k&#7871;t qu&#7843;). N&#7841;p v&agrave;o SPSS &#273;&#7875; ch&#7841;y th&#7889;ng k&ecirc;.</div></div>
+<div style="background:#f0fdf4;border-radius:8px;padding:9px 14px;font-size:.78rem;color:#065f46;border:1px solid #bbf7d0">&#9989; <strong>Mutually exclusive + Exhaustive:</strong> Lu&#7853;t ph&acirc;n lo&#7841;i ph&#7843;i &#273;&#7897;c l&#7853;p (kh&ocirc;ng ch&#7891;ng ch&eacute;o &yacute; ngh&#297;a) v&agrave; bao qu&aacute;t (kh&ocirc;ng b&#7887; s&oacute;t tr&#432;&#7901;ng h&#7907;p n&agrave;o).</div></div></div></div></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">13.3</span>Manifest vs Latent + Cohen's Kappa</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+<div style="border-radius:12px;padding:14px;border:2px solid #059669;background:#f0fdf4">
+<div style="font-weight:700;font-size:.82rem;color:#065f46;margin-bottom:8px">&#128064; Manifest Content</div>
+<p style="font-size:.78rem;color:#166534;line-height:1.6;margin:0 0 8px">N&#7897;i dung <strong>hi&#7875;n ng&ocirc;n</strong> &mdash; d&#7877; th&#7845;y, d&#7877; &#273;&#7871;m. Kh&aacute;ch quan cao.</p>
+<div style="background:#dcfce7;border-radius:6px;padding:6px 9px;font-size:.74rem;color:#14532d">VD: B&agrave;i b&aacute;o nh&#7855;c 5 l&#7847;n t&#7915; &ldquo;l&#432;&#417;ng th&#432;&#7903;ng&rdquo; &rarr; d&#7877; &#273;&#7871;m, kh&ocirc;ng tranh c&atilde;i.</div>
+</div>
+<div style="border-radius:12px;padding:14px;border:2px solid #dc2626;background:#fff5f5">
+<div style="font-weight:700;font-size:.82rem;color:#dc2626;margin-bottom:8px">&#128581; Latent Content</div>
+<p style="font-size:.78rem;color:#991b1b;line-height:1.6;margin:0 0 8px">N&#7897;i dung <strong>&#7849;n &yacute;</strong> &mdash; &yacute; ngh&#297;a s&acirc;u ph&iacute;a sau b&#7873; m&#7863;t. R&#7845;t ch&#7911; quan!</p>
+<div style="background:#fee2e2;border-radius:6px;padding:6px 9px;font-size:.74rem;color:#991b1b">VD: B&agrave;i b&aacute;o &#273;ang c&oacute; th&aacute;i &#273;&#7897; th&ugrave; &#273;&#7883;ch v&#7899;i vi&#7879;c t&#259;ng l&#432;&#417;ng CEO &rarr; c&#7847;n di&#7877;n gi&#7843;i, d&#7877; sai.</div>
+</div></div>
+<div style="margin-top:10px;background:#fef3c7;border-radius:8px;padding:10px 14px;font-size:.78rem;color:#92400e;border:1px solid #fcd34d">&#128201; <strong>Cohen's Kappa:</strong> &#272;o m&#7913;c &#273;&#7897; &#273;&#7891;ng thu&#7853;n gi&#7919;a 2 ng&#432;&#7901;i m&atilde; h&oacute;a &#273;&#7897;c l&#7853;p. Kappa &gt;0.8 = tin c&#7853;y cao. Lo&#7841;i b&#7887; s&#7921; &#273;&#7891;ng thu&#7853;n do ng&#7851;u nhi&ecirc;n.</div></div></div></div><div style=""><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">13.4</span>&#431;u &amp; Nh&#432;&#7907;c &#273;i&#7875;m chung</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px">
+<div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+<div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9989; &#431;u &#273;i&#7875;m chung</div>
+<ul style="font-size:.77rem;color:#047857;line-height:1.7;padding-left:14px;margin:0">
+<li>Minh b&#7841;ch, d&#7877; l&#7863;p l&#7841;i (replicable)</li>
+<li>Kh&ocirc;ng can thi&#7879;p v&agrave;o &#273;&#7889;i t&#432;&#7907;ng (unobtrusive)</li>
+<li>R&#7867; ti&#7873;n (b&aacute;o c&aacute;o/email c&oacute; s&#7861;n)</li>
+<li>Nghi&ecirc;n c&#7913;u &#273;&#432;&#7907;c d&#7919; li&#7879;u qu&aacute; kh&#7913;</li></ul></div>
+<div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+<div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9888;&#65039; Nh&#432;&#7907;c &#273;i&#7875;m chung</div>
+<ul style="font-size:.77rem;color:#b45309;line-height:1.7;padding-left:14px;margin:0">
+<li>Kh&ocirc;ng gi&#7843;i th&iacute;ch &#273;&#432;&#7907;c &ldquo;T&#7841;i sao?&rdquo;</li>
+<li>B&#7887; qua b&#7889;i c&#7843;nh v&agrave; &yacute; &#273;&#7883;nh s&acirc;u</li>
+<li>Latent content r&#7845;t ch&#7911; quan</li>
+<li>Inter-rater reliability kh&oacute; &#273;&#7841;t cao</li></ul></div></div></div></div></div></div>
+</div>
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128273;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">B&#7843;ng Kh&aacute;i ni&#7879;m</div><div style="font-size:.72rem;color:#94a3b8">7 kh&aacute;i ni&#7879;m c&#7889;t l&otilde;i</div></div>
+    </div>
+    <span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:1400px"><div style="overflow-x:auto"><table style="width:100%;font-size:.8rem;border-collapse:collapse"><thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0"><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:150px">Kh&aacute;i ni&#7879;m</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em">&#272;&#7883;nh ngh&#297;a</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:170px">V&iacute; d&#7909;</th></tr></thead><tbody><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Structured observation</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">D&ugrave;ng c&aacute;c quy t&#7855;c r&otilde; r&agrave;ng t&#7915; tr&#432;&#7899;c &#273;&#7875; quan s&aacute;t v&agrave; ghi ch&eacute;p h&agrave;nh vi.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Ghi s&#7889; l&#7847;n NV b&#7883; s&#7871;p ng&#7855;t l&#7901;i trong cu&#7897;c h&#7885;p</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Observation schedule</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">B&#7843;ng checklist ch&#7881; &#273;&#7883;nh danh m&#7909;c h&agrave;nh vi c&#7847;n quan s&aacute;t.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">B&#7843;ng &#273;&aacute;nh d&#7845;u h&agrave;nh vi h&#7885;c sinh trong l&#7899;p</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Content analysis</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">&#272;&#7871;m t&#7847;n su&#7845;t xu&#7845;t hi&#7879;n c&#7911;a y&#7871;u t&#7889; trong v&#259;n b&#7843;n theo danh m&#7909;c &#273;&#7883;nh tr&#432;&#7899;c.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">T&#7847;n su&#7845;t t&#7915; &ldquo;courage&rdquo; trong b&agrave;i b&aacute;o kinh doanh</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Coding manual</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">H&#432;&#7899;ng d&#7851;n chi ti&#7871;t c&aacute;c quy t&#7855;c ph&acirc;n lo&#7841;i cho ng&#432;&#7901;i m&atilde; h&oacute;a.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">&ldquo;&#272;e d&#7885;a th&#7875; ch&#7845;t&rdquo; &rarr; m&atilde; s&#7889; 3</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Coding schedule</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">B&#7843;ng t&iacute;nh nh&#7853;p c&aacute;c m&atilde; s&#7889; thu &#273;&#432;&#7907;c, chu&#7849;n b&#7883; n&#7841;p SPSS.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Excel: c&#7897;t Gi&#7899;i t&iacute;nh, Ngh&#7873; nghi&#7879;p, K&#7871;t qu&#7843;</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Cohen's kappa</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">&#272;o m&#7913;c &#273;&#7897; &#273;&#7891;ng thu&#7853;n gi&#7919;a 2 ng&#432;&#7901;i m&atilde; h&oacute;a &#273;&#7897;c l&#7853;p, lo&#7841;i tr&#7915; ng&#7851;u nhi&ecirc;n.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Kappa &gt;0.8 = tin c&#7853;y r&#7845;t cao</td></tr><tr style=""><td style="padding:9px 16px"><span class="kb">Manifest vs Latent</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Manifest: n&#7897;i dung b&#7873; m&#7863;t d&#7877; &#273;&#7871;m. Latent: &yacute; ngh&#297;a &#7849;n s&acirc;u, ch&#7911; quan.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">&#272;&#7871;m &ldquo;l&#432;&#417;ng th&#432;&#7903;ng&rdquo; (M) vs th&aacute;i &#273;&#7897; th&ugrave; &#273;&#7883;ch CEO (L)</td></tr></tbody></table></div></div>
+</div>
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#0d1730,#1d2f60);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" fill="none" stroke="#fbbf24" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Ph&acirc;n t&iacute;ch &amp; &#272;&aacute;nh gi&aacute;</div><div style="font-size:.72rem;color:#94a3b8">Critical Analysis</div></div>
+    </div>
+    <span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:2000px"><div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+<div style="border-radius:12px;padding:18px 20px;background:linear-gradient(135deg,#0d1730,#1d2f60)">
+  <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(212,160,23,.75);margin-bottom:8px">C&acirc;u h&#7887;i c&#7889;t l&otilde;i</div>
+  <p style="color:#fff;font-size:.875rem;line-height:1.7;font-family:Georgia,serif;font-style:italic">"L&agrave;m th&#7871; n&agrave;o thu th&#7853;p v&agrave; ph&acirc;n t&iacute;ch d&#7919; li&#7879;u kh&aacute;ch quan, c&oacute; h&#7879; th&#7889;ng t&#7915; h&agrave;nh vi v&agrave; v&#259;n b&#7843;n sinh ra t&#7921; nhi&ecirc;n, thay v&igrave; h&#7887;i tr&#7921;c ti&#7871;p &#273;&#7889;i t&#432;&#7907;ng?"</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+  <div style="border:1px solid #e2e8f0;border-radius:12px;padding:15px">
+    <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #f1f5f9">Logic L&#7853;p lu&#7853;n</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Premise</span><span style="color:#475569;font-size:.8rem">Ph&#7887;ng v&#7845;n v&agrave; b&#7843;ng h&#7887;i c&oacute; &#273;i&#7875;m y&#7871;u ch&iacute; m&#7841;ng: kho&#7843;ng c&aacute;ch gi&#7919;a nh&#7919;ng g&igrave; ng&#432;&#7901;i ta <em>n&oacute;i</em> v&agrave; nh&#7919;ng g&igrave; h&#7885; <em>th&#7921;c s&#7921;</em> l&agrave;m.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Argument</span><span style="color:#475569;font-size:.8rem">D&#7919; li&#7879;u t&#7921; nhi&ecirc;n th&#432;&#7901;ng v&ocirc; c&#7845;u tr&uacute;c. &#272;&#7875; d&ugrave;ng cho nghi&ecirc;n c&#7913;u &#273;&#7883;nh l&#432;&#7907;ng, ph&#7843;i &eacute;p v&agrave;o khung c&#7845;u tr&uacute;c &#273;&#7883;nh tr&#432;&#7899;c b&#7857;ng Observation schedule v&agrave; Coding manual.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Conclusion</span><span style="color:#475569;font-size:.8rem">Quan s&aacute;t v&agrave; Ph&acirc;n t&iacute;ch n&#7897;i dung r&#7845;t minh b&#7841;ch v&agrave; d&#7877; l&#7863;p l&#7841;i. Nh&#432;ng ph&#7843;i tr&#7843; gi&aacute;: b&#7887; qua th&#7871; gi&#7899;i n&#7897;i t&acirc;m v&agrave; &yacute; ngh&#297;a s&acirc;u c&#7911;a con ng&#432;&#7901;i.</span></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9989; &#272;i&#7875;m m&#7841;nh</div>
+      <p style="color:#047857;font-size:.78rem;line-height:1.7;margin:0">Gi&#7843;i quy&#7871;t self-report bias &mdash; d&#7919; li&#7879;u t&#7921; nhi&ecirc;n ch&iacute;nh x&aacute;c h&#417;n t&#7921; b&aacute;o c&aacute;o. H&#432;&#7899;ng d&#7851;n l&#7853;p Coding manual r&#7845;t th&#7921;c d&#7909;ng.</p>
+    </div>
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9888;&#65039; H&#7841;n ch&#7871; &amp; Gi&#7843; &#273;&#7883;nh ng&#7847;m</div>
+      <p style="color:#b45309;font-size:.78rem;line-height:1.7;margin:0">Gi&#7843; &#273;&#7883;nh Positivism r&#7857;ng h&agrave;nh vi x&atilde; h&#7897;i ph&#7913;c t&#7841;p c&oacute; th&#7875; &eacute;p v&agrave;o m&atilde; s&#7889; t&#297;nh. B&#7843;n th&acirc;n t&aacute;c gi&#7843; c&#361;ng ho&agrave;i nghi v&#7873; kh&#7843; n&#259;ng th&#7845;u hi&#7875;u s&acirc;u s&#7855;c c&#7911;a hai ph&#432;&#417;ng ph&aacute;p n&agrave;y.</p>
+    </div>
+  </div>
+</div></div></div>
+</div>
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#129514;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">&#7912;ng d&#7909;ng Th&#7921;c ti&#7877;n</div><div style="font-size:.72rem;color:#94a3b8">Case Study + &#272;&#7873; xu&#7845;t + T&#7921; ki&#7875;m tra</div></div>
+    </div>
+    <span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:3000px"><div style="padding:20px;display:flex;flex-direction:column;gap:16px">
+<div><div style="font-weight:700;color:#1e293b;margin-bottom:12px;font-size:.875rem">&#128203; Case Study: &#272;&aacute;nh gi&aacute; v&#259;n h&oacute;a Toxic t&#7841;i Start-up X</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="border-radius:10px;padding:11px;background:#fff5f5;border-left:3px solid #dc2626"><strong style="color:#dc2626">V&#7845;n &#273;&#7873;:</strong> <span style="color:#475569;font-size:.8rem">NV &#273;&#7873;u t&iacute;ch &ldquo;r&#7845;t h&agrave;i l&ograve;ng&rdquo; tr&ecirc;n survey v&igrave; s&#7907; b&#7883; &#273;u&#7893;i vi&#7879;c (Social desirability bias).</span></div><div style="border-radius:10px;padding:11px;background:#fffdf0;border-left:3px solid #d4a017"><strong style="color:#d4a017">Observation schedule:</strong> <span style="color:#475569;font-size:.8rem">Researcher v&agrave;o c&ocirc;ng ty 2 tu&#7847;n. &#272;&aacute;nh d&#7845;u: s&#7889; l&#7847;n NV b&#7883; s&#7871;p ng&#7855;t l&#7901;i; s&#7889; l&#7847;n t&#259;ng ca sau 19h; s&#7889; l&#7847;n c&atilde;i v&atilde; to ti&#7871;ng.</span></div><div style="border-radius:10px;padding:11px;background:#f0fdf4;border-left:3px solid #059669"><strong style="color:#059669">Content analysis:</strong> <span style="color:#475569;font-size:.8rem">Thu Slack log 3 th&aacute;ng. Coding Manual: &#273;&#7871;m t&#7915; ng&#7919; ti&ecirc;u c&#7921;c (Manifest) v&agrave; tin nh&#7855;n ngo&agrave;i gi&#7901; h&agrave;nh ch&iacute;nh (Latent &mdash; &aacute;p l&#7921;c ngầm &#7849;n).</span></div></div></div>
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;color:#14532d;margin-bottom:10px;font-size:.875rem">&#128161; &#272;&#7873; xu&#7845;t &#7913;ng d&#7909;ng</div>
+  <div style="display:flex;flex-direction:column;gap:8px;color:#166534"><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Lu&#7853;n v&#259;n</span><span style="font-size:.8rem">Thu th&#7853;p 50 Th&#432; g&#7917;i C&#7893; &#273;&#7889;ng c&#7911;a VN30, l&#7853;p Coding Manual &#273;&#7871;m t&#7847;n su&#7845;t &ldquo;Ph&aacute;t tri&#7875;n b&#7873;n v&#7919;ng&rdquo;. L&agrave; lu&#7853;n v&#259;n &#273;&#7883;nh l&#432;&#7907;ng chu&#7849;n m&#7921;c v&agrave; minh b&#7841;ch.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Marketing</span><span style="font-size:.8rem">Khi l&agrave;m Social Listening, x&acirc;y d&#7921;ng Coding Manual cho &#273;&#7897;i ng&#361;: ph&acirc;n bi&#7879;t r&otilde; comment ch&ecirc; s&#7843;n ph&#7849;m (Manifest) v&agrave; m&#7881;a mai (Latent) &#273;&#7875; &#273;o s&#7913;c kh&#7887;e th&#432;&#417;ng hi&#7879;u ch&iacute;nh x&aacute;c.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">&#272;&#7901;i s&#7889;ng</span><span style="font-size:.8rem">D&aacute;n Observation schedule tr&ecirc;n t&#7911; l&#7841;nh: &#273;&aacute;nh 1 tick m&#7895;i l&#7847;n u&#7889;ng n&#432;&#7899;c ng&#7885;t trong 1 tu&#7847;n. D&#7919; li&#7879;u t&#7921; nhi&ecirc;n lu&ocirc;n trung th&#7921;c h&#417;n tr&iacute; nh&#7899;!</span></div></div>
+</div>
+<div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:12px">&#128203; T&#7921; ki&#7875;m tra</div>
+  <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q1</span><span style="color:#374151">Ph&acirc;n bi&#7879;t Structured observation v&agrave; Content analysis. Khi n&agrave;o d&ugrave;ng c&aacute;i n&agrave;o?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q2</span><span style="color:#374151">T&#7841;i sao Hawthorne effect l&agrave; &#273;i&#7879;m t&#7917; huy&#7879;t c&#7911;a Quan s&aacute;t c&oacute; c&#7845;u tr&uacute;c?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q3</span><span style="color:#374151">Latent content nguy hi&#7875;m nh&#432; th&#7871; n&agrave;o? V&igrave; sao Cohen's Kappa quan tr&#7885;ng?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q4</span><span style="color:#374151">Lu&#7853;n v&#259;n c&#7911;a b&#7841;n c&oacute; th&#7875; d&ugrave;ng Content analysis kh&ocirc;ng? &#272;&#7889;i t&#432;&#7907;ng n&#7897;i dung s&#7869; l&agrave; g&igrave;?</span></div></div>
+</div></div></div>
+</div></main>
+<footer style="margin-top:32px;padding:28px 16px;background:#0d1730">
+  <div style="max-width:896px;margin:0 auto;display:flex;flex-direction:column;gap:12px;align-items:center">
+    <div style="text-align:center">
+      <div style="font-family:Georgia,serif;color:#fff;font-weight:700;font-size:.875rem">Chapter 13 &middot; Structured Observation & Content Analysis</div>
+      <div style="color:#475569;font-size:.72rem;margin-top:2px">Bryman &amp; Bell &mdash; MBA Research Methods Hub &middot; &copy; 2026</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <a href="chapter12.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&larr; Chapter 12</a>
+      <a href="index.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&#127968; Home</a>
+      <a href="chapter14.html" style="font-size:.75rem;font-weight:700;padding:7px 16px;border-radius:999px;background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730;text-decoration:none">Chapter 14 &rarr;</a>
+    </div>
+  </div>
+</footer>
+<script>
+function togS(h){h.nextElementSibling.classList.toggle("shut");h.classList.toggle("shut-s")}
+function togA(h){h.nextElementSibling.classList.toggle("open");h.classList.toggle("os")}
+function allOpen(){document.querySelectorAll(".sb").forEach(b=>b.classList.remove("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.remove("shut-s"))}
+function allClose(){document.querySelectorAll(".sb").forEach(b=>b.classList.add("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.add("shut-s"))}
+</script>
+</body></html>
