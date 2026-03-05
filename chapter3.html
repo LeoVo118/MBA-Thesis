@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="nav-active" content="p1">
+    <title>Chapter 3 — Research Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body{font-family:"Inter",sans-serif;background:#f8fafc}
+        .hero{background:linear-gradient(135deg,#0d1730 0%,#1d2f60 60%,#2a4080 100%);position:relative;overflow:hidden}
+        .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(212,160,23,.15) 0%,transparent 55%);pointer-events:none}
+        .hgrid{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px;position:absolute;inset:0;pointer-events:none}
+        .sh{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#fff;border-bottom:1px solid #e2e8f0;transition:background .18s}
+        .sh:hover{background:#f8fafc}
+        .sb{overflow:hidden;transition:max-height .4s ease}
+        .sb.shut{max-height:0!important}
+        .sa{display:inline-block;transition:transform .3s;color:#94a3b8}
+        .sh.shut-s .sa{transform:rotate(-90deg)}
+        .ah{cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:13px 20px;transition:background .18s}
+        .ah:hover{background:#f8fafc}
+        .ab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+        .ab.open{max-height:4000px}
+        .aa{display:inline-block;transition:transform .3s;color:#94a3b8;font-size:.8rem}
+        .ah.os .aa{transform:rotate(90deg);color:#d4a017}
+        .sn{background:linear-gradient(135deg,#0d1730,#1d2f60);color:#fbbf24;font-weight:700;font-size:.68rem;padding:2px 8px;border-radius:4px;margin-right:8px;white-space:nowrap}
+        .kb{background:#e0e9ff;color:#1d2f60;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:4px}
+        .pill{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;font-size:.7rem;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0}
+        .bc a{color:rgba(255,255,255,.5);font-size:.72rem;text-decoration:none}
+        .bc a:hover{color:#fbbf24}
+        .bcs{color:rgba(255,255,255,.22);margin:0 5px;font-size:.72rem}
+        @keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+        .au{animation:up .3s ease both}
+    </style>
+</head>
+<body>
+<script src="nav.js"></script>
+
+<header class="hero py-10 md:py-14">
+    <div class="hgrid"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4">
+        <div class="bc flex items-center mb-5">
+            <a href="index.html">MBA Research Hub</a>
+            <span class="bcs">&#8250;</span>
+            <a href="index.html">Part I &middot; The Research Process</a>
+            <span class="bcs">&#8250;</span>
+            <span style="color:rgba(255,255,255,.78);font-size:.72rem">Chapter 3</span>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-end gap-6">
+            <div class="flex-1">
+                <div class="flex items-center gap-3 mb-3">
+                    <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#d4a017,#fbbf24);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:#0d1730;flex-shrink:0">3</div>
+                    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:700;color:#fff;line-height:1.2">
+                        Research<br>
+                        <span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Design</span>
+                    </h1>
+                </div>
+                <p style="color:#94a3b8;font-size:.88rem;max-width:520px;line-height:1.65;margin-bottom:14px">Khung logic tổng thể cho việc thu thập &amp; phân tích dữ liệu. 5 loại thiết kế, tiêu chí chất lượng Validity &amp; Reliability, và cấp độ phân tích.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Experimental</span>
+                    <span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Cross-sectional</span>
+                    <span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Longitudinal</span>
+                    <span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Case Study</span>
+                    <span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Validity</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+                <span style="color:#64748b;font-size:.7rem;margin-right:2px">Ch.</span>
+                <a href="chapter2.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">2</a>
+                <a href="chapter3.html" class="pill" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730">3</a>
+                <a href="chapter4.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">4</a>
+                <a href="chapter5.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">5</a>
+                <a href="index.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:1rem">&#8943;</a>
+            </div>
+        </div>
+        <div class="flex gap-2 mt-6">
+            <button onclick="allOpen()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&#8597; M&#7903; t&#7845;t c&#7843;</button>
+            <button onclick="allClose()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&#8597; Thu t&#7845;t c&#7843;</button>
+        </div>
+    </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-4">
+
+<!-- TOM TAT (gom 2 cap) -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+    <div class="sh" onclick="togS(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#fee2e2,#fecaca);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128203;</div>
+            <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">T&#243;m t&#7855;t</div><div style="font-size:.72rem;color:#94a3b8">Summary &#8212; si&#234;u ng&#7855;n + 4 lu&#7853;n &#273;i&#7875;m ch&#237;nh</div></div>
+        </div>
+        <span class="sa">&#9660;</span>
+    </div>
+    <div class="sb" style="max-height:900px">
+        <div style="padding:16px 20px 14px;background:#fff5f5;border-left:4px solid #f87171">
+            <p style="color:#991b1b;font-size:.875rem;line-height:1.75;margin:0">
+                Ch&#432;&#417;ng 3 gi&#7843;i th&#237;ch kh&#225;i ni&#7879;m trung t&#226;m: <strong>Thi&#7871;t k&#7871; nghi&#234;n c&#7913;u (Research Design)</strong>. Lu&#7853;n &#273;i&#7875;m ch&#237;nh: vi&#7879;c l&#7921;a ch&#7885;n thi&#7871;t k&#7871; cung c&#7845;p m&#7897;t <strong>kh&#7863;ng logic</strong> cho vi&#7879;c thu th&#7853;p v&#224; ph&#226;n t&#237;ch d&#7919; li&#7879;u, &#273;&#7883;nh h&#432;&#7899;ng b&#7903;i c&#225;c ti&#234;u ch&#237; ch&#7845;t l&#432;&#7907;ng (&#273;&#7897; tin c&#7853;y, t&#237;nh l&#7863;p l&#7841;i, &#273;&#7897; hi&#7879;u l&#7921;c). Vi&#7879;c nh&#7847;m l&#7851;n gi&#7919;a &#8220;thi&#7871;t k&#7871; nghi&#234;n c&#7913;u&#8221; v&#224; &#8220;ph&#432;&#417;ng ph&#225;p nghi&#234;n c&#7913;u&#8221; l&#224; sai l&#7847;m ph&#7893; bi&#7871;n c&#7847;n tr&#225;nh.
+            </p>
+        </div>
+        <div style="padding:14px 20px 20px;background:#fff8f0;border-left:4px solid #fb923c">
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:.875rem;color:#9a3412">
+                <li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9312;</span><span><strong>Ph&#226;n bi&#7879;t c&#7889;t l&#245;i:</strong> Research Design = kh&#7863;ng logic t&#7893;ng th&#7875;. Research Method = c&#244;ng c&#7909; thu th&#7853;p c&#7909; th&#7875; (ph&#7887;ng v&#7845;n, b&#7843;ng h&#7887;i). Kh&#244;ng &#273;&#432;&#7907;c nh&#7847;m l&#7851;n 2 kh&#225;i ni&#7879;m n&#224;y.</span></li>
+                <li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9313;</span><span><strong>Ti&#234;u ch&#237; ch&#7845;t l&#432;&#7907;ng &#273;&#7883;nh l&#432;&#7907;ng:</strong> Reliability (&#273;&#7897; tin c&#7853;y), Replicability (t&#237;nh l&#7863;p l&#7841;i), Validity (4 lo&#7841;i: Measurement, Internal, External, Ecological).</span></li>
+                <li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9314;</span><span><strong>5 thi&#7871;t k&#7871; nghi&#234;n c&#7913;u:</strong> Experimental (nh&#226;n qu&#7843;), Cross-sectional (li&#234;n k&#7871;t), Longitudinal (thay &#273;&#7893;i theo th&#7901;i gian), Case Study (chi&#7873;u s&#226;u), Comparative (so s&#225;nh).</span></li>
+                <li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9315;</span><span><strong>C&#7845;p &#273;&#7897; ph&#226;n t&#237;ch:</strong> Ph&#7843;i nh&#7845;t qu&#225;n gi&#7919;a &#273;&#417;n v&#7883; ph&#226;n t&#237;ch (c&#225; nh&#226;n/nh&#243;m/t&#7893; ch&#7913;c) v&#224; k&#7871;t lu&#7853;n r&#250;t ra &#8212; tr&#225;nh l&#7895;i g&#225;n sai c&#7845;p &#273;&#7897;.</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- CHI TIET -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+    <div class="sh" onclick="togS(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#e0e9ff,#c0d2ff);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128214;</div>
+            <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Chi ti&#7871;t Ch&#432;&#417;ng 3</div><div style="font-size:.72rem;color:#94a3b8">Detailed Breakdown &#8212; 4 m&#7909;c, click &#273;&#7875; m&#7903;</div></div>
+        </div>
+        <span class="sa">&#9660;</span>
+    </div>
+    <div class="sb" style="max-height:9999px">
+
+        <!-- 3.1 Design vs Method -->
+        <div style="border-bottom:1px solid #f1f5f9">
+            <div class="ah" onclick="togA(this)">
+                <span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">3.1</span>Research Design vs Research Method</span>
+                <span class="aa">&#9654;</span>
+            </div>
+            <div class="ab">
+                <div style="padding:4px 20px 20px">
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:8px">
+                        <div style="border-radius:12px;padding:16px;border:2px solid #0d1730;background:#f0f4ff">
+                            <div style="font-weight:700;font-size:.875rem;color:#0d1730;margin-bottom:8px">&#127968; Research Design</div>
+                            <p style="font-size:.8rem;color:#475569;line-height:1.65;margin-bottom:10px"><strong>Kh&#7863;ng logic t&#7893;ng th&#7875;</strong> &#8212; b&#7843;n v&#7869; ki&#7871;n tr&#250;c c&#7911;a ng&#244;i nh&#224;. Quy&#7871;t &#273;&#7883;nh &#7913;u ti&#234;n c&#7911;a nghi&#234;n c&#7913;u (nh&#226;n qu&#7843;? t&#7893;ng qu&#225;t h&#243;a? hay hi&#7875;u s&#226;u b&#7889;i c&#7843;nh?).</p>
+                            <div style="background:#e0e9ff;border-radius:8px;padding:8px 10px;font-size:.75rem;color:#1d2f60"><strong>VD:</strong> Cross-sectional design, Case study design.</div>
+                        </div>
+                        <div style="border-radius:12px;padding:16px;border:2px solid #d4a017;background:#fffdf0">
+                            <div style="font-weight:700;font-size:.875rem;color:#b8860b;margin-bottom:8px">&#128296; Research Method</div>
+                            <p style="font-size:.8rem;color:#475569;line-height:1.65;margin-bottom:10px"><strong>K&#7929; thu&#7853;t c&#7909; th&#7875;</strong> &#8212; c&#244;ng c&#7909; x&#226;y nh&#224;. Th&#7921;c thi thi&#7871;t k&#7871; nghi&#234;n c&#7913;u b&#7857;ng c&#225;c c&#244;ng c&#7909; thu th&#7853;p d&#7919; li&#7879;u.</p>
+                            <div style="background:#fef3c7;border-radius:8px;padding:8px 10px;font-size:.75rem;color:#92400e"><strong>VD:</strong> Ph&#7887;ng v&#7845;n b&#225;n c&#7845;u tr&#250;c, b&#7843;ng h&#7887;i t&#7921; &#273;i&#7873;n.</div>
+                        </div>
+                    </div>
+                    <div style="margin-top:12px;padding:10px 14px;background:#fef9c3;border-radius:8px;font-size:.78rem;color:#713f12;border:1px solid #fde047">
+                        &#9888;&#65039; <strong>Sai l&#7847;m ph&#7893; bi&#7871;n:</strong> Vi&#7871;t &#8220;Thi&#7871;t k&#7871; NC c&#7911;a t&#244;i l&#224; b&#7843;ng h&#7887;i&#8221; &#8212; B&#7843;ng h&#7887;i l&#224; <em>ph&#432;&#417;ng ph&#225;p</em>, kh&#244;ng ph&#7843;i <em>thi&#7871;t k&#7871;</em>! H&#227;y vi&#7871;t: &#8220;Thi&#7871;t k&#7871; C&#7855;t ngang, s&#7917; d&#7909;ng b&#7843;ng h&#7887;i l&#224;m ph&#432;&#417;ng ph&#225;p thu th&#7853;p d&#7919; li&#7879;u.&#8221;
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.2 Quality Criteria -->
+        <div style="border-bottom:1px solid #f1f5f9">
+            <div class="ah" onclick="togA(this)">
+                <span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">3.2</span>Ti&#234;u ch&#237; Ch&#7845;t l&#432;&#7907;ng Nghi&#234;n c&#7913;u</span>
+                <span class="aa">&#9654;</span>
+            </div>
+            <div class="ab">
+                <div style="padding:4px 20px 20px">
+                    <!-- Quantitative -->
+                    <div style="margin-top:10px;margin-bottom:10px;font-weight:700;font-size:.8rem;color:#0d1730;display:flex;align-items:center;gap:6px">
+                        <span style="background:#e0e9ff;color:#1d2f60;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:4px">QUANT</span> Ti&#234;u chu&#7849;n &#273;&#7883;nh l&#432;&#7907;ng
+                    </div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:16px">
+                        <div style="background:#f0f4ff;border-radius:10px;padding:13px;border:1px solid #c0d2ff">
+                            <div style="font-weight:700;font-size:.8rem;color:#0d1730;margin-bottom:6px">&#128264; Reliability</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0">T&#237;nh nh&#7845;t qu&#225;n v&#224; &#7893;n &#273;&#7883;nh c&#7911;a th&#432;&#7899;c &#273;o. C&#226;n 2 l&#7847;n ph&#7843;i ra c&#249;ng 1 con s&#7889;.</p>
+                        </div>
+                        <div style="background:#f0f4ff;border-radius:10px;padding:13px;border:1px solid #c0d2ff">
+                            <div style="font-weight:700;font-size:.8rem;color:#0d1730;margin-bottom:6px">&#128260; Replicability</div>
+                            <p style="font-size:.78rem;color:#475569;line-height:1.6;margin:0">Ng&#432;&#7901;i kh&#225;c c&#243; th&#7875; l&#224;m l&#7841;i nghi&#234;n c&#7913;u n&#224;y v&#224; ra k&#7871;t qu&#7843; t&#432;&#417;ng t&#7921; kh&#244;ng?</p>
+                        </div>
+                        <div style="background:#f0f4ff;border-radius:10px;padding:13px;border:1px solid #c0d2ff;grid-column:1/-1">
+                            <div style="font-weight:700;font-size:.8rem;color:#0d1730;margin-bottom:8px">&#9989; Validity &#8212; 4 lo&#7841;i</div>
+                            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;font-size:.77rem">
+                                <div style="background:#fff;border-radius:7px;padding:8px 10px;border:1px solid #e2e8f0"><strong style="color:#0d1730">Measurement</strong><br><span style="color:#475569">&#272;o c&#243; &#273;&#250;ng b&#7843;n ch&#7845;t kh&#244;ng? IQ test c&#243; th&#7921;c s&#7921; &#273;o tr&#237; th&#244;ng minh?</span></div>
+                                <div style="background:#fff;border-radius:7px;padding:8px 10px;border:1px solid #e2e8f0"><strong style="color:#0d1730">Internal</strong><br><span style="color:#475569">A c&#243; th&#7921;c s&#7921; g&#226;y ra B kh&#244;ng? (c&#7889;t l&#245;i c&#7911;a NC nh&#226;n qu&#7843;)</span></div>
+                                <div style="background:#fff;border-radius:7px;padding:8px 10px;border:1px solid #e2e8f0"><strong style="color:#0d1730">External</strong><br><span style="color:#475569">C&#243; th&#7875; &#225;p d&#7909;ng k&#7871;t qu&#7843; cho c&#244;ng ty/qu&#7889;c gia kh&#225;c kh&#244;ng?</span></div>
+                                <div style="background:#fff;border-radius:7px;padding:8px 10px;border:1px solid #e2e8f0"><strong style="color:#0d1730">Ecological</strong><br><span style="color:#475569">K&#7871;t qu&#7843; trong ph&#242;ng TN c&#243; &#273;&#250;ng v&#7899;i &#273;&#7901;i th&#7921;c kh&#244;ng?</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Qualitative -->
+                    <div style="margin-bottom:10px;font-weight:700;font-size:.8rem;color:#b8860b;display:flex;align-items:center;gap:6px">
+                        <span style="background:#fef3c7;color:#92400e;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:4px">QUAL</span> Ti&#234;u chu&#7849;n &#273;&#7883;nh t&#237;nh &#8212; Trustworthiness
+                    </div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px">
+                        <div style="background:#fffdf0;border-radius:10px;padding:12px;border:1px solid #fde68a"><div style="font-weight:700;font-size:.78rem;color:#b8860b;margin-bottom:5px">Credibility</div><p style="font-size:.77rem;color:#475569;margin:0">S&#7921; &#273;&#225;ng tin &#8212; t&#432;&#417;ng &#273;&#432;&#417;ng Internal Validity.</p></div>
+                        <div style="background:#fffdf0;border-radius:10px;padding:12px;border:1px solid #fde68a"><div style="font-weight:700;font-size:.78rem;color:#b8860b;margin-bottom:5px">Transferability</div><p style="font-size:.77rem;color:#475569;margin:0">Kh&#7843; n&#259;ng chuy&#7875;n giao &#8212; t&#432;&#417;ng &#273;&#432;&#417;ng External Validity.</p></div>
+                        <div style="background:#fffdf0;border-radius:10px;padding:12px;border:1px solid #fde68a"><div style="font-weight:700;font-size:.78rem;color:#b8860b;margin-bottom:5px">Dependability</div><p style="font-size:.77rem;color:#475569;margin:0">S&#7921; minh b&#7841;ch &#8212; t&#432;&#417;ng &#273;&#432;&#417;ng Reliability.</p></div>
+                        <div style="background:#fffdf0;border-radius:10px;padding:12px;border:1px solid #fde68a"><div style="font-weight:700;font-size:.78rem;color:#b8860b;margin-bottom:5px">Confirmability</div><p style="font-size:.77rem;color:#475569;margin:0">T&#237;nh kh&#225;ch quan t&#432;&#417;ng &#273;&#7889;i &#8212; k&#7871;t qu&#7843; t&#7915; d&#7919; li&#7879;u, kh&#244;ng t&#7915; &#7912; ki&#7871;n.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.3 5 Designs -->
+        <div style="border-bottom:1px solid #f1f5f9">
+            <div class="ah" onclick="togA(this)">
+                <span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">3.3</span>5 Lo&#7841;i Thi&#7871;t k&#7871; Nghi&#234;n c&#7913;u</span>
+                <span class="aa">&#9654;</span>
+            </div>
+            <div class="ab">
+                <div style="padding:4px 20px 20px">
+                    <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
+
+                        <div style="border-radius:10px;padding:14px 16px;border-left:4px solid #0d1730;background:#f0f4ff;display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:start">
+                            <div><div style="font-weight:700;font-size:.82rem;color:#0d1730">&#9877; Experimental</div><div style="font-size:.72rem;color:#64748b;margin-top:2px">Th&#7921;c nghi&#7879;m</div></div>
+                            <div style="font-size:.8rem;color:#475569;line-height:1.65">
+                                Can thi&#7879;p v&#224;o bi&#7871;n s&#7889;. C&#243; nh&#243;m th&#7921;c nghi&#7879;m vs nh&#243;m &#273;&#7889;i ch&#7913;ng. <strong>M&#7909;c &#273;&#237;ch:</strong> T&#236;m nh&#226;n qu&#7843; tuy&#7879;t &#273;&#7889;i (Internal Validity cao nh&#7845;t). <em style="color:#94a3b8">VD: Test hi&#7879;u qu&#7843; &#273;&#224;o t&#7841;o l&#224;m vi&#7879;c nh&#243;m &#8212; b&#225;n th&#7921;c nghi&#7879;m (Quasi-experiment) trong t&#7893; ch&#7913;c.</em>
+                            </div>
+                        </div>
+
+                        <div style="border-radius:10px;padding:14px 16px;border-left:4px solid #2563eb;background:#eff6ff;display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:start">
+                            <div><div style="font-weight:700;font-size:.82rem;color:#1d4ed8">&#128200; Cross-sectional</div><div style="font-size:.72rem;color:#64748b;margin-top:2px">C&#7855;t ngang / Kh&#7843;o s&#225;t</div></div>
+                            <div style="font-size:.8rem;color:#475569;line-height:1.65">
+                                Thu th&#7853;p d&#7919; li&#7879;u t&#7915; nhi&#7873;u tr&#432;&#7901;ng h&#7907;p t&#7841;i <strong>m&#7897;t th&#7901;i &#273;i&#7875;m duy nh&#7845;t</strong>. <strong>M&#7909;c &#273;&#237;ch:</strong> T&#236;m m&#7851;u h&#236;nh li&#234;n k&#7871;t (association) &#8212; kh&#244;ng k&#7871;t lu&#7853;n &#273;&#432;&#7907;c nh&#226;n qu&#7843;. <em style="color:#94a3b8">VD: Kh&#7843;o s&#225;t 500 nh&#226;n vi&#234;n th&#225;ng 12/2025 &#8212; t&#236;m t&#432;&#417;ng quan tu&#7893;i v&#224; h&#224;i l&#242;ng.</em>
+                            </div>
+                        </div>
+
+                        <div style="border-radius:10px;padding:14px 16px;border-left:4px solid #7c3aed;background:#f5f3ff;display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:start">
+                            <div><div style="font-weight:700;font-size:.82rem;color:#6d28d9">&#128336; Longitudinal</div><div style="font-size:.72rem;color:#64748b;margin-top:2px">D&#7885;c / Theo th&#7901;i gian</div></div>
+                            <div style="font-size:.8rem;color:#475569;line-height:1.65">
+                                Kh&#7843;o s&#225;t c&#249;ng m&#7897;t nh&#243;m &#7903; <strong>nhi&#7873;u th&#7901;i &#273;i&#7875;m kh&#225;c nhau</strong>. <strong>M&#7909;c &#273;&#237;ch:</strong> Quan s&#225;t s&#7921; thay &#273;&#7893;i theo th&#7901;i gian. <em style="color:#94a3b8">VD: Kh&#7843;o s&#225;t 100 nh&#226;n vi&#234;n m&#7899;i t&#7853;p &#7903; th&#225;ng 1, th&#225;ng 6, th&#225;ng 12.</em>
+                            </div>
+                        </div>
+
+                        <div style="border-radius:10px;padding:14px 16px;border-left:4px solid #d4a017;background:#fffdf0;display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:start">
+                            <div><div style="font-weight:700;font-size:.82rem;color:#b8860b">&#128270; Case Study</div><div style="font-size:.72rem;color:#64748b;margin-top:2px">Nghi&#234;n c&#7913;u t&#236;nh hu&#7889;ng</div></div>
+                            <div style="font-size:.8rem;color:#475569;line-height:1.65">
+                                Ph&#226;n t&#237;ch chuy&#234;n s&#226;u <strong>m&#7897;t tr&#432;&#7901;ng h&#7907;p duy nh&#7845;t</strong> (t&#7893; ch&#7913;c, c&#225; nh&#226;n, s&#7921; ki&#7879;n). <strong>M&#7909;c &#273;&#237;ch:</strong> Hi&#7875;u b&#7889;i c&#7843;nh &#273;&#7897;c &#273;&#225;o, kh&#244;ng m&#224;ng t&#7893;ng qu&#225;t h&#243;a (Idiographic). <em style="color:#94a3b8">VD: Nghi&#234;n c&#7913;u s&#226;u ph&#242;ng Marketing c&#244;ng ty X &#8212; c&#225;ch qu&#7843;n l&#253; h&#7885;p hybrid.</em>
+                            </div>
+                        </div>
+
+                        <div style="border-radius:10px;padding:14px 16px;border-left:4px solid #059669;background:#f0fdf4;display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:start">
+                            <div><div style="font-weight:700;font-size:.82rem;color:#065f46">&#9878; Comparative</div><div style="font-size:.72rem;color:#64748b;margin-top:2px">So s&#225;nh</div></div>
+                            <div style="font-size:.8rem;color:#475569;line-height:1.65">
+                                D&#249;ng c&#249;ng m&#7897;t ph&#432;&#417;ng ph&#225;p tr&#234;n <strong>hai ho&#7863;c nhi&#7873;u tr&#432;&#7901;ng h&#7907;p</strong> &#273;&#7875; &#273;&#7889;i chi&#7871;u. <strong>M&#7909;c &#273;&#237;ch:</strong> T&#236;m &#273;i&#7875;m chung/kh&#225;c bi&#7879;t, th&#432;&#7901;ng d&#249;ng so s&#225;nh xuy&#234;n v&#259;n h&#243;a. <em style="color:#94a3b8">VD: C&#249;ng kh&#7843;o s&#225;t t&#7841;i C&#244;ng ty X (VN) v&#224; Y (M&#7929;) &#8212; v&#259;n h&#243;a &#7843;nh h&#432;&#7903;ng hybrid work.</em>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.4 Level of Analysis -->
+        <div>
+            <div class="ah" onclick="togA(this)">
+                <span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">3.4</span>C&#7845;p &#273;&#7897; Ph&#226;n t&#237;ch (Level of Analysis)</span>
+                <span class="aa">&#9654;</span>
+            </div>
+            <div class="ab">
+                <div style="padding:4px 20px 20px">
+                    <p style="font-size:.8rem;color:#64748b;margin:10px 0 12px">Ph&#7843;i nh&#7845;t qu&#225;n gi&#7919;a <em>&#273;&#417;n v&#7883; thu th&#7853;p d&#7919; li&#7879;u</em> v&#224; <em>&#273;&#417;n v&#7883; r&#250;t k&#7871;t lu&#7853;n</em>. Kh&#244;ng &#273;&#432;&#7907;c g&#225;n sai c&#7845;p &#273;&#7897;.</p>
+                    <div style="display:flex;align-items:center;gap:0;overflow-x:auto;margin-bottom:14px">
+                        <div style="background:linear-gradient(135deg,#0d1730,#1d2f60);color:#fbbf24;font-weight:700;font-size:.78rem;padding:10px 14px;border-radius:8px 0 0 8px;white-space:nowrap;text-align:center;min-width:80px">C&#225; nh&#226;n</div>
+                        <div style="color:#94a3b8;font-size:.9rem;padding:0 4px">&#8594;</div>
+                        <div style="background:#1d2f60;color:#e2e8f0;font-weight:600;font-size:.78rem;padding:10px 14px;white-space:nowrap;text-align:center;min-width:80px">Nh&#243;m</div>
+                        <div style="color:#94a3b8;font-size:.9rem;padding:0 4px">&#8594;</div>
+                        <div style="background:#2a4080;color:#e2e8f0;font-weight:600;font-size:.78rem;padding:10px 14px;white-space:nowrap;text-align:center;min-width:80px">T&#7893; ch&#7913;c</div>
+                        <div style="color:#94a3b8;font-size:.9rem;padding:0 4px">&#8594;</div>
+                        <div style="background:#3a5498;color:#e2e8f0;font-weight:600;font-size:.78rem;padding:10px 14px;border-radius:0 8px 8px 0;white-space:nowrap;text-align:center;min-width:80px">X&#227; h&#7897;i</div>
+                    </div>
+                    <div style="background:#fef9c3;border:1px solid #fde047;border-radius:10px;padding:12px 14px;font-size:.8rem;color:#713f12">
+                        <strong>&#9888;&#65039; C&#7843;nh b&#225;o:</strong> Thu th&#7853;p d&#7919; li&#7879;u t&#7915; <em>c&#225; nh&#226;n</em> nh&#432;ng k&#7871;t lu&#7853;n cho <em>t&#7893; ch&#7913;c</em> = gán sai c&#7845;p &#273;&#7897; (cross-level misattribution). C&#7847;n c&#243; l&#253; lu&#7853;n l&#253; thuy&#7871;t v&#7919;ng ch&#7855;c &#273;&#7875; l&#224;m &#273;i&#7873;u n&#224;y.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- BANG KHAI NIEM -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+    <div class="sh" onclick="togS(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#e0e9ff,#c0d2ff);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128273;</div>
+            <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">B&#7843;ng Kh&#225;i ni&#7879;m</div><div style="font-size:.72rem;color:#94a3b8">Key Concepts &#8212; 6 kh&#225;i ni&#7879;m c&#7889;t l&#245;i</div></div>
+        </div>
+        <span class="sa">&#9660;</span>
+    </div>
+    <div class="sb" style="max-height:1200px">
+        <div style="overflow-x:auto">
+            <table style="width:100%;font-size:.8rem;border-collapse:collapse">
+                <thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0">
+                    <th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:130px">Kh&#225;i ni&#7879;m</th>
+                    <th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em">&#272;&#7883;nh ngh&#297;a</th>
+                    <th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:170px">V&#237; d&#7909;</th>
+                </tr></thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Research Design</span></td><td style="padding:9px 16px;color:#475569">Kh&#7863;ng logic t&#7893;ng th&#7875; cho vi&#7879;c thu th&#7853;p v&#224; ph&#226;n t&#237;ch d&#7919; li&#7879;u.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Cross-sectional design</td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Research Method</span></td><td style="padding:9px 16px;color:#475569">K&#7929; thu&#7853;t c&#7909; th&#7875; &#273;&#7875; thu th&#7853;p d&#7919; li&#7879;u.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">B&#7843;ng h&#7887;i, ph&#7887;ng v&#7845;n</td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Reliability</span></td><td style="padding:9px 16px;color:#475569">M&#7913;c &#273;&#7897; nh&#7845;t qu&#225;n, &#7893;n &#273;&#7883;nh c&#7911;a th&#432;&#7899;c &#273;o. &#272;o 2 l&#7847;n ra c&#249;ng k&#7871;t qu&#7843;.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">C&#226;u h&#7887;i IQ test</td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Validity</span></td><td style="padding:9px 16px;color:#475569">T&#237;nh to&#224;n v&#7865;n c&#7911;a k&#7871;t lu&#7853;n. G&#7891;m 4 lo&#7841;i: Measurement, Internal, External, Ecological.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Internal: A th&#7921;c s&#7921; g&#226;y B</td></tr>
+                    <tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Trustworthiness</span></td><td style="padding:9px 16px;color:#475569">Ti&#234;u ch&#237; ch&#7845;t l&#432;&#7907;ng &#273;&#7883;nh t&#237;nh: Credibility, Transferability, Dependability, Confirmability.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Respondent validation</td></tr>
+                    <tr><td style="padding:9px 16px"><span class="kb">Quasi-experiment</span></td><td style="padding:9px 16px;color:#475569">B&#225;n th&#7921;c nghi&#7879;m &#8212; g&#7847;n gi&#7889;ng th&#7921;c nghi&#7879;m nh&#432;ng kh&#244;ng c&#243; ph&#226;n b&#7893; ng&#7851;u nhi&#234;n.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">&#272;&#225;nh gi&#225; kh&#243;a &#273;&#224;o t&#7841;o t&#7841;i c&#244;ng ty</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- PHAN TICH -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+    <div class="sh" onclick="togS(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#0d1730,#1d2f60);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" fill="none" stroke="#fbbf24" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+            <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Ph&#226;n t&#237;ch &amp; &#272;&#225;nh gi&#225;</div><div style="font-size:.72rem;color:#94a3b8">Critical Analysis &#8212; Logic l&#7853;p lu&#7853;n c&#7911;a t&#225;c gi&#7843;</div></div>
+        </div>
+        <span class="sa">&#9660;</span>
+    </div>
+    <div class="sb" style="max-height:2000px">
+        <div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+            <div style="border-radius:12px;padding:18px 20px;background:linear-gradient(135deg,#0d1730,#1d2f60)">
+                <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(212,160,23,.75);margin-bottom:8px">C&#226;u h&#7887;i c&#7889;t l&#245;i c&#7911;a t&#225;c gi&#7843;</div>
+                <p style="color:#fff;font-size:.875rem;line-height:1.7;font-family:Georgia,serif;font-style:italic">"Kh&#7863;ng logic n&#224;o ch&#7881; &#273;&#7841;o vi&#7879;c l&#7921;a ch&#7885;n ph&#432;&#417;ng ph&#225;p thu th&#7853;p v&#224; ph&#226;n t&#237;ch d&#7919; li&#7879;u &#273;&#7875; &#273;&#7843;m b&#7843;o nghi&#234;n c&#7913;u kinh doanh &#273;&#7841;t &#273;&#432;&#7907;c c&#225;c ti&#234;u chu&#7849;n ch&#7845;t l&#432;&#7907;ng khoa h&#7885;c?"</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;font-size:.82rem">
+                <div style="border:1px solid #e2e8f0;border-radius:12px;padding:15px">
+                    <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #f1f5f9">Logic L&#7853;p lu&#7853;n</div>
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                        <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;height:fit-content;margin-top:1px">Premise</span><span style="color:#475569;font-size:.8rem">Sinh vi&#234;n hay nh&#7847;m Design v&#7899;i Method &#8212; &#273;i&#7873;u n&#224;y c&#7843;n &#273;&#432;&#7907;c s&#7917;a.</span></div>
+                        <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;height:fit-content;margin-top:1px">Argument</span><span style="color:#475569;font-size:.8rem">M&#7885;i NC ph&#7843;i ch&#7885;n 1 trong 5 thi&#7871;t k&#7871; ph&#249; h&#7907;p m&#7909;c ti&#234;u (nh&#226;n qu&#7843;/t&#7893;ng qu&#225;t/chi&#7873;u s&#226;u) v&#224; &#273;&#225;p &#7913;ng ti&#234;u ch&#237; Validity + Reliability.</span></div>
+                        <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;height:fit-content;margin-top:1px">Conclusion</span><span style="color:#475569;font-size:.8rem">Kh&#244;ng c&#243; thi&#7871;t k&#7871; n&#224;o v&#432;&#7907;t tr&#7897;i &#8212; ph&#7843;i g&#7855;n v&#7899;i chi&#7871;n l&#432;&#7907;c NC v&#224; c&#7845;p &#273;&#7897; ph&#226;n t&#237;ch.</span></div>
+                    </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px">
+                    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+                        <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9989; &#272;i&#7875;m m&#7841;nh</div>
+                        <ul style="color:#047857;font-size:.78rem;line-height:1.7;padding-left:14px;margin:0">
+                            <li>Ph&#226;n t&#225;ch r&#245; r&#224;ng Design vs Method &#8212; r&#7845;t h&#7919;u &#237;ch cho sinh vi&#234;n.</li>
+                            <li>Ph&#226;n t&#237;ch s&#226;u 4 lo&#7841;i Validity &#8212; th&#432;&#7901;ng b&#7883; nh&#7847;m l&#7851;n.</li>
+                        </ul>
+                    </div>
+                    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+                        <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9888;&#65039; H&#7841;n ch&#7871;</div>
+                        <ul style="color:#b45309;font-size:.78rem;line-height:1.7;padding-left:14px;margin:0">
+                            <li>H&#7879; th&#7889;ng 5 thi&#7871;t k&#7871; v&#7851;n ch&#7911; y&#7871;u &#273;&#432;&#7907;c soi chi&#7871;u qua l&#259;ng k&#237;nh Positivism.</li>
+                            <li>Trustworthiness &#273;&#432;&#7907;c &#273;&#7873; c&#7853;p nh&#432;ng ch&#432;a &#273;&#432;&#7907;c &#273;&#224;o s&#226;u nh&#432; Validity.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- UNG DUNG -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+    <div class="sh" onclick="togS(this)">
+        <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#d1fae5,#a7f3d0);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#129514;</div>
+            <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">&#7912;ng d&#7909;ng Th&#7921;c ti&#7877;n</div><div style="font-size:.72rem;color:#94a3b8">Case Study + &#272;&#7873; xu&#7845;t + T&#7921; ki&#7875;m tra</div></div>
+        </div>
+        <span class="sa">&#9660;</span>
+    </div>
+    <div class="sb" style="max-height:3000px">
+        <div style="padding:20px;display:flex;flex-direction:column;gap:16px">
+            <div>
+                <div style="font-weight:700;color:#1e293b;margin-bottom:12px;font-size:.875rem">&#127970; Case Study: &#272;&#225;nh gi&#225; Hybrid Work t&#7841;i C&#244;ng ty X</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;font-size:.8rem">
+                    <div style="border-radius:10px;padding:12px;border-left:3px solid #0d1730;background:#f0f4ff"><div style="font-weight:700;color:#0d1730;margin-bottom:6px;font-size:.78rem">&#9877; Experimental</div><div style="color:#475569;line-height:1.6">Ph&#242;ng A d&#249;ng Hybrid (th&#7921;c nghi&#7879;m), Ph&#242;ng B v&#7851;n &#7903; v&#259;n ph&#242;ng (&#273;&#7889;i ch&#7913;ng). &#272;o n&#259;ng su&#7845;t sau 3 th&#225;ng &#8594; Internal Validity.</div></div>
+                    <div style="border-radius:10px;padding:12px;border-left:3px solid #2563eb;background:#eff6ff"><div style="font-weight:700;color:#1d4ed8;margin-bottom:6px;font-size:.78rem">&#128200; Cross-sectional</div><div style="color:#475569;line-height:1.6">Kh&#7843;o s&#225;t 500 nh&#226;n vi&#234;n th&#225;ng 12/2026. T&#236;m t&#432;&#417;ng quan tu&#7893;i v&#224; m&#7913;c &#273;&#7897; th&#237;ch Hybrid.</div></div>
+                    <div style="border-radius:10px;padding:12px;border-left:3px solid #7c3aed;background:#f5f3ff"><div style="font-weight:700;color:#6d28d9;margin-bottom:6px;font-size:.78rem">&#128336; Longitudinal</div><div style="color:#475569;line-height:1.6">Kh&#7843;o s&#225;t 100 nh&#226;n vi&#234;n m&#7899;i &#7903; th&#225;ng 1, th&#225;ng 6, th&#225;ng 12 &#8212; xem h&#224;i l&#242;ng thay &#273;&#7893;i th&#7871; n&#224;o.</div></div>
+                    <div style="border-radius:10px;padding:12px;border-left:3px solid #d4a017;background:#fffdf0"><div style="font-weight:700;color:#b8860b;margin-bottom:6px;font-size:.78rem">&#128270; Case Study</div><div style="color:#475569;line-height:1.6">Nghi&#234;n c&#7913;u s&#226;u ph&#242;ng Marketing &#8212; ph&#7887;ng v&#7845;n + quan s&#225;t c&#225;ch qu&#7843;n l&#253; h&#7885;p hybrid.</div></div>
+                    <div style="border-radius:10px;padding:12px;border-left:3px solid #059669;background:#f0fdf4"><div style="font-weight:700;color:#065f46;margin-bottom:6px;font-size:.78rem">&#9878; Comparative</div><div style="color:#475569;line-height:1.6">C&#249;ng kh&#7843;o s&#225;t t&#7841;i C&#244;ng ty X (VN) v&#224; Y (M&#7929;) &#8212; so s&#225;nh v&#259;n h&#243;a qu&#7889;c gia &#7843;nh h&#432;&#7903;ng hybrid.</div></div>
+                </div>
+            </div>
+            <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px">
+                <div style="font-weight:700;color:#14532d;margin-bottom:10px;font-size:.875rem">&#128161; &#272;&#7873; xu&#7845;t &#7913;ng d&#7909;ng</div>
+                <div style="display:flex;flex-direction:column;gap:8px;font-size:.8rem;color:#166534">
+                    <div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Lu&#7853;n v&#259;n</span><span>Kh&#244;ng vi&#7871;t &#8220;Thi&#7871;t k&#7871; NC c&#7911;a t&#244;i l&#224; b&#7843;ng h&#7887;i&#8221;. H&#227;y vi&#7871;t: <em>&#8220;Nghi&#234;n c&#7913;u s&#7917; d&#7909;ng thi&#7871;t k&#7871; C&#7855;t ngang, ph&#432;&#417;ng ph&#225;p thu th&#7853;p d&#7919; li&#7879;u l&#224; b&#7843;ng h&#7887;i t&#7921; &#273;i&#7873;n&#8221;</em>. Lu&#244;n ch&#7913;ng minh Validity v&#224; Reliability.</span></div>
+                    <div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Qu&#7843;n l&#253;</span><span>Khi &#225;p d&#7909;ng ch&#237;nh s&#225;ch m&#7899;i: d&#249;ng t&#432; duy Quasi-experiment &#8212; th&#7917; cho 1 chi nh&#225;nh, gi&#7919; nguy&#234;n c&#225;c chi nh&#225;nh kh&#225;c l&#224;m &#273;&#7889;i ch&#7913;ng, &#273;o l&#432;&#7901;ng k&#7929; tr&#432;&#7899;c khi nh&#226;n r&#7897;ng.</span></div>
+                    <div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">&#272;&#7901;i s&#7889;ng</span><span>&#272;&#7885;c tin &#8220;&#259;n chocolate t&#259;ng tr&#237; th&#244;ng minh&#8221; &#8212; h&#7887;i ngay: Ecological Validity c&#243; kh&#244;ng? Trong ph&#242;ng TN, k&#7871;t qu&#7843; c&#243; &#273;&#250;ng v&#7899;i &#273;&#7901;i s&#7889;ng th&#7921;c l&#7897;n x&#7897;n kh&#244;ng?</span></div>
+                </div>
+            </div>
+            <div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px">
+                <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:12px">&#128203; C&#226;u h&#7887;i T&#7921; ki&#7875;m tra</div>
+                <div style="display:flex;flex-direction:column;gap:8px">
+                    <div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q1</span><span style="color:#374151">Ph&#226;n bi&#7879;t Research Design v&#224; Research Method. Cho 2 v&#237; d&#7909; c&#7909; th&#7875; v&#7873; s&#7921; kh&#225;c nhau.</span></div>
+                    <div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q2</span><span style="color:#374151">T&#7841;i sao Cross-sectional design kh&#244;ng th&#7875; k&#7871;t lu&#7853;n v&#7873; quan h&#7879; nh&#226;n qu&#7843;? C&#7847;n dung thi&#7871;t k&#7871; n&#224;o &#273;&#7875; ch&#7913;ng minh nh&#226;n qu&#7843;?</span></div>
+                    <div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q3</span><span style="color:#374151">Gi&#7843;i th&#237;ch 4 lo&#7841;i Validity. Lo&#7841;i n&#224;o quan tr&#7885;ng nh&#7845;t cho lu&#7853;n v&#259;n MBA c&#7911;a b&#7841;n?</span></div>
+                    <div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q4</span><span style="color:#374151">Trustworthiness trong nghi&#234;n c&#7913;u &#273;&#7883;nh t&#237;nh g&#7891;m nh&#7919;ng y&#7871;u t&#7889; n&#224;o? So s&#225;nh v&#7899;i Validity.</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+<footer style="margin-top:32px;padding:28px 16px;background:#0d1730">
+    <div style="max-width:896px;margin:0 auto;display:flex;flex-direction:column;gap:12px;align-items:center">
+        <div style="text-align:center">
+            <div style="font-family:Georgia,serif;color:#fff;font-weight:700;font-size:.875rem">Chapter 3 &middot; Research Design</div>
+            <div style="color:#475569;font-size:.72rem;margin-top:2px">Bryman &amp; Bell &#8212; MBA Research Methods Hub &middot; &copy; 2026</div>
+        </div>
+        <div style="display:flex;gap:8px">
+            <a href="chapter2.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&larr; Chapter 2</a>
+            <a href="index.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&#127968; Home</a>
+            <a href="chapter4.html" style="font-size:.75rem;font-weight:700;padding:7px 16px;border-radius:999px;background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730;text-decoration:none">Chapter 4 &rarr;</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+function togS(h){h.nextElementSibling.classList.toggle("shut");h.classList.toggle("shut-s")}
+function togA(h){h.nextElementSibling.classList.toggle("open");h.classList.toggle("os")}
+function allOpen(){document.querySelectorAll(".sb").forEach(b=>b.classList.remove("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.remove("shut-s"))}
+function allClose(){document.querySelectorAll(".sb").forEach(b=>b.classList.add("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.add("shut-s"))}
+</script>
+</body>
+</html>
