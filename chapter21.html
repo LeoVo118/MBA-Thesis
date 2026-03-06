@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="nav-active" content="p3">
+<title>Chapter 21 — Focus</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        body{font-family:"Inter",sans-serif;background:#f8fafc}
+        .hero{background:linear-gradient(135deg,#0d1730 0%,#1d2f60 60%,#2a4080 100%);position:relative;overflow:hidden}
+        .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(212,160,23,.15) 0%,transparent 55%);pointer-events:none}
+        .hgrid{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px;position:absolute;inset:0;pointer-events:none}
+        .sh{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#fff;border-bottom:1px solid #e2e8f0;transition:background .18s}
+        .sh:hover{background:#f8fafc}
+        .sb{overflow:hidden;transition:max-height .4s ease}
+        .sb.shut{max-height:0!important}
+        .sa{display:inline-block;transition:transform .3s;color:#94a3b8}
+        .sh.shut-s .sa{transform:rotate(-90deg)}
+        .ah{cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:13px 20px;transition:background .18s}
+        .ah:hover{background:#f8fafc}
+        .ab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+        .ab.open{max-height:5000px}
+        .aa{display:inline-block;transition:transform .3s;color:#94a3b8;font-size:.8rem}
+        .ah.os .aa{transform:rotate(90deg);color:#d4a017}
+        .sn{background:linear-gradient(135deg,#0d1730,#1d2f60);color:#fbbf24;font-weight:700;font-size:.68rem;padding:2px 8px;border-radius:4px;margin-right:8px;white-space:nowrap}
+        .kb{background:#e0e9ff;color:#1d2f60;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:4px}
+        .pill{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;font-size:.7rem;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0}
+        .bc a{color:rgba(255,255,255,.5);font-size:.72rem;text-decoration:none}
+        .bc a:hover{color:#fbbf24}
+        .bcs{color:rgba(255,255,255,.22);margin:0 5px;font-size:.72rem}
+        @keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+        .au{animation:up .3s ease both}</style>
+</head><body>
+<script src="nav.js"></script>
+<header class="hero py-10 md:py-14">
+<div class="hgrid"></div>
+<div class="relative z-10 max-w-4xl mx-auto px-4">
+  <div class="bc flex items-center mb-5">
+    <a href="index.html">MBA Research Hub</a><span class="bcs">&rsaquo;</span>
+    <a href="index.html">Part II &middot; Quantitative Research</a><span class="bcs">&rsaquo;</span>
+    <span style="color:rgba(255,255,255,.78);font-size:.72rem">Chapter 21</span>
+  </div>
+  <div class="flex flex-col md:flex-row md:items-end gap-6">
+    <div class="flex-1">
+      <div class="flex items-center gap-3 mb-3">
+        <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#d4a017,#fbbf24);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:#0d1730;flex-shrink:0">21</div>
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3.5vw,2.1rem);font-weight:700;color:#fff;line-height:1.2">Focus<br><span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Groups</span></h1>
+      </div>
+      <p style="color:#94a3b8;font-size:.88rem;max-width:520px;line-height:1.65;margin-bottom:14px">T&#432;&#417;ng t&aacute;c nh&oacute;m = m&#7887; v&agrave;ng. Moderator can thi&#7879;p t&#7889;i thi&#7875;u. C&#7843;nh gi&aacute;c Group Conformity v&agrave; &aacute;c m&#417;ng g&#7905; b&#7103;ng.</p>
+      <div class="flex flex-wrap gap-2"><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Group Interaction</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Moderator</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Group Conformity</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Minimal Intervention</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Synchronous</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Asynchronous</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Emancipatory</span></div>
+    </div>
+    <div class="flex items-center gap-1.5 flex-shrink-0">
+      <span style="color:#64748b;font-size:.7rem;margin-right:2px">Ch.</span>
+      <a href="chapter20.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">20</a><a href="chapter21.html" class="pill" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730">21</a><a href="chapter22.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">22</a>
+      <a href="index.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:1rem">&ctdot;</a>
+    </div>
+  </div>
+  <div class="flex gap-2 mt-6">
+    <button onclick="allOpen()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; M&#7903; t&#7845;t c&#7843;</button>
+    <button onclick="allClose()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; Thu t&#7845;t c&#7843;</button>
+  </div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-4"><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128203;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">T&oacute;m t&#7855;t</div><div style="font-size:.72rem;color:#94a3b8">Summary &mdash; lu&#7853;n &#273;i&#7875;m ch&iacute;nh</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:900px"><div style="padding:16px 20px 14px;background:#fff5f5;border-left:4px solid #f87171"><p style="color:#991b1b;font-size:.875rem;line-height:1.75;margin:0"><strong>Focus group kh&ocirc;ng ph&#7843;i l&agrave; ph&#7887;ng v&#7845;n nhi&#7873;u ng&#432;&#7901;i c&ugrave;ng l&uacute;c &#273;&#7875; ti&#7871;t ki&#7879;m th&#7901;i gian.</strong> Gi&aacute; tr&#7883; c&#7889;t l&otilde;i n&#7857;m &#7903; <strong>T&#432;&#417;ng t&aacute;c nh&oacute;m (Group Interaction)</strong> &mdash; quan s&aacute;t c&aacute;ch ng&#432;&#7901;i ta c&ugrave;ng nhau ki&#7871;n t&#7841;o &yacute; ngh&#297;a t&#7853;p th&#7875;.</p></div><div style="padding:14px 20px 20px;background:#fff8f0;border-left:4px solid #fb923c"><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:.875rem;color:#9a3412"><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9312;</span><span><strong>T&#432;&#417;ng t&aacute;c nh&oacute;m = m&#7887; v&agrave;ng:</strong> Ng&#432;&#7901;i A n&oacute;i l&#432;&#417;ng th&#7845;p, Ng&#432;&#7901;i B ng&#7855;t l&#7901;i "kh&ocirc;ng ph&#7843;i l&#432;&#417;ng, m&agrave; ph&uacute;c l&#7907;i k&eacute;m" &rarr; Insight m&#7899;i xu&#7845;t hi&#7879;n. Ph&#7887;ng v&#7845;n 1-1 kh&ocirc;ng bao gi&#7901; t&#7841;o ra &#273;&#432;&#7907;c &#273;i&#7873;u n&agrave;y.</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9313;</span><span><strong>Thi&#7871;t k&#7871; kỹ thu&#7853;t:</strong> C&#7905; nh&oacute;m t&#7889;i &#432;u 6&ndash;10 ng&#432;&#7901;i. Ph&#7843;i l&agrave;m nhi&#7873;u nh&oacute;m (ph&acirc;n t&#7847;ng: NV vs QU&#7842;N L&Yacute;). D&#7915;ng khi &ldquo;b&atilde;o h&ograve;a&rdquo; &mdash; kh&ocirc;ng xu&#7845;t hi&#7879;n insight m&#7899;i.</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9314;</span><span><strong>Ngh&#7879; thu&#7853;t &#272;i&#7873;u ph&#7889;i (Moderator):</strong> Can thi&#7879;p t&#7889;i thi&#7875;u (Minimal Intervention). C&agrave;ng n&oacute;i &iacute;t, d&#7919; li&#7879;u thu v&#7873; c&agrave;ng t&#7921; nhi&ecirc;n. Ch&#7913;c n&#259;ng ch&iacute;nh: n&eacute;m ch&#7911; &#273;&#7873; v&agrave;o gi&#7919;a b&agrave;n v&agrave; b&#7843;o v&#7879; &yacute; ki&#7871;n thi&#7875;u s&#7889;.</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9315;</span><span><strong>2 c&#7841;m b&#7851;y t&#7917; huy&#7879;t:</strong> Group conformity (&aacute;p l&#7921;c b&#7847;y &#273;&agrave;n &mdash; ng&#432;&#7901;i im l&#7863;ng &#273;&#7891;ng &yacute; theo) v&agrave; &Aacute;c m&#417;ng G&#7905; b&#7103;ng (1 gi&#7901; audio 8 ng&#432;&#7901;i n&oacute;i ch&egrave;n nhau = c&#417;n &aacute;c m&#417;ng ph&acirc;n t&iacute;ch).</span></li></ul></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128214;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Chi ti&#7871;t Ch&#432;&#417;ng 21</div><div style="font-size:.72rem;color:#94a3b8">Accordion</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:9999px"><div style="display:flex;align-items:center;justify-content:space-between;padding:8px 20px 4px;background:#f8fafc;border-bottom:1px solid #f1f5f9"><span style="font-size:.7rem;color:#94a3b8;font-weight:600">4 m&#7909;c &mdash; click &#273;&#7875; m&#7903;</span></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">21.1</span>Focus Group vs Group Interview &mdash; Kh&aacute;c nhau c&#7889;t l&otilde;i</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px">
+<div style="border-radius:12px;padding:14px;border:2px solid #dc2626;background:#fff5f5">
+  <div style="font-weight:700;font-size:.82rem;color:#dc2626;margin-bottom:8px">&#10060; Group Interview (B&#7883; nh&#7847;m l&#7851;n)</div>
+  <p style="font-size:.76rem;color:#475569;line-height:1.5;margin:0">1 ng&#432;&#7901;i h&#7887;i &rarr; 5 ng&#432;&#7901;i <strong>l&#7847;n l&#432;&#7907;t</strong> &#273;&aacute;p. Kh&ocirc;ng c&oacute; t&#432;&#417;ng t&aacute;c. Ch&#7881; ti&#7871;t ki&#7879;m th&#7901;i gian.</p>
+</div>
+<div style="border-radius:12px;padding:14px;border:2px solid #059669;background:#f0fdf4">
+  <div style="font-weight:700;font-size:.82rem;color:#059669;margin-bottom:8px">&#9989; Focus Group (&#272;&uacute;ng b&#7843;n ch&#7845;t)</div>
+  <p style="font-size:.76rem;color:#475569;line-height:1.5;margin:0">1 ng&#432;&#7901;i kh&#417;i m&agrave;o &rarr; 5 ng&#432;&#7901;i <strong>t&#7921; tranh lu&#7853;n v&#7899;i nhau</strong>. Quan s&aacute;t c&aacute;ch ý ngh&#297;a &#273;&#432;&#7907;c ki&#7871;n t&#7841;o t&#7853;p th&#7875;.</p>
+</div>
+</div>
+<div style="margin-top:10px;background:linear-gradient(135deg,#0d1730,#1d2f60);border-radius:10px;padding:13px 16px">
+  <div style="font-size:.7rem;font-weight:700;color:rgba(212,160,23,.8);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Ch&#236;a kh&oacute;a v&agrave;ng</div>
+  <p style="color:rgba(255,255,255,.85);font-size:.8rem;line-height:1.65;margin:0">T&#7853;p trung v&agrave;o <strong style="color:#fbbf24">1 ch&#7911; &#273;&#7873; h&#7865;p</strong> v&agrave; &#273;&#7863;c bi&#7879;t ch&uacute; tr&#7885;ng <strong style="color:#fbbf24">s&#7921; t&#432;&#417;ng t&aacute;c gi&#7919;a c&aacute;c th&agrave;nh vi&ecirc;n</strong>. Kh&ocirc;ng c&#7847;n &#273;&#7891;ng thu&#7853;n &mdash; xung &#273;&#7897;t ch&iacute;nh l&agrave; d&#7919; li&#7879;u.</p>
+</div></div></div></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">21.2</span>Thi&#7871;t k&#7871; K&#7929; thu&#7853;t: C&#7905; nh&oacute;m, S&#7889; nh&oacute;m, Quy tr&igrave;nh</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;font-size:.8rem">
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+<div style="padding:11px;background:#f0f4ff;border-radius:9px;text-align:center">
+  <div style="font-size:1.4rem;margin-bottom:4px">&#128101;</div>
+  <div style="font-weight:700;color:#0d1730;font-size:.78rem">C&#7905; nh&oacute;m</div>
+  <div style="color:#475569;font-size:.73rem;margin-top:3px"><strong>6&ndash;10 ng&#432;&#7901;i</strong><br>&#272;&#7911; &#273;&ocirc;ng = nhi&#7873;u &yacute; ki&#7871;n<br>&#272;&#7911; &iacute;t = kh&ocirc;ng h&#7895;n lo&#7841;n</div>
+</div>
+<div style="padding:11px;background:#fffdf0;border-radius:9px;text-align:center">
+  <div style="font-size:1.4rem;margin-bottom:4px">&#128202;</div>
+  <div style="font-weight:700;color:#b8860b;font-size:.78rem">S&#7889; nh&oacute;m</div>
+  <div style="color:#475569;font-size:.73rem;margin-top:3px"><strong>Nhi&#7873;u nh&oacute;m</strong><br>Ph&acirc;n t&#7847;ng (NV/QL)<br>D&#7915;ng khi b&atilde;o h&ograve;a</div>
+</div>
+<div style="padding:11px;background:#f0fdf4;border-radius:9px;text-align:center">
+  <div style="font-size:1.4rem;margin-bottom:4px">&#129484;</div>
+  <div style="font-weight:700;color:#065f46;font-size:.78rem">Ng&#432;&#7901;i tham gia</div>
+  <div style="color:#475569;font-size:.73rem;margin-top:3px">Ch&#7885;n <strong>ng&#432;&#7901;i l&#7841;</strong><br>ho&#7863;c nh&oacute;m t&#7921; nhi&ecirc;n<br>(t&ugrave;y m&#7909;c &#273;&iacute;ch)</div>
+</div>
+</div>
+<div style="padding:11px 13px;background:#f0f4ff;border-radius:9px;border-left:3px solid #0d1730">
+<strong style="color:#0d1730">&#128221; 4 B&#432;&#7899;c Ti&#7871;n h&agrave;nh:</strong>
+<span style="color:#475569"> (1) Gi&#7899;i thi&#7879;u + &#273;&#7863;t lu&#7853;t ch&#417;i &rarr; (2) Ph&aacute; b&#259;ng &rarr; (3) Th&#7843;o lu&#7853;n s&acirc;u (Topic agenda) &rarr; (4) T&oacute;m t&#7855;t + C&#7843;m &#417;n. Ghi &acirc;m + G&#7905; b&#7103;ng b&#7855;t bu&#7897;c.</span>
+</div>
+</div></div></div></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">21.3</span>Moderator, Emancipatory &amp; Online Focus Group</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+<div style="border-radius:12px;padding:14px;background:linear-gradient(135deg,#0d1730,#1d2f60)">
+  <div style="font-weight:700;font-size:.82rem;color:#fbbf24;margin-bottom:8px">&#127947;&#65039; Ngh&#7879; thu&#7853;t Moderator: Nguy&ecirc;n t&#7855;c V&agrave;ng</div>
+  <div style="display:flex;flex-direction:column;gap:7px;font-size:.78rem">
+    <div style="display:flex;gap:8px"><span style="color:#fbbf24;font-weight:700;flex-shrink:0">&#9679;</span><span style="color:rgba(255,255,255,.8)"><strong style="color:#fff">Minimal Intervention:</strong> C&agrave;ng n&oacute;i &iacute;t, d&#7919; li&#7879;u c&agrave;ng t&#7921; nhi&ecirc;n. N&eacute;m ch&#7911; &#273;&#7873; v&agrave;o, r&#7891;i ng&#7891;i y&ecirc;n.</span></div>
+    <div style="display:flex;gap:8px"><span style="color:#fbbf24;font-weight:700;flex-shrink:0">&#9679;</span><span style="color:rgba(255,255,255,.8)"><strong style="color:#fff">B&#7843;o v&#7879; thi&#7875;u s&#7889;:</strong> Lu&ocirc;n h&#7887;i ng&#432;&#7901;i im l&#7863;ng: &ldquo;B&#7841;n c&oacute; suy ngh&#297; g&igrave; v&#7873; &#273;i&#7873;u v&#7915;a n&oacute;i kh&ocirc;ng?&rdquo;</span></div>
+    <div style="display:flex;gap:8px"><span style="color:#fbbf24;font-weight:700;flex-shrink:0">&#9679;</span><span style="color:rgba(255,255,255,.8)"><strong style="color:#fff">Kh&ocirc;ng x&#432;&#417;ng c&aacute;:</strong> Kh&ocirc;ng &#273;&#7891;ng &yacute; hay ph&#7843;n b&aacute;c b&#7845;t k&#7923; &yacute; ki&#7871;n n&agrave;o. L&agrave;m t&#432;&#7901;ng v&ocirc; h&igrave;nh.</span></div>
+  </div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="border-radius:10px;padding:12px;background:#f0fdf4;border-left:3px solid #059669;font-size:.78rem">
+  <strong style="color:#065f46">&#127970; Emancipatory Method</strong><br>
+  <span style="color:#475569">Trao quy&#7873;n (empowerment) cho ng&#432;&#7901;i y&#7871;u th&#7871;. Nh&agrave; nghi&ecirc;n c&#7913;u n&#7919; quy&#7873;n d&ugrave;ng Focus Group &#273;&#7875; nh&#7919;ng ng&#432;&#7901;i ph&#7909; n&#7919; c&ugrave;ng l&ecirc;n ti&#7871;ng t&#7853;p th&#7875;.</span>
+</div>
+<div style="border-radius:10px;padding:12px;background:#faf5ff;border-left:3px solid #7c3aed;font-size:.78rem">
+  <strong style="color:#6d28d9">&#127760; Online Focus Group</strong><br>
+  <span style="color:#475569"><strong>Synchronous:</strong> Chat/Video th&#7901;i gian th&#7921;c.<br><strong>Asynchronous:</strong> Di&#7877;n &#273;&agrave;n, email 1 tu&#7847;n.</span>
+</div>
+</div>
+</div></div></div></div><div style=""><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">21.4</span>3 C&#7841;m b&#7851;y T&#7917; huy&#7879;t</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+<div style="padding:12px 14px;background:#fff5f5;border-radius:9px;border-left:4px solid #dc2626;font-size:.8rem">
+  <strong style="color:#dc2626">&#9888;&#65039; Group Conformity &mdash; &Aacute;p l&#7921;c b&#7847;y &#273;&agrave;n</strong><br>
+  <span style="color:#475569">5 ng&#432;&#7901;i khen s&#7871;p &rarr; ng&#432;&#7901;i th&#7913; 6 kh&ocirc;ng d&aacute;m ch&#7917;. D&#7919; li&#7879;u sai l&#7879;ch to&agrave;n b&#7897;. Gi&#7843;i ph&aacute;p: Moderator g&#7885;i t&ecirc;n ng&#432;&#7901;i im l&#7863;ng, h&#7887;i ri&ecirc;ng tr&#432;&#7899;c khi k&#7871;t th&uacute;c.</span>
+</div>
+<div style="padding:12px 14px;background:#fffdf0;border-radius:9px;border-left:4px solid #d4a017;font-size:.8rem">
+  <strong style="color:#b8860b">&#9888;&#65039; &Aacute;c m&#417;ng G&#7905; b&#7103;ng</strong><br>
+  <span style="color:#475569">1 gi&#7901; audio 8 ng&#432;&#7901;i n&oacute;i &#273;&egrave; l&ecirc;n nhau = &#273;&acirc;y l&agrave; c&#417;n &aacute;c m&#417;ng. Ph&#7843;i &#273;&#7863;t lu&#7853;t ngay t&#7915; &#273;&#7847;u: &ldquo;M&#7895;i ng&#432;&#7901;i n&oacute;i m&#7897;t l&uacute;c&rdquo; v&agrave; &#273;&#7863;t nhi&#7873;u micro.</span>
+</div>
+<div style="padding:12px 14px;background:#f5f3ff;border-radius:9px;border-left:4px solid #7c3aed;font-size:.8rem">
+  <strong style="color:#6d28d9">&#9888;&#65039; M&#7845;t ki&#7875;m so&aacute;t</strong><br>
+  <span style="color:#475569">Kh&ocirc;ng th&#7875; l&aacute;i cu&#7897;c tr&ograve; chuy&#7879;n ch&iacute;nh x&aacute;c nh&#432; ph&#7887;ng v&#7845;n 1-1. H&atilde;y ch&#7845;p nh&#7853;n s&#7921; h&#7895;n lo&#7841;n c&oacute; ch&#7911; &#273;&iacute;ch n&agrave;y &mdash; &yacute; ngh&#297;a c&#7911;a Focus Group n&#7857;m &#7903; &#273;&oacute;.</span>
+</div>
+</div></div></div></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128273;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">B&#7843;ng Kh&aacute;i ni&#7879;m</div><div style="font-size:.72rem;color:#94a3b8">7 kh&aacute;i ni&#7879;m c&#7889;t l&otilde;i</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:1400px"><div style="overflow-x:auto"><table style="width:100%;font-size:.8rem;border-collapse:collapse"><thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0"><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:160px">Kh&aacute;i ni&#7879;m</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em">&#272;&#7883;nh ngh&#297;a</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:180px">V&iacute; d&#7909;</th></tr></thead><tbody><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Focus group</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Ph&#7887;ng v&#7845;n nh&oacute;m t&#7853;p trung v&agrave;o t&#432;&#417;ng t&aacute;c v&agrave; ki&#7871;n t&#7841;o &yacute; ngh&#297;a t&#7853;p th&#7875;.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">8 KH Gen Z b&agrave;n v&#7873; s&#7843;n ph&#7849;m Detox m&#7899;i</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Group interaction</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Qu&aacute; tr&igrave;nh ng&#432;&#7901;i ta tranh lu&#7853;n, thay &#273;&#7893;i &yacute; ki&#7871;n qua nh&oacute;m &mdash; m&#7887; v&agrave;ng c&#7911;a ph&#432;&#417;ng ph&aacute;p.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Ng&#432;&#7901;i A n&oacute;i l&#432;&#417;ng, B ng&#7855;t l&#7901;i &rarr; insight ph&uacute;c l&#7907;i</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Moderator</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Ng&#432;&#7901;i d&#7851;n d&#7855;t: can thi&#7879;p t&#7889;i thi&#7875;u, b&#7843;o v&#7879; thi&#7875;u s&#7889;.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">N&eacute;m ch&#7911; &#273;&#7873; v&agrave;o r&#7891;i ng&#7891;i im l&#7855;ng</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Group conformity</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">&Aacute;p l&#7921;c b&#7847;y &#273;&agrave;n &mdash; c&aacute; nh&acirc;n gi&#7845;u &yacute; ki&#7871;n th&#7853;t &#273;&#7875; h&ugrave;a theo s&#7889; &#273;&ocirc;ng.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">NV kh&ocirc;ng d&aacute;m ch&#7911; s&#7871;p d&ugrave; trong b&#7909;ng mu&#7889;n</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Synchronous online</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Focus group online th&#7901;i gian th&#7921;c (chat/video).</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">H&#7885;p Zoom 8 ng&#432;&#7901;i tr&aacute;i m&uacute;i gi&#7901;</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Asynchronous online</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Focus group online c&oacute; &#273;&#7897; tr&#7877; th&#7901;i gian (di&#7877;n &#273;&agrave;n, email).</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Group Facebook k&iacute;n th&#7843;o lu&#7853;n 1 tu&#7847;n</td></tr><tr style=""><td style="padding:9px 16px"><span class="kb">Emancipatory method</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Ph&#432;&#417;ng ph&aacute;p trao quy&#7873;n cho nh&oacute;m y&#7871;u th&#7871; l&ecirc;n ti&#7871;ng t&#7853;p th&#7875;.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">N&#7919; doanh nh&acirc;n c&ugrave;ng t&aacute;i &#273;&#7883;nh ngh&#297;a l&atilde;nh &#273;&#7841;o</td></tr></tbody></table></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#0d1730,#1d2f60);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" fill="none" stroke="#fbbf24" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Ph&acirc;n t&iacute;ch &amp; &#272;&aacute;nh gi&aacute;</div><div style="font-size:.72rem;color:#94a3b8">Critical Analysis</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:2000px"><div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+<div style="border-radius:12px;padding:18px 20px;background:linear-gradient(135deg,#0d1730,#1d2f60)">
+  <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(212,160,23,.75);margin-bottom:8px">C&acirc;u h&#7887;i c&#7889;t l&otilde;i</div>
+  <p style="color:#fff;font-size:.875rem;line-height:1.7;font-family:Georgia,serif;font-style:italic">"Focus group kh&aacute;c bi&#7879;t nh&#432; th&#7871; n&agrave;o so v&#7899;i ph&#7887;ng v&#7845;n c&aacute; nh&acirc;n, v&agrave; l&agrave;m th&#7871; n&agrave;o nh&agrave; nghi&ecirc;n c&#7913;u c&oacute; th&#7875; s&#7917; d&#7909;ng n&oacute; &#273;&#7875; thu th&#7853;p nh&#7919;ng &ldquo;s&#7921; th&#7853;t&rdquo; &#273;&#432;&#7907;c sinh ra th&ocirc;ng qua t&#432;&#417;ng t&aacute;c x&atilde; h&#7897;i?"</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+  <div style="border:1px solid #e2e8f0;border-radius:12px;padding:15px">
+    <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #f1f5f9">Logic L&#7853;p lu&#7853;n</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Premise</span><span style="color:#475569;font-size:.8rem">Trong &#273;&#7901;i th&#7921;c, con ng&#432;&#7901;i hi&#7871;m khi h&igrave;nh th&agrave;nh quan &#273;i&#7875;m m&#7897;t c&aacute;ch &#273;&#417;n &#273;&#7897;c. Th&aacute;i &#273;&#7897;, ni&#7873;m tin c&#7911;a ch&uacute;ng ta li&ecirc;n t&#7909;c b&#7883; nh&agrave;o n&#7863;n th&ocirc;ng qua tranh lu&#7853;n.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Argument</span><span style="color:#475569;font-size:.8rem">Ph&#7887;ng v&#7845;n 1-1 t&#7841;o m&ocirc;i tr&#432;&#7901;ng gi&#7843; t&#7841;o, t&aacute;ch r&#7901;i kh&#7887;i b&#7889;i c&#7843;nh x&atilde; h&#7897;i. &#272;&#7875; hi&#7875;u "t&#7841;i sao" m&#7885;i ng&#432;&#7901;i ngh&#297; nh&#432; v&#7853;y, ph&#7843;i &#273;&#7863;t h&#7885; v&agrave;o nh&oacute;m &#273;&#7875; quan s&aacute;t c&aacute;ch h&#7885; th&aacute;ch th&#7913;c v&agrave; b&#7843;o v&#7879; l&#7853;p lu&#7853;n.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Conclusion</span><span style="color:#475569;font-size:.8rem">Focus group l&agrave; c&ocirc;ng c&#7909; v&ocirc; gi&aacute; kh&ocirc;ng ch&#7881; thu th&#7853;p d&#7919; li&#7879;u &#273;a chi&#7873;u, m&agrave; c&ograve;n chuy&#7875;n giao quy&#7873;n l&#7921;c (emancipatory). Nh&#432;ng &#273;&ograve;i h&#7887;i k&#7929; n&#259;ng &#273;i&#7873;u ph&#7889;i xu&#7845;t s&#7855;c v&agrave; c&ocirc;ng s&#7913;c g&#7905; b&#7103;ng kh&#7893;ng l&#7891;.</span></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9989; &#272;i&#7875;m m&#7841;nh</div>
+      <p style="color:#047857;font-size:.78rem;line-height:1.7;margin:0">Ph&aacute; v&#7905; t&#432; duy th&#7921;c d&#7909;ng "d&ugrave;ng focus group cho nhanh r&#7867;". N&acirc;ng t&#7847;m ph&#432;&#417;ng ph&aacute;p l&ecirc;n m&#7913;c &#273;&#7897; tri&#7871;t h&#7885;c (meaning-making). R&#7845;t c&#7909; th&#7875; v&#7873; k&#7929; thu&#7853;t v&#7853;n h&agrave;nh.</p>
+    </div>
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9888;&#65039; H&#7841;n ch&#7871; &amp; Gi&#7843; &#273;&#7883;nh ng&#7847;m</div>
+      <p style="color:#b45309;font-size:.78rem;line-height:1.7;margin:0">Ng&#7847;m gi&#7843; &#273;&#7883;nh r&#7857;ng ng&#432;&#7901;i tham gia &#273;&#7911; d&#361;ng c&#7843;m b&#7897;c l&#7897; c&#7843;m x&uacute;c th&#7853;t tr&#432;&#7899;c ng&#432;&#7901;i l&#7841;. Trong v&#259;n h&oacute;a &Aacute; &#272;&ocirc;ng (th&#7875; di&#7879;n cao), Group conformity s&#7869; r&#7845;t m&#7841;nh &rarr; H&#7841;n ch&#7871; l&#7899;n n&#7871;u kh&ocirc;ng x&#7917; l&yacute;.</p>
+    </div>
+  </div>
+</div></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#129514;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">&#7912;ng d&#7909;ng Th&#7921;c ti&#7877;n</div><div style="font-size:.72rem;color:#94a3b8">Case Study + &#272;&#7873; xu&#7845;t + T&#7921; ki&#7875;m tra</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:3000px"><div style="padding:20px;display:flex;flex-direction:column;gap:16px">
+<div><div style="font-weight:700;color:#1e293b;margin-bottom:12px;font-size:.875rem">&#128203; Case Study: Kh&aacute;m ph&aacute; v&#7845;n &#273;&#7873; Menu Detox c&#7911;a Chu&#7895;i C&agrave; ph&ecirc; X</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="border-radius:10px;padding:11px;background:#f0f4ff;border-left:3px solid #0d1730"><strong style="color:#0d1730">V&#7845;n &#273;&#7873;:</strong> <span style="color:#475569;font-size:.8rem">Survey kh&aacute;ch ch&#7881; tick &ldquo;Kh&ocirc;ng ngon&rdquo;. Gi&#7843;m ng&#7885;t v&#7851;n &#273;&oacute;ng c&#7917;a. C&#7847;n t&igrave;m insight s&acirc;u h&#417;n.</span></div><div style="border-radius:10px;padding:11px;background:#fffdf0;border-left:3px solid #d4a017"><strong style="color:#d4a017">T&#432;&#417;ng t&aacute;c nh&oacute;m x&#7843;y ra:</strong> <span style="color:#475569;font-size:.8rem">Kh&aacute;ch A: "M&agrave;u xanh h&#417;i nh&acirc;n t&#7841;o". Kh&aacute;ch B: "&#272;&uacute;ng! Gi&#7889;ng m&agrave;u n&#432;&#7899;c r&#7917;a ch&eacute;n". Kh&aacute;ch C: "Gi&aacute; nh&#432; d&ugrave;ng ly th&#7911;y tinh th&igrave; Detox h&#417;n".</span></div><div style="border-radius:10px;padding:11px;background:#f0fdf4;border-left:3px solid #059669"><strong style="color:#059669">Ph&aacute;t hi&#7879;n c&#7889;t l&otilde;i:</strong> <span style="color:#475569;font-size:.8rem">V&#7845;n &#273;&#7873; kh&ocirc;ng ph&#7843;i h&#432;&#417;ng v&#7883;, m&agrave; l&agrave; &#273;&#7883;nh v&#7883; th&#7883; gi&aacute;c v&agrave; bao b&igrave;. Survey kh&ocirc;ng bao gi&#7901; t&igrave;m ra &#273;&#432;&#7907;c &#273;i&#7873;u n&agrave;y.</span></div></div></div>
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;color:#14532d;margin-bottom:10px;font-size:.875rem">&#128161; &#272;&#7873; xu&#7845;t &#7913;ng d&#7909;ng</div>
+  <div style="display:flex;flex-direction:column;gap:8px;color:#166534"><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Lu&#7853;n v&#259;n</span><span style="font-size:.8rem">D&ugrave;ng Focus Group l&agrave;m b&#432;&#7899;c &ldquo;ti&#7873;n tr&#7841;m&rdquo; tr&#432;&#7899;c khi thi&#7871;t k&#7871; b&#7843;ng h&#7887;i Survey. Nh&#7919;ng t&#7915; kh&oacute;a xu&#7845;t hi&#7879;n trong Focus Group s&#7869; ch&#7881;nh l&yacute; ng&ocirc;n ng&#7919; c&acirc;u h&#7887;i &#273;&uacute;ng v&#7899;i th&#7921;c t&#7871;.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">HR</span><span style="font-size:.8rem">Thay v&igrave; survey n&#7897;i b&#7897; kh&ocirc; khan, t&#7893; ch&#7913;c Focus Group nh&#7887;. &#193;p d&#7909;ng Minimal Intervention: HR ch&#7881; n&ecirc;u v&#7845;n &#273;&#7873; r&#7891;i ng&#7891;i im l&#7855;ng 20 ph&uacute;t &rarr; NV t&#7921; m&#7893; x&#7867;.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">&#272;&#7901;i s&#7889;ng</span><span style="font-size:.8rem">Khi nh&oacute;m b&#7841;n b&agrave;n du l&#7883;ch, &#273;&oacute;ng vai Moderator: kh&ocirc;ng &aacute;p &#273;&#7863;t, &#273;&#7863;t c&acirc;u h&#7887;i m&#7903; v&agrave; ch&uacute; &yacute; ai &#273;ang b&#7883; Group conformity (im l&#7863;ng &#273;&#7891;ng &yacute; nh&#432;ng trong b&#7909;ng mu&#7889;n kh&aacute;c).</span></div></div>
+</div>
+<div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:12px">&#128203; T&#7921; ki&#7875;m tra</div>
+  <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q1</span><span style="color:#374151">T&#7841;i sao Group Interaction l&agrave; gi&aacute; tr&#7883; c&#7889;t l&otilde;i c&#7911;a Focus Group, thay v&igrave; ch&#7881; l&agrave; vi&#7879;c h&#7887;i nhi&#7873;u ng&#432;&#7901;i c&ugrave;ng l&uacute;c?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q2</span><span style="color:#374151">Group Conformity c&oacute; t&aacute;c h&#7841;i g&igrave;? Moderator n&ecirc;n x&#7917; l&yacute; nh&#432; th&#7871; n&agrave;o?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q3</span><span style="color:#374151">Khi n&agrave;o n&ecirc;n d&ugrave;ng Asynchronous Online Focus Group? &#432;u &#273;i&#7875;m v&agrave; h&#7841;n ch&#7871;?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q4</span><span style="color:#374151">Focus group l&agrave;m lu&#7853;n v&#259;n MBA c&#7911;a b&#7841;n: N&ecirc;n bao nhi&ecirc;u nh&oacute;m, bao nhi&ecirc;u ng&#432;&#7901;i?</span></div></div>
+</div></div></div>
+</div></main>
+<footer style="margin-top:32px;padding:28px 16px;background:#0d1730">
+  <div style="max-width:896px;margin:0 auto;display:flex;flex-direction:column;gap:12px;align-items:center">
+    <div style="text-align:center">
+      <div style="font-family:Georgia,serif;color:#fff;font-weight:700;font-size:.875rem">Chapter 21 &middot; Focus Groups</div>
+      <div style="color:#475569;font-size:.72rem;margin-top:2px">Bryman &amp; Bell &mdash; MBA Research Methods Hub &middot; &copy; 2026</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <a href="chapter20.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&larr; Ch.20</a>
+      <a href="index.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&#127968; Home</a>
+      <a href="chapter22.html" style="font-size:.75rem;font-weight:700;padding:7px 16px;border-radius:999px;background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730;text-decoration:none">Ch.22 &rarr;</a>
+    </div>
+  </div>
+</footer>
+<script>
+function togS(h){h.nextElementSibling.classList.toggle("shut");h.classList.toggle("shut-s")}
+function togA(h){h.nextElementSibling.classList.toggle("open");h.classList.toggle("os")}
+function allOpen(){document.querySelectorAll(".sb").forEach(b=>b.classList.remove("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.remove("shut-s"))}
+function allClose(){document.querySelectorAll(".sb").forEach(b=>b.classList.add("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.add("shut-s"))}
+</script>
+</body></html>

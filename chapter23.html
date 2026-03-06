@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="nav-active" content="p3">
+<title>Chapter 23 — Documents</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        body{font-family:"Inter",sans-serif;background:#f8fafc}
+        .hero{background:linear-gradient(135deg,#0d1730 0%,#1d2f60 60%,#2a4080 100%);position:relative;overflow:hidden}
+        .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(212,160,23,.15) 0%,transparent 55%);pointer-events:none}
+        .hgrid{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px;position:absolute;inset:0;pointer-events:none}
+        .sh{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#fff;border-bottom:1px solid #e2e8f0;transition:background .18s}
+        .sh:hover{background:#f8fafc}
+        .sb{overflow:hidden;transition:max-height .4s ease}
+        .sb.shut{max-height:0!important}
+        .sa{display:inline-block;transition:transform .3s;color:#94a3b8}
+        .sh.shut-s .sa{transform:rotate(-90deg)}
+        .ah{cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:13px 20px;transition:background .18s}
+        .ah:hover{background:#f8fafc}
+        .ab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+        .ab.open{max-height:5000px}
+        .aa{display:inline-block;transition:transform .3s;color:#94a3b8;font-size:.8rem}
+        .ah.os .aa{transform:rotate(90deg);color:#d4a017}
+        .sn{background:linear-gradient(135deg,#0d1730,#1d2f60);color:#fbbf24;font-weight:700;font-size:.68rem;padding:2px 8px;border-radius:4px;margin-right:8px;white-space:nowrap}
+        .kb{background:#e0e9ff;color:#1d2f60;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:4px}
+        .pill{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;font-size:.7rem;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0}
+        .bc a{color:rgba(255,255,255,.5);font-size:.72rem;text-decoration:none}
+        .bc a:hover{color:#fbbf24}
+        .bcs{color:rgba(255,255,255,.22);margin:0 5px;font-size:.72rem}
+        @keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+        .au{animation:up .3s ease both}</style>
+</head><body>
+<script src="nav.js"></script>
+<header class="hero py-10 md:py-14">
+<div class="hgrid"></div>
+<div class="relative z-10 max-w-4xl mx-auto px-4">
+  <div class="bc flex items-center mb-5">
+    <a href="index.html">MBA Research Hub</a><span class="bcs">&rsaquo;</span>
+    <a href="index.html">Part II &middot; Quantitative Research</a><span class="bcs">&rsaquo;</span>
+    <span style="color:rgba(255,255,255,.78);font-size:.72rem">Chapter 23</span>
+  </div>
+  <div class="flex flex-col md:flex-row md:items-end gap-6">
+    <div class="flex-1">
+      <div class="flex items-center gap-3 mb-3">
+        <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#d4a017,#fbbf24);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:#0d1730;flex-shrink:0">23</div>
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3.5vw,2.1rem);font-weight:700;color:#fff;line-height:1.2">Documents<br><span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">as Data</span></h1>
+      </div>
+      <p style="color:#94a3b8;font-size:.88rem;max-width:520px;line-height:1.65;margin-bottom:14px">T&agrave;i li&#7879;u kh&ocirc;ng ph&#7843;i s&#7921; th&#7853;t. 4 l&#432;&#7899;i l&#7885;c Scott: A-C-R-M. ECA + Semiotics + Historical Analysis &#273;&#7875; gi&#7843;i m&atilde; &yacute; &#273;&#7891; ng&#7847;m.</p>
+      <div class="flex flex-wrap gap-2"><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">John Scott's 4 Criteria</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Documents as Texts</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Non-reactive</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Intertextuality</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">ECA</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Semiotics</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Historical Analysis</span></div>
+    </div>
+    <div class="flex items-center gap-1.5 flex-shrink-0">
+      <span style="color:#64748b;font-size:.7rem;margin-right:2px">Ch.</span>
+      <a href="chapter22.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">22</a><a href="chapter23.html" class="pill" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730">23</a><a href="chapter24.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">24</a>
+      <a href="index.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:1rem">&ctdot;</a>
+    </div>
+  </div>
+  <div class="flex gap-2 mt-6">
+    <button onclick="allOpen()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; M&#7903; t&#7845;t c&#7843;</button>
+    <button onclick="allClose()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; Thu t&#7845;t c&#7843;</button>
+  </div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-4"><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128203;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">T&oacute;m t&#7855;t</div><div style="font-size:.72rem;color:#94a3b8">Summary &mdash; lu&#7853;n &#273;i&#7875;m ch&iacute;nh</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:900px"><div style="padding:16px 20px 14px;background:#fff5f5;border-left:4px solid #f87171"><p style="color:#991b1b;font-size:.875rem;line-height:1.75;margin:0">T&agrave;i li&#7879;u <strong>kh&ocirc;ng ph&#7843;i s&#7921; th&#7853;t kh&aacute;ch quan</strong>. T&agrave;i li&#7879;u l&agrave; <strong>b&#7843;n thuy&#7871;t tr&igrave;nh c&oacute; ch&#7911; &yacute;</strong>, &#273;&#432;&#7907;c vi&#7871;t ra b&#7903;i ai &#273;&oacute;, &#273;&#7875; thuy&#7871;t ph&#7909;c ai &#273;&oacute;, tin v&agrave;o &#273;i&#7873;u g&igrave; &#273;&oacute;. &#272;&#7885;c t&agrave;i li&#7879;u l&agrave; ph&#7843;i &#273;&#7885;c &#273;&#432;&#7907;c &yacute; &#273;&#7891; &#273;&#7857;ng sau con ch&#7919;.</p></div><div style="padding:14px 20px 20px;background:#fff8f0;border-left:4px solid #fb923c"><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:.875rem;color:#9a3412"><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9312;</span><span><strong>4 l&#432;&#7899;i l&#7885;c John Scott (1990):</strong> Authenticity (Xác th&#7921;c &mdash; &#273;&#7891; th&#7853;t hay gi&#7843;?), Credibility (&#272;&aacute;ng tin &mdash; c&oacute; thi&ecirc;n ki&#7871;n?), Representativeness (&#272;&#7841;i di&#7879;n &mdash; s&#7889; &#273;&ocirc;ng hay c&aacute; bi&#7879;t?), Meaning (R&otilde; ngh&#297;a &mdash; hi&#7875;u &#273;&#432;&#7907;c kh&ocirc;ng?).</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9313;</span><span><strong>T&agrave;i li&#7879;u nh&#432; m&#7887; v&agrave;ng kh&aacute;c th&#432;&#7901;ng:</strong> D&#7919; li&#7879;u c&oacute; s&#7861;n, kh&ocirc;ng c&#7847;n phi&#7871;u xin ph&eacute;p &#273;&#7841;o &#273;&#7913;c ph&#7913;c t&#7841;p. &ldquo;Kh&ocirc;ng can thi&#7879;p&rdquo; (Non-reactive) &mdash; t&agrave;i li&#7879;u kh&ocirc;ng bi&#7871;t m&igrave;nh &#273;ang b&#7883; nghi&ecirc;n c&#7913;u n&ecirc;n kh&ocirc;ng &ldquo;di&#7877;n k&#7883;ch&rdquo;.</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9314;</span><span><strong>3 ph&#432;&#417;ng ph&aacute;p gi&#7843;i m&atilde;:</strong> ECA (Ph&acirc;n t&iacute;ch n&#7897;i dung d&acirc;n t&#7897;c h&#7885;c &mdash; t&igrave;m ch&#7911; &#273;&#7873; linh ho&#7841;t), Semiotics (K&yacute; hi&#7879;u h&#7885;c &mdash; b&oacute;c t&aacute;ch &yacute; th&#7913;c h&#7879; ngầm), Historical analysis (l&#7853;t t&#7849;y c&aacute;ch l&#7883;ch s&#7917; &#273;&#432;&#7907;c vi&#7871;t l&#7841;i b&#7903;i ng&#432;&#7901;i n&#7855;m quy&#7873;n).</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9315;</span><span><strong>Documents as texts:</strong> B&aacute;o c&aacute;o c&ocirc;ng ty sinh ra &#273;&#7875; PR; bi&ecirc;n b&#7843;n h&#7885;p sinh ra &#273;&#7875; che gi&#7845;u xung &#273;&#7897;t; &#7843;nh b&aacute;o c&aacute;o th&#432;&#7901;ng ni&ecirc;n sinh ra &#273;&#7875; t&#7841;o v&#7887; b&#7885;c h&#7841;nh ph&uacute;c. T&#7845;t c&#7843; &#273;&#7873;u mang &yacute; &#273;&#7891; ch&iacute;nh tr&#7883;.</span></li></ul></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128214;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Chi ti&#7871;t Ch&#432;&#417;ng 23</div><div style="font-size:.72rem;color:#94a3b8">Accordion</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:9999px"><div style="display:flex;align-items:center;justify-content:space-between;padding:8px 20px 4px;background:#f8fafc;border-bottom:1px solid #f1f5f9"><span style="font-size:.7rem;color:#94a3b8;font-weight:600">3 m&#7909;c &mdash; click &#273;&#7875; m&#7903;</span></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">23.1</span>4 L&#432;&#7899;i l&#7885;c John Scott &mdash; B&#7855;t bu&#7897;c Thu&#7897;c</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="border-radius:12px;padding:16px;background:linear-gradient(135deg,#0d1730,#1d2f60);margin-top:10px">
+  <div style="font-weight:700;font-size:.85rem;color:#fbbf24;margin-bottom:12px">&#128273; B&#7897; l&#432;&#7899;i l&#7885;c John Scott (1990) &mdash; B&#7855;t bu&#7897;c Thu&#7897;c</div>
+  <div style="display:flex;flex-direction:column;gap:9px">
+    <div style="display:flex;gap:10px;background:rgba(255,255,255,.08);border-radius:8px;padding:10px">
+      <span style="background:#d4a017;color:#0d1730;font-weight:700;font-size:.7rem;padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:1px">A</span>
+      <div><strong style="color:#fff;font-size:.8rem">Authenticity (X&aacute;c th&#7921;c)</strong><br><span style="color:rgba(255,255,255,.7);font-size:.76rem">Ngu&#7891;n g&#7889;c c&oacute; chu&#7849;n kh&ocirc;ng? C&oacute; b&#7883; l&agrave;m gi&#7843; kh&ocirc;ng? Ai l&agrave; t&aacute;c gi&#7843; th&#7921;c s&#7921;?</span></div>
+    </div>
+    <div style="display:flex;gap:10px;background:rgba(255,255,255,.08);border-radius:8px;padding:10px">
+      <span style="background:#d4a017;color:#0d1730;font-weight:700;font-size:.7rem;padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:1px">C</span>
+      <div><strong style="color:#fff;font-size:.8rem">Credibility (&#272;&aacute;ng tin)</strong><br><span style="color:rgba(255,255,255,.7);font-size:.76rem">Ng&#432;&#7901;i vi&#7871;t c&oacute; thi&ecirc;n ki&#7871;n, che gi&#7845;u sai l&#7847;m, hay t&acirc;ng b&#7889;c b&#7843;n th&acirc;n kh&ocirc;ng? &#272;&acirc;y l&agrave; c&acirc;u h&#7887;i quan tr&#7885;ng nh&#7845;t!</span></div>
+    </div>
+    <div style="display:flex;gap:10px;background:rgba(255,255,255,.08);border-radius:8px;padding:10px">
+      <span style="background:#d4a017;color:#0d1730;font-weight:700;font-size:.7rem;padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:1px">R</span>
+      <div><strong style="color:#fff;font-size:.8rem">Representativeness (&#272;&#7841;i di&#7879;n)</strong><br><span style="color:rgba(255,255,255,.7);font-size:.76rem">Tài li&#7879;u n&agrave;y c&oacute; &#273;i&#7875;n h&igrave;nh kh&ocirc;ng? L&#432;u &yacute;: c&aacute;c t&agrave;i li&#7879;u l&#432;u tr&#7919; th&#432;&#7901;ng thi&ecirc;n v&#7883; ng&#432;&#7901;i chi&#7871;n th&#7855;ng/ng&#432;&#7901;i gi&agrave;u.</span></div>
+    </div>
+    <div style="display:flex;gap:10px;background:rgba(255,255,255,.08);border-radius:8px;padding:10px">
+      <span style="background:#d4a017;color:#0d1730;font-weight:700;font-size:.7rem;padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:1px">M</span>
+      <div><strong style="color:#fff;font-size:.8rem">Meaning (R&otilde; ngh&#297;a)</strong><br><span style="color:rgba(255,255,255,.7);font-size:.76rem">Ng&ocirc;n t&#7915; c&oacute; &#273;a ngh&#297;a hay t&#7889;i ngh&#297;a kh&ocirc;ng? Hi&#7875;u ng&#432;&#7907;c &yacute; kh&ocirc;ng?</span></div>
+    </div>
+  </div>
+</div></div></div></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">23.2</span>Ph&acirc;n lo&#7841;i T&agrave;i li&#7879;u &amp; Documents as Texts</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;font-size:.8rem">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px">
+<div style="padding:11px;background:#f0f4ff;border-radius:9px;border-top:3px solid #0d1730">
+  <div style="font-weight:700;font-size:.78rem;color:#0d1730;margin-bottom:5px">&#128100; C&aacute; nh&acirc;n</div>
+  <div style="font-size:.73rem;color:#475569">Nh&#7853;t k&yacute;, t&#7921; truy&#7879;n, blog, th&#432; t&#7915;.<br><em>S&acirc;u s&#7855;c &mdash; k&eacute;m &#273;&#7841;i di&#7879;n</em></div>
+</div>
+<div style="padding:11px;background:#fffdf0;border-radius:9px;border-top:3px solid #d4a017">
+  <div style="font-weight:700;font-size:.78rem;color:#b8860b;margin-bottom:5px">&#127970; T&#7893; ch&#7913;c</div>
+  <div style="font-size:.73rem;color:#475569">Annual report, nội quy, website.<br><em>D&#7877; ti&#7871;p c&#7853;n &mdash; PR cao</em></div>
+</div>
+<div style="padding:11px;background:#fff5f5;border-radius:9px;border-top:3px solid #dc2626">
+  <div style="font-weight:700;font-size:.78rem;color:#dc2626;margin-bottom:5px">&#127970; Nh&agrave; n&#432;&#7899;c</div>
+  <div style="font-size:.73rem;color:#475569">B&aacute;o c&aacute;o &#273;i&#7873;u tra, h&#7891; s&#417; to&agrave; &aacute;n.<br><em>Credibility th&#7845;p n&#7871;u che th&ocirc;ng tin</em></div>
+</div>
+<div style="padding:11px;background:#f0fdf4;border-radius:9px;border-top:3px solid #059669">
+  <div style="font-weight:700;font-size:.78rem;color:#065f46;margin-bottom:5px">&#128247; Th&#7883; gi&aacute;c</div>
+  <div style="font-size:.73rem;color:#475569">&#7842;nh, video, logo.<br><em>H&#7887;i: &#7843;nh n&agrave;y &#273;&#432;&#7907;c ch&#7885;n l&agrave;m g&igrave;?</em></div>
+</div>
+</div>
+<div style="padding:11px 14px;background:#f0f4ff;border-radius:9px;border-left:3px solid #0d1730">
+<strong style="color:#0d1730">&#9888;&#65039; Documents as Texts:</strong>
+<span style="color:#475569"> Kh&ocirc;ng b&iacute;ch ch&iacute; "T&ocirc;n tr&#7885;ng nh&acirc;n vi&ecirc;n" d&aacute;n tr&ecirc;n t&#432;&#7901;ng = v&#259;n h&oacute;a c&ocirc;ng ty. H&atilde;y &#273;&#7885;c c&aacute;c email n&#7897;i b&#7897;, bi&ecirc;n b&#7843;n ph&#7841;t l&#7895;i, l&#7883;ch s&#7917; sa th&#7843;i. &#272;&oacute; m&#7899;i l&agrave; v&#259;n h&oacute;a th&#7921;c s&#7921;.</span>
+</div>
+</div></div></div></div><div style=""><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">23.3</span>ECA, Semiotics &amp; Historical Analysis</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+<div style="border-radius:12px;padding:14px;background:#f0fdf4;border-left:4px solid #059669">
+  <div style="font-weight:700;font-size:.82rem;color:#065f46;margin-bottom:6px">&#128221; Ethnographic Content Analysis (ECA)</div>
+  <p style="font-size:.8rem;color:#475569;line-height:1.65;margin:0 0 8px">T&igrave;m ch&#7911; &#273;&#7873; (themes) m&#7897;t c&aacute;ch linh ho&#7841;t, l&#7863;p &#273;i l&#7863;p l&#7841;i. Danh m&#7909;c n&#7843;y sinh t&#7915; d&#7919; li&#7879;u (kh&ocirc;ng &#273;&#7883;nh tr&#432;&#7899;c). Kh&#7855;c ph&#7909;c s&#7921; c&#7913;ng nh&#7855;c c&#7911;a ph&acirc;n t&iacute;ch n&#7897;i dung &#273;&#7883;nh l&#432;&#7907;ng.</p>
+  <div style="background:#dcfce7;border-radius:6px;padding:6px 10px;font-size:.76rem;color:#14532d">Ph&acirc;n t&iacute;ch th&ocirc;ng c&aacute;o b&aacute;o ch&iacute; trong kh&#7911;ng ho&#7843;ng &#273;&#7875; t&igrave;m ch&#7911; &#273;&#7873; bi&#7879;n minh m&#7899;i n&#7843;y sinh</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="border-radius:12px;padding:13px;background:#f0f4ff;border-left:3px solid #0d1730">
+  <div style="font-weight:700;font-size:.78rem;color:#0d1730;margin-bottom:6px">&#128172; Semiotics (K&yacute; hi&#7879;u h&#7885;c)</div>
+  <p style="font-size:.76rem;color:#475569;line-height:1.5;margin:0">Ph&acirc;n t&iacute;ch &ldquo;c&aacute;i bi&#7875;u &#273;&#7841;t&rdquo; (signifier) v&agrave; &ldquo;c&aacute;i &#273;&#432;&#7907;c bi&#7875;u &#273;&#7841;t&rdquo; (signified). B&oacute;c tr&#7847;n &yacute; th&#7913;c h&#7879; ng&#7847;m trong logo, &#7843;nh, ng&ocirc;n t&#7915;.</p>
+  <div style="margin-top:6px;background:#e0e9ff;border-radius:5px;padding:5px 8px;font-size:.72rem;color:#1d2f60">Logo "m&#361; qu&#7843; d&#432;a" ng&acirc;n h&agrave;ng = v&#7919;ng ch&#7855;i, nam t&iacute;nh</div>
+</div>
+<div style="border-radius:12px;padding:13px;background:#fffdf0;border-left:3px solid #d4a017">
+  <div style="font-weight:700;font-size:.78rem;color:#b8860b;margin-bottom:6px">&#128240; Historical Analysis</div>
+  <p style="font-size:.76rem;color:#475569;line-height:1.5;margin:0">Kh&ocirc;ng ch&#7881; thu th&#7853;p s&#7921; ki&#7879;n m&agrave; c&ograve;n xem c&aacute;ch l&#7883;ch s&#7917; &#273;&#432;&#7907;c ki&#7871;n t&#7841;o b&#7903;i ng&#432;&#7901;i n&#7855;m quy&#7873;n. Ph&aacute; v&#7905; gi&#7843; &#273;&#7883;nh hi&#7879;n t&#7841;i.</p>
+  <div style="margin-top:6px;background:#fef9c3;border-radius:5px;padding:5px 8px;font-size:.72rem;color:#713f12">Tài li&#7879;u &#273;&#7891;n &#273;i&#7873;n c&#7899;u &ndash; ngu&#7891;n g&#7889;c k&#7927; lu&#7853;t c&ocirc;ng nghi&#7879;p</div>
+</div>
+</div>
+</div></div></div></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128273;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">B&#7843;ng Kh&aacute;i ni&#7879;m</div><div style="font-size:.72rem;color:#94a3b8">6 kh&aacute;i ni&#7879;m c&#7889;t l&otilde;i</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:1400px"><div style="overflow-x:auto"><table style="width:100%;font-size:.8rem;border-collapse:collapse"><thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0"><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:160px">Kh&aacute;i ni&#7879;m</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em">&#272;&#7883;nh ngh&#297;a</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:180px">V&iacute; d&#7909;</th></tr></thead><tbody><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">John Scott's 4 criteria</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Authenticity, Credibility, Representativeness, Meaning &mdash; b&#7897; &#273;&aacute;nh gi&aacute; ch&#7845;t l&#432;&#7907;ng t&agrave;i li&#7879;u.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Nh&#7853;t k&yacute; CEO: Th&#7853;t (A) nh&#432;ng c&oacute; tự cao (C)?</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Documents as texts</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">T&agrave;i li&#7879;u l&agrave; th&#7921;c t&#7841;i &#273;&#432;&#7907;c ki&#7871;n t&#7841;o c&oacute; ch&#7911; &yacute;, kh&ocirc;ng ph&#7843;n &aacute;nh th&#7921;c t&#7841;i kh&aacute;ch quan.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Bi&ecirc;n b&#7843;n h&#7885;p che gi&#7845;u xung &#273;&#7897;t th&#7853;t</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Intertextuality</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">M&#7885;i t&agrave;i li&#7879;u k&#7871;t n&#7889;i, tham chi&#7871;u t&agrave;i li&#7879;u kh&aacute;c.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Nội quy d&#7921;a tr&ecirc;n Lu&#7853;t lao &#273;&#7897;ng v&agrave; S&#7913; m&#7879;nh c&ocirc;ng ty</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">ECA &mdash; Ethnographic Content Analysis</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Ph&acirc;n t&iacute;ch n&#7897;i dung &#273;&#7883;nh t&iacute;nh c&oacute; t&iacute;nh &#273;&#7879; quy (recursive), danh m&#7909;c n&#7843;y sinh t&#7915; d&#7919; li&#7879;u.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Ch&#7911; &#273;&#7873; bi&#7879;n minh m&#7899;i trong kh&#7911;ng ho&#7843;ng</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Semiotics</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Khoa h&#7885;c nghi&ecirc;n c&#7913;u k&yacute; hi&#7879;u v&agrave; &yacute; ngh&#297;a bi&#7875;u t&#432;&#7907;ng.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Logo m&#361; qu&#7843; d&#432;a ng&acirc;n h&agrave;ng = an to&agrave;n, v&#7919;ng ch&#7855;c</td></tr><tr style=""><td style="padding:9px 16px"><span class="kb">Historical analysis</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Nghi&ecirc;n c&#7913;u c&aacute;ch l&#7883;ch s&#7917; &#273;&#432;&#7907;c ki&#7871;n t&#7841;o b&#7903;i ng&#432;&#7901;i n&#7855;m quy&#7873;n.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Tài li&#7879;u &#273;&#7891;n &#273;i&#7873;n = ngu&#7891;n g&#7889;c k&#7927; lu&#7853;t c&ocirc;ng nghi&#7879;p</td></tr></tbody></table></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#0d1730,#1d2f60);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" fill="none" stroke="#fbbf24" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Ph&acirc;n t&iacute;ch &amp; &#272;&aacute;nh gi&aacute;</div><div style="font-size:.72rem;color:#94a3b8">Critical Analysis</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:2000px"><div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+<div style="border-radius:12px;padding:18px 20px;background:linear-gradient(135deg,#0d1730,#1d2f60)">
+  <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(212,160,23,.75);margin-bottom:8px">C&acirc;u h&#7887;i c&#7889;t l&otilde;i</div>
+  <p style="color:#fff;font-size:.875rem;line-height:1.7;font-family:Georgia,serif;font-style:italic">"L&agrave;m th&#7871; n&agrave;o nh&agrave; nghi&ecirc;n c&#7913;u c&oacute; th&#7875; s&#7917; d&#7909;ng s&#7921; phong ph&uacute; c&#7911;a c&aacute;c t&agrave;i li&#7879;u c&oacute; s&#7861;n &#273;&#7875; hi&#7875;u v&#7873; t&#7893; ch&#7913;c, m&agrave; kh&ocirc;ng r&#417;i v&agrave;o b&#7851;y tin r&#7857;ng nh&#7919;ng t&agrave;i li&#7879;u n&agrave;y ph&#7843;n &aacute;nh s&#7921; th&#7853;t kh&aacute;ch quan?"</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+  <div style="border:1px solid #e2e8f0;border-radius:12px;padding:15px">
+    <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #f1f5f9">Logic L&#7853;p lu&#7853;n</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Premise</span><span style="color:#475569;font-size:.8rem">T&#7893; ch&#7913;c v&agrave; con ng&#432;&#7901;i t&#7841;o ra m&#7897;t l&#432;&#7907;ng d&#7919; li&#7879;u kh&#7893;ng l&#7891; (t&agrave;i li&#7879;u c&ocirc;ng, b&aacute;o c&aacute;o, website, &#7843;nh). &#431;u &#273;i&#7875;m: "kh&ocirc;ng can thi&#7879;p" &mdash; t&agrave;i li&#7879;u kh&ocirc;ng bi&#7871;t m&igrave;nh &#273;ang b&#7883; nghi&ecirc;n c&#7913;u.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Argument</span><span style="color:#475569;font-size:.8rem">B&#7843;n th&acirc;n t&agrave;i li&#7879;u l&#7841;i ch&#7913;a &#273;&#7921;ng m&#7897;t lo&#7841;i sai s&#7889; kh&aacute;c: Sự thi&ecirc;n ki&#7871;n c&#7911;a ng&#432;&#7901;i t&#7841;o ra n&oacute;. B&aacute;o c&aacute;o c&ocirc;ng ty sinh ra &#273;&#7875; PR; bi&ecirc;n b&#7843;n sinh ra &#273;&#7875; che &#273;&#7853;y xung &#273;&#7897;t. T&agrave;i li&#7879;u l&agrave; nh&#7919;ng &ldquo;v&#259;n b&#7843;n&rdquo; mang t&iacute;nh ki&#7871;n t&#7841;o.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Conclusion</span><span style="color:#475569;font-size:.8rem">Nh&agrave; nghi&ecirc;n c&#7913;u ph&#7843;i d&ugrave;ng t&agrave;i li&#7879;u nh&#432; ngu&#7891;n d&#7919; li&#7879;u c&oacute; gi&aacute; tr&#7883;, nh&#432;ng li&ecirc;n t&#7909;c th&#7849;m &#273;&#7883;nh ch&uacute;ng qua 4 l&#259;ng k&iacute;nh Scott v&agrave; d&ugrave;ng c&aacute;c ph&#432;&#417;ng ph&aacute;p gi&#7843;i m&atilde; s&acirc;u (ECA, Semiotics, Historical) &#273;&#7875; b&oacute;c tr&#7847;n &yacute; &#273;&#7891; th&#7921;c s&#7921;.</span></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9989; &#272;i&#7875;m m&#7841;nh</div>
+      <p style="color:#047857;font-size:.78rem;line-height:1.7;margin:0">C&#7843;nh t&#7881;nh m&#7841;nh m&#7869; t&#432; duy &ldquo;t&ocirc;n th&#7901; v&#259;n b&#7843;n&rdquo; c&#7911;a sinh vi&ecirc;n. &#272;&#432;a ra &#273;&#432;&#7907;c khung &#273;&aacute;nh gi&aacute; 4 ti&ecirc;u ch&iacute; Scott c&#7921;c k&#7923; d&#7877; &aacute;p d&#7909;ng v&agrave;o th&#7921;c t&#7871;.</p>
+    </div>
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9888;&#65039; H&#7841;n ch&#7871; &amp; Gi&#7843; &#273;&#7883;nh ng&#7847;m</div>
+      <p style="color:#b45309;font-size:.78rem;line-height:1.7;margin:0">Ng&#7847;m gi&#7843; &#273;&#7883;nh r&#7857;ng b&#7857;ng c&aacute;ch s&#7917; d&#7909;ng nhi&#7873;u ngu&#7891;n t&agrave;i li&#7879;u kh&aacute;c nhau, nh&agrave; nghi&ecirc;n c&#7913;u c&oacute; &#273;&#7911; n&#259;ng l&#7921;c ph&#7843;n bi&#7879;n &#273;&#7875; nh&igrave;n xuy&ecirc;n &#273;&#432;&#7907;c &ldquo;s&#7921; d&#7889;i tr&aacute;&rdquo; &#273;&#7857;ng sau t&agrave;i li&#7879;u ch&iacute;nh th&#7913;c.</p>
+    </div>
+  </div>
+</div></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#129514;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">&#7912;ng d&#7909;ng Th&#7921;c ti&#7877;n</div><div style="font-size:.72rem;color:#94a3b8">Case Study + &#272;&#7873; xu&#7845;t + T&#7921; ki&#7875;m tra</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:3000px"><div style="padding:20px;display:flex;flex-direction:column;gap:16px">
+<div><div style="font-weight:700;color:#1e293b;margin-bottom:12px;font-size:.875rem">&#128203; Case Study: Gi&#7843;i m&atilde; v&#259;n h&oacute;a &ldquo;T&ocirc;n tr&#7885;ng nh&acirc;n vi&ecirc;n&rdquo; t&#7841;i T&#7853;p &#273;o&agrave;n &#272;a qu&#7889;c gia Z</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="border-radius:10px;padding:11px;background:#f0f4ff;border-left:3px solid #0d1730"><strong style="color:#0d1730">Kh&ocirc;ng tin b&aacute;o c&aacute;o:</strong> <span style="color:#475569;font-size:.8rem">B&aacute;o c&aacute;o Ph&aacute;t tri&#7875;n b&#7873;n v&#7919;ng v&#7899;i &#7843;nh NV c&aacute;c ch&#7911;ng t&#7897;c c&#432;&#7901;i t&#432;&#417;i &rarr; 4 ti&ecirc;u ch&iacute; Scott: C kh&ocirc;ng &#273;&aacute;ng tin (m&#7909;c &#273;&iacute;ch PR).</span></div><div style="border-radius:10px;padding:11px;background:#fffdf0;border-left:3px solid #d4a017"><strong style="color:#d4a017">Thu th&#7853;p Documents kh&aacute;c:</strong> <span style="color:#475569;font-size:.8rem">Blog nặc danh c&#7911;a NV tr&ecirc;n m&#7841;ng. ECA t&igrave;m ch&#7911; &#273;&#7873;: B&aacute;o c&aacute;o ch&iacute;nh th&#7913;c d&ugrave;ng &ldquo;T&#7889;i &#432;u h&oacute;a ngu&#7891;n l&#7921;c&rdquo; &harr; Blog NV d&ugrave;ng &ldquo;V&#7855;t ki&#7879;t s&#7913;c lao &#273;&#7897;ng&rdquo;.</span></div><div style="border-radius:10px;padding:11px;background:#f0fdf4;border-left:3px solid #059669"><strong style="color:#059669">Ph&aacute;t hi&#7879;n h&#7885;c thu&#7853;t:</strong> <span style="color:#475569;font-size:.8rem">S&#7921; t&#432;&#417;ng ph&#7843;n ng&ocirc;n ng&#7919; gi&#7919;a 2 lo&#7841;i t&agrave;i li&#7879;u = d&#7919; li&#7879;u xu&#7845;t s&#7855;c cho lu&#7853;n v&#259;n. Kh&ocirc;ng c&#7847;n ph&#7887;ng v&#7845;n m&#7897;t ai!</span></div></div></div>
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;color:#14532d;margin-bottom:10px;font-size:.875rem">&#128161; &#272;&#7873; xu&#7845;t &#7913;ng d&#7909;ng</div>
+  <div style="display:flex;flex-direction:column;gap:8px;color:#166534"><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Lu&#7853;n v&#259;n</span><span style="font-size:.8rem">Kh&ocirc;ng c&oacute; &#273;i&#7873;u ki&#7879;n ph&#7887;ng v&#7845;n? T&#7843;i 50 B&aacute;o c&aacute;o th&#432;&#7901;ng ni&ecirc;n c&#7911;a c&aacute;c ng&acirc;n h&agrave;ng. D&ugrave;ng Semiotics ph&acirc;n t&iacute;ch c&aacute;ch h&#7885; s&#7917; d&#7909;ng h&igrave;nh &#7843;nh &ldquo;gia &#273;&igrave;nh&rdquo; &#273;&#7875; l&ocirc;i k&eacute;o l&ograve;ng tin. Lu&#7853;n v&#259;n ho&agrave;n to&agrave;n h&#7907;p l&#7879;.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">HR/Chi&#7871;n l&#432;&#7907;c</span><span style="font-size:.8rem">Khi v&agrave;o c&ocirc;ng ty m&#7899;i, &#273;&#7885;c email n&#7897;i b&#7897;, bi&ecirc;n b&#7843;n ph&#7841;t l&#7895;i, l&#7883;ch s&#7917; sa th&#7843;i nh&#432; &ldquo;v&#259;n b&#7843;n c&oacute; t&iacute;nh ch&iacute;nh tr&#7883;&rdquo; &mdash; &#273;&oacute; m&#7899;i l&agrave; lu&#7853;t ch&#417;i ng&#7847;m th&#7921;c s&#7921;.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">&#272;&#7901;i s&#7889;ng</span><span style="font-size:.8rem">&Aacute;p d&#7909;ng 4 ti&ecirc;u ch&iacute; Scott ch&#7889;ng Fake news: (A) Nick th&#7853;t? (C) &#272;&#7897;ng c&#417; l&agrave; g&igrave;? (R) C&aacute; bi&#7879;t hay h&#7879; th&#7889;ng? (M) Ng&ocirc;n ng&#7919; c&oacute; &#273;a ngh&#297;a?</span></div></div>
+</div>
+<div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:12px">&#128203; T&#7921; ki&#7875;m tra</div>
+  <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q1</span><span style="color:#374151">T&#7841;i sao t&agrave;i li&#7879;u t&#7893; ch&#7913;c c&oacute; Credibility th&#7845;p nh&#7845;t trong 4 lo&#7841;i? V&igrave; sao?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q2</span><span style="color:#374151">Kh&aacute;c bi&#7879;t gi&#7919;a c&aacute;ch &#273;&#7885;c t&agrave;i li&#7879;u theo quan &#273;i&#7875;m Realist v&agrave; Constructionist?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q3</span><span style="color:#374151">Semiotics c&oacute; th&#7875; &aacute;p d&#7909;ng &#273;&#7875; ph&acirc;n t&iacute;ch logo/ảnh c&#7911;a c&ocirc;ng ty trong lu&#7853;n v&#259;n MBA nh&#432; th&#7871; n&agrave;o?</span></div></div>
+</div></div></div>
+</div></main>
+<footer style="margin-top:32px;padding:28px 16px;background:#0d1730">
+  <div style="max-width:896px;margin:0 auto;display:flex;flex-direction:column;gap:12px;align-items:center">
+    <div style="text-align:center">
+      <div style="font-family:Georgia,serif;color:#fff;font-weight:700;font-size:.875rem">Chapter 23 &middot; Documents as Data</div>
+      <div style="color:#475569;font-size:.72rem;margin-top:2px">Bryman &amp; Bell &mdash; MBA Research Methods Hub &middot; &copy; 2026</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <a href="chapter22.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&larr; Ch.22</a>
+      <a href="index.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&#127968; Home</a>
+      <a href="chapter24.html" style="font-size:.75rem;font-weight:700;padding:7px 16px;border-radius:999px;background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730;text-decoration:none">Ch.24 &rarr;</a>
+    </div>
+  </div>
+</footer>
+<script>
+function togS(h){h.nextElementSibling.classList.toggle("shut");h.classList.toggle("shut-s")}
+function togA(h){h.nextElementSibling.classList.toggle("open");h.classList.toggle("os")}
+function allOpen(){document.querySelectorAll(".sb").forEach(b=>b.classList.remove("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.remove("shut-s"))}
+function allClose(){document.querySelectorAll(".sb").forEach(b=>b.classList.add("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.add("shut-s"))}
+</script>
+</body></html>

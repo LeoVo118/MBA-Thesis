@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="nav-active" content="p3">
+<title>Chapter 25 — CAQDAS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        body{font-family:"Inter",sans-serif;background:#f8fafc}
+        .hero{background:linear-gradient(135deg,#0d1730 0%,#1d2f60 60%,#2a4080 100%);position:relative;overflow:hidden}
+        .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(212,160,23,.15) 0%,transparent 55%);pointer-events:none}
+        .hgrid{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px;position:absolute;inset:0;pointer-events:none}
+        .sh{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#fff;border-bottom:1px solid #e2e8f0;transition:background .18s}
+        .sh:hover{background:#f8fafc}
+        .sb{overflow:hidden;transition:max-height .4s ease}
+        .sb.shut{max-height:0!important}
+        .sa{display:inline-block;transition:transform .3s;color:#94a3b8}
+        .sh.shut-s .sa{transform:rotate(-90deg)}
+        .ah{cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:13px 20px;transition:background .18s}
+        .ah:hover{background:#f8fafc}
+        .ab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+        .ab.open{max-height:5000px}
+        .aa{display:inline-block;transition:transform .3s;color:#94a3b8;font-size:.8rem}
+        .ah.os .aa{transform:rotate(90deg);color:#d4a017}
+        .sn{background:linear-gradient(135deg,#0d1730,#1d2f60);color:#fbbf24;font-weight:700;font-size:.68rem;padding:2px 8px;border-radius:4px;margin-right:8px;white-space:nowrap}
+        .kb{background:#e0e9ff;color:#1d2f60;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:4px}
+        .pill{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;font-size:.7rem;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0}
+        .bc a{color:rgba(255,255,255,.5);font-size:.72rem;text-decoration:none}
+        .bc a:hover{color:#fbbf24}
+        .bcs{color:rgba(255,255,255,.22);margin:0 5px;font-size:.72rem}
+        @keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+        .au{animation:up .3s ease both}</style>
+</head><body>
+<script src="nav.js"></script>
+<header class="hero py-10 md:py-14">
+<div class="hgrid"></div>
+<div class="relative z-10 max-w-4xl mx-auto px-4">
+  <div class="bc flex items-center mb-5">
+    <a href="index.html">MBA Research Hub</a><span class="bcs">&rsaquo;</span>
+    <a href="index.html">Part II &middot; Quantitative Research</a><span class="bcs">&rsaquo;</span>
+    <span style="color:rgba(255,255,255,.78);font-size:.72rem">Chapter 25</span>
+  </div>
+  <div class="flex flex-col md:flex-row md:items-end gap-6">
+    <div class="flex-1">
+      <div class="flex items-center gap-3 mb-3">
+        <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#d4a017,#fbbf24);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:#0d1730;flex-shrink:0">25</div>
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3.5vw,2.1rem);font-weight:700;color:#fff;line-height:1.2">CAQDAS<br><span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">(NVivo)</span></h1>
+      </div>
+      <p style="color:#94a3b8;font-size:.88rem;max-width:520px;line-height:1.65;margin-bottom:14px">CAQDAS kh&ocirc;ng t&#7921; ph&acirc;n t&iacute;ch. Code-and-retrieve = c&#417; ch&#7871; c&#7889;t l&otilde;i. Tree Nodes &rarr; ph&aacute;t tri&#7875;n l&yacute; thuy&#7871;t. D&ugrave;ng khi d&#7919; li&#7879;u l&#7899;n.</p>
+      <div class="flex flex-wrap gap-2"><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">CAQDAS</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Code-and-retrieve</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Node</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Tree Node</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Coding Stripes</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Boolean Search</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Audit Trail</span></div>
+    </div>
+    <div class="flex items-center gap-1.5 flex-shrink-0">
+      <span style="color:#64748b;font-size:.7rem;margin-right:2px">Ch.</span>
+      <a href="chapter24.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">24</a><a href="chapter25.html" class="pill" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730">25</a><a href="chapter26.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">26</a>
+      <a href="index.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:1rem">&ctdot;</a>
+    </div>
+  </div>
+  <div class="flex gap-2 mt-6">
+    <button onclick="allOpen()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; M&#7903; t&#7845;t c&#7843;</button>
+    <button onclick="allClose()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; Thu t&#7845;t c&#7843;</button>
+  </div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-4"><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128203;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">T&oacute;m t&#7855;t</div><div style="font-size:.72rem;color:#94a3b8">Summary &mdash; lu&#7853;n &#273;i&#7875;m ch&iacute;nh</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:900px"><div style="padding:16px 20px 14px;background:#fff5f5;border-left:4px solid #f87171"><p style="color:#991b1b;font-size:.875rem;line-height:1.75;margin:0"><strong>CAQDAS kh&ocirc;ng ph&#7843;i AI t&#7921; &#273;&#7897;ng ph&acirc;n t&iacute;ch</strong>. Kh&aacute;c SPSS (nh&#7845;n n&uacute;t &rarr; ra k&#7871;t qu&#7843;), NVivo ch&#7881; l&agrave;m &ldquo;th&#432; k&yacute;&rdquo;: <strong>m&atilde; h&oacute;a v&agrave; g&#7893;m nh&oacute;m (code-and-retrieve)</strong>. Ph&#7847;n gi&#7843;i ngh&#297;a v&#7851;n ho&agrave;n to&agrave;n n&#7857;m trong &#273;&#7847;u nh&agrave; nghi&ecirc;n c&#7913;u.</p></div><div style="padding:14px 20px 20px;background:#fff8f0;border-left:4px solid #fb923c"><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:.875rem;color:#9a3412"><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9312;</span><span><strong>Code-and-retrieve:</strong> B&ocirc;i &#273;en &#273;o&#7841;n text &rarr; g&aacute;n Nodes (m&atilde;) &rarr; m&aacute;y t&iacute;nh g&#7893;m t&#7845;t c&#7843; &#273;o&#7841;n c&oacute; c&ugrave;ng Node l&#7841;i. &#272;&oacute; l&agrave; to&agrave;n b&#7897; &ldquo;tr&iacute; tu&#7879; nh&acirc;n t&#7841;o&rdquo; c&#7911;a NVivo.</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9313;</span><span><strong>Node Tree (C&acirc;y ph&acirc;n c&#7845;p):</strong> Kh&ocirc;ng t&#7841;o &#273;&#7889;ng Node ph&#7859;ng. H&atilde;y nh&oacute;m ch&uacute;ng theo c&#7845;p Parent&ndash;Child &#273;&#7875; ph&aacute;t tri&#7875;n l&yacute; thuy&#7871;t. Coding Stripes hi&#7875;n th&#7883; tr&#7921;c quan l&#7873; v&#259;n b&#7843;n.</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9314;</span><span><strong>Tranh c&atilde;i h&#7885;c thu&#7853;t:</strong> Phe ph&#7843;n &#273;&#7889;i: CAQDAS l&agrave;m ph&acirc;n m&#7843;nh d&#7919; li&#7879;u, &eacute;p d&ugrave;ng Grounded theory. Phe &#7911;ng h&#7897;: t&#259;ng Transparency (d&#7845;u v&#7871;t ki&#7875;m to&aacute;n &mdash; audit trail), ch&#7889;ng b&#7879;nh &ldquo;ch&#7855;p v&aacute; giai tho&#7841;i&rdquo; (anecdotalism).</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9315;</span><span><strong>Khi n&agrave;o KH&Ocirc;NG n&ecirc;n d&ugrave;ng NVivo:</strong> Ch&#7881; c&oacute; 3 b&agrave;i ph&#7887;ng v&#7845;n ng&#7855;n &rarr; d&ugrave;ng Word + Comment &#273;&#7911; r&#7891;i. Focus Group &rarr; NVivo c&#7855;t v&#7909;n text s&#7869; l&agrave;m m&#7845;t b&#7889;i c&#7843;nh t&#432;&#417;ng t&aacute;c nh&oacute;m.</span></li></ul></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128214;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Chi ti&#7871;t Ch&#432;&#417;ng 25</div><div style="font-size:.72rem;color:#94a3b8">Accordion</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:9999px"><div style="display:flex;align-items:center;justify-content:space-between;padding:8px 20px 4px;background:#f8fafc;border-bottom:1px solid #f1f5f9"><span style="font-size:.7rem;color:#94a3b8;font-weight:600">3 m&#7909;c &mdash; click &#273;&#7875; m&#7903;</span></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">25.1</span>CAQDAS vs SPSS &mdash; Lu&#7853;t ch&#417;i c&#7889;t l&otilde;i</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+<div style="border-radius:12px;padding:14px;background:linear-gradient(135deg,#0d1730,#1d2f60)">
+  <div style="font-weight:700;font-size:.85rem;color:#fbbf24;margin-bottom:10px">&#128073; Lu&#7853;t ch&#417;i C&#7889;t l&otilde;i: CAQDAS ≠ SPSS</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:.77rem">
+    <div style="background:rgba(220,38,38,.2);border-radius:8px;padding:10px">
+      <div style="color:#fca5a5;font-weight:700;margin-bottom:4px">&#128202; SPSS</div>
+      <div style="color:rgba(255,255,255,.75)">Nh&#7845;n 1 n&uacute;t &rarr; Ra k&#7871;t qu&#7843; (trung b&igrave;nh, p-value). Ph&#7847;n m&#7873;m t&#7921; t&iacute;nh to&aacute;n.</div>
+    </div>
+    <div style="background:rgba(5,150,105,.2);border-radius:8px;padding:10px">
+      <div style="color:#6ee7b7;font-weight:700;margin-bottom:4px">&#128215; NVivo</div>
+      <div style="color:rgba(255,255,255,.75)">Nh&#7845;n 1 n&uacute;t &rarr; Ra nh&#7919;ng g&igrave; b&#7841;n &#273;&atilde; b&ocirc;i &#273;en. BẠN v&#7851;n ph&#7843;i t&#7921; suy ngh&#297; &yacute; ngh&#297;a!</div>
+    </div>
+  </div>
+  <div style="margin-top:10px;background:rgba(212,160,23,.15);border-radius:8px;padding:9px;font-size:.77rem;color:rgba(255,255,255,.8)">
+    <strong style="color:#fbbf24">Code-and-retrieve:</strong> &#272;&#7885;c text &rarr; B&ocirc;i &#273;en &rarr; G&aacute;n Node (Nh&atilde;n) &rarr; Click Node &rarr; &#272;&#7885;c l&#7841;i t&#7845;t c&#7843; ch&#7895; c&oacute; c&ugrave;ng nh&atilde;n. M&aacute;y t&iacute;nh l&agrave;m cu li d&#7885;n d&#7865;p, <strong>B&#7840;N l&agrave;m b&#7897; n&atilde;o suy ngh&#297;</strong>.
+  </div>
+</div>
+</div></div></div></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">25.2</span>H&#7879; sinh th&aacute;i NVivo: Sources, Nodes, Queries</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;font-size:.8rem">
+<div style="padding:11px 14px;background:#f0f4ff;border-radius:9px;border-left:3px solid #0d1730">
+<strong style="color:#0d1730">&#128193; Sources (Ngu&#7891;n d&#7919; li&#7879;u)</strong><br>
+<span style="color:#475569">N&#417;i v&#7913;t to&agrave;n b&#7897; d&#7919; li&#7879;u v&agrave;o: Word, PDF, &Acirc;m thanh, H&igrave;nh &#7843;nh, Video, Bài Social Media.</span>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div style="padding:11px;background:#fffdf0;border-radius:9px;border-top:3px solid #d4a017">
+  <div style="font-weight:700;font-size:.78rem;color:#b8860b;margin-bottom:5px">Free Node</div>
+  <div style="font-size:.73rem;color:#475569">Node &#273;&#7897;c l&#7853;p, kh&ocirc;ng ph&acirc;n c&#7845;p. D&ugrave;ng khi m&#7899;i b&#7855;t &#273;&#7847;u, kh&aacute;i ni&#7879;m ch&#432;a r&otilde;.</div>
+</div>
+<div style="padding:11px;background:#f0fdf4;border-radius:9px;border-top:3px solid #059669">
+  <div style="font-weight:700;font-size:.78rem;color:#065f46;margin-bottom:5px">Tree Node &#128229;</div>
+  <div style="font-size:.73rem;color:#475569">Parent&ndash;Child ph&acirc;n c&#7845;p. <strong>Dùng c&aacute;i n&agrave;y</strong> &#273;&#7875; ph&aacute;t tri&#7875;n l&yacute; thuy&#7871;t!</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div style="padding:11px;background:#faf5ff;border-radius:9px;border-top:3px solid #7c3aed;font-size:.76rem">
+  <strong style="color:#6d28d9">Coding Stripes</strong><br>
+  <span style="color:#475569">D&#7843;i m&agrave;u b&ecirc;n l&#7873; &mdash; b&#7853;t l&ecirc;n &#273;&#7875; th&#7845;y &#273;o&#7841;n n&agrave;o b&#7883; g&aacute;n bao nhi&ecirc;u Node. D&#7877; ki&#7875;m tra ch&eacute;o.</span>
+</div>
+<div style="padding:11px;background:#fff5f5;border-radius:9px;border-top:3px solid #dc2626;font-size:.76rem">
+  <strong style="color:#dc2626">Boolean Search</strong><br>
+  <span style="color:#475569">T&igrave;m giao &#273;i&#7875;m 2 Nodes. VD: &ldquo;L&#432;&#417;ng&rdquo; AND &ldquo;Ki&#7879;t s&#7913;c&rdquo; &rarr; tr&#7843; l&#7901;i c&acirc;u h&#7887;i ph&#7913;c t&#7841;p.</span>
+</div>
+</div>
+</div></div></div></div><div style=""><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">25.3</span>Tranh c&atilde;i h&#7885;c thu&#7853;t: N&ecirc;n/Kh&ocirc;ng n&ecirc;n d&ugrave;ng?</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+<div style="border-radius:12px;padding:14px;background:#fff5f5;border-left:4px solid #dc2626">
+  <div style="font-weight:700;font-size:.8rem;color:#dc2626;margin-bottom:8px">&#10060; Phe Ph&#7843;n &#273;&#7889;i</div>
+  <div style="display:flex;flex-direction:column;gap:5px;font-size:.76rem;color:#475569">
+    <div>&#9679; Ph&acirc;n m&#7843;nh d&#7919; li&#7879;u (Fragmentation)</div>
+    <div>&#9679; M&#7845;t b&#7889;i c&#7843;nh t&#7921; s&#7921; (Narrative)</div>
+    <div>&#9679; Kh&ocirc;ng ph&ugrave; h&#7907;p cho Focus Group</div>
+    <div>&#9679; T&#7841;o &ldquo;khu&ocirc;n m&#7851;u gi&aacute;o &#273;i&#7873;u m&#7899;i&rdquo; (New orthodoxy)</div>
+  </div>
+</div>
+<div style="border-radius:12px;padding:14px;background:#f0fdf4;border-left:4px solid #059669">
+  <div style="font-weight:700;font-size:.8rem;color:#059669;margin-bottom:8px">&#9989; Phe &#7910;ng h&#7897;</div>
+  <div style="display:flex;flex-direction:column;gap:5px;font-size:.76rem;color:#475569">
+    <div>&#9679; Nhanh, hi&#7879;u qu&#7843; v&#7899;i d&#7919; li&#7879;u l&#7899;n</div>
+    <div>&#9679; Audit trail (D&#7845;u v&#7871;t ki&#7875;m to&aacute;n)</div>
+    <div>&#9679; Ch&#7889;ng Anecdotalism (&#273;&#7871;m t&#7847;n s&#7889;)</div>
+    <div>&#9679; T&#259;ng Transparency</div>
+  </div>
+</div>
+</div>
+<div style="margin-top:10px;background:#fffdf0;border:1px solid #fbbf24;border-radius:9px;padding:11px 14px;font-size:.78rem;color:#713f12">
+<strong>&#9888;&#65039; 3 tình hu&#7889;ng KH&Ocirc;NG N&Ecirc;N d&ugrave;ng NVivo:</strong>
+<ul style="margin:5px 0 0 16px;padding:0;line-height:1.6">
+<li>D&#432;&#7899;i 5 b&agrave;i ph&#7887;ng v&#7845;n ng&#7855;n &rarr; D&ugrave;ng Comment c&#7911;a Word</li>
+<li>Focus Group &rarr; NVivo l&agrave;m m&#7845;t b&#7889;i c&#7843;nh t&#432;&#417;ng t&aacute;c</li>
+<li>Mê m&#7849;n &#273;&#7897;i m&agrave;u c&aacute;c Node m&agrave; qu&ecirc;n vi&#7871;t k&#7871;t lu&#7853;n (Overengineering)</li>
+</ul>
+</div></div></div></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128273;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">B&#7843;ng Kh&aacute;i ni&#7879;m</div><div style="font-size:.72rem;color:#94a3b8">7 kh&aacute;i ni&#7879;m c&#7889;t l&otilde;i</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:1400px"><div style="overflow-x:auto"><table style="width:100%;font-size:.8rem;border-collapse:collapse"><thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0"><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:160px">Kh&aacute;i ni&#7879;m</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em">&#272;&#7883;nh ngh&#297;a</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:180px">V&iacute; d&#7909;</th></tr></thead><tbody><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">CAQDAS</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Computer-Assisted Qualitative Data Analysis Software &mdash; ph&#7847;n m&#7873;m h&#7895; tr&#7907; m&atilde; h&oacute;a v&agrave; g&#7893;m nh&oacute;m d&#7919; li&#7879;u &#273;&#7883;nh t&iacute;nh.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">NVivo, ATLAS.ti, MAXQDA</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Code-and-retrieve</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">C&#417; ch&#7871; ho&#7841;t &#273;&#7897;ng: b&ocirc;i &#273;en &rarr; g&aacute;n node &rarr; click &#273;&#7875; xu&#7845;t t&#7845;t c&#7843; &#273;o&#7841;n c&oacute; c&ugrave;ng node.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">10 ph&#7847;n than s&#7871;p gán node &ldquo;Qu&#7843;n l&yacute; vi m&ocirc;&rdquo; &rarr; &#273;&#7885;c l&#7841;i c&ugrave;ng lúc</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Node</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Thu&#7853;t ng&#7919; NVivo ch&#7881; m&atilde; (code). L&agrave; kh&ocirc;ng gian ch&#7913;a t&#7845;t c&#7843; tr&iacute;ch d&#7851;n tham chi&#7871;u &#273;&#7871;n m&#7897;t ch&#7911; &#273;&#7873;.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Node "Accountability" ch&#7913;a 40 &#273;o&#7841;n text</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Tree node</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Node c&oacute; ph&acirc;n c&#7845;p Parent&ndash;Child &mdash; gi&uacute;p ph&aacute;t tri&#7875;n l&yacute; thuy&#7871;t theo c&#7845;u tr&uacute;c c&acirc;y.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">T&#7893; ch&#7913;c (cha) &rarr; H&#7885;p ch&iacute;nh th&#7913;c (con) &rarr; Ra quy&#7871;t &#273;&#7883;nh (ch&aacute;u)</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Coding stripes</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">D&#7843;i m&agrave;u b&ecirc;n l&#7873; hi&#7875;n th&#7883; tr&#7921;c quan c&aacute;c node &#273;&atilde; g&aacute;n cho &#273;o&#7841;n v&#259;n b&#7843;n.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Th&#7845;y 2 d&#7843;i ch&#7891;ng nhau: Tacit knowledge &amp; Social capital</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Boolean search</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">T&igrave;m ki&#7871;m giao &#273;i&#7875;m c&#7911;a nhi&#7873;u Nodes k&#7871;t h&#7907;p.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Node "L&#432;&#417;ng" AND "Ki&#7879;t s&#7913;c" &rarr; b&#7857;ng ch&#7913;ng &#273;a bi&#7871;n</td></tr><tr style=""><td style="padding:9px 16px"><span class="kb">Audit trail</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">D&#7845;u v&#7871;t ki&#7875;m to&aacute;n r&otilde; r&agrave;ng cho ph&eacute;p ng&#432;&#7901;i kh&aacute;c ki&#7875;m tra qu&aacute; tr&igrave;nh ph&acirc;n t&iacute;ch.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">L&yacute; do t&#259;ng Transparency c&#7911;a &#273;&#7883;nh t&iacute;nh</td></tr></tbody></table></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#0d1730,#1d2f60);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" fill="none" stroke="#fbbf24" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Ph&acirc;n t&iacute;ch &amp; &#272;&aacute;nh gi&aacute;</div><div style="font-size:.72rem;color:#94a3b8">Critical Analysis</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:2000px"><div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+<div style="border-radius:12px;padding:18px 20px;background:linear-gradient(135deg,#0d1730,#1d2f60)">
+  <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(212,160,23,.75);margin-bottom:8px">C&acirc;u h&#7887;i c&#7889;t l&otilde;i</div>
+  <p style="color:#fff;font-size:.875rem;line-height:1.7;font-family:Georgia,serif;font-style:italic">"L&agrave;m th&#7871; n&agrave;o c&ocirc;ng ngh&#7879; m&aacute;y t&iacute;nh c&oacute; th&#7875; h&#7895; tr&#7907; nh&agrave; nghi&ecirc;n c&#7913;u x&#7917; l&yacute; kh&#7889;i l&#432;&#7907;ng l&#7899;n d&#7919; li&#7879;u &#273;&#7883;nh t&iacute;nh phi c&#7845;u tr&uacute;c m&#7897;t c&aacute;ch khoa h&#7885;c, nh&#432;ng v&#7851;n tr&aacute;nh &#273;&#432;&#7907;c c&aacute;i b&#7851;y &ldquo;m&#7845;t &#273;i b&#7889;i c&#7843;nh t&#7921; s&#7921;&rdquo; ho&#7863;c b&#7883; ph&#7847;n m&#7873;m &eacute;p bu&#7897;c c&aacute;ch t&#432; duy?"</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+  <div style="border:1px solid #e2e8f0;border-radius:12px;padding:15px">
+    <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #f1f5f9">Logic L&#7853;p lu&#7853;n</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Premise</span><span style="color:#475569;font-size:.8rem">D&#7919; li&#7879;u &#273;&#7883;nh t&iacute;nh th&#432;&#7901;ng l&agrave; m&#7897;t &ldquo;b&atilde;i l&#7847;y&rdquo; (attractive nuisance) v&igrave; s&#7889; l&#432;&#7907;ng text/h&igrave;nh &#7843;nh qu&aacute; l&#7899;n. L&agrave;m th&#7911; c&ocirc;ng (c&#7855;t d&aacute;n gi&#7845;y) c&#7921;c k&#7923; m&#7845;t th&#7901;i gian v&agrave; kh&oacute; qu&#7843;n l&yacute;.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Argument</span><span style="color:#475569;font-size:.8rem">CAQDAS ra &#273;&#7901;i &#273;&#7875; gi&#7843;i quy&#7871;t v&#7845;n &#273;&#7873; qu&#7843;n tr&#7883; d&#7919; li&#7879;u. Kh&aacute;c v&#7899;i SPSS (t&iacute;nh to&aacute;n ra con s&#7889; c&oacute; &yacute; ngh&#297;a), CAQDAS ch&#7881; l&agrave;m &ldquo;th&#432; k&yacute;&rdquo; g&#7893;m nh&oacute;m d&#7919; li&#7879;u (code-and-retrieve); ph&#7847;n gi&#7843;i ngh&#297;a v&#7851;n ho&agrave;n to&agrave;n n&#7857;m trong &#273;&#7847;u nh&agrave; nghi&ecirc;n c&#7913;u.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Conclusion</span><span style="color:#475569;font-size:.8rem">CAQDAS l&agrave; c&ocirc;ng c&#7909; v&ocirc; gi&aacute; n&#7871;u t&#7853;p d&#7919; li&#7879;u l&#7899;n v&agrave; mu&#7889;n l&agrave;m vi&#7879;c minh b&#7841;ch. N&#7871;u d&#7919; li&#7879;u qu&aacute; nh&#7887; (v&agrave;i b&agrave;i ph&#7887;ng v&#7845;n ng&#7855;n), d&ugrave;ng Word ho&#7863;c l&agrave;m th&#7911; c&ocirc;ng v&#7851;n ho&agrave;n to&agrave;n &#7893;n.</span></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9989; &#272;i&#7875;m m&#7841;nh</div>
+      <p style="color:#047857;font-size:.78rem;line-height:1.7;margin:0">C&#7921;c k&#7923; kh&aacute;ch quan. Kh&ocirc;ng bi&#7871;n b&agrave;i vi&#7871;t th&agrave;nh qu&#7843;ng c&aacute;o cho NVivo. Li&#7879;t k&ecirc; r&#7911;i ro r&#7845;t r&otilde; r&agrave;ng (&#273;&#7863;c bi&#7879;t l&#7895;i "b&#259;m v&#7909;n d&#7919; li&#7879;u" &mdash; decontextualizing data).</p>
+    </div>
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9888;&#65039; H&#7841;n ch&#7871; &amp; Gi&#7843; &#273;&#7883;nh ng&#7847;m</div>
+      <p style="color:#b45309;font-size:.78rem;line-height:1.7;margin:0">Gi&#7843; &#273;&#7883;nh sinh vi&ecirc;n &#273;&atilde; n&#7855;m ch&#7855;c b&#7843;n ch&#7845;t c&#7911;a thao t&aacute;c &ldquo;Coding&rdquo; (M&atilde; h&oacute;a) &#7903; Ch&#432;&#417;ng 24. N&#7871;u kh&ocirc;ng, sinh vi&ecirc;n s&#7869; c&oacute; xu h&#432;&#7899;ng nh&#7847;m t&#432;&#7903;ng NVivo l&agrave; c&ocirc;ng c&#7909; &ldquo;t&#7921; &#273;&#7897;ng d&ograve; t&igrave;m &yacute; ngh&#297;a b&#7857;ng AI&rdquo;.</p>
+    </div>
+  </div>
+</div></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#129514;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">&#7912;ng d&#7909;ng Th&#7921;c ti&#7877;n</div><div style="font-size:.72rem;color:#94a3b8">Case Study + &#272;&#7873; xu&#7845;t + T&#7921; ki&#7875;m tra</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:3000px"><div style="padding:20px;display:flex;flex-direction:column;gap:16px">
+<div><div style="font-weight:700;color:#1e293b;margin-bottom:12px;font-size:.875rem">&#128203; Case Study: Ph&acirc;n t&iacute;ch Tr&#7843;i nghi&#7879;m Kh&aacute;ch h&agrave;ng t&#7841;i Resort A</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="border-radius:10px;padding:11px;background:#f0f4ff;border-left:3px solid #0d1730"><strong style="color:#0d1730">Import v&agrave; M&atilde; h&oacute;a:</strong> <span style="color:#475569;font-size:.8rem">Import 500 review TripAdvisor + 50 video v&agrave;o Sources. T&#7841;o Tree Node: "C&#417; s&#7903; v&#7853;t ch&#7845;t" &rarr; con: "Ph&ograve;ng &#7889;c", "H&#7891; b&#417;i". K&eacute;o th&#7843; c&acirc;u ch&#7881;/khen v&agrave;o &#273;&uacute;ng Node.</span></div><div style="border-radius:10px;padding:11px;background:#fffdf0;border-left:3px solid #d4a017"><strong style="color:#d4a017">Coding Stripes + Query:</strong> <span style="color:#475569;font-size:.8rem">B&#7853;t Coding Stripes &#273;&#7875; th&#7845;y &#273;o&#7841;n n&agrave;o nhi&#7873;u Node nh&#7845;t. D&ugrave;ng Boolean Query: Node "L&#7877; t&acirc;n" AND t&#7915; kh&oacute;a "Ch&#7853;m ch&#7841;p" &rarr; xu&#7845;t to&agrave;n b&#7897; b&#7857;ng ch&#7913;ng.</span></div><div style="border-radius:10px;padding:11px;background:#f0fdf4;border-left:3px solid #059669"><strong style="color:#059669">K&#7871;t qu&#7843; cho Ban Gi&aacute;m &#273;&#7889;c:</strong> <span style="color:#475569;font-size:.8rem">Ch&#7909;p m&agrave;n h&igrave;nh c&#7845;u tr&uacute;c "C&acirc;y Nodes" &#273;&#432;a v&agrave;o b&aacute;o c&aacute;o = h&#7897;i &#273;&#7891;ng/BGD &#273;&aacute;nh gi&aacute; r&#7845;t cao t&iacute;nh Transparency. Minh b&#7841;ch h&#417;n r&#7845;t nhi&#7873;u so v&#7899;i &ldquo;t&ocirc;i c&#7843;m th&#7845;y...&rdquo;.</span></div></div></div>
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;color:#14532d;margin-bottom:10px;font-size:.875rem">&#128161; &#272;&#7873; xu&#7845;t &#7913;ng d&#7909;ng</div>
+  <div style="display:flex;flex-direction:column;gap:8px;color:#166534"><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Lu&#7853;n v&#259;n</span><span style="font-size:.8rem">Ph&#7887;ng v&#7845;n 15+ ng&#432;&#7901;i &rarr; N&ecirc;n h&#7885;c NVivo. Ch&#7909;p m&agrave;n h&igrave;nh c&#7845;u tr&uacute;c Node Trees &#273;&#432;a v&agrave;o ph&#7909; l&#7909;c lu&#7853;n v&#259;n. H&#7897;i &#273;&#7891;ng s&#7869; &#7845;n t&#432;&#7907;ng v&#7899;i Transparency.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">HR/Research</span><span style="font-size:.8rem">Ph&acirc;n t&iacute;ch h&agrave;ng tr&#259;m bi&ecirc;n b&#7843;n h&#7885;p ho&#7863;c email n&#7897;i b&#7897;: Import PDF v&agrave;o NVivo. Coding Stripes s&#7869; gi&uacute;p s&#7871;p nh&igrave;n th&#7845;y tr&#7921;c quan ngay l&#7853;p t&#7913;c &#273;o&#7841;n v&#259;n b&#7843;n n&agrave;o ch&#7913;a nhi&#7873;u v&#7845;n &#273;&#7873; nh&#7845;t.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">&#272;&#7901;i s&#7889;ng</span><span style="font-size:.8rem">&Aacute;p d&#7909;ng &ldquo;T&#432; duy Nodes&rdquo; c&#7911;a NVivo v&agrave;o qu&#7843;n l&yacute; file c&aacute; nh&acirc;n: d&ugrave;ng Tag (t&#432;&#417;ng &#273;&#432;&#417;ng Node) &#273;&#7875; g&aacute;n nhi&#7873;u nh&atilde;n cho 1 t&agrave;i li&#7879;u thay v&igrave; nh&eacute;t c&#7913;ng v&agrave;o m&#7897;t th&#432; m&#7909;c.</span></div></div>
+</div>
+<div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:12px">&#128203; T&#7921; ki&#7875;m tra</div>
+  <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q1</span><span style="color:#374151">T&#7841;i sao CAQDAS kh&ocirc;ng g&#7885;i l&agrave; &ldquo;AI ph&acirc;n t&iacute;ch &#273;&#7883;nh t&iacute;nh&rdquo;? Kh&aacute;c bi&#7879;t v&#7899;i SPSS l&agrave; g&igrave;?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q2</span><span style="color:#374151">Khi n&agrave;o n&ecirc;n d&ugrave;ng Tree Node thay v&igrave; Free Node?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q3</span><span style="color:#374151">B&#7879;nh "Overengineering" trong NVivo bi&#7875;u hi&#7879;n nh&#432; th&#7871; n&agrave;o? H&#7853;u qu&#7843;?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q4</span><span style="color:#374151">Audit trail mang l&#7841;i l&#7907;i &iacute;ch g&igrave; cho t&iacute;nh Trustworthiness (Ch&#432;&#417;ng 17)?</span></div></div>
+</div></div></div>
+</div></main>
+<footer style="margin-top:32px;padding:28px 16px;background:#0d1730">
+  <div style="max-width:896px;margin:0 auto;display:flex;flex-direction:column;gap:12px;align-items:center">
+    <div style="text-align:center">
+      <div style="font-family:Georgia,serif;color:#fff;font-weight:700;font-size:.875rem">Chapter 25 &middot; CAQDAS (NVivo)</div>
+      <div style="color:#475569;font-size:.72rem;margin-top:2px">Bryman &amp; Bell &mdash; MBA Research Methods Hub &middot; &copy; 2026</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <a href="chapter24.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&larr; Ch.24</a>
+      <a href="index.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&#127968; Home</a>
+      <a href="chapter26.html" style="font-size:.75rem;font-weight:700;padding:7px 16px;border-radius:999px;background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730;text-decoration:none">Ch.26 &rarr;</a>
+    </div>
+  </div>
+</footer>
+<script>
+function togS(h){h.nextElementSibling.classList.toggle("shut");h.classList.toggle("shut-s")}
+function togA(h){h.nextElementSibling.classList.toggle("open");h.classList.toggle("os")}
+function allOpen(){document.querySelectorAll(".sb").forEach(b=>b.classList.remove("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.remove("shut-s"))}
+function allClose(){document.querySelectorAll(".sb").forEach(b=>b.classList.add("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.add("shut-s"))}
+</script>
+</body></html>
