@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Unlocking AI Capabilities — MBA Thesis Mastery</title>
+    <meta name="nav-active" content="cases">
+    <script src="nav.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0d1f3c;
+            --navy-mid: #1a3560;
+            --blue: #2563eb;
+            --emerald: #059669;
+            --amber: #d97706;
+            --rose: #e11d48;
+            --purple: #7c3aed;
+            --surface: #f8fafc;
+            --card: #ffffff;
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: #1e293b; }
+
+        h1, h2, .serif { font-family: 'DM Serif Display', serif; }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+
+        /* ── Animations ── */
+        .fade-in { animation: fadeUp .4s ease-out; }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+        /* ── Nav ── */
+        .nav-btn { position: relative; padding: .5rem 1rem; font-size: .82rem; font-weight: 500; color: #64748b; transition: color .2s; white-space: nowrap; }
+        .nav-btn::after { content:''; position:absolute; bottom:0; left:50%; right:50%; height:2px; background:var(--blue); transition: left .2s, right .2s; }
+        .nav-btn.active { color: var(--blue); font-weight: 700; }
+        .nav-btn.active::after { left:0; right:0; }
+        .nav-btn:hover:not(.active) { color: #334155; }
+
+        /* ── Cards ── */
+        .card { background: var(--card); border-radius: 1rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+        .card-p { padding: 1.5rem; }
+
+        /* ── Stat boxes ── */
+        .stat-box { background: white; border-radius: .875rem; border: 1px solid #e2e8f0; padding: 1.25rem 1rem; text-align: center; transition: transform .15s, box-shadow .15s; }
+        .stat-box:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.09); }
+
+        /* ── Hypothesis row ── */
+        .hypo-row { padding: .85rem 1rem; border-radius: .625rem; border-left: 4px solid; font-size: .82rem; }
+
+        /* ── Timeline ── */
+        .wave-step { display:flex; gap:1rem; align-items:flex-start; }
+        .wave-dot { flex-shrink:0; width:2.25rem; height:2.25rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.78rem; }
+
+        /* ── Accordion ── */
+        .accordion-btn { width:100%; text-align:left; padding:1rem 1.25rem; font-weight:600; font-size:.88rem; background:white; border:1px solid #e2e8f0; border-radius:.75rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:background .15s; }
+        .accordion-btn:hover { background:#f8fafc; }
+        .accordion-btn .icon { transition:transform .25s; font-size:1.1rem; color:var(--blue); font-weight:700; }
+        .accordion-body { overflow:hidden; max-height:0; transition: max-height .3s ease, padding .3s; }
+        .accordion-body.open { max-height:600px; }
+        .accordion-inner { padding: .875rem 1.25rem 1rem; font-size:.84rem; color:#475569; line-height:1.7; border:1px solid #e2e8f0; border-top:none; border-radius:0 0 .75rem .75rem; background:#f8fafc; }
+
+        /* ── Framework diagram ── */
+        .fw-node { border-radius:.875rem; padding:1.25rem; text-align:center; font-size:.8rem; font-weight:700; position:relative; }
+        .fw-arrow { flex:1; height:2px; position:relative; margin:0 .5rem; }
+        .fw-arrow::after { content:'▶'; position:absolute; right:-4px; top:-9px; font-size:1rem; }
+
+        /* ── Tooltip ── */
+        .tip { display:none; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%); background:#0d1f3c; color:white; font-size:.73rem; padding:.5rem .75rem; border-radius:.5rem; width:14rem; line-height:1.5; z-index:100; font-weight:400; box-shadow:0 8px 24px rgba(0,0,0,.25); pointer-events:none; }
+        .tip::after { content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:6px solid transparent; border-top-color:#0d1f3c; }
+        .tipwrap:hover .tip { display:block; }
+
+        /* ── Chart container ── */
+        .chart-wrap { position:relative; width:100%; height:260px; }
+
+        /* ── Badge pills ── */
+        .pill { display:inline-flex; align-items:center; padding:.25rem .75rem; border-radius:999px; font-size:.73rem; font-weight:700; }
+
+        /* ── Section headings ── */
+        .sec-title { font-size:1.5rem; font-weight:700; color:#0f172a; margin-bottom:.25rem; }
+        .sec-sub { font-size:.88rem; color:#64748b; margin-bottom:1.5rem; }
+
+        /* ── Responsive ── */
+        @media(max-width:640px) {
+            .hide-sm { display:none !important; }
+            .nav-btn { padding:.5rem .6rem; font-size:.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     LOCAL SUB-NAV
+═══════════════════════════════════════ -->
+<div class="sticky z-40 bg-white border-b border-slate-200 shadow-sm" style="top:52px">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex overflow-x-auto" id="nav-tabs" style="-ms-overflow-style:none;scrollbar-width:none">
+            <button class="nav-btn active" onclick="switchTab('overview')" data-tab="overview">1. Tổng quan &amp; Gap</button>
+            <button class="nav-btn" onclick="switchTab('framework')" data-tab="framework">2. Lý thuyết &amp; Mô hình</button>
+            <button class="nav-btn" onclick="switchTab('methodology')" data-tab="methodology">3. Phương pháp (3-Wave)</button>
+            <button class="nav-btn" onclick="switchTab('results')" data-tab="results">4. Kết quả PLS-SEM</button>
+            <button class="nav-btn" onclick="switchTab('defense')" data-tab="defense">5. Ôn thi Bảo vệ</button>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     MAIN
+═══════════════════════════════════════ -->
+<main class="max-w-6xl mx-auto px-4 py-8 min-h-screen">
+
+<!-- ─────────────────────────────────────
+     TAB 1: TỔNG QUAN & GAP
+───────────────────────────────────────── -->
+<div id="overview" class="tab-content fade-in">
+
+    <!-- Hero -->
+    <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-2 mb-3">
+            <span class="pill" style="background:#eff6ff;color:var(--blue);border:1px solid #bfdbfe">JMD — Impact Factor 3.1</span>
+            <span class="pill" style="background:#ecfdf5;color:var(--emerald);border:1px solid #a7f3d0">ABDC Hạng B/C</span>
+            <span class="pill" style="background:#faf5ff;color:var(--purple);border:1px solid #ddd6fe">PLS-SEM</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl mb-3" style="color:#0f172a">Unlocking AI Capabilities</h1>
+        <p class="text-slate-500 max-w-2xl mx-auto text-sm leading-relaxed">
+            Phân tích chuyên sâu bài báo mẫu (Benchmark Paper): <em>Strategic Fit, Innovation Ambidexterity &amp; Digital Transformation</em><br>
+            trong Doanh nghiệp Khách sạn gia đình (F-OSH) — Zeshan Ahmad, 2025
+        </p>
+    </div>
+
+    <!-- Stats row: mô hình biến -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div class="stat-box" style="border-top:3px solid #64748b">
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-1">Cỡ mẫu (N)</div>
+            <div class="text-3xl font-bold text-slate-700">318</div>
+            <div class="text-xs text-slate-400 mt-1">Chủ tịch / CEO<br>F-OSH</div>
+        </div>
+        <div class="stat-box" style="border-top:3px solid var(--blue)">
+            <div class="text-xs font-bold uppercase tracking-wide mb-1" style="color:var(--blue)">Biến Độc lập (IV)</div>
+            <div class="text-lg font-bold text-slate-800 leading-tight">AI Capabilities</div>
+            <div class="text-xs text-slate-400 mt-1">Năng lực AI<br>(Sensing)</div>
+        </div>
+        <div class="stat-box" style="border-top:3px solid var(--emerald)">
+            <div class="text-xs font-bold uppercase tracking-wide mb-1" style="color:var(--emerald)">Biến Trung gian</div>
+            <div class="text-lg font-bold text-slate-800 leading-tight">Innovation Ambidexterity</div>
+            <div class="text-xs text-slate-400 mt-1">Lưỡng dụng đổi mới<br>(Reconfiguring)</div>
+        </div>
+        <div class="stat-box" style="border-top:3px solid var(--rose)">
+            <div class="text-xs font-bold uppercase tracking-wide mb-1" style="color:var(--rose)">Biến Phụ thuộc (DV)</div>
+            <div class="text-lg font-bold text-slate-800 leading-tight">Digital Transf.</div>
+            <div class="text-xs text-slate-400 mt-1">Chuyển đổi số<br>(Outcome)</div>
+        </div>
+    </div>
+
+    <!-- Content grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- Tại sao chọn + Kỹ thuật phễu -->
+        <div class="card card-p">
+            <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <span class="w-6 h-6 rounded flex items-center justify-center text-white text-xs" style="background:var(--navy)">★</span>
+                Tại sao bài này là Benchmark tốt?
+            </h2>
+            <div class="space-y-3 text-sm text-slate-600">
+                <div class="flex gap-3 p-3 rounded-lg" style="background:#f0f4ff">
+                    <span class="text-blue-600 font-bold mt-0.5 flex-shrink-0">①</span>
+                    <div><strong class="text-slate-800">Mô hình phức hợp:</strong> Có cả biến trung gian (Mediator) và biến điều tiết (Moderator) — vượt xa tác động trực tiếp đơn giản.</div>
+                </div>
+                <div class="flex gap-3 p-3 rounded-lg" style="background:#f0fdf4">
+                    <span class="font-bold mt-0.5 flex-shrink-0" style="color:var(--emerald)">②</span>
+                    <div><strong class="text-slate-800">Thiết kế 3-Wave:</strong> Xử lý Common Method Bias — điểm cộng lớn nhất trong mắt hội đồng phản biện.</div>
+                </div>
+                <div class="flex gap-3 p-3 rounded-lg bg-purple-50">
+                    <span class="text-purple-600 font-bold mt-0.5 flex-shrink-0">③</span>
+                    <div><strong class="text-slate-800">Uy tín học thuật:</strong> IF = 3.1, CiteScore = 5.0 (Scopus), H-Index 74 — đủ tiêu chuẩn trích dẫn trong luận văn thạc sĩ.</div>
+                </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-slate-100">
+                <h3 class="text-sm font-bold text-slate-700 mb-3">Kỹ thuật "Cái Phễu" trong Phần Giới thiệu</h3>
+                <ol class="space-y-2 text-sm text-slate-600">
+                    <li class="flex gap-2"><span class="font-bold text-slate-400 flex-shrink-0">1.</span><span><strong class="text-slate-700">The Hook:</strong> COVID-19 buộc F-OSH chuyển đổi số để sinh tồn.</span></li>
+                    <li class="flex gap-2"><span class="font-bold text-slate-400 flex-shrink-0">2.</span><span><strong class="text-slate-700">Practical Problem:</strong> Nghịch lý: cần chuyển đổi nhưng thiếu nguồn lực, quản lý bảo thủ, xung đột thế hệ.</span></li>
+                    <li class="flex gap-2"><span class="font-bold text-slate-400 flex-shrink-0">3.</span><span><strong class="text-slate-700">Research Gap:</strong> Thiếu vai trò AI trong SME, thiếu cơ chế trung gian (IA), chưa rõ biên điều tiết (SF + DEI).</span></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- RQs -->
+        <div class="card card-p flex flex-col">
+            <h2 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <span class="w-6 h-6 rounded flex items-center justify-center text-white text-xs" style="background:var(--navy)">?</span>
+                Câu hỏi Nghiên cứu (RQs)
+            </h2>
+            <div class="space-y-3 text-sm flex-1">
+                <div class="flex gap-3 items-start p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                    <span class="pill flex-shrink-0" style="background:#eff6ff;color:var(--blue);border:1px solid #bfdbfe">RQ1 — IV</span>
+                    <p class="text-slate-600">Năng lực AI có đóng góp <strong>trực tiếp</strong> vào chuyển đổi số của F-OSH không?</p>
+                </div>
+                <div class="flex gap-3 items-start p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                    <span class="pill flex-shrink-0" style="background:#ecfdf5;color:var(--emerald);border:1px solid #a7f3d0">RQ2 — Med</span>
+                    <p class="text-slate-600">Innovation Ambidexterity có đóng vai trò <strong>trung gian</strong> (cơ chế) trong mối quan hệ này không?</p>
+                </div>
+                <div class="flex gap-3 items-start p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                    <span class="pill flex-shrink-0" style="background:#faf5ff;color:var(--purple);border:1px solid #ddd6fe">RQ3 — Mod1</span>
+                    <p class="text-slate-600">Strategic Fit <strong>điều tiết</strong> mối quan hệ AI → Ambidexterity như thế nào?</p>
+                </div>
+                <div class="flex gap-3 items-start p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                    <span class="pill flex-shrink-0" style="background:#fff1f2;color:var(--rose);border:1px solid #fecdd3">RQ4 — Mod2</span>
+                    <p class="text-slate-600">Digital Entrepreneurial Intent (DEI) <strong>điều tiết</strong> kết quả chuyển đổi số cuối cùng thế nào?</p>
+                </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-400 italic">
+                * 4 RQs này định hình toàn bộ cấu trúc mô hình SEM của bài nghiên cứu.
+            </div>
+        </div>
+    </div>
+</div><!-- /overview -->
+
+
+<!-- ─────────────────────────────────────
+     TAB 2: LÝ THUYẾT & MÔ HÌNH
+───────────────────────────────────────── -->
+<div id="framework" class="tab-content fade-in hidden">
+
+    <div class="sec-title">Khung Lý thuyết: Dynamic Capability Theory (DCT)</div>
+    <p class="sec-sub">Tại sao DCT thay vì RBV? Bối cảnh hậu COVID-19 đòi hỏi <strong>thích ứng và thay đổi</strong> (dynamic), không phải chỉ sở hữu nguồn lực tĩnh.</p>
+
+    <!-- Framework Diagram -->
+    <div class="card card-p mb-6 overflow-x-auto">
+        <h3 class="font-bold text-slate-800 mb-6 text-center">Mô hình Nghiên cứu Tổng thể</h3>
+        <div style="min-width:700px">
+
+            <!-- Moderators row -->
+            <div class="flex justify-around mb-2 px-16 relative">
+                <div class="tipwrap relative" style="width:160px">
+                    <div class="fw-node text-center" style="background:#faf5ff;border:2px solid #a78bfa">
+                        <div class="font-bold text-purple-800 text-sm">Strategic Fit (SF)</div>
+                        <div class="text-purple-500 text-xs mt-1">Biến điều tiết — H4 ⊕</div>
+                    </div>
+                    <div class="tip"><strong>H4 (Điều tiết dương):</strong> Chiến lược chỉ phát huy khi kết hợp với AI. SF khuếch đại sức mạnh AI → IA.</div>
+                    <div class="flex justify-center mt-1">
+                        <div style="width:2px;height:28px;background:#a78bfa"></div>
+                    </div>
+                    <div class="text-center text-purple-400 -mt-1">▼</div>
+                </div>
+                <div class="tipwrap relative" style="width:160px">
+                    <div class="fw-node text-center" style="background:#fff1f2;border:2px solid #fda4af">
+                        <div class="font-bold text-rose-800 text-sm">Digital Entrep. Intent</div>
+                        <div class="text-rose-500 text-xs mt-1">Biến điều tiết — H6 ⊖</div>
+                    </div>
+                    <div class="tip"><strong>H6 (Điều tiết âm):</strong> Ý định quá cao → phân tán nguồn lực → suy yếu chuyển đổi số cốt lõi.</div>
+                    <div class="flex justify-center mt-1">
+                        <div style="width:2px;height:28px;background:#fda4af"></div>
+                    </div>
+                    <div class="text-center text-rose-400 -mt-1">▼</div>
+                </div>
+            </div>
+
+            <!-- Main path -->
+            <div class="flex items-center px-4">
+                <div class="tipwrap relative flex-shrink-0" style="width:160px">
+                    <div class="fw-node" style="background:#eff6ff;border:2px solid var(--blue)">
+                        <div class="font-bold text-blue-900">AI Capabilities</div>
+                        <div class="text-blue-500 text-xs mt-1">IV — DCT: Sensing</div>
+                    </div>
+                    <div class="tip">AI giúp thu thập dữ liệu, phân tích xu hướng và "cảm nhận" nhu cầu thị trường. Chi phí thấp hơn nhân công.</div>
+                </div>
+                <div class="fw-arrow flex-1" style="background:var(--navy);margin:0 .75rem">
+                    <span style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:.7rem;font-weight:700;background:white;padding:0 4px;color:#0f172a">H1 / H2 (+)</span>
+                    <span style="position:absolute;right:-6px;top:-10px;font-size:1.1rem;color:var(--navy)">▶</span>
+                </div>
+                <div class="tipwrap relative flex-shrink-0" style="width:160px">
+                    <div class="fw-node" style="background:#ecfdf5;border:2px solid var(--emerald)">
+                        <div class="font-bold text-emerald-800">Innovation Ambidexterity</div>
+                        <div class="text-emerald-500 text-xs mt-1">Mediator — Reconfiguring</div>
+                    </div>
+                    <div class="tip">Cân bằng: Exploitation (khai thác truyền thống) + Exploration (khám phá công nghệ mới). Cơ chế vượt sức ỳ F-OSH.</div>
+                </div>
+                <div class="fw-arrow flex-1" style="background:var(--navy);margin:0 .75rem">
+                    <span style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:.7rem;font-weight:700;background:white;padding:0 4px;color:#0f172a">H5 / H6 (+/-)</span>
+                    <span style="position:absolute;right:-6px;top:-10px;font-size:1.1rem;color:var(--navy)">▶</span>
+                </div>
+                <div class="tipwrap relative flex-shrink-0" style="width:160px">
+                    <div class="fw-node" style="background:#f8fafc;border:2px solid #475569">
+                        <div class="font-bold text-slate-800">Digital Transformation</div>
+                        <div class="text-slate-500 text-xs mt-1">DV — Outcome</div>
+                    </div>
+                    <div class="tip">Kết quả đầu ra: Chuyển đổi số thành công trong F-OSH. Đo bằng 3 items (Zhang et al., 2023).</div>
+                </div>
+            </div>
+            <p class="text-xs text-center text-slate-400 mt-4 italic">Rê chuột vào các hộp để xem chi tiết</p>
+        </div>
+    </div>
+
+    <!-- DCT + Hypothesis -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card card-p">
+            <h3 class="font-bold text-lg text-blue-700 mb-3">3 Trụ cột DCT (Teece, 2007)</h3>
+            <div class="space-y-3 text-sm">
+                <div class="flex gap-3 items-start">
+                    <span class="pill flex-shrink-0" style="background:#eff6ff;color:var(--blue);border:1px solid #bfdbfe">Sensing</span>
+                    <span class="text-slate-600">Năng lực AI: thu thập dữ liệu, cảm nhận xu hướng thị trường theo thời gian thực.</span>
+                </div>
+                <div class="flex gap-3 items-start">
+                    <span class="pill flex-shrink-0" style="background:#faf5ff;color:var(--purple);border:1px solid #ddd6fe">Seizing</span>
+                    <span class="text-slate-600">Strategic Fit + Digital Intent: cam kết nguồn lực, ra quyết định đầu tư công nghệ.</span>
+                </div>
+                <div class="flex gap-3 items-start">
+                    <span class="pill flex-shrink-0" style="background:#ecfdf5;color:var(--emerald);border:1px solid #a7f3d0">Reconfig.</span>
+                    <span class="text-slate-600">Innovation Ambidexterity: tái cấu trúc — cân bằng khai thác cũ và khám phá mới.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-p">
+            <h3 class="font-bold text-lg mb-3" style="color:var(--emerald)">Logic Giả thuyết Chính</h3>
+            <div class="space-y-3 text-sm text-slate-600">
+                <div class="p-2.5 rounded-lg" style="background:#f0f4ff">
+                    <strong style="color:var(--blue)">H1 (AI → DT):</strong> AI cung cấp chatbot, định giá tự động, phân tích khách. Đây là tiền đề vật chất trực tiếp.
+                </div>
+                <div class="p-2.5 rounded-lg" style="background:#ecfdf5">
+                    <strong style="color:var(--emerald)">H2 (AI → IA → DT):</strong> F-OSH bảo thủ cần "lưỡng dụng": không phải bỏ cái cũ hoàn toàn mà dần tích hợp cái mới qua IA.
+                </div>
+                <div class="p-2.5 rounded-lg bg-rose-50">
+                    <strong style="color:var(--rose)">H6 Nghịch lý:</strong> Ý định khởi nghiệp quá cao → "Hội chứng vật thể lấp lánh" → phân tán, suy yếu chuyển đổi số cốt lõi.
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /framework -->
+
+
+<!-- ─────────────────────────────────────
+     TAB 3: PHƯƠNG PHÁP
+───────────────────────────────────────── -->
+<div id="methodology" class="tab-content fade-in hidden">
+
+    <div class="sec-title">Phương pháp Nghiên cứu</div>
+    <p class="sec-sub">Điểm sáng nhất về mặt phương pháp: Thiết kế <strong>3-Wave Time-Lagged</strong> để khắc phục triệt để Common Method Bias (CMB).</p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+
+        <!-- 3-Wave Timeline -->
+        <div class="card card-p">
+            <h3 class="font-bold text-slate-800 mb-1">Thiết kế 3 Đợt có Độ trễ</h3>
+            <div class="text-xs text-slate-400 mb-4 p-2.5 rounded-lg" style="background:#fffbeb;border:1px solid #fde68a;color:#92400e">
+                <strong>Tại sao quan trọng?</strong> Khi trả lời biến nguyên nhân &amp; kết quả cùng lúc, người tham gia cố làm cho câu trả lời "logic" → thổi phồng tương quan giả. 3-Wave ngăn điều này.
+            </div>
+            <div class="space-y-4">
+                <div class="wave-step">
+                    <div class="wave-dot bg-blue-100 text-blue-700">T1</div>
+                    <div>
+                        <div class="font-semibold text-sm text-slate-800">Đợt 1 — Thời điểm bắt đầu</div>
+                        <div class="text-xs text-slate-500 mt-0.5">Thu biến độc lập: <strong>Năng lực AI</strong>. Thiết lập nền tảng nguyên nhân.</div>
+                    </div>
+                </div>
+                <div class="wave-step">
+                    <div class="wave-dot bg-emerald-100 text-emerald-700">T2</div>
+                    <div>
+                        <div class="font-semibold text-sm text-slate-800">Đợt 2 — 6 tháng sau T1</div>
+                        <div class="text-xs text-slate-500 mt-0.5">Thu biến trung gian + điều tiết: <strong>Ambidexterity, Strategic Fit, Intent</strong>. Người trả lời đã "quên" T1.</div>
+                    </div>
+                </div>
+                <div class="wave-step">
+                    <div class="wave-dot bg-rose-100 text-rose-700">T3</div>
+                    <div>
+                        <div class="font-semibold text-sm text-slate-800">Đợt 3 — 6 tháng sau T2</div>
+                        <div class="text-xs text-slate-500 mt-0.5">Thu biến phụ thuộc: <strong>Digital Transformation</strong>. Đảm bảo tính nhân quả theo thời gian thực.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 p-3 rounded-lg text-xs" style="background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0">
+                <strong>Bài học:</strong> Nếu có đủ thời gian, hãy áp dụng thiết kế này. Đây là "vũ khí bí mật" gây ấn tượng mạnh với hội đồng.
+            </div>
+        </div>
+
+        <!-- Reliability Chart -->
+        <div class="card card-p">
+            <h3 class="font-bold text-slate-800 mb-1">Độ tin cậy Thang đo (Reliability)</h3>
+            <p class="text-xs text-slate-400 mb-3">Tất cả Cronbach's Alpha &gt; 0.7 và CR &gt; 0.7 (đạt chuẩn)</p>
+            <div class="chart-wrap">
+                <canvas id="reliabilityChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sampling + Scales -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="card card-p">
+            <h3 class="font-bold text-slate-800 mb-3">Quy trình Chọn mẫu</h3>
+            <div class="grid grid-cols-2 gap-3 text-sm">
+                <div class="p-3 rounded-lg" style="background:#f0f4ff">
+                    <div class="text-xs font-bold text-slate-400 mb-1">CỠ MẪU</div>
+                    <div class="font-bold text-slate-800">318 / 457</div>
+                    <div class="text-xs text-slate-500">phiếu hợp lệ</div>
+                </div>
+                <div class="p-3 rounded-lg" style="background:#f0fdf4">
+                    <div class="text-xs font-bold text-slate-400 mb-1">ĐỐI TƯỢNG</div>
+                    <div class="font-bold text-slate-800">C-level</div>
+                    <div class="text-xs text-slate-500">Doanh nhân kế thừa</div>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 col-span-2">
+                    <div class="text-xs font-bold text-slate-400 mb-1">PHƯƠNG PHÁP & KIỂM ĐỊNH BIAS</div>
+                    <div class="text-slate-700 text-xs">Phi xác suất, có chủ đích (Purposive). Kiểm định Non-response Bias bằng <strong>Mann-Whitney U test</strong> (50 đầu vs 50 cuối) → Không có sự khác biệt ✓</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-p">
+            <h3 class="font-bold text-slate-800 mb-3">Thang đo kế thừa ("Đứng trên vai người khổng lồ")</h3>
+            <table class="w-full text-sm text-left">
+                <thead><tr class="border-b border-slate-100">
+                    <th class="pb-2 text-xs font-bold text-slate-400">Biến số</th>
+                    <th class="pb-2 text-xs font-bold text-slate-400">Nguồn</th>
+                    <th class="pb-2 text-xs font-bold text-slate-400 text-right">Items</th>
+                </tr></thead>
+                <tbody class="text-slate-600 divide-y divide-slate-50">
+                    <tr><td class="py-2">AI Capabilities</td><td>Abou-Foul et al. (2023)</td><td class="text-right font-bold">4</td></tr>
+                    <tr><td class="py-2">Strategic Fit</td><td>Rahman (2020)</td><td class="text-right font-bold">5</td></tr>
+                    <tr><td class="py-2">Innov. Ambidexterity</td><td>Le et al. (2023)</td><td class="text-right font-bold">8</td></tr>
+                    <tr><td class="py-2">Digital Trans.</td><td>Zhang et al. (2023)</td><td class="text-right font-bold">3</td></tr>
+                </tbody>
+            </table>
+            <div class="mt-3 text-xs text-slate-400 italic">Kế thừa thang đo uy tín giúp tránh phải "phát minh lại bánh xe" và tăng tính so sánh với các nghiên cứu trước.</div>
+        </div>
+    </div>
+</div><!-- /methodology -->
+
+
+<!-- ─────────────────────────────────────
+     TAB 4: KẾT QUẢ PLS-SEM
+───────────────────────────────────────── -->
+<div id="results" class="tab-content fade-in hidden">
+
+    <!-- Header stats -->
+    <div class="card card-p mb-6" style="background:var(--navy)">
+        <div class="flex flex-wrap justify-between items-center gap-4">
+            <div>
+                <div class="text-white font-bold text-lg">Kết quả Kiểm định Mô hình (PLS-SEM)</div>
+                <div class="text-slate-300 text-sm mt-1">SmartPLS 4 · Bootstrapping 5,000 mẫu lặp</div>
+            </div>
+            <div class="flex gap-4">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-emerald-400">41.4%</div>
+                    <div class="text-xs text-slate-400">R² — Biến thiên DT</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-300">0.341</div>
+                    <div class="text-xs text-slate-400">Q² — Predictive relevance</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts + Hypothesis -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div class="card card-p">
+            <h3 class="font-bold text-slate-800 mb-3">Hệ số tác động (Beta β)</h3>
+            <div class="chart-wrap">
+                <canvas id="hypothesisChart"></canvas>
+            </div>
+            <p class="text-xs text-center text-slate-400 mt-2">Biểu đồ thể hiện path coefficient của các giả thuyết</p>
+        </div>
+
+        <div class="card card-p">
+            <h3 class="font-bold text-slate-800 mb-3">Phân tích Chi tiết Giả thuyết</h3>
+            <div class="space-y-3">
+                <div class="hypo-row" style="background:#f0fdf4;border-color:var(--emerald)">
+                    <div class="flex justify-between font-semibold text-sm mb-1">
+                        <span style="color:var(--emerald)">H1: AI → Digital Trans.</span>
+                        <span style="color:var(--emerald)">β = 0.308 ***</span>
+                    </div>
+                    <div class="text-xs text-slate-500"><strong>✓ Chấp nhận.</strong> AI là động lực trực tiếp, không thể thiếu. Khẳng định vai trò nền tảng.</div>
+                </div>
+                <div class="hypo-row" style="background:#f8fafc;border-color:#cbd5e1">
+                    <div class="flex justify-between font-semibold text-sm mb-1 text-slate-400">
+                        <span>H3: Strategic Fit → IA</span>
+                        <span>β = 0.079 (ns)</span>
+                    </div>
+                    <div class="text-xs text-slate-400"><strong>✗ Bác bỏ.</strong> Chiến lược "trên giấy" không tự tạo ra đổi mới nếu thiếu năng lực thực thi.</div>
+                </div>
+                <div class="hypo-row" style="background:#faf5ff;border-color:var(--purple)">
+                    <div class="flex justify-between font-semibold text-sm mb-1">
+                        <span style="color:var(--purple)">H4: SF × AI → IA</span>
+                        <span style="color:var(--purple)">β = 0.124 ***</span>
+                    </div>
+                    <div class="text-xs text-slate-500"><strong>✓ Điều tiết dương.</strong> SF chỉ phát huy khi kết hợp với AI. Chiến lược khuếch đại sức mạnh công nghệ.</div>
+                </div>
+                <div class="hypo-row" style="background:#fff1f2;border-color:var(--rose)">
+                    <div class="flex justify-between font-semibold text-sm mb-1">
+                        <span style="color:var(--rose)">H6: DEI × IA → DT</span>
+                        <span style="color:var(--rose)">β = −0.109 **</span>
+                    </div>
+                    <div class="text-xs text-slate-500"><strong>✓ Điều tiết âm (Nghịch lý).</strong> Ý định quá cao → "Hội chứng vật thể lấp lánh" → đầu tư lan man → suy yếu DT cốt lõi.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mediation detail -->
+    <div class="card card-p">
+        <h3 class="font-bold text-slate-800 mb-3">H2: Trung gian (Mediation Analysis)</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div class="p-3 rounded-lg text-center" style="background:#eff6ff;border:1px solid #bfdbfe">
+                <div class="font-bold text-slate-500 text-xs mb-1">INDIRECT EFFECT</div>
+                <div class="text-2xl font-bold" style="color:var(--blue)">0.308</div>
+                <div class="text-xs text-slate-500 mt-1">AI → IA → DT<br>qua Innovation Ambidexterity</div>
+            </div>
+            <div class="p-3 rounded-lg text-center col-span-2" style="background:#f0fdf4;border:1px solid #a7f3d0">
+                <div class="font-bold text-slate-500 text-xs mb-2">Ý NGHĨA THỰC TIỄN</div>
+                <p class="text-xs text-slate-600">AI không chỉ tác động thẳng đến chuyển đổi số — nó còn hoạt động <strong>qua cơ chế Ambidexterity</strong>: buộc doanh nghiệp vừa khai thác thế mạnh truyền thống vừa tích hợp công nghệ mới. Đây là lý do F-OSH không "chết" dù chuyển đổi chậm hơn doanh nghiệp lớn.</p>
+            </div>
+        </div>
+    </div>
+</div><!-- /results -->
+
+
+<!-- ─────────────────────────────────────
+     TAB 5: ÔN THI BẢO VỆ
+───────────────────────────────────────── -->
+<div id="defense" class="tab-content fade-in hidden">
+
+    <!-- Header -->
+    <div class="card card-p mb-6" style="background:linear-gradient(135deg,var(--navy),var(--navy-mid))">
+        <h2 class="text-xl font-bold text-white mb-1">Cheat Sheet: Trả lời Câu hỏi Phản biện</h2>
+        <p class="text-slate-300 text-sm">Các câu hỏi "xương xẩu" hay gặp và cách trả lời thông minh dựa trực tiếp trên bài nghiên cứu mẫu này.</p>
+    </div>
+
+    <!-- Accordion Q&A -->
+    <div class="space-y-3 mb-8">
+        <div class="accordion-item">
+            <button class="accordion-btn" onclick="toggleAcc(this)">
+                <span>1. Tại sao chọn PLS-SEM mà không phải CB-SEM (AMOS)?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="accordion-body">
+                <div class="accordion-inner">
+                    <strong>Trả lời:</strong> Thưa hội đồng, em chọn PLS-SEM vì 3 lý do kỹ thuật: <br>
+                    (1) <strong>Mục tiêu nghiên cứu là dự báo</strong> (predicting) và phát triển lý thuyết mới — PLS tối ưu cho việc này hơn CB-SEM.<br>
+                    (2) Dữ liệu khảo sát doanh nghiệp thường <strong>không phân phối chuẩn</strong> (non-normal). PLS xử lý tốt hơn AMOS trong điều kiện này.<br>
+                    (3) <strong>Mô hình phức tạp</strong> với nhiều biến tiềm ẩn, biến trung gian và biến điều tiết — SmartPLS 4 xử lý mượt hơn AMOS.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-btn" onclick="toggleAcc(this)">
+                <span>2. Ý nghĩa của H6 mang dấu ÂM là gì? Bác bỏ hay chấp nhận?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="accordion-body">
+                <div class="accordion-inner">
+                    <strong>Trả lời:</strong> H6 vẫn được <strong>chấp nhận</strong> vì chiều tác động âm có ý nghĩa thống kê (p &lt; 0.05). Đây là phát hiện thú vị nhất trong bài.<br><br>
+                    Kết quả phản ánh <strong>"Nghịch lý Khởi nghiệp" trong doanh nghiệp gia đình</strong>: khi ý định khởi nghiệp số quá cao, lãnh đạo thế hệ kế thừa dễ bị phân tán nguồn lực vào các dự án mạo hiểm bên ngoài — thay vì tập trung tối ưu hóa quy trình chuyển đổi số cốt lõi. Hội đồng đánh giá cao giải thích này hơn một mô hình "đẹp" phi thực tế.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-btn" onclick="toggleAcc(this)">
+                <span>3. Tại sao chọn thiết kế Time-Lagged 3 đợt? Không dùng 1 đợt được không?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="accordion-body">
+                <div class="accordion-inner">
+                    <strong>Trả lời:</strong> Thiết kế 1 đợt (cross-sectional) mắc phải <strong>Common Method Bias (CMB)</strong>: người tham gia trả lời nguyên nhân và kết quả trong cùng một bảng hỏi, vô tình tự điều chỉnh để câu trả lời "có logic" → thổi phồng tương quan giả (inflated correlations). <br><br>
+                    3-Wave time-lagged giải quyết bằng cách tách rời nguyên nhân và kết quả theo thời gian thực, đảm bảo tính nhân quả. Đây là chuẩn mực của tạp chí quốc tế hiện nay.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-btn" onclick="toggleAcc(this)">
+                <span>4. Tại sao H3 bị bác bỏ? Có phải mô hình sai không?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="accordion-body">
+                <div class="accordion-inner">
+                    <strong>Trả lời:</strong> Không — đây là <strong>phát hiện có giá trị lý thuyết cao</strong>. H3 (Strategic Fit → Ambidexterity, β=0.079, p&gt;0.05) bị bác bỏ cho thấy: <strong>chiến lược "trên giấy" tự nó không đủ tạo ra đổi mới</strong> nếu thiếu năng lực AI thực thi.<br><br>
+                    Điều thú vị là H4 (SF × AI → IA) lại được chấp nhận, chứng minh SF chỉ phát huy tác dụng khi kết hợp với AI. Hai kết quả này cùng nhau tạo nên đóng góp lý thuyết rõ ràng: AI là điều kiện cần thiết để chiến lược có ý nghĩa.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bài học Thesis -->
+    <div class="card card-p" style="background:linear-gradient(135deg,#1e40af,#1d4ed8)">
+        <h2 class="text-xl font-bold text-white mb-4">4 Bài học Vàng cho Luận văn MBA</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <h4 class="text-blue-200 font-semibold text-sm mb-1 underline underline-offset-4">① Về Cấu trúc</h4>
+                <p class="text-blue-50 text-sm leading-relaxed">Tuân thủ IMRaD. Dùng kỹ thuật "Cái phễu" trong Introduction: Hook → Problem → Gap. Đừng viết phần dẫn nhập "vòng vo" không dẫn đến Research Gap cụ thể.</p>
+            </div>
+            <div>
+                <h4 class="text-blue-200 font-semibold text-sm mb-1 underline underline-offset-4">② Về Phương pháp</h4>
+                <p class="text-blue-50 text-sm leading-relaxed">Nếu có thời gian, áp dụng <strong>Time-lagged</strong>. Nếu không, hãy ít nhất kiểm định CMB bằng Harman's Single Factor Test. Báo cáo đầy đủ HTMT, R², Q².</p>
+            </div>
+            <div>
+                <h4 class="text-blue-200 font-semibold text-sm mb-1 underline underline-offset-4">③ Về Công cụ Phân tích</h4>
+                <p class="text-blue-50 text-sm leading-relaxed">Dùng <strong>SmartPLS 4</strong> thay vì AMOS nếu mô hình có biến điều tiết và dữ liệu không chuẩn. PLS phù hợp với mục tiêu dự báo và phát triển lý thuyết mới.</p>
+            </div>
+            <div>
+                <h4 class="text-blue-200 font-semibold text-sm mb-1 underline underline-offset-4">④ Về Tư duy Phản biện</h4>
+                <p class="text-blue-50 text-sm leading-relaxed">Đừng sợ kết quả <strong>bác bỏ (H3)</strong> hay <strong>tác động âm (H6)</strong>. Biến chúng thành điểm nhấn thảo luận — hội đồng đánh giá cao hơn là một mô hình "đẹp" nhưng thiếu thực tế.</p>
+            </div>
+        </div>
+    </div>
+</div><!-- /defense -->
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-slate-400 text-xs">
+    Phân tích chuyên sâu dựa trên Zeshan Ahmad (2025) — <em>Journal of Management Development</em> — Tài liệu hỗ trợ Luận văn MBA
+</footer>
+
+
+<!-- ═══════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════ -->
+<script>
+const DATA = {
+    reliability: {
+        labels: ['AI Capabilities', 'Strategic Fit', 'Inn. Ambidexterity', 'Digital Entrep. Intent', 'Digital Trans.'],
+        alpha:  [0.888, 0.824, 0.824, 0.699, 0.705],
+        cr:     [0.905, 0.873, 0.872, 0.788, 0.822]
+    },
+    hypothesis: {
+        labels: ['H1: AI → DT (Direct)', 'H2: AI → IA → DT (Indirect)', 'H4: SF × AI → IA (Mod+)', 'H6: DEI × IA → DT (Mod−)'],
+        beta:   [0.308, 0.308, 0.124, -0.109],
+        colors: ['#2563eb', '#059669', '#7c3aed', '#e11d48']
+    }
+};
+
+let chartsInitialized = false;
+
+function initCharts() {
+    if (chartsInitialized) return;
+
+    // Reliability chart
+    new Chart(document.getElementById('reliabilityChart'), {
+        type: 'bar',
+        data: {
+            labels: DATA.reliability.labels,
+            datasets: [
+                { label: "Cronbach's Alpha", data: DATA.reliability.alpha, backgroundColor: '#2563eb', barPercentage: .55, categoryPercentage: .8, borderRadius: 4 },
+                { label: "Composite Reliability (CR)", data: DATA.reliability.cr, backgroundColor: '#059669', barPercentage: .55, categoryPercentage: .8, borderRadius: 4 }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true, max: 1, ticks: { stepSize: .2 }, title: { display: true, text: 'Score (ngưỡng > 0.7)' } } },
+            plugins: { legend: { position: 'top' } }
+        }
+    });
+
+    // Hypothesis chart
+    new Chart(document.getElementById('hypothesisChart'), {
+        type: 'bar',
+        data: {
+            labels: DATA.hypothesis.labels,
+            datasets: [{
+                label: 'Path Coefficient (β)',
+                data: DATA.hypothesis.beta,
+                backgroundColor: DATA.hypothesis.colors,
+                borderRadius: 4, borderWidth: 0
+            }]
+        },
+        options: {
+            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+            scales: { x: { title: { display: true, text: 'Hệ số Beta (β)' } } },
+            plugins: {
+                legend: { display: false },
+                tooltip: { callbacks: { label: ctx => ' β = ' + ctx.raw } }
+            }
+        }
+    });
+
+    chartsInitialized = true;
+}
+
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.tab === tabId) btn.classList.add('active');
+    });
+    const target = document.getElementById(tabId);
+    target.classList.remove('hidden');
+    target.classList.remove('fade-in');
+    void target.offsetWidth;
+    target.classList.add('fade-in');
+
+    if (tabId === 'methodology' || tabId === 'results') {
+        setTimeout(() => { initCharts(); window.dispatchEvent(new Event('resize')); }, 80);
+    }
+}
+
+function toggleAcc(btn) {
+    const body = btn.nextElementSibling;
+    const icon = btn.querySelector('.icon');
+    const isOpen = body.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.accordion-btn .icon').forEach(i => i.textContent = '+');
+    // Open clicked if was closed
+    if (!isOpen) {
+        body.classList.add('open');
+        icon.textContent = '−';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Pre-init charts on tabs with charts in case user starts there
+});
+</script>
+</body>
+</html>
