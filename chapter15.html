@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="nav-active" content="p2">
+<title>Chapter 15 — Quantitative</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        body{font-family:"Inter",sans-serif;background:#f8fafc}
+        .hero{background:linear-gradient(135deg,#0d1730 0%,#1d2f60 60%,#2a4080 100%);position:relative;overflow:hidden}
+        .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(212,160,23,.15) 0%,transparent 55%);pointer-events:none}
+        .hgrid{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px;position:absolute;inset:0;pointer-events:none}
+        .sh{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#fff;border-bottom:1px solid #e2e8f0;transition:background .18s}
+        .sh:hover{background:#f8fafc}
+        .sb{overflow:hidden;transition:max-height .4s ease}
+        .sb.shut{max-height:0!important}
+        .sa{display:inline-block;transition:transform .3s;color:#94a3b8}
+        .sh.shut-s .sa{transform:rotate(-90deg)}
+        .ah{cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:13px 20px;transition:background .18s}
+        .ah:hover{background:#f8fafc}
+        .ab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+        .ab.open{max-height:5000px}
+        .aa{display:inline-block;transition:transform .3s;color:#94a3b8;font-size:.8rem}
+        .ah.os .aa{transform:rotate(90deg);color:#d4a017}
+        .sn{background:linear-gradient(135deg,#0d1730,#1d2f60);color:#fbbf24;font-weight:700;font-size:.68rem;padding:2px 8px;border-radius:4px;margin-right:8px;white-space:nowrap}
+        .kb{background:#e0e9ff;color:#1d2f60;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:4px}
+        .pill{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;font-size:.7rem;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0}
+        .bc a{color:rgba(255,255,255,.5);font-size:.72rem;text-decoration:none}
+        .bc a:hover{color:#fbbf24}
+        .bcs{color:rgba(255,255,255,.22);margin:0 5px;font-size:.72rem}
+        @keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+        .au{animation:up .3s ease both}</style>
+</head><body>
+<script src="nav.js"></script>
+<header class="hero py-10 md:py-14">
+<div class="hgrid"></div>
+<div class="relative z-10 max-w-4xl mx-auto px-4">
+  <div class="bc flex items-center mb-5">
+    <a href="index.html">MBA Research Hub</a><span class="bcs">&rsaquo;</span>
+    <a href="index.html">Part II &middot; Quantitative Research</a><span class="bcs">&rsaquo;</span>
+    <span style="color:rgba(255,255,255,.78);font-size:.72rem">Chapter 15</span>
+  </div>
+  <div class="flex flex-col md:flex-row md:items-end gap-6">
+    <div class="flex-1">
+      <div class="flex items-center gap-3 mb-3">
+        <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#d4a017,#fbbf24);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:#0d1730;flex-shrink:0">15</div>
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3.5vw,2.1rem);font-weight:700;color:#fff;line-height:1.2">Quantitative<br><span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Data Analysis</span></h1>
+      </div>
+      <p style="color:#94a3b8;font-size:.88rem;max-width:520px;line-height:1.65;margin-bottom:14px">Ch&#7885;n c&ocirc;ng c&#7909; th&#7889;ng k&ecirc; ph&#7909; thu&#7897;c v&agrave;o lo&#7841;i bi&#7871;n. T&#432;&#417;ng quan &#8800; Nh&acirc;n qu&#7843;. P &lt;0.05 = c&oacute; &yacute; ngh&#297;a th&#7889;ng k&ecirc;.</p>
+      <div class="flex flex-wrap gap-2"><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">4 Variable Types</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Univariate</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Bivariate</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Pearson r</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Spearman rho</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Spurious Relationship</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">P-value</span></div>
+    </div>
+    <div class="flex items-center gap-1.5 flex-shrink-0">
+      <span style="color:#64748b;font-size:.7rem;margin-right:2px">Ch.</span>
+      <a href="chapter14.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">14</a><a href="chapter15.html" class="pill" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730">15</a><a href="chapter16.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">16</a>
+      <a href="index.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:1rem">&ctdot;</a>
+    </div>
+  </div>
+  <div class="flex gap-2 mt-6">
+    <button onclick="allOpen()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; M&#7903; t&#7845;t c&#7843;</button>
+    <button onclick="allClose()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; Thu t&#7845;t c&#7843;</button>
+  </div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-4"><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128203;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">T&oacute;m t&#7855;t</div><div style="font-size:.72rem;color:#94a3b8">Summary &mdash; lu&#7853;n &#273;i&#7875;m ch&iacute;nh</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:900px"><div style="padding:16px 20px 14px;background:#fff5f5;border-left:4px solid #f87171"><p style="color:#991b1b;font-size:.875rem;line-height:1.75;margin:0"><strong>Lu&#7853;t s&#7889; 1:</strong> Kh&ocirc;ng bao gi&#7901; &#273;&#7875; &#273;&#7871;n cu&#7889;i m&#7899;i ngh&#297; c&aacute;ch ph&acirc;n t&iacute;ch. C&ocirc;ng c&#7909; th&#7889;ng k&ecirc; ph&#7909; thu&#7897;c ho&agrave;n to&agrave;n v&agrave;o <strong>lo&#7841;i bi&#7871;n s&#7889;</strong> b&#7841;n thu th&#7853;p. T&#432;&#417;ng quan (Correlation) &#8800; Nh&acirc;n qu&#7843; (Causality).</p></div><div style="padding:14px 20px 20px;background:#fff8f0;border-left:4px solid #fb923c"><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:.875rem;color:#9a3412"><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9312;</span><span><strong>4 lo&#7841;i bi&#7871;n:</strong> Interval/ratio (s&#7889; th&#7921;c, cao nh&#7845;t), Ordinal (th&#7913; b&#7853;c/Likert), Nominal (ph&acirc;n lo&#7841;i, kh&ocirc;ng th&#7913; t&#7921;), Dichotomous (nh&#7883; ph&acirc;n Nam/N&#7919;).</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9313;</span><span><strong>Ph&acirc;n t&iacute;ch 1 bi&#7871;n (Univariate):</strong> Frequency table, Histogram, Mean/Median/Mode, Standard deviation. C&#7849;nh gi&aacute;c Outliers l&agrave;m l&#7879;ch Mean!</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9314;</span><span><strong>Ph&acirc;n t&iacute;ch 2 bi&#7871;n (Bivariate):</strong> Pearson's r (Interval-Interval), Spearman's rho (Ordinal-Ordinal), Cramer's V (Nominal-Nominal), Eta (Interval+Nominal).</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9315;</span><span><strong>Ph&acirc;n t&iacute;ch &#273;a bi&#7871;n (Multivariate):</strong> T&igrave;m Spurious relationship (quan h&#7879; gi&#7843; m&#7841;o do bi&#7871;n th&#7913; 3) v&agrave; Intervening variable (bi&#7871;n can thi&#7879;p). P-value &lt;0.05 = &yacute; ngh&#297;a th&#7889;ng k&ecirc;.</span></li></ul></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128214;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Chi ti&#7871;t Ch&#432;&#417;ng 15</div><div style="font-size:.72rem;color:#94a3b8">Accordion</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:9999px"><div style="display:flex;align-items:center;justify-content:space-between;padding:8px 20px 4px;background:#f8fafc;border-bottom:1px solid #f1f5f9"><span style="font-size:.7rem;color:#94a3b8;font-weight:600">4 m&#7909;c &mdash; click &#273;&#7875; m&#7903;</span></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">15.1</span>4 Lo&#7841;i Bi&#7871;n s&#7889; &mdash; N&#7873;n t&#7843;ng</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:10px">
+<div style="border-radius:12px;padding:13px;border:2px solid #0d1730;background:#f0f4ff;position:relative">
+  <div style="position:absolute;top:8px;right:8px;background:#0d1730;color:#fbbf24;font-size:.65rem;font-weight:700;padding:1px 6px;border-radius:3px">CAO NH&#7844;T</div>
+  <div style="font-weight:700;font-size:.82rem;color:#0d1730;margin-bottom:4px">&#128290; Interval / Ratio</div>
+  <p style="font-size:.76rem;color:#475569;line-height:1.5;margin:0">S&#7889; th&#7921;c, kho&#7843;ng c&aacute;ch &#273;&#7873;u. T&iacute;nh to&aacute;n m&#7841;nh nh&#7845;t.</p>
+  <div style="margin-top:6px;background:#e0e9ff;border-radius:5px;padding:4px 8px;font-size:.72rem;color:#1d2f60">Tu&#7893;i, Thu nh&#7853;p, Doanh thu</div>
+</div>
+<div style="border-radius:12px;padding:13px;border:2px solid #d4a017;background:#fffdf0">
+  <div style="font-weight:700;font-size:.82rem;color:#b8860b;margin-bottom:4px">&#128202; Ordinal</div>
+  <p style="font-size:.76rem;color:#475569;line-height:1.5;margin:0">C&oacute; th&#7913; t&#7921; (rank) nh&#432;ng kho&#7843;ng c&aacute;ch kh&ocirc;ng &#273;&#7873;u.</p>
+  <div style="margin-top:6px;background:#fef9c3;border-radius:5px;padding:4px 8px;font-size:.72rem;color:#713f12">Thang Likert, M&#7913;c &#273;&#7897; th&#432;&#7901;ng xuy&ecirc;n</div>
+</div>
+<div style="border-radius:12px;padding:13px;border:2px solid #7c3aed;background:#faf5ff">
+  <div style="font-weight:700;font-size:.82rem;color:#6d28d9;margin-bottom:4px">&#127974; Nominal</div>
+  <p style="font-size:.76rem;color:#475569;line-height:1.5;margin:0">Ph&acirc;n lo&#7841;i, kh&ocirc;ng th&#7913; t&#7921;. Ch&#7881; &#273;&#7871;m s&#7889; l&#432;&#7907;ng.</p>
+  <div style="margin-top:6px;background:#ede9fe;border-radius:5px;padding:4px 8px;font-size:.72rem;color:#4c1d95">T&ocirc;n gi&aacute;o, Ph&ograve;ng ban, Qu&#7889;c gia</div>
+</div>
+<div style="border-radius:12px;padding:13px;border:2px solid #059669;background:#f0fdf4">
+  <div style="font-weight:700;font-size:.82rem;color:#065f46;margin-bottom:4px">&#9878; Dichotomous</div>
+  <p style="font-size:.76rem;color:#475569;line-height:1.5;margin:0">Ch&#7881; c&oacute; &#273;&uacute;ng 2 danh m&#7909;c.</p>
+  <div style="margin-top:6px;background:#dcfce7;border-radius:5px;padding:4px 8px;font-size:.72rem;color:#14532d">Nam/N&#7919;, C&oacute;/Kh&ocirc;ng</div>
+</div>
+</div></div></div></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">15.2</span>Ph&acirc;n t&iacute;ch &#272;&#417;n bi&#7871;n (Univariate)</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;font-size:.8rem">
+<div style="padding:11px 13px;background:#f0f4ff;border-radius:9px;border-left:3px solid #0d1730">
+<strong style="color:#0d1730">&#128202; Frequency table &amp; Chart</strong><br>
+<span style="color:#475569">B&#7843;ng t&#7847;n su&#7845;t: Bao nhi&ecirc;u % ch&#7885;n m&#7895;i &#273;&aacute;p &aacute;n. Bi&#7875;u &#273;&#7891; c&#7897;t/tr&ograve;n cho Nominal/Ordinal; Histogram cho Interval.</span>
+</div>
+<div style="padding:11px 13px;background:#fffdf0;border-radius:9px;border-left:3px solid #d4a017">
+<strong style="color:#b8860b">&#128200; Central tendency &mdash; &#272;o h&#432;&#7899;ng t&acirc;m</strong><br>
+<span style="color:#475569">Mean (trung b&igrave;nh), Median (trung v&#7883;), Mode (ph&#7893; bi&#7871;n nh&#7845;t). <strong>&#9888;&#65039; Outlier</strong> l&agrave;m l&#7879;ch Mean! D&ugrave;ng Median khi c&oacute; outlier (VD: t&#7929; ph&uacute; l&agrave;m l&#7879;ch thu nh&#7853;p TB).</span>
+</div>
+<div style="padding:11px 13px;background:#f0fdf4;border-radius:9px;border-left:3px solid #059669">
+<strong style="color:#065f46">&#128272; Dispersion &mdash; &#272;o ph&acirc;n t&aacute;n</strong><br>
+<span style="color:#475569">Standard deviation (&#273;&#7897; l&#7879;ch chu&#7849;n) &mdash; &#273;o m&#7913;c &#273;&#7897; &quot;c&aacute;ch xa&quot; trung b&igrave;nh. SD nh&#7887; = ph&acirc;n ph&#7889;i t&#7853;p trung; SD l&#7899;n = d&#7919; li&#7879;u h&#7895;n &#273;&#7897;n.</span>
+</div>
+</div></div></div></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">15.3</span>Ph&acirc;n t&iacute;ch Song bi&#7871;n (Bivariate)</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="overflow-x:auto;margin-top:10px">
+<table style="width:100%;font-size:.78rem;border-collapse:collapse">
+<thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0">
+<th style="padding:9px 12px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase">T&igrave;nh hu&#7889;ng</th>
+<th style="padding:9px 12px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase">C&ocirc;ng c&#7909;</th>
+<th style="padding:9px 12px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase">V&iacute; d&#7909;</th>
+</tr></thead>
+<tbody>
+<tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 12px"><span class="kb">2 bi&#7871;n Interval</span></td><td style="padding:9px 12px;color:#0d1730;font-weight:600">Pearson's r</td><td style="padding:9px 12px;color:#64748b">Tu&#7893;i &harr; Th&#7901;i gian t&#7853;p cardio</td></tr>
+<tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 12px"><span class="kb">2 bi&#7871;n Ordinal</span></td><td style="padding:9px 12px;color:#0d1730;font-weight:600">Spearman's rho</td><td style="padding:9px 12px;color:#64748b">M&#7913;c &#273;&#7897; th&#432;&#7901;ng xuy&ecirc;n &harr; m&#7913;c &#273;&#7897; t&#7853;p t&#7841;</td></tr>
+<tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 12px"><span class="kb">2 bi&#7871;n Nominal</span></td><td style="padding:9px 12px;color:#0d1730;font-weight:600">Crosstabs + Cramer's V</td><td style="padding:9px 12px;color:#64748b">Gi&#7899;i t&iacute;nh &harr; L&yacute; do t&#7853;p gym</td></tr>
+<tr><td style="padding:9px 12px"><span class="kb">Interval + Nominal</span></td><td style="padding:9px 12px;color:#0d1730;font-weight:600">Eta</td><td style="padding:9px 12px;color:#64748b">Ph&ograve;ng ban &harr; &#272;i&#7875;m h&agrave;i l&ograve;ng</td></tr>
+</tbody>
+</table>
+<div style="margin-top:10px;background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;padding:10px 14px;font-size:.78rem;color:#991b1b">&#9888;&#65039; <strong>T&#432;&#417;ng quan (r) kh&ocirc;ng ph&#7843;i nh&acirc;n qu&#7843;!</strong> A t&#259;ng c&ugrave;ng B kh&ocirc;ng c&oacute; ngh&#297;a A &#273;&#7867; ra B. C&#7847;n ph&acirc;n t&iacute;ch &#273;a bi&#7871;n &#273;&#7875; t&igrave;m bi&#7871;n th&#7913; 3.</div>
+</div></div></div></div><div style=""><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">15.4</span>&#272;a bi&#7871;n, Spurious &amp; P-value</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+<div style="border-radius:12px;padding:14px;background:#fff5f5;border-left:4px solid #dc2626">
+  <div style="font-weight:700;font-size:.82rem;color:#dc2626;margin-bottom:6px">&#127918; Spurious Relationship &mdash; Quan h&#7879; gi&#7843; m&#7841;o</div>
+  <p style="font-size:.8rem;color:#475569;line-height:1.65;margin:0 0 8px">A v&agrave; B t&#432;&#7903;ng c&oacute; quan h&#7879; nh&#432;ng th&#7921;c ra do bi&#7871;n th&#7913; 3 (C) g&acirc;y ra c&#7843; hai. N&#7871;u kh&#244;ng ki&#7875;m tra, k&#7871;t lu&#7853;n s&#7869; sai ho&agrave;n to&agrave;n.</p>
+  <div style="background:#fee2e2;border-radius:6px;padding:8px;font-size:.76rem;color:#991b1b">VD: &ldquo;U&#7889;ng r&#432;&#7907;u vang s&#7889;ng th&#7885;&rdquo; &rarr; Bi&#7871;n th&#7913; 3: S&#7921; gi&agrave;u c&oacute;. Ng&#432;&#7901;i gi&agrave;u mua r&#432;&#7907;u vang <em>v&agrave;</em> c&oacute; ti&#7873;n ch&#259;m s&oacute;c s&#7913;c kh&#7887;e.</div>
+</div>
+<div style="border-radius:12px;padding:14px;background:#f0f4ff;border-left:4px solid #0d1730">
+  <div style="font-weight:700;font-size:.82rem;color:#0d1730;margin-bottom:6px">&#9654; Intervening Variable &mdash; Bi&#7871;n can thi&#7879;p</div>
+  <p style="font-size:.8rem;color:#475569;line-height:1.65;margin:0 0 8px">A t&#7841;o ra B, B m&#7899;i t&#7841;o ra C. Ph&acirc;n t&iacute;ch song bi&#7871;n (A&harr;C) b&#7887; qua trung gian B s&#7869; hi&#7875;u sai c&#417; ch&#7871;.</p>
+  <div style="background:#e0e9ff;border-radius:6px;padding:8px;font-size:.76rem;color:#1d2f60">VD: Tu&#7893;i tr&#7867; (A) &rarr; kh&ocirc;ng th&iacute;ch OT (B) &rarr; gh&eacute;t s&#7871;p (C). Bi&#7871;n can thi&#7879;p = &ldquo;S&#7889; gi&#7901; OT&rdquo;.</div>
+</div>
+<div style="border-radius:12px;padding:14px;background:#f0fdf4;border-left:4px solid #059669">
+  <div style="font-weight:700;font-size:.82rem;color:#065f46;margin-bottom:6px">&#128201; Statistical Significance &amp; P-value</div>
+  <p style="font-size:.8rem;color:#475569;line-height:1.65;margin:0">P &lt;0.05: Ch&#7845;p nh&#7853;n r&#7911;i ro sai 5% &rarr; k&#7871;t qu&#7843; c&oacute; th&#7875; t&#7893;ng qu&aacute;t h&oacute;a cho t&#7893;ng th&#7875;. P &gt;0.05: Quan h&#7879; ph&aacute;t hi&#7879;n kh&ocirc;ng &#273;&aacute;ng tin c&#7853;y. Chi-square ki&#7875;m &#273;&#7883;nh s&#7921; kh&aacute;c bi&#7879;t c&oacute; th&#7853;t hay do &quot;&#259;n may&quot;.</p>
+</div>
+</div></div></div></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128273;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">B&#7843;ng Kh&aacute;i ni&#7879;m</div><div style="font-size:.72rem;color:#94a3b8">8 kh&aacute;i ni&#7879;m c&#7889;t l&otilde;i</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:1400px"><div style="overflow-x:auto"><table style="width:100%;font-size:.8rem;border-collapse:collapse"><thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0"><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:160px">Kh&aacute;i ni&#7879;m</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em">&#272;&#7883;nh ngh&#297;a</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:180px">V&iacute; d&#7909;</th></tr></thead><tbody><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Interval/ratio</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">S&#7889; th&#7921;c, kho&#7843;ng c&aacute;ch &#273;&#7873;u, t&iacute;nh to&aacute;n m&#7841;nh nh&#7845;t.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Tu&#7893;i, thu nh&#7853;p, th&#7901;i gian t&#7853;p (ph&uacute;t)</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Ordinal</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">C&oacute; th&#7913; t&#7921; nh&#432;ng kho&#7843;ng c&aacute;ch kh&ocirc;ng &#273;&#7873;u.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Thang Likert, m&#7913;c &#273;&#7897; th&#432;&#7901;ng xuy&ecirc;n</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Nominal</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Ph&acirc;n lo&#7841;i, kh&ocirc;ng th&#7913; t&#7921;.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">T&ocirc;n gi&aacute;o, ph&ograve;ng ban, qu&#7889;c gia</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Dichotomous</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Ch&#7881; 2 danh m&#7909;c.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Nam/N&#7919;, C&oacute;/Kh&ocirc;ng</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Pearson's r</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">H&#7879; s&#7889; t&#432;&#417;ng quan 2 bi&#7871;n Interval (-1 &#273;&#7871;n +1).</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Tu&#7893;i &harr; Th&#7901;i gian cardio</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Spearman's rho</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">T&#432;&#417;ng quan 2 bi&#7871;n Ordinal.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">T&#7847;n su&#7845;t gym &harr; m&#7913;c &#273;&#7897; t&#7853;p t&#7841;</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Spurious relationship</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Quan h&#7879; A&harr;B gi&#7843; m&#7841;o do bi&#7871;n th&#7913; 3 C g&acirc;y ra.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">R&#432;&#7907;u vang &harr; S&#7889;ng th&#7885; (th&#7921;c ra do gi&agrave;u c&oacute;)</td></tr><tr style=""><td style="padding:9px 16px"><span class="kb">Statistical significance</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">P &lt;0.05 = k&#7871;t qu&#7843; &#273;&#7911; tin c&#7853;y &#273;&#7875; t&#7893;ng qu&aacute;t h&oacute;a.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Chi-square ki&#7875;m &#273;&#7883;nh t&#7845;t c&#7843; nh&oacute;m</td></tr></tbody></table></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#0d1730,#1d2f60);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" fill="none" stroke="#fbbf24" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Ph&acirc;n t&iacute;ch &amp; &#272;&aacute;nh gi&aacute;</div><div style="font-size:.72rem;color:#94a3b8">Critical Analysis</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:2000px"><div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+<div style="border-radius:12px;padding:18px 20px;background:linear-gradient(135deg,#0d1730,#1d2f60)">
+  <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(212,160,23,.75);margin-bottom:8px">C&acirc;u h&#7887;i c&#7889;t l&otilde;i</div>
+  <p style="color:#fff;font-size:.875rem;line-height:1.7;font-family:Georgia,serif;font-style:italic">"L&agrave;m th&#7871; n&agrave;o ch&#7885;n &#273;&uacute;ng c&ocirc;ng c&#7909; th&#7889;ng k&ecirc; &#273;&#7875; gi&#7843;i m&atilde; &yacute; ngh&#297;a &#273;&#432;&#7901;ng sau con s&#7889; v&ocirc; h&#7891;n, tr&aacute;nh c&#7841;m b&#7851;y khi di&#7877;n gi&#7843;i k&#7871;t qu&#7843; &#273;&#7883;nh l&#432;&#7907;ng?"</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+  <div style="border:1px solid #e2e8f0;border-radius:12px;padding:15px">
+    <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #f1f5f9">Logic L&#7853;p lu&#7853;n</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Premise</span><span style="color:#475569;font-size:.8rem">D&#7919; li&#7879;u &#273;&#7883;nh l&#432;&#7907;ng t&#7841;o ra ma tr&#7853;n con s&#7889; l&#7899;n. N&#7871;u kh&ocirc;ng c&oacute; &#273;&#7883;nh h&#432;&#7899;ng t&#7915; l&uacute;c thi&#7871;t k&#7871; b&#7843;ng h&#7887;i, b&#7841;n s&#7869; thu v&#7873; &ldquo;d&#7919; li&#7879;u r&aacute;c&rdquo;.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Argument</span><span style="color:#475569;font-size:.8rem">Y&#7871;u t&#7889; quy&#7871;t &#273;&#7883;nh c&ocirc;ng c&#7909; ph&acirc;n t&iacute;ch l&agrave; lo&#7841;i bi&#7871;n s&#7889;. Ph&#7843;i &#273;i t&#7915; &#273;&#417;n bi&#7871;n &rarr; song bi&#7871;n &rarr; &#273;a bi&#7871;n theo &#273;&uacute;ng tr&igrave;nh t&#7921;.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Conclusion</span><span style="color:#475569;font-size:.8rem">Tuy&#7879;t &#273;&#7889;i kh&ocirc;ng suy di&#7877;n nh&acirc;n qu&#7843; t&#7915; t&#432;&#417;ng quan. Statistical significance kh&aacute;c substantive significance (quan tr&#7885;ng th&#7889;ng k&ecirc; kh&ocirc;ng c&oacute; ngh&#297;a quan tr&#7885;ng th&#7921;c ti&#7877;n).</span></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9989; &#272;i&#7875;m m&#7841;nh</div>
+      <p style="color:#047857;font-size:.78rem;line-height:1.7;margin:0">C&#7921;c k&#7923; th&#7921;c d&#7909;ng. Thay v&igrave; ném c&ocirc;ng th&#7913;c to&aacute;n v&agrave;o m&#7863;t sinh vi&ecirc;n, d&ugrave;ng Case Study Gym s&#7889;ng &#273;&#7897;ng d&#7841;y t&#432; duy "khi n&agrave;o d&ugrave;ng c&ocirc;ng c&#7909; n&agrave;o".</p>
+    </div>
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9888;&#65039; H&#7841;n ch&#7871; &amp; Gi&#7843; &#273;&#7883;nh ng&#7847;m</div>
+      <p style="color:#b45309;font-size:.78rem;line-height:1.7;margin:0">Gi&#7843; &#273;&#7883;nh sinh vi&ecirc;n s&#7869; d&ugrave;ng SPSS &#273;&#7875; t&iacute;nh to&aacute;n. C&#361;ng ng&#7847;m c&#7843;nh b&aacute;o r&#7857;ng sinh vi&ecirc;n hay "th&#7847;n th&aacute;nh h&oacute;a con s&#7889;" n&ecirc;n li&ecirc;n t&#7909;c nh&#7855;c v&#7873; ng&#7909;y bi&#7879;n nh&acirc;n qu&#7843;.</p>
+    </div>
+  </div>
+</div></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#129514;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">&#7912;ng d&#7909;ng Th&#7921;c ti&#7877;n</div><div style="font-size:.72rem;color:#94a3b8">Case Study + &#272;&#7873; xu&#7845;t + T&#7921; ki&#7875;m tra</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:3000px"><div style="padding:20px;display:flex;flex-direction:column;gap:16px">
+<div><div style="font-weight:700;color:#1e293b;margin-bottom:12px;font-size:.875rem">&#128203; Case Study: Gi&#7843;i m&atilde; ngh&#7881; vi&#7879;c Gen Z t&#7841;i TechZ (4 b&#432;&#7899;c)</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="border-radius:10px;padding:11px;background:#f0f4ff;border-left:3px solid #0d1730"><strong style="color:#0d1730">B&#432;&#7899;c 1 &mdash; Nh&#7853;n di&#7879;n bi&#7871;n:</strong> <span style="color:#475569;font-size:.8rem">&ldquo;Gen Z/Y&rdquo; = Dichotomous. &ldquo;L&#432;&#417;ng&rdquo; = Interval. &ldquo;H&agrave;i l&ograve;ng s&#7871;p&rdquo; (1-5) = Ordinal.</span></div><div style="border-radius:10px;padding:11px;background:#fffdf0;border-left:3px solid #d4a017"><strong style="color:#d4a017">B&#432;&#7899;c 2 &mdash; &#272;&#417;n bi&#7871;n:</strong> <span style="color:#475569;font-size:.8rem">Frequency table: 60% ch&#7885;n &ldquo;R&#7845;t kh&ocirc;ng h&agrave;i l&ograve;ng s&#7871;p&rdquo;. Histogram l&#432;&#417;ng: b&#7857;ng th&#7883; tr&#432;&#7901;ng.</span></div><div style="border-radius:10px;padding:11px;background:#f0fdf4;border-left:3px solid #059669"><strong style="color:#059669">B&#432;&#7899;c 3 &mdash; Song bi&#7871;n:</strong> <span style="color:#475569;font-size:.8rem">Spearman rho gi&#7919;a &ldquo;Tu&#7893;i&rdquo; &amp; &ldquo;H&agrave;i l&ograve;ng s&#7871;p&rdquo; = r=-0.6. Ng&#432;&#7901;i tr&#7867; c&agrave;ng kh&ocirc;ng h&agrave;i l&ograve;ng s&#7871;p.</span></div><div style="border-radius:10px;padding:11px;background:#fff5f5;border-left:3px solid #dc2626"><strong style="color:#dc2626">B&#432;&#7899;c 4 &mdash; &#272;a bi&#7871;n:</strong> <span style="color:#475569;font-size:.8rem">Th&ecirc;m bi&#7871;n th&#7913; 3 &ldquo;S&#7889; gi&#7901; OT&rdquo; &rarr; ph&aacute;t hi&#7879;n Intervening variable: S&#7871;p &eacute;p OT &rarr; Gen Z (kh&ocirc;ng th&iacute;ch OT) &rarr; gh&eacute;t s&#7871;p!</span></div></div></div>
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;color:#14532d;margin-bottom:10px;font-size:.875rem">&#128161; &#272;&#7873; xu&#7845;t &#7913;ng d&#7909;ng</div>
+  <div style="display:flex;flex-direction:column;gap:8px;color:#166534"><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Lu&#7853;n v&#259;n</span><span style="font-size:.8rem">Tr&#432;&#7899;c khi in phi&#7871;u, v&#7869; ra b&#7843;ng: &ldquo;C&acirc;u Q1 = Nominal &rarr; bi&#7875;u &#273;&#7891; tr&ograve;n. Q2 = Interval &rarr; Pearson&rdquo;. N&#7871;u c&acirc;u n&agrave;o kh&ocirc;ng bi&#7871;t ch&#7841;y c&ocirc;ng c&#7909; g&igrave; &rarr; x&oacute;a c&acirc;u &#273;&oacute;.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Data Analyst</span><span style="font-size:.8rem">&#272;&#7915;ng ch&#7881; b&aacute;o c&aacute;o Mean cho s&#7871;p. N&#7871;u c&oacute; outlier (kh&aacute;ch VIP gi&agrave;u), d&ugrave;ng Median &#273;&#7875; ph&#7843;n &aacute;nh t&#7853;p KH l&otilde;i ch&iacute;nh x&aacute;c h&#417;n.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">&#272;&#7901;i s&#7889;ng</span><span style="font-size:.8rem">B&aacute;o: &ldquo;U&#7889;ng r&#432;&#7907;u vang s&#7889;ng th&#7885;&rdquo; &rarr; &#7849;p: Bi&#7871;n th&#7913; 3 l&agrave; gi&agrave;u c&oacute;. T&#432; duy Spurious relationship ch&#7889;ng tin gi&#7843;.</span></div></div>
+</div>
+<div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:12px">&#128203; T&#7921; ki&#7875;m tra</div>
+  <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q1</span><span style="color:#374151">C&oacute; lo&#7841;i bi&#7871;n n&agrave;o &quot;c&#7845;p &#273;&#7897;&quot; cao nh&#7845;t? T&#7841;i sao Interval/ratio l&#7841;i &quot;m&#7841;nh&quot; h&#417;n Nominal?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q2</span><span style="color:#374151">Khi n&agrave;o d&ugrave;ng Median thay Mean? V&iacute; d&#7909; th&#7921;c t&#7871; trong lu&#7853;n v&#259;n MBA.</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q3</span><span style="color:#374151">Spurious relationship ph&aacute; h&#7887;ng lu&#7853;n v&#259;n nh&#432; th&#7871; n&agrave;o? B&#7841;n s&#7869; ph&ograve;ng tr&aacute;nh ra sao?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q4</span><span style="color:#374151">P-value = 0.03 c&oacute; &yacute; ngh&#297;a g&igrave;? P-value = 0.08 th&igrave; b&#7841;n c&oacute; th&#7875; k&#7871;t lu&#7853;n kh&ocirc;ng?</span></div></div>
+</div></div></div>
+</div></main>
+<footer style="margin-top:32px;padding:28px 16px;background:#0d1730">
+  <div style="max-width:896px;margin:0 auto;display:flex;flex-direction:column;gap:12px;align-items:center">
+    <div style="text-align:center">
+      <div style="font-family:Georgia,serif;color:#fff;font-weight:700;font-size:.875rem">Chapter 15 &middot; Quantitative Data Analysis</div>
+      <div style="color:#475569;font-size:.72rem;margin-top:2px">Bryman &amp; Bell &mdash; MBA Research Methods Hub &middot; &copy; 2026</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <a href="chapter14.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&larr; Ch.14</a>
+      <a href="index.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&#127968; Home</a>
+      <a href="chapter16.html" style="font-size:.75rem;font-weight:700;padding:7px 16px;border-radius:999px;background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730;text-decoration:none">Ch.16 &rarr;</a>
+    </div>
+  </div>
+</footer>
+<script>
+function togS(h){h.nextElementSibling.classList.toggle("shut");h.classList.toggle("shut-s")}
+function togA(h){h.nextElementSibling.classList.toggle("open");h.classList.toggle("os")}
+function allOpen(){document.querySelectorAll(".sb").forEach(b=>b.classList.remove("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.remove("shut-s"))}
+function allClose(){document.querySelectorAll(".sb").forEach(b=>b.classList.add("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.add("shut-s"))}
+</script>
+</body></html>

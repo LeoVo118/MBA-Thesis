@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="nav-active" content="p2">
+<title>Chapter 16 — Using</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        body{font-family:"Inter",sans-serif;background:#f8fafc}
+        .hero{background:linear-gradient(135deg,#0d1730 0%,#1d2f60 60%,#2a4080 100%);position:relative;overflow:hidden}
+        .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(212,160,23,.15) 0%,transparent 55%);pointer-events:none}
+        .hgrid{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px;position:absolute;inset:0;pointer-events:none}
+        .sh{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#fff;border-bottom:1px solid #e2e8f0;transition:background .18s}
+        .sh:hover{background:#f8fafc}
+        .sb{overflow:hidden;transition:max-height .4s ease}
+        .sb.shut{max-height:0!important}
+        .sa{display:inline-block;transition:transform .3s;color:#94a3b8}
+        .sh.shut-s .sa{transform:rotate(-90deg)}
+        .ah{cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:13px 20px;transition:background .18s}
+        .ah:hover{background:#f8fafc}
+        .ab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+        .ab.open{max-height:5000px}
+        .aa{display:inline-block;transition:transform .3s;color:#94a3b8;font-size:.8rem}
+        .ah.os .aa{transform:rotate(90deg);color:#d4a017}
+        .sn{background:linear-gradient(135deg,#0d1730,#1d2f60);color:#fbbf24;font-weight:700;font-size:.68rem;padding:2px 8px;border-radius:4px;margin-right:8px;white-space:nowrap}
+        .kb{background:#e0e9ff;color:#1d2f60;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:4px}
+        .pill{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;font-size:.7rem;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0}
+        .bc a{color:rgba(255,255,255,.5);font-size:.72rem;text-decoration:none}
+        .bc a:hover{color:#fbbf24}
+        .bcs{color:rgba(255,255,255,.22);margin:0 5px;font-size:.72rem}
+        @keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+        .au{animation:up .3s ease both}</style>
+</head><body>
+<script src="nav.js"></script>
+<header class="hero py-10 md:py-14">
+<div class="hgrid"></div>
+<div class="relative z-10 max-w-4xl mx-auto px-4">
+  <div class="bc flex items-center mb-5">
+    <a href="index.html">MBA Research Hub</a><span class="bcs">&rsaquo;</span>
+    <a href="index.html">Part II &middot; Quantitative Research</a><span class="bcs">&rsaquo;</span>
+    <span style="color:rgba(255,255,255,.78);font-size:.72rem">Chapter 16</span>
+  </div>
+  <div class="flex flex-col md:flex-row md:items-end gap-6">
+    <div class="flex-1">
+      <div class="flex items-center gap-3 mb-3">
+        <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#d4a017,#fbbf24);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:#0d1730;flex-shrink:0">16</div>
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3.5vw,2.1rem);font-weight:700;color:#fff;line-height:1.2">Using<br><span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">SPSS</span></h1>
+      </div>
+      <p style="color:#94a3b8;font-size:.88rem;max-width:520px;line-height:1.65;margin-bottom:14px">T&#7915; d&#7919; li&#7879;u th&ocirc; &rarr; Khai b&aacute;o bi&#7871;n &rarr; Recode/Compute &rarr; Analyze. Ch&#7841;y th&#7917; 10 m&#7851;u tr&#432;&#7899;c khi ph&aacute;t &#273;&#7841;i tr&agrave;.</p>
+      <div class="flex flex-wrap gap-2"><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Variable Viewer</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Value Labels</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Missing Values</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Recode</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Compute</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Crosstabs</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Bivariate Correlations</span></div>
+    </div>
+    <div class="flex items-center gap-1.5 flex-shrink-0">
+      <span style="color:#64748b;font-size:.7rem;margin-right:2px">Ch.</span>
+      <a href="chapter15.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">15</a><a href="chapter16.html" class="pill" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730">16</a><a href="chapter17.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">17</a>
+      <a href="index.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:1rem">&ctdot;</a>
+    </div>
+  </div>
+  <div class="flex gap-2 mt-6">
+    <button onclick="allOpen()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; M&#7903; t&#7845;t c&#7843;</button>
+    <button onclick="allClose()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; Thu t&#7845;t c&#7843;</button>
+  </div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-4"><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128203;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">T&oacute;m t&#7855;t</div><div style="font-size:.72rem;color:#94a3b8">Summary &mdash; lu&#7853;n &#273;i&#7875;m ch&iacute;nh</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:900px"><div style="padding:16px 20px 14px;background:#fff5f5;border-left:4px solid #f87171"><p style="color:#991b1b;font-size:.875rem;line-height:1.75;margin:0">SPSS kh&ocirc;ng t&#7921; bi&#7871;t suy ngh&#297;. B&#7841;n ph&#7843;i <strong>d&#7841;y n&oacute; hi&#7875;u c&aacute;c con s&#7889;</strong> qua m&agrave;n h&igrave;nh Variable Viewer tr&#432;&#7899;c khi ch&#7841;y b&#7845;t k&#7923; ph&eacute;p t&iacute;nh n&agrave;o.</p></div><div style="padding:14px 20px 20px;background:#fff8f0;border-left:4px solid #fb923c"><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:.875rem;color:#9a3412"><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9312;</span><span><strong>2 m&agrave;n h&igrave;nh c&#7889;t l&otilde;i:</strong> Data Viewer (nh&#7853;p s&#7889; li&#7879;u nh&#432; Excel) + Variable Viewer (khai b&aacute;o t&ecirc;n, nh&atilde;n, Value Labels, Missing Values).</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9313;</span><span><strong>2 l&#7879;nh "ch&#7871; bi&#7871;n" th&#7847;n th&aacute;nh:</strong> Recode (g&#7897;m nh&oacute;m d&#7919; li&#7879;u &mdash; Tu&#7893;i c&#7909; th&#7875; &rarr; Nh&oacute;m tu&#7893;i) v&agrave; Compute (t&#7841;o bi&#7871;n m&#7899;i t&#7915; c&ocirc;ng th&#7913;c &mdash; T&#7893;ng &#273;i&#7875;m thang Likert).</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9314;</span><span><strong>Menu Analyze &mdash; t&#7845;t c&#7843; trong 1:</strong> Frequencies (t&#7847;n su&#7845;t), Crosstabs (b&#7843;ng ch&eacute;o + Chi-square), Correlate (Pearson/Spearman), Compare Means (Eta).</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9315;</span><span><strong>L&#7901;i khuy&ecirc;n x&#432;&#417;ng m&aacute;u:</strong> M&#7903; SPSS tr&#432;&#7899;c, l&#7853;p s&#7861;n Variable Viewer, ch&#7841;y th&#7917; 10 m&#7851;u. N&#7871;u Crosstabs kh&ocirc;ng ra nh&#432; &yacute; &rarr; s&#7917;a ngay b&#7843;ng h&#7887;i.</span></li></ul></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128214;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Chi ti&#7871;t Ch&#432;&#417;ng 16</div><div style="font-size:.72rem;color:#94a3b8">Accordion</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:9999px"><div style="display:flex;align-items:center;justify-content:space-between;padding:8px 20px 4px;background:#f8fafc;border-bottom:1px solid #f1f5f9"><span style="font-size:.7rem;color:#94a3b8;font-weight:600">4 m&#7909;c &mdash; click &#273;&#7875; m&#7903;</span></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">16.1</span>Data Viewer, Variable Viewer, Value Labels</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;font-size:.8rem">
+<div style="padding:12px 14px;background:#f0f4ff;border-radius:9px;border-left:3px solid #0d1730">
+<strong style="color:#0d1730">&#128203; Data Viewer vs Variable Viewer</strong><br>
+<span style="color:#475569">Data Viewer = b&#7843;ng t&iacute;nh ch&#7913;a s&#7889; li&#7879;u th&ocirc;. Variable Viewer = n&#417;i &ldquo;d&#7841;y&rdquo; SPSS hi&#7875;u c&aacute;c c&#7897;t &#273;&oacute;: t&ecirc;n bi&#7871;n, nh&atilde;n, ki&#7875;u d&#7919; li&#7879;u.</span>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div style="padding:11px;background:#fffdf0;border-radius:8px;border:1px solid #fbbf24">
+  <div style="font-weight:700;font-size:.78rem;color:#b8860b;margin-bottom:6px">Value Labels</div>
+  <div style="font-size:.76rem;color:#475569">G&aacute;n ch&#7919; cho s&#7889;:<br>1 = Nam, 2 = N&#7919;<br>Kh&ocirc;ng g&aacute;n &rarr; ra k&#7871;t qu&#7843; s&#7889; 1,2,3 &mdash; kh&ocirc;ng hi&#7875;u g&igrave;!</div>
+</div>
+<div style="padding:11px;background:#fff5f5;border-radius:8px;border:1px solid #fca5a5">
+  <div style="font-weight:700;font-size:.78rem;color:#dc2626;margin-bottom:6px">Missing Values</div>
+  <div style="font-size:.76rem;color:#475569">Khai b&aacute;o s&#7889; &#273;&#7841;i di&#7879;n &ldquo;&#273;&#7875; tr&#7889;ng&rdquo; (VD: 99)<br>SPSS s&#7869; lo&#7841;i khi t&iacute;nh Mean &rarr; tr&aacute;nh sai l&#7879;ch.</div>
+</div>
+</div>
+</div></div></div></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">16.2</span>Recode v&agrave; Compute &mdash; Ch&#7871; bi&#7871;n d&#7919; li&#7879;u</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+<div style="border-radius:12px;padding:14px;background:#f0fdf4;border-left:4px solid #059669">
+  <div style="font-weight:700;font-size:.82rem;color:#065f46;margin-bottom:6px">&#128260; RECODE &mdash; G&#7897;m nh&oacute;m d&#7919; li&#7879;u</div>
+  <p style="font-size:.8rem;color:#475569;line-height:1.65;margin:0 0 8px">Bi&#7871;n tu&#7893;i 18, 19, 20... dùng Recode into Different Variables g&#7897;m th&agrave;nh Nh&oacute;m 1 (18-25), Nh&oacute;m 2 (26-35). Sau &#273;&oacute; d&ugrave;ng cho Crosstabs.</p>
+  <div style="background:#dcfce7;border-radius:6px;padding:6px 10px;font-size:.75rem;color:#14532d">Transform &rarr; Recode into Different Variables &rarr; Old and New Values</div>
+</div>
+<div style="border-radius:12px;padding:14px;background:#f0f4ff;border-left:4px solid #0d1730">
+  <div style="font-weight:700;font-size:.82rem;color:#0d1730;margin-bottom:6px">&#129518; COMPUTE &mdash; T&#7841;o bi&#7871;n m&#7899;i</div>
+  <p style="font-size:.8rem;color:#475569;line-height:1.65;margin:0 0 8px">C&#7897;ng 5 c&acirc;u Likert chia 5 &rarr; bi&#7871;n DongLuc_TrungBinh. Ho&#7863;c c&#7897;ng th&#7901;i gian t&#7853;p c&aacute;c m&aacute;y: totalmin = cardmins + weimins + othmins.</p>
+  <div style="background:#e0e9ff;border-radius:6px;padding:6px 10px;font-size:.75rem;color:#1d2f60">Transform &rarr; Compute Variable &rarr; Nh&#7853;p c&ocirc;ng th&#7913;c to&aacute;n h&#7885;c</div>
+</div>
+</div></div></div></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">16.3</span>Menu Analyze &mdash; Ch&#7841;y t&#7845;t c&#7843;</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="overflow-x:auto;margin-top:10px">
+<table style="width:100%;font-size:.78rem;border-collapse:collapse">
+<thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0">
+<th style="padding:9px 12px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase">M&#7909;c ti&ecirc;u</th>
+<th style="padding:9px 12px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase">&#272;&#432;&#7901;ng d&#7851;n SPSS</th>
+<th style="padding:9px 12px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase">K&#7871;t qu&#7843; cho</th>
+</tr></thead>
+<tbody>
+<tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 12px">Bao nhi&ecirc;u % ch&#7885;n?</td><td style="padding:9px 12px;font-family:monospace;font-size:.75rem;color:#0d1730">Analyze &rarr; Descriptive Statistics &rarr; Frequencies</td><td style="padding:9px 12px;color:#64748b">Nominal / Ordinal</td></tr>
+<tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 12px">So s&aacute;nh Nam vs N&#7919;</td><td style="padding:9px 12px;font-family:monospace;font-size:.75rem;color:#0d1730">Analyze &rarr; Descriptive Statistics &rarr; Crosstabs</td><td style="padding:9px 12px;color:#64748b">Nominal &times; Nominal</td></tr>
+<tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 12px">T&#432;&#417;ng quan 2 bi&#7871;n s&#7889;</td><td style="padding:9px 12px;font-family:monospace;font-size:.75rem;color:#0d1730">Analyze &rarr; Correlate &rarr; Bivariate</td><td style="padding:9px 12px;color:#64748b">Pearson / Spearman</td></tr>
+<tr><td style="padding:9px 12px">Trung b&igrave;nh theo nh&oacute;m</td><td style="padding:9px 12px;font-family:monospace;font-size:.75rem;color:#0d1730">Analyze &rarr; Compare Means</td><td style="padding:9px 12px;color:#64748b">Interval + Nominal (Eta)</td></tr>
+</tbody>
+</table>
+</div>
+<div style="margin-top:10px;background:#fffdf0;border:1px solid #fbbf24;border-radius:8px;padding:10px 14px;font-size:.78rem;color:#713f12">&#9888;&#65039; SPSS ném ra r&#7845;t nhi&#7873;u b&#7843;ng bi&#7875;u d&agrave;i ngo&#7861;ng. Vi&#7879;c c&#7911;a b&#7841;n <strong>kh&ocirc;ng ph&#7843;i copy to&agrave;n b&#7897;</strong> v&agrave;o lu&#7853;n v&#259;n, m&agrave; l&agrave; &#273;&#7885;c hi&#7875;u, ch&#7855;t l&#7885;c &mdash; &#273;&#7863;c bi&#7879;t ch&uacute; &yacute; <strong>ch&#7881; s&#7889; Sig. / p-value</strong>.</div></div></div></div><div style=""><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">16.4</span>Graphs, File Management, Transferable Skills</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;font-size:.8rem">
+<div style="padding:11px 14px;background:#f0f4ff;border-radius:9px;border-left:3px solid #0d1730">
+<strong style="color:#0d1730">&#128203; Graphs &mdash; Chart Builder</strong><br>
+<span style="color:#475569">D&ugrave;ng Graphs &rarr; Chart Builder &#273;&#7875; v&#7869; Scatterplots (bi&#7875;u &#273;&#7891; ph&acirc;n t&aacute;n) quan s&aacute;t xu h&#432;&#7899;ng tr&#432;&#7899;c khi ch&#7841;y Pearson. Nh&igrave;n bi&#7875;u &#273;&#7891; tr&#432;&#7899;c = tr&aacute;nh ch&#7841;y sai c&ocirc;ng c&#7909;.</span>
+</div>
+<div style="padding:11px 14px;background:#f0fdf4;border-radius:9px;border-left:3px solid #059669">
+<strong style="color:#065f46">&#128190; L&#432;u v&agrave; qu&#7843;n l&yacute; file</strong><br>
+<span style="color:#475569">L&#432;u (Save) li&ecirc;n t&#7909;c! File .sav l&agrave; d&#7919; li&#7879;u &#273;&atilde; khai b&aacute;o. File .spv l&agrave; k&#7871;t qu&#7843; Output. Qu&#7843;n l&yacute; file khoa h&#7885;c: kh&ocirc;ng &#273;&#7875; &quot;data_final_v5_CUOI.sav&quot;.</span>
+</div>
+<div style="padding:11px 14px;background:#fffdf0;border-radius:9px;border-left:3px solid #d4a017">
+<strong style="color:#b8860b">&#128260; Transferable skill</strong><br>
+<span style="color:#475569">K&#7929; n&#259;ng SPSS (ho&#7863;c R, Python, Stata t&#432;&#417;ng t&#7921;) l&agrave; l&#7907;i th&#7871; l&#7899;n. L&#7879;nh Compute = Pivot Table / Power Query trong Excel. L&#7879;nh Recode = ph&acirc;n kh&uacute;c kh&aacute;ch h&agrave;ng.</span>
+</div>
+</div></div></div></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128273;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">B&#7843;ng Kh&aacute;i ni&#7879;m</div><div style="font-size:.72rem;color:#94a3b8">8 kh&aacute;i ni&#7879;m c&#7889;t l&otilde;i</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:1400px"><div style="overflow-x:auto"><table style="width:100%;font-size:.8rem;border-collapse:collapse"><thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0"><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:160px">Kh&aacute;i ni&#7879;m</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em">&#272;&#7883;nh ngh&#297;a</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:180px">V&iacute; d&#7909;</th></tr></thead><tbody><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Data Viewer</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">M&agrave;n h&igrave;nh nh&#7853;p s&#7889; li&#7879;u th&ocirc; (nh&#432; Excel).</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">H&agrave;ng = 1 m&#7851;u, c&#7897;t = 1 bi&#7871;n</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Variable Viewer</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">M&agrave;n h&igrave;nh khai b&aacute;o thu&#7897;c t&iacute;nh bi&#7871;n.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Name, Label, Value Labels, Missing</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Value Labels</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">G&aacute;n ch&#7919; cho s&#7889; m&atilde; h&oacute;a.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">1=Nam, 2=N&#7919;</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Missing Values</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Khai b&aacute;o s&#7889; &#273;&#7841;i di&#7879;n &ldquo;&#273;&#7875; tr&#7889;ng&rdquo;.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">99 = kh&ocirc;ng tr&#7843; l&#7901;i</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Recode</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">G&#7897;m nh&oacute;m bi&#7871;n li&ecirc;n t&#7909;c th&agrave;nh ph&acirc;n lo&#7841;i.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Tu&#7893;i 20-26 &rarr; Nh&oacute;m Gen Z</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Compute Variable</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">T&#7841;o bi&#7871;n m&#7899;i t&#7915; c&ocirc;ng th&#7913;c.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">totalmin = cardmins + weimins</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Crosstabs</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">B&#7843;ng ch&eacute;o 2-3 bi&#7871;n + Chi-square.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Nam/N&#7919; &times; Nh&oacute;m tu&#7893;i</td></tr><tr style=""><td style="padding:9px 16px"><span class="kb">Bivariate Correlations</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">T&iacute;nh Pearson ho&#7863;c Spearman.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">L&#432;&#417;ng &harr; H&agrave;i l&ograve;ng</td></tr></tbody></table></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#0d1730,#1d2f60);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" fill="none" stroke="#fbbf24" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Ph&acirc;n t&iacute;ch &amp; &#272;&aacute;nh gi&aacute;</div><div style="font-size:.72rem;color:#94a3b8">Critical Analysis</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:2000px"><div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+<div style="border-radius:12px;padding:18px 20px;background:linear-gradient(135deg,#0d1730,#1d2f60)">
+  <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(212,160,23,.75);margin-bottom:8px">C&acirc;u h&#7887;i c&#7889;t l&otilde;i</div>
+  <p style="color:#fff;font-size:.875rem;line-height:1.7;font-family:Georgia,serif;font-style:italic">"L&agrave;m th&#7871; n&agrave;o chuy&#7875;n ki&#7871;n th&#7913;c th&#7889;ng k&ecirc; l&yacute; thuy&#7871;t th&agrave;nh k&#7929; n&#259;ng th&#7921;c h&agrave;nh tr&ecirc;n ph&#7847;n m&#7873;m, gi&uacute;p x&#7917; l&yacute; d&#7919; li&#7879;u nhanh ch&oacute;ng kh&ocirc;ng b&#7883; ch&igrave;m ng&#7853;p trong c&ocirc;ng th&#7913;c?"</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+  <div style="border:1px solid #e2e8f0;border-radius:12px;padding:15px">
+    <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #f1f5f9">Logic L&#7853;p lu&#7853;n</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Premise</span><span style="color:#475569;font-size:.8rem">N&#7871;u ch&#7881; h&#7885;c Ch&#432;&#417;ng 15 (l&yacute; thuy&#7871;t), sinh vi&ecirc;n ph&#7843;i t&iacute;nh tay &mdash; b&#7845;t kh&#7843; thi v&#7899;i m&#7851;u h&agrave;ng tr&#259;m ng&#432;&#7901;i.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Argument</span><span style="color:#475569;font-size:.8rem">D&ugrave;ng SPSS l&agrave; con &#273;&#432;&#7901;ng t&#7889;i &#432;u. Vi&#7879;c bi&#7871;t ph&#7847;n m&#7873;m tr&#432;&#7899;c khi thi&#7871;t k&#7871; b&#7843;ng h&#7887;i s&#7869; gi&uacute;p tr&aacute;nh thu v&#7873; &ldquo;d&#7919; li&#7879;u r&aacute;c&rdquo;.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Conclusion</span><span style="color:#475569;font-size:.8rem">Sinh vi&ecirc;n n&ecirc;n l&agrave;m quen v&#7899;i SPSS t&#7915; tr&#432;&#7899;c khi thi&#7871;t k&#7871; b&#7843;ng h&#7887;i. L&#7879;nh Compute v&agrave; Recode l&agrave; n&#7873;n t&#7843;ng cho Data Analyst.</span></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9989; &#272;i&#7875;m m&#7841;nh</div>
+      <p style="color:#047857;font-size:.78rem;line-height:1.7;margin:0">T&iacute;nh &#7913;ng d&#7909;ng c&#7921;c cao. &#272;&oacute;ng vai tr&ograve; &ldquo;Manual Guide&rdquo; th&#7921;c h&agrave;nh gi&uacute;p sinh vi&ecirc;n kh&ocirc;ng b&#7883; m&#7845;t ph&#432;&#417;ng h&#432;&#7899;ng.</p>
+    </div>
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9888;&#65039; H&#7841;n ch&#7871; &amp; Gi&#7843; &#273;&#7883;nh ng&#7847;m</div>
+      <p style="color:#b45309;font-size:.78rem;line-height:1.7;margin:0">Gi&#7843; &#273;&#7883;nh ng&#432;&#7901;i &#273;&#7885;c &#273;&atilde; n&#7855;m v&#7919;ng b&#7843;n ch&#7845;t tri&#7871;t h&#7885;c c&#7911;a t&#7915;ng con s&#7889; t&#7915; Ch&#432;&#417;ng 15. Ch&#432;&#417;ng 16 ho&agrave;n to&agrave;n kh&ocirc;ng gi&#7843;i th&iacute;ch l&#7841;i &yacute; ngh&#297;a k&#7871;t qu&#7843;.</p>
+    </div>
+  </div>
+</div></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#129514;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">&#7912;ng d&#7909;ng Th&#7921;c ti&#7877;n</div><div style="font-size:.72rem;color:#94a3b8">Case Study + &#272;&#7873; xu&#7845;t + T&#7921; ki&#7875;m tra</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:3000px"><div style="padding:20px;display:flex;flex-direction:column;gap:16px">
+<div><div style="font-weight:700;color:#1e293b;margin-bottom:12px;font-size:.875rem">&#128203; Case Study: Ph&acirc;n t&iacute;ch h&agrave;i l&ograve;ng NV TechZ (3 b&#432;&#7899;c SPSS)</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="border-radius:10px;padding:11px;background:#f0f4ff;border-left:3px solid #0d1730"><strong style="color:#0d1730">B&#432;&#7899;c 1 &mdash; Thi&#7871;t l&#7853;p:</strong> <span style="color:#475569;font-size:.8rem">Variable Viewer: GioiTinh (Value 1=Nam, 2=N&#7919;). HaiLong: ai kh&ocirc;ng &#273;i&#7873;n &rarr; nh&#7853;p 99, khai b&aacute;o Missing = 99.</span></div><div style="border-radius:10px;padding:11px;background:#fffdf0;border-left:3px solid #d4a017"><strong style="color:#d4a017">B&#432;&#7899;c 2 &mdash; Recode:</strong> <span style="color:#475569;font-size:.8rem">S&#7871;p mu&#7889;n xem Gen Z vs Gen Y &rarr; Recode: tu&#7893;i 20-26 &rarr; Nh&oacute;m 1, 27-40 &rarr; Nh&oacute;m 2.</span></div><div style="border-radius:10px;padding:11px;background:#f0fdf4;border-left:3px solid #059669"><strong style="color:#059669">B&#432;&#7899;c 3 &mdash; Analyze:</strong> <span style="color:#475569;font-size:.8rem">Correlate (Pearson) gi&#7919;a L&#432;&#417;ng &harr; H&agrave;i l&ograve;ng. Crosstabs: Gen Z/Y &times; t&#7881; l&#7879; &ldquo;R&#7845;t kh&ocirc;ng h&agrave;i l&ograve;ng&rdquo;.</span></div></div></div>
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;color:#14532d;margin-bottom:10px;font-size:.875rem">&#128161; &#272;&#7873; xu&#7845;t &#7913;ng d&#7909;ng</div>
+  <div style="display:flex;flex-direction:column;gap:8px;color:#166534"><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Lu&#7853;n v&#259;n</span><span style="font-size:.8rem">Kh&ocirc;ng &#273;&#7875; &#273;&#7871;n khi thu xong 500 m&#7851;u m&#7899;i m&#7903; SPSS. L&#7853;p s&#7861;n Variable Viewer, ch&#7841;y th&#7917; 10 m&#7851;u, ki&#7875;m tra ngay.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Data Analyst</span><span style="font-size:.8rem">N&#7855;m v&#7919;ng Compute &#273;&#7875; t&iacute;nh t&#7893;ng/trung b&igrave;nh KPI, v&agrave; Recode &#273;&#7875; ph&acirc;n kh&uacute;c kh&aacute;ch h&agrave;ng VIP/Th&#432;&#7901;ng &mdash; x&#7917; l&yacute; h&agrave;ng v&#7841;n d&ograve;ng trong v&agrave;i gi&acirc;y.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">&#272;&#7901;i s&#7889;ng</span><span style="font-size:.8rem">T&#432; duy logic SPSS (Data th&ocirc; &rarr; Khai b&aacute;o lu&#7853;t ch&#417;i &rarr; L&agrave;m s&#7841;ch &rarr; Ph&acirc;n t&iacute;ch) gi&uacute;p c&#7845;u tr&uacute;c b&#7845;t k&#7923; b&#7843;ng Excel/t&agrave;i ch&iacute;nh c&aacute; nh&acirc;n c&#7911;a b&#7841;n.</span></div></div>
+</div>
+<div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:12px">&#128203; T&#7921; ki&#7875;m tra</div>
+  <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q1</span><span style="color:#374151">T&#7841;i sao ph&#7843;i khai b&aacute;o Value Labels? Chuy&#7879;n g&igrave; x&#7843;y ra n&#7871;u qu&ecirc;n?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q2</span><span style="color:#374151">Kh&aacute;c nhau gi&#7919;a Recode v&agrave; Compute. Cho v&iacute; d&#7909; lu&#7853;n v&#259;n c&#7911;a b&#7841;n.</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q3</span><span style="color:#374151">N&ecirc;n m&#7903; SPSS tr&#432;&#7899;c hay ph&aacute;t b&#7843;ng h&#7887;i tr&#432;&#7899;c? T&#7841;i sao?</span></div></div>
+</div></div></div>
+</div></main>
+<footer style="margin-top:32px;padding:28px 16px;background:#0d1730">
+  <div style="max-width:896px;margin:0 auto;display:flex;flex-direction:column;gap:12px;align-items:center">
+    <div style="text-align:center">
+      <div style="font-family:Georgia,serif;color:#fff;font-weight:700;font-size:.875rem">Chapter 16 &middot; Using SPSS</div>
+      <div style="color:#475569;font-size:.72rem;margin-top:2px">Bryman &amp; Bell &mdash; MBA Research Methods Hub &middot; &copy; 2026</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <a href="chapter15.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&larr; Ch.15</a>
+      <a href="index.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&#127968; Home</a>
+      <a href="chapter17.html" style="font-size:.75rem;font-weight:700;padding:7px 16px;border-radius:999px;background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730;text-decoration:none">Ch.17 &rarr;</a>
+    </div>
+  </div>
+</footer>
+<script>
+function togS(h){h.nextElementSibling.classList.toggle("shut");h.classList.toggle("shut-s")}
+function togA(h){h.nextElementSibling.classList.toggle("open");h.classList.toggle("os")}
+function allOpen(){document.querySelectorAll(".sb").forEach(b=>b.classList.remove("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.remove("shut-s"))}
+function allClose(){document.querySelectorAll(".sb").forEach(b=>b.classList.add("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.add("shut-s"))}
+</script>
+</body></html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="nav-active" content="p3">
+<title>Chapter 18 — Sampling in</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+        body{font-family:"Inter",sans-serif;background:#f8fafc}
+        .hero{background:linear-gradient(135deg,#0d1730 0%,#1d2f60 60%,#2a4080 100%);position:relative;overflow:hidden}
+        .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(212,160,23,.15) 0%,transparent 55%);pointer-events:none}
+        .hgrid{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:40px 40px;position:absolute;inset:0;pointer-events:none}
+        .sh{cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#fff;border-bottom:1px solid #e2e8f0;transition:background .18s}
+        .sh:hover{background:#f8fafc}
+        .sb{overflow:hidden;transition:max-height .4s ease}
+        .sb.shut{max-height:0!important}
+        .sa{display:inline-block;transition:transform .3s;color:#94a3b8}
+        .sh.shut-s .sa{transform:rotate(-90deg)}
+        .ah{cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:13px 20px;transition:background .18s}
+        .ah:hover{background:#f8fafc}
+        .ab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+        .ab.open{max-height:5000px}
+        .aa{display:inline-block;transition:transform .3s;color:#94a3b8;font-size:.8rem}
+        .ah.os .aa{transform:rotate(90deg);color:#d4a017}
+        .sn{background:linear-gradient(135deg,#0d1730,#1d2f60);color:#fbbf24;font-weight:700;font-size:.68rem;padding:2px 8px;border-radius:4px;margin-right:8px;white-space:nowrap}
+        .kb{background:#e0e9ff;color:#1d2f60;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:4px}
+        .pill{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;font-size:.7rem;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0}
+        .bc a{color:rgba(255,255,255,.5);font-size:.72rem;text-decoration:none}
+        .bc a:hover{color:#fbbf24}
+        .bcs{color:rgba(255,255,255,.22);margin:0 5px;font-size:.72rem}
+        @keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+        .au{animation:up .3s ease both}</style>
+</head><body>
+<script src="nav.js"></script>
+<header class="hero py-10 md:py-14">
+<div class="hgrid"></div>
+<div class="relative z-10 max-w-4xl mx-auto px-4">
+  <div class="bc flex items-center mb-5">
+    <a href="index.html">MBA Research Hub</a><span class="bcs">&rsaquo;</span>
+    <a href="index.html">Part II &middot; Quantitative Research</a><span class="bcs">&rsaquo;</span>
+    <span style="color:rgba(255,255,255,.78);font-size:.72rem">Chapter 18</span>
+  </div>
+  <div class="flex flex-col md:flex-row md:items-end gap-6">
+    <div class="flex-1">
+      <div class="flex items-center gap-3 mb-3">
+        <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#d4a017,#fbbf24);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:#0d1730;flex-shrink:0">18</div>
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3.5vw,2.1rem);font-weight:700;color:#fff;line-height:1.2">Sampling in<br><span style="background:linear-gradient(135deg,#d4a017,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Qualitative Research</span></h1>
+      </div>
+      <p style="color:#94a3b8;font-size:.88rem;max-width:520px;line-height:1.65;margin-bottom:14px">Purposive sampling &mdash; ch&#7885;n chi&#7871;n l&#432;&#7907;c. D&#7915;ng khi &#273;&#7841;t Theoretical saturation. Kh&ocirc;ng c&#7847;n kh&aacute;i qu&aacute;t h&oacute;a to&agrave;n d&acirc;n s&#7889;.</p>
+      <div class="flex flex-wrap gap-2"><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Purposive Sampling</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Theoretical Sampling</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Saturation</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Snowball</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Generic Purposive</span><span style="font-size:.7rem;font-weight:600;color:#cbd5e1;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px">Moderatum Generalization</span></div>
+    </div>
+    <div class="flex items-center gap-1.5 flex-shrink-0">
+      <span style="color:#64748b;font-size:.7rem;margin-right:2px">Ch.</span>
+      <a href="chapter17.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">17</a><a href="chapter18.html" class="pill" style="background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730">18</a><a href="chapter19.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.6)">19</a>
+      <a href="index.html" class="pill" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:1rem">&ctdot;</a>
+    </div>
+  </div>
+  <div class="flex gap-2 mt-6">
+    <button onclick="allOpen()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; M&#7903; t&#7845;t c&#7843;</button>
+    <button onclick="allClose()" style="font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.6);background:none;cursor:pointer">&updownarrow; Thu t&#7845;t c&#7843;</button>
+  </div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-4"><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#128203;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">T&oacute;m t&#7855;t</div><div style="font-size:.72rem;color:#94a3b8">Summary &mdash; lu&#7853;n &#273;i&#7875;m ch&iacute;nh</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:900px"><div style="padding:16px 20px 14px;background:#fff5f5;border-left:4px solid #f87171"><p style="color:#991b1b;font-size:.875rem;line-height:1.75;margin:0"><strong>Ch&#7885;n m&#7851;u c&oacute; ch&#7911; &iacute;ch (Purposive sampling)</strong> l&agrave; nguy&ecirc;n t&#7855;c s&#7889; 1 c&#7911;a &#273;&#7883;nh t&iacute;nh: m&#7885;i s&#7921; l&#7921;a ch&#7885;n ph&#7843;i chi&#7871;n l&#432;&#7907;c, d&#7921;a tr&ecirc;n c&acirc;u h&#7887;i nghi&ecirc;n c&#7913;u &mdash; kh&ocirc;ng ng&#7851;u nhi&ecirc;n.</p></div><div style="padding:14px 20px 20px;background:#fff8f0;border-left:4px solid #fb923c"><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:.875rem;color:#9a3412"><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9312;</span><span><strong>3 chi&#7871;n l&#432;&#7907;c v&agrave;ng:</strong> Theoretical sampling (ch&#7885;n theo l&yacute; thuy&#7871;t &#273;ang h&igrave;nh th&agrave;nh), Generic purposive (ti&ecirc;u ch&iacute; c&#7889; &#273;&#7883;nh t&#7915; &#273;&#7847;u), Snowball sampling (h&ograve;n tuy&#7871;t l&#259;n cho nh&oacute;m kh&oacute; ti&#7871;p c&#7853;n).</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9313;</span><span><strong>Theoretical saturation:</strong> D&#7915;ng khi kh&ocirc;ng c&oacute; &ldquo;code&rdquo; (m&atilde;) n&agrave;o m&#7899;i xu&#7845;t hi&#7879;n. Th&#432;&#7901;ng sau 20-30 ng&#432;&#7901;i l&agrave; b&atilde;o h&ograve;a.</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9314;</span><span><strong>Hai c&#7845;p &#273;&#7897; ch&#7885;n m&#7851;u:</strong> C&#7845;p 1 = ch&#7885;n b&#7889;i c&#7843;nh/t&#7893; ch&#7913;c. C&#7845;p 2 = ch&#7885;n ai trong t&#7893; ch&#7913;c &#273;&oacute; &#273;&#7875; ph&#7887;ng v&#7845;n.</span></li><li style="display:flex;gap:8px"><span style="font-weight:700;color:#ea580c;flex-shrink:0">&#9315;</span><span><strong>Moderatum generalization:</strong> Kh&ocirc;ng c&#7847;n kh&aacute;i qu&aacute;t h&oacute;a th&#7889;ng k&ecirc; cho to&agrave;n b&#7897; d&acirc;n s&#7889;. K&#7871;t qu&#7843; &#273;&#7841;i di&#7879;n cho &ldquo;c&#417; ch&#7871; c&#7911;a m&#7897;t nh&oacute;m t&#432;&#417;ng &#273;&#7891;ng&rdquo;.</span></li></ul></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128214;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Chi ti&#7871;t Ch&#432;&#417;ng 18</div><div style="font-size:.72rem;color:#94a3b8">Accordion</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:9999px"><div style="display:flex;align-items:center;justify-content:space-between;padding:8px 20px 4px;background:#f8fafc;border-bottom:1px solid #f1f5f9"><span style="font-size:.7rem;color:#94a3b8;font-weight:600">3 m&#7909;c &mdash; click &#273;&#7875; m&#7903;</span></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">18.1</span>Purposive Sampling &mdash; Nguy&ecirc;n t&#7855;c bao tr&ugrave;m</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+<div style="border-radius:12px;padding:14px;background:linear-gradient(135deg,#0d1730,#1d2f60);color:#fff">
+  <div style="font-weight:700;font-size:.85rem;color:#fbbf24;margin-bottom:8px">&#127919; Purposive Sampling &mdash; Bao tr&ugrave;m</div>
+  <p style="font-size:.8rem;color:rgba(255,255,255,.8);line-height:1.6;margin:0 0 10px">H&igrave;nh th&#7913;c ch&#7885;n m&#7851;u phi x&aacute;c su&#7845;t: nh&agrave; nghi&ecirc;n c&#7913;u ch&#7885;n c&aacute;c tr&#432;&#7901;ng h&#7907;p m&#7897;t c&aacute;ch c&oacute; chi&#7871;n l&#432;&#7907;c, sao cho ch&uacute;ng li&ecirc;n quan ch&#7863;t ch&#7869; &#273;&#7871;n c&acirc;u h&#7887;i nghi&ecirc;n c&#7913;u. KHAI RI&#7868;NG B&#7840;CH.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+    <div style="background:rgba(255,255,255,.1);border-radius:8px;padding:9px;font-size:.76rem"><strong style="color:#fbbf24">Tu&#7847;n t&#7921; (Sequential)</strong><br>M&#7851;u m&#7903; r&#7897;ng d&#7847;n theo nghi&ecirc;n c&#7913;u &rarr; Theoretical sampling</div>
+    <div style="background:rgba(255,255,255,.1);border-radius:8px;padding:9px;font-size:.76rem"><strong style="color:#fbbf24">C&#7889; &#273;&#7883;nh (A priori)</strong><br>Ti&ecirc;u ch&iacute; ch&#7889;t ngay t&#7915; &#273;&#7847;u &rarr; Generic purposive</div>
+  </div>
+</div>
+<div style="padding:10px 14px;background:#f0f4ff;border-radius:9px;border-left:3px solid #0d1730;font-size:.8rem">
+<strong style="color:#0d1730">2 c&#7845;p &#273;&#7897; ch&#7885;n m&#7851;u trong Case Study:</strong><br>
+<span style="color:#475569">C&#7845;p 1: Ch&#7885;n t&#7893; ch&#7913;c n&agrave;o (VD: C&ocirc;ng ty gia &#273;&igrave;nh vs C&ocirc;ng ty &#273;a qu&#7889;c gia)<br>C&#7845;p 2: Ph&#7887;ng v&#7845;n ai trong c&ocirc;ng ty &#273;&oacute; (VD: Qu&#7843;n l&yacute; c&#7845;p cao vs Nh&acirc;n vi&ecirc;n)</span>
+</div>
+</div></div></div></div><div style="border-bottom:1px solid #f1f5f9"><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">18.2</span>3 Chi&#7871;n l&#432;&#7907;c V&agrave;ng</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+<div style="border-radius:12px;padding:14px;background:#f0fdf4;border-left:4px solid #059669">
+  <div style="font-weight:700;font-size:.82rem;color:#065f46;margin-bottom:6px">&#129504; Theoretical Sampling (&#272;&#7881;nh cao c&#7911;a &#273;&#7883;nh t&iacute;nh)</div>
+  <p style="font-size:.8rem;color:#475569;line-height:1.65;margin:0 0 8px">Thu th&#7853;p &rarr; M&atilde; h&oacute;a &rarr; Ph&aacute;t hi&#7879;n kh&aacute;i ni&#7879;m &rarr; T&igrave;m &uacute;ng ng&#432;&#7901;i &#273;&#7875; ki&#7875;m ch&#7913;ng kh&aacute;i ni&#7879;m &#273;&oacute; &rarr; Ti&#7871;p t&#7909;c &mdash; cho &#273;&#7871;n khi B&atilde;o h&ograve;a (Theoretical Saturation).</p>
+  <div style="background:#dcfce7;border-radius:6px;padding:8px 10px;font-size:.76rem;color:#14532d">Ph&#7887;ng v&#7845;n 5 NV &rarr; ph&aacute;t hi&#7879;n &ldquo;&aacute;p l&#7921;c ng&#7847;m&rdquo; &rarr; t&igrave;m th&ecirc;m ng&#432;&#7901;i b&#7883; &aacute;p l&#7921;c nh&#7845;t &rarr; kiểm ch&#7913;ng l&yacute; thuy&#7871;t &rarr; D&#7915;ng &#7903; ng&#432;&#7901;i th&#7913; 25 v&igrave; kh&ocirc;ng c&oacute; g&igrave; m&#7899;i.</div>
+</div>
+<div style="border-radius:12px;padding:14px;background:#fffdf0;border-left:4px solid #d4a017">
+  <div style="font-weight:700;font-size:.82rem;color:#b8860b;margin-bottom:6px">&#127973; Generic Purposive (Ch&#7911; &#273;&iacute;ch chung)</div>
+  <p style="font-size:.8rem;color:#475569;line-height:1.65;margin:0">Ti&ecirc;u ch&iacute; ph&acirc;n t&#7847;ng c&#7889; &#273;&#7883;nh t&#7915; &#273;&#7847;u (tu&#7893;i, ph&ograve;ng ban, gi&#7899;i t&iacute;nh). Kh&ocirc;ng y&ecirc;u c&#7847;u x&acirc;y d&#7921;ng l&yacute; thuy&#7871;t c&#7921;c k&#7923; ch&#7863;t ch&#7869; nh&#432; Grounded theory.</p>
+</div>
+<div style="border-radius:12px;padding:14px;background:#fff5f5;border-left:4px solid #dc2626">
+  <div style="font-weight:700;font-size:.82rem;color:#dc2626;margin-bottom:6px">&#10052;&#65039; Snowball Sampling (H&ograve;n tuy&#7871;t l&#259;n)</div>
+  <p style="font-size:.8rem;color:#475569;line-height:1.65;margin:0">Nh&#7901; ng&#432;&#7901;i &#273;&#432;&#7907;c ph&#7887;ng v&#7845;n gi&#7899;i thi&#7879;u ng&#432;&#7901;i kh&aacute;c. D&ugrave;ng cho nh&oacute;m &ldquo;&#7849;n&rdquo; (lao &#273;&#7897;ng kh&ocirc;ng gi&#7845;y t&#7901;, m&#7841;ng l&#432;&#7899;i c&ocirc;ng ty gia &#273;&igrave;nh k&iacute;n &#273;&aacute;o).</p>
+</div>
+</div></div></div></div><div style=""><div class="ah" onclick="togA(this)"><span style="font-weight:600;font-size:.875rem;color:#1e293b;display:flex;align-items:center"><span class="sn">18.3</span>Theoretical Saturation &amp; Moderatum Generalization</span><span class="aa">&#9654;</span></div><div class="ab"><div style="padding:4px 20px 20px"><div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+<div style="border-radius:12px;padding:14px;background:#f0f4ff;border-left:4px solid #0d1730">
+  <div style="font-weight:700;font-size:.82rem;color:#0d1730;margin-bottom:6px">&#128683; Khi n&agrave;o D&#7915;ng? Theoretical Saturation</div>
+  <p style="font-size:.8rem;color:#475569;line-height:1.65;margin:0 0 8px">D&#7915;ng thu th&#7853;p khi kh&ocirc;ng c&oacute; &ldquo;code&rdquo; (m&atilde;) m&#7899;i n&agrave;o xu&#7845;t hi&#7879;n. M&#7885;i c&acirc;u tr&#7843; l&#7901;i ti&#7871;p theo &#273;&#7873;u l&#7863;p l&#7841;i ch&#7911; &#273;&#7873; c&#361;. Th&#432;&#7901;ng sau 20-30 ng&#432;&#7901;i.</p>
+  <div style="background:#e0e9ff;border-radius:6px;padding:8px;font-size:.76rem;color:#1d2f60">&#9888;&#65039; Kh&aacute;i ni&#7879;m n&agrave;y kh&aacute; m&#417; h&#7891;, ph&#7909; thu&#7897;c c&#7843;m nh&#7853;n ch&#7911; quan c&#7911;a nh&agrave; nghi&ecirc;n c&#7913;u (O&rsquo;Reilly &amp; Parker). C&#7847;n b&#7841;ch b&oacute;a c&aacute;ch nh&agrave; nghi&ecirc;n c&#7913;u &#273;&#7883;nh ngh&#297;a &ldquo;b&atilde;o h&ograve;a&rdquo;.</div>
+</div>
+<div style="border-radius:12px;padding:14px;background:#f0fdf4;border-left:4px solid #059669">
+  <div style="font-weight:700;font-size:.82rem;color:#065f46;margin-bottom:6px">&#127759; Moderatum Generalization &mdash; Kh&aacute;i qu&aacute;t c&oacute; ch&#7915;ng m&#7921;c</div>
+  <p style="font-size:.8rem;color:#475569;line-height:1.65;margin:0">Kh&ocirc;ng c&#7847;n kh&aacute;i qu&aacute;t h&oacute;a cho 1 tri&#7879;u ng&#432;&#7901;i. K&#7871;t qu&#7843; nghi&ecirc;n c&#7913;u v&#259;n h&oacute;a &#273;&#7897;c h&#7841;i &#7903; 1 c&ocirc;ng ty IT &rarr; c&oacute; th&#7875; li&ecirc;n h&#7879; v&#7899;i c&#417; ch&#7871; chung c&#7911;a ng&agrave;nh IT.</p>
+</div>
+</div></div></div></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><span style="background:linear-gradient(135deg,#e0e9ff,#c0d2ff);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center">&#128273;</span></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">B&#7843;ng Kh&aacute;i ni&#7879;m</div><div style="font-size:.72rem;color:#94a3b8">6 kh&aacute;i ni&#7879;m c&#7889;t l&otilde;i</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:1400px"><div style="overflow-x:auto"><table style="width:100%;font-size:.8rem;border-collapse:collapse"><thead><tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0"><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:160px">Kh&aacute;i ni&#7879;m</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em">&#272;&#7883;nh ngh&#297;a</th><th style="padding:10px 16px;text-align:left;font-weight:700;font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.05em;width:180px">V&iacute; d&#7909;</th></tr></thead><tbody><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Purposive sampling</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Ch&#7885;n c&oacute; chi&#7871;n l&#432;&#7907;c d&#7921;a tr&ecirc;n c&acirc;u h&#7887;i nghi&ecirc;n c&#7913;u, kh&ocirc;ng ng&#7851;u nhi&ecirc;n.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Ch&#7885;n c&#7889; t&igrave;nh NV &#273;&atilde; ngh&#7881; vi&#7879;c &#273;&#7875; ph&#7887;ng v&#7845;n</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Theoretical sampling</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Thu &rarr; M&atilde; h&oacute;a &rarr; T&#7921;a ch&#7885;n m&#7851;u m&#7899;i &rarr; ki&#7875;m ch&#7913;ng l&yacute; thuy&#7871;t.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Ph&aacute;t hi&#7879;n kh&aacute;i ni&#7879;m &ldquo;&aacute;p l&#7921;c ng&#7847;m&rdquo; &rarr; t&igrave;m ng&#432;&#7901;i b&#7883; &aacute;p l&#7921;c nh&#7845;t</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Theoretical saturation</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">&#272;i&#7875;m d&#7915;ng: kh&ocirc;ng c&oacute; code m&#7899;i n&agrave;o xu&#7845;t hi&#7879;n.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">Ng&#432;&#7901;i th&#7913; 25 kh&ocirc;ng n&oacute;i th&ecirc;m &#273;i&#7873;u g&igrave; m&#7899;i</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Snowball sampling</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Ng&#432;&#7901;i n&agrave;y gi&#7899;i thi&#7879;u ng&#432;&#7901;i kia.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">M&#7841;ng l&#432;&#7899;i c&ocirc;ng ty gia &#273;&igrave;nh k&iacute;n &#273;&aacute;o</td></tr><tr style="border-bottom:1px solid #f1f5f9"><td style="padding:9px 16px"><span class="kb">Generic purposive</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">Ti&ecirc;u ch&iacute; c&#7889; &#273;&#7883;nh t&#7915; &#273;&#7847;u, ph&acirc;n t&#7847;ng theo nhi&#7873;u c&#7845;p b&#7853;c.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">5 GD, 10 qu&#7843;n l&yacute;, 10 nh&acirc;n vi&ecirc;n</td></tr><tr style=""><td style="padding:9px 16px"><span class="kb">Moderatum generalization</span></td><td style="padding:9px 16px;color:#475569;font-size:.8rem">K&#7871;t qu&#7843; &#273;&#7841;i di&#7879;n cho c&#417; ch&#7871; c&#7911;a nh&oacute;m t&#432;&#417;ng &#273;&#7891;ng, kh&ocirc;ng cho to&agrave;n d&acirc;n s&#7889;.</td><td style="padding:9px 16px;color:#94a3b8;font-style:italic;font-size:.75rem">V&#259;n h&oacute;a &#273;&#7897;c h&#7841;i IT &rarr; c&#417; ch&#7871; chung ng&agrave;nh IT</td></tr></tbody></table></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0"><div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#0d1730,#1d2f60);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" fill="none" stroke="#fbbf24" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div></div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">Ph&acirc;n t&iacute;ch &amp; &#272;&aacute;nh gi&aacute;</div><div style="font-size:.72rem;color:#94a3b8">Critical Analysis</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:2000px"><div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+<div style="border-radius:12px;padding:18px 20px;background:linear-gradient(135deg,#0d1730,#1d2f60)">
+  <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(212,160,23,.75);margin-bottom:8px">C&acirc;u h&#7887;i c&#7889;t l&otilde;i</div>
+  <p style="color:#fff;font-size:.875rem;line-height:1.7;font-family:Georgia,serif;font-style:italic">"L&agrave;m th&#7871; n&agrave;o ch&#7885;n &#273;&#7889;i t&#432;&#7907;ng nghi&ecirc;n c&#7913;u m&#7897;t c&aacute;ch khoa h&#7885;c, thuy&#7871;t ph&#7909;c v&agrave; ch&#7863;t ch&#7869; khi kh&ocirc;ng s&#7917; d&#7909;ng ng&#432;y&ecirc;n t&#7855;c x&aacute;c su&#7845;t th&#7889;ng k&ecirc;?"</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+  <div style="border:1px solid #e2e8f0;border-radius:12px;padding:15px">
+    <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #f1f5f9">Logic L&#7853;p lu&#7853;n</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Premise</span><span style="color:#475569;font-size:.8rem">Nghi&ecirc;n c&#7913;u &#273;&#7883;nh t&iacute;nh kh&ocirc;ng nh&#7857;m &#273;o l&#432;&#7901;ng t&#7881; l&#7879; hay kh&aacute;i qu&aacute;t h&oacute;a th&#7889;ng k&ecirc; ra to&agrave;n d&acirc;n s&#7889;, m&agrave; nh&#7857;m t&igrave;m hi&#7875;u s&acirc;u s&#7855;c &yacute; ngh&#297;a v&agrave; b&#7889;i c&#7843;nh c&#7911;a h&agrave;nh vi con ng&#432;&#7901;i.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Argument</span><span style="color:#475569;font-size:.8rem">Vi&#7879;c ch&#7885;n m&#7851;u ng&#7851;u nhi&ecirc;n l&agrave; l&atilde;ng ph&iacute;. Thay v&agrave;o &#273;&oacute;, ch&#7885;n m&#7851;u ph&#7843;i c&oacute; t&iacute;nh chi&#7871;n l&#432;&#7907;c (purposive), d&#7851;n d&#7855;t tr&#7921;c ti&#7871;p b&#7903;i c&acirc;u h&#7887;i nghi&ecirc;n c&#7913;u v&agrave; s&#7921; ph&aacute;t tri&#7875;n c&#7911;a l&yacute; thuy&#7871;t.</span></div>
+      <div style="display:flex;gap:7px"><span style="background:#e0e9ff;color:#1d2f60;font-size:.67rem;font-weight:700;padding:1px 6px;border-radius:3px;flex-shrink:0;margin-top:1px">Conclusion</span><span style="color:#475569;font-size:.8rem">S&#7921; ch&#7863;t ch&#7869; c&#7911;a ch&#7885;n m&#7851;u &#273;&#7883;nh t&iacute;nh n&#7857;m &#7903; s&#7921; b&atilde;o h&ograve;a l&yacute; thuy&#7871;t v&agrave; kh&#7843; n&#259;ng bao qu&aacute;t c&aacute;c kh&iacute;a c&#7841;nh c&#7911;a c&acirc;u h&#7887;i nghi&ecirc;n c&#7913;u, kh&ocirc;ng ph&#7843;i s&#7889; l&#432;&#7907;ng m&#7851;u.</span></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9989; &#272;i&#7875;m m&#7841;nh</div>
+      <p style="color:#047857;font-size:.78rem;line-height:1.7;margin:0">Ph&acirc;n &#273;&#7883;nh c&#7921;c r&otilde; r&agrave;ng s&#7921; nh&#7847;m l&#7851;n ph&#7893; bi&#7871;n: Kh&ocirc;ng ph&#7843;i m&#7885;i ch&#7885;n m&#7851;u &#273;&#7883;nh t&iacute;nh &#273;&#7873;u l&agrave; &ldquo;ch&#7885;n m&#7851;u l&yacute; thuy&#7871;t&rdquo;. &#272;&oacute; ch&#7881; l&agrave; m&#7897;t nh&aacute;nh c&#7911;a Purposive sampling.</p>
+    </div>
+    <div style="border:1px solid #e2e8f0;border-radius:12px;padding:13px">
+      <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:8px">&#9888;&#65039; H&#7841;n ch&#7871; &amp; Gi&#7843; &#273;&#7883;nh ng&#7847;m</div>
+      <p style="color:#b45309;font-size:.78rem;line-height:1.7;margin:0">Th&#7915;a nh&#7853;n kh&aacute;i ni&#7879;m Theoretical saturation kh&aacute; m&#417; h&#7891; v&agrave; ph&#7909; thu&#7897;c ch&#7911; quan c&#7911;a nh&agrave; nghi&ecirc;n c&#7913;u. &#272;&acirc;y l&agrave; h&#7841;n ch&#7871; ch&#432;a &#273;&#432;&#7907;c gi&#7843;i quy&#7871;t th&#7845;u &#273;&aacute;o.</p>
+    </div>
+  </div>
+</div></div></div>
+</div><div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm au">
+  <div class="sh" onclick="togS(this)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">&#129514;</div>
+      <div><div style="font-weight:700;font-size:.875rem;color:#1e293b">&#7912;ng d&#7909;ng Th&#7921;c ti&#7877;n</div><div style="font-size:.72rem;color:#94a3b8">Case Study + &#272;&#7873; xu&#7845;t + T&#7921; ki&#7875;m tra</div></div>
+    </div><span class="sa">&#9660;</span>
+  </div>
+  <div class="sb" style="max-height:3000px"><div style="padding:20px;display:flex;flex-direction:column;gap:16px">
+<div><div style="font-weight:700;color:#1e293b;margin-bottom:12px;font-size:.875rem">&#128203; Case Study: Nghi&ecirc;n c&#7913;u &ldquo;Quiet Quitting&rdquo; Gen Z &mdash; Quy tr&igrave;nh ch&#7885;n m&#7851;u</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="border-radius:10px;padding:11px;background:#f0f4ff;border-left:3px solid #0d1730"><strong style="color:#0d1730">Snowball:</strong> <span style="color:#475569;font-size:.8rem">T&igrave;m 2 ng&#432;&#7901;i b&#7841;n Gen Z th&#7915;a nh&#7853;n &ldquo;quiet quitting&rdquo;. Nh&#7901; h&#7885; gi&#7899;i thi&#7879;u nh&#7919;ng ng&#432;&#7901;i c&oacute; c&ugrave;ng l&#7889;i s&#7889;ng l&agrave;m vi&#7879;c n&agrave;y.</span></div><div style="border-radius:10px;padding:11px;background:#fffdf0;border-left:3px solid #d4a017"><strong style="color:#d4a017">Theoretical sampling:</strong> <span style="color:#475569;font-size:.8rem">Sau 5 ng&#432;&#7901;i, ph&aacute;t hi&#7879;n pattern: h&#7885; &#273;&#7873;u l&agrave;m d&#432;&#7899;i s&#7871;p Micromanager. T&igrave;m th&ecirc;m Gen Z c&oacute; s&#7871;p Micromanager &#273;&#7875; ki&#7875;m ch&#7913;ng.</span></div><div style="border-radius:10px;padding:11px;background:#f0fdf4;border-left:3px solid #059669"><strong style="color:#059669">Saturation:</strong> <span style="color:#475569;font-size:.8rem">D&#7915;ng &#7903; ng&#432;&#7901;i th&#7913; 25 v&igrave; kh&ocirc;ng ph&aacute;t sinh l&yacute; do m&#7899;i n&agrave;o. Moderatum generalization: k&#7871;t qu&#7843; &#273;&#7841;i di&#7879;n cho Gen Z v&#7899;i s&#7871;p Micromanager.</span></div></div></div>
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;color:#14532d;margin-bottom:10px;font-size:.875rem">&#128161; &#272;&#7873; xu&#7845;t &#7913;ng d&#7909;ng</div>
+  <div style="display:flex;flex-direction:column;gap:8px;color:#166534"><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">Lu&#7853;n v&#259;n</span><span style="font-size:.8rem">Kh&ocirc;ng bao gi&#7901; vi&#7871;t &ldquo;t&ocirc;i ch&#7885;n m&#7851;u ng&#7851;u nhi&ecirc;n&rdquo; cho ph&#7887;ng v&#7845;n &#273;&#7883;nh t&iacute;nh. Bi&#7879;n lu&#7853;n r&otilde;: &ldquo;Purposive stratified sampling&rdquo; v&#7899;i 3 c&#7845;p b&#7853;c.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">HR</span><span style="font-size:.8rem">Khi t&#7881; l&#7879; n&#7919; ngh&#7881; vi&#7879;c t&#259;ng cao, d&ugrave;ng Criterion sampling: l&#7885;c NV n&#7919;, KPI cao, ngh&#7881; 6 th&aacute;ng qua. Ph&#7887;ng v&#7845;n s&acirc;u nh&oacute;m n&agrave;y = insight &#273;&#7855;t gi&aacute; h&#417;n v&#7841;n c&acirc;u survey.</span></div><div style="display:flex;gap:8px"><span style="background:#bbf7d0;color:#14532d;font-weight:700;font-size:.68rem;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap">&#272;&#7901;i s&#7889;ng</span><span style="font-size:.8rem">Khi c&#7847;n quy&#7871;t &#273;&#7883;nh l&#7899;n, t&igrave;m ch&iacute;nh x&aacute;c 3 ng&#432;&#7901;i chuy&#7875;n ng&agrave;nh th&agrave;nh c&ocirc;ng + 3 ng&#432;&#7901;i th&#7845;t b&#7841;i &mdash; Extreme case sampling. D&#7915;ng khi c&acirc;u tr&#7843; l&#7901;i b&#7855;t &#273;&#7847;u l&#7863;p l&#7841;i.</span></div></div>
+</div>
+<div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px">
+  <div style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:12px">&#128203; T&#7921; ki&#7875;m tra</div>
+  <div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q1</span><span style="color:#374151">Theoretical sampling v&agrave; Generic purposive kh&aacute;c nhau &#7903; &#273;i&#7875;m g&igrave;? Khi n&agrave;o n&ecirc;n d&ugrave;ng m&#7895;i lo&#7841;i?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q2</span><span style="color:#374151">Tại sao Snowball sampling ph&#249; h&#7907;p v&#7899;i nh&oacute;m kh&oacute; ti&#7871;p c&#7853;n?</span></div><div style="display:flex;gap:10px;padding:9px 12px;background:#f8fafc;border-radius:8px;font-size:.8rem"><span style="font-weight:700;color:#94a3b8;flex-shrink:0">Q3</span><span style="color:#374151">B&#7841;n c&oacute; th&#7875; b&#7883; h&#7897;i &#273;&#7891;ng ch&#7881; tr&iacute;ch &ldquo;m&#7851;u 20 ng&#432;&#7901;i kh&ocirc;ng &#273;&#7841;i di&#7879;n&rdquo;. Ph&#7843;n bi&#7879;n b&#7857;ng Moderatum generalization nh&#432; th&#7871; n&agrave;o?</span></div></div>
+</div></div></div>
+</div></main>
+<footer style="margin-top:32px;padding:28px 16px;background:#0d1730">
+  <div style="max-width:896px;margin:0 auto;display:flex;flex-direction:column;gap:12px;align-items:center">
+    <div style="text-align:center">
+      <div style="font-family:Georgia,serif;color:#fff;font-weight:700;font-size:.875rem">Chapter 18 &middot; Sampling in Qualitative Research</div>
+      <div style="color:#475569;font-size:.72rem;margin-top:2px">Bryman &amp; Bell &mdash; MBA Research Methods Hub &middot; &copy; 2026</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <a href="chapter17.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&larr; Ch.17</a>
+      <a href="index.html" style="font-size:.75rem;font-weight:600;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);text-decoration:none">&#127968; Home</a>
+      <a href="chapter19.html" style="font-size:.75rem;font-weight:700;padding:7px 16px;border-radius:999px;background:linear-gradient(135deg,#d4a017,#fbbf24);color:#0d1730;text-decoration:none">Ch.19 &rarr;</a>
+    </div>
+  </div>
+</footer>
+<script>
+function togS(h){h.nextElementSibling.classList.toggle("shut");h.classList.toggle("shut-s")}
+function togA(h){h.nextElementSibling.classList.toggle("open");h.classList.toggle("os")}
+function allOpen(){document.querySelectorAll(".sb").forEach(b=>b.classList.remove("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.remove("shut-s"))}
+function allClose(){document.querySelectorAll(".sb").forEach(b=>b.classList.add("shut"));document.querySelectorAll(".sh").forEach(h=>h.classList.add("shut-s"))}
+</script>
+</body></html>
